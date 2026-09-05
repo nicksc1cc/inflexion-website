@@ -220,6 +220,21 @@ section{padding:var(--section-pad) 0}
 }
 .shift-note.visible{opacity:1;transform:translateY(0)}
 
+/* --- Economics Grid (4-col shift comparison) --- */
+.econ-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;margin-bottom:64px}
+.econ-col{display:flex;flex-direction:column;gap:16px}
+.econ-shift{display:flex;flex-direction:column;gap:8px}
+.econ-old{
+  font-size:clamp(18px,2.2vw,24px);font-weight:300;line-height:1.2;
+  color:var(--muted);text-decoration:line-through;text-decoration-thickness:1px
+}
+.econ-new{font-size:15px;line-height:1.6;color:var(--muted);font-weight:300}
+
+@media(max-width:900px){
+  .econ-grid{grid-template-columns:1fr;gap:32px}
+  .econ-old{font-size:clamp(18px,4vw,22px)}
+}
+
 /* --- Service Grid (3-col) --- */
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
 .svc{
