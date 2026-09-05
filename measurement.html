@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Measurement — Inflexion</title>
+<meta name="description" content="Measurement methodology: share of answer across LLMs, share of shelf on retail platforms. Fixed prompt sets, monthly tracking, cited sources.">
+<link rel="canonical" href="https://nicksc1cc.github.io/inflexion-website/measurement.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Measurement — Share of Answer & Shelf | Inflexion">
+<meta property="og:description" content="Measurement methodology: share of answer across LLMs, share of shelf on retail platforms. Fixed prompt sets, monthly tracking, cited sources.">
+<meta property="og:url" content="https://nicksc1cc.github.io/inflexion-website/measurement.html">
+<meta property="og:image" content="https://nicksc1cc.github.io/inflexion-website/assets/og-measurement.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Measurement — Share of Answer & Shelf | Inflexion">
+<meta name="twitter:description" content="Measurement methodology: share of answer across LLMs, share of shelf on retail platforms. Fixed prompt sets, monthly tracking, cited sources.">
+<meta name="twitter:image" content="https://nicksc1cc.github.io/inflexion-website/assets/og-measurement.svg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Measurement: Share of Answer & Share of Shelf",
+  "description": "How Inflexion measures AI visibility: share of answer across LLMs, share of shelf on retail platforms. Fixed prompt sets, monthly re-runs, cited source mapping.",
+  "author": {
+    "@type": "Organization",
+    "name": "Inflexion"
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  :root{--bg:#FAFAF9;--fg:#0A0A0B;--muted:#71717A;--muted2:#A1A1AA;--accent:#FF5A1F;--accent2:#FF5A1F;--border:#E4E4E7;--h:#0A0A0B;--h-text:#FAFAF9;--stat-bg:rgba(36,56,218,.04);--stat-border:rgba(36,56,218,.1)}
+  body{font-family:'Montserrat',-apple-system,sans-serif;background:var(--bg);color:var(--fg);-webkit-font-smoothing:antialiased}
+  ::selection{background:var(--accent);color:#0A0A0B}
+  .mono{font-family:'IBM Plex Mono',monospace}
+  .tag{font-size:11px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+  .d2{font-size:clamp(32px,4.5vw,56px);font-weight:300;line-height:1.05;letter-spacing:-.02em}
+  .d3{font-size:clamp(24px,3vw,36px);font-weight:300;line-height:1.1;letter-spacing:-.015em}
+
+  /* ===== HEADER ===== */
+  header{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;background:rgba(250,250,249,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+  .header-inner{display:flex;align-items:center;justify-content:space-between;max-width:1280px;margin:0 auto;padding:0 48px;height:100%}
+  .logo{display:flex;align-items:center;text-decoration:none}
+  .logo img{height:36px;width:auto;display:block}
+  header nav{display:flex;align-items:center;gap:24px}
+  header nav a{font-size:12px;font-weight:400;letter-spacing:.04em;color:var(--muted);text-decoration:none;transition:color .2s}
+  header nav a:hover{color:var(--fg)}
+  .cta-btn{background:var(--fg);color:var(--bg);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:12px 20px;text-decoration:none;transition:opacity .2s;cursor:pointer}
+  .cta-btn:hover{opacity:.7}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+  .hamburger span{display:block;width:22px;height:2px;background:var(--fg);transition:.3s;border-radius:1px}
+  .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+  /* Dropdown */
+  .dropdown{position:relative;display:inline-block}
+  .dropdown-toggle{cursor:pointer}
+  .dropdown-toggle::after{content:'';display:inline-block;width:0;height:0;margin-left:4px;border-left:3px solid transparent;border-right:3px solid transparent;border-top:4px solid var(--muted);vertical-align:middle;transition:transform .2s}
+  .dropdown-toggle:hover::after{border-top-color:var(--fg)}
+  .dropdown-menu{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:8px;min-width:240px;z-index:200}
+  .dropdown:hover .dropdown-menu{display:block}
+  .dropdown-menu-inner{background:var(--bg);border:1px solid var(--border);border-radius:4px;box-shadow:0 8px 24px rgba(0,0,0,.08);overflow:hidden}
+  .dropdown-menu a{display:block;font-size:12px;font-weight:400;letter-spacing:.04em;color:var(--muted);padding:12px 20px;text-decoration:none;border-bottom:1px solid var(--border);transition:color .2s,background .2s}
+  .dropdown-menu a:last-child{border-bottom:none}
+  .dropdown-menu a:hover{color:var(--fg);background:rgba(36,56,218,.04)}
+
+  /* ===== HERO ===== */
+  .hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 80px;background:var(--h);color:var(--h-text);overflow:hidden;position:relative}
+  .hero #data-field-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;display:block}
+  .hero .w{max-width:1280px;margin:0 auto;padding:0 48px;position:relative;z-index:2;width:100%}
+  .hero .sup{font-size:11px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:rgba(250,250,249,.5);margin-bottom:24px}
+  .hero h1{font-size:clamp(36px,7vw,84px);font-weight:200;line-height:1.0;letter-spacing:-.03em;max-width:80%;margin-bottom:32px}
+  .hero h1 em{font-style:normal;color:var(--accent);font-weight:400}
+  .hero .desc{font-size:clamp(15px,1.4vw,17px);line-height:1.7;color:rgba(250,250,249,.65);font-weight:300;max-width:40%;margin-bottom:40px}
+  .hero .cta-row{display:flex;align-items:center;gap:24px;margin-bottom:56px}
+  .hero .btn{display:inline-flex;align-items:center;gap:8px;background:#0A0A0B;color:#FAFAF9;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:14px 24px;text-decoration:none;transition:opacity .2s}
+  .hero .btn:hover{opacity:.7}
+  .hero .link{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,250,249,.8);text-decoration:none;border-bottom:1px solid rgba(250,250,249,.3);padding-bottom:3px;transition:color .2s,border-color .2s}
+  .hero .link:hover{color:var(--accent);border-color:var(--accent)}
+
+  /* Data banner */
+  .data-banner{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(250,250,249,.12);padding-top:32px}
+  .data-banner .d{text-align:left}
+  .data-banner .v{font-size:clamp(32px,4vw,56px);font-weight:200;line-height:.9;letter-spacing:-.03em;color:var(--accent);margin-bottom:4px}
+  .data-banner .l{font-size:11px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:rgba(250,250,249,.5);line-height:1.5}
+  .data-banner .s{font-size:10px;font-weight:400;color:rgba(250,250,249,.35);margin-top:2px}
+
+  /* ===== SECTION ===== */
+  section{padding:120px 0}
+  .section-inner{max-width:1280px;margin:0 auto;padding:0 48px}
+
+  /* ===== DIVIDER ===== */
+  .divider{height:1px;background:var(--border)}
+
+  /* ===== WHY ROWS ===== */
+  .why-row{display:grid;grid-template-columns:48px 1fr 1.3fr;gap:40px;padding:32px 0;border-bottom:1px solid var(--border);align-items:start;opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+  .why-row:first-of-type{border-top:1px solid var(--border)}
+  .why-row.visible{opacity:1;transform:translateY(0)}
+  .why-row .n{font-size:14px;font-weight:500;color:var(--muted)}
+  .why-row .hd{font-size:clamp(18px,2.2vw,24px);font-weight:600;line-height:1.25}
+  .why-row .bd{font-size:15px;line-height:1.6;color:var(--muted);font-weight:300}
+  .dark .why-row .bd{color:rgba(250,250,249,.85)}
+  .dark .why-row .n{color:rgba(250,250,249,.6)}
+
+  /* ===== STAT ROW ===== */
+  .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin:48px 0}
+  .stat-card{background:var(--stat-bg);padding:32px 24px;text-align:center;border:1px solid var(--stat-border);opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+  .stat-card.visible{opacity:1;transform:translateY(0)}
+  .stat-card .v{font-size:clamp(36px,3.5vw,56px);font-weight:200;line-height:.9;letter-spacing:-.03em;color:var(--accent);margin-bottom:8px}
+  .stat-card .l{font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);line-height:1.6}
+  .stat-card .s{font-size:9px;font-weight:400;color:var(--muted2);margin-top:4px}
+  .dark .stat-card{background:rgba(250,250,249,.06);border-color:rgba(250,250,249,.12)}
+  .dark .stat-card .v{color:var(--accent)}
+  .dark .stat-card .l{color:rgba(250,250,249,.6)}
+  .dark .stat-card .s{color:rgba(250,250,249,.35)}
+
+  /* ===== PROCESS GRID ===== */
+  .process-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;margin-top:48px}
+  @media(max-width:900px){.process-grid{grid-template-columns:1fr}}
+  .proc-step{text-align:center;padding:8px;opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+  .proc-step.visible{opacity:1;transform:translateY(0)}
+  .proc-step .num{font-family:'IBM Plex Mono',monospace;font-size:48px;font-weight:300;color:var(--accent);opacity:.12;line-height:1;margin-bottom:8px}
+  .proc-step .t{font-size:16px;font-weight:600;margin-bottom:8px}
+  .proc-step .d{font-size:14px;line-height:1.6;color:var(--muted);font-weight:300}
+  .dark .proc-step .d{color:rgba(250,250,249,.7)}
+  .dark .proc-step .num{color:var(--accent);opacity:.15}
+
+  /* ===== CTA ===== */
+  .cta-inner{display:grid;grid-template-columns:1.4fr auto;gap:64px;align-items:center}
+  .cta-inner>*{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+  .cta-inner>.visible{opacity:1;transform:translateY(0)}
+  .cta-inner h2{font-size:clamp(28px,4vw,56px);font-weight:300;line-height:1.05;letter-spacing:-.025em;margin-bottom:16px}
+  .cta-inner h2 em{font-weight:600;color:var(--accent);font-style:normal}
+  .cta-inner p{font-size:16px;line-height:1.6;color:var(--muted);max-width:32em;font-weight:300}
+  .cta-inner .btn{display:inline-flex;align-items:center;gap:8px;background:var(--fg);color:var(--bg);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:18px 32px;text-decoration:none;transition:opacity .2s;white-space:nowrap}
+  .cta-inner .btn:hover{opacity:.7}
+
+  /* ===== FOOTER ===== */
+  .ftr{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:60px;padding:60px 0 40px}
+  .ftr .fh{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+  .ftr a{display:block;font-size:14px;font-weight:400;color:var(--fg);text-decoration:none;padding:6px 0;transition:color .2s}
+  .ftr a:hover{color:var(--accent)}
+  .ftr p{font-size:14px;line-height:1.6;color:var(--muted);max-width:24em;font-weight:300}
+  .btm{padding:24px 0;margin-top:40px;border-top:1px solid var(--border);display:flex;justify-content:space-between;font-size:11px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+  /* ===== REVEAL ===== */
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+  .reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}.reveal-delay-4{transition-delay:.4s}.reveal-delay-5{transition-delay:.5s}
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:900px){
+    .header-inner{padding:0 24px}
+    header nav{display:none;position:fixed;top:72px;left:0;right:0;background:rgba(250,250,249,.98);border-bottom:1px solid var(--border);flex-direction:column;padding:24px;gap:16px;align-items:stretch}
+    header nav.open{display:flex}
+    header nav a{font-size:14px;padding:8px 0}
+    header nav .cta-btn{text-align:center}
+    .hamburger{display:flex}
+    .dropdown{display:block}
+    .dropdown-menu{position:static;transform:none;padding-top:0;min-width:auto}
+    .dropdown-menu-inner{box-shadow:none;border:none;background:transparent}
+    .dropdown-menu a{padding:8px 0 8px 16px;font-size:13px;border-bottom:none}
+    .hero .cta-row{flex-direction:column;align-items:flex-start}
+    .hero .data-banner{grid-template-columns:repeat(2,1fr);gap:24px}
+    .hero h1,.hero .desc{max-width:100%}
+    section{padding:80px 0}
+    .section-inner{padding:0 24px}
+    .why-row{grid-template-columns:1fr;gap:8px;padding:24px 0}
+    .stat-row{grid-template-columns:repeat(2,1fr)}
+    .process-grid{grid-template-columns:1fr}
+    .cta-inner{grid-template-columns:1fr;gap:32px}
+    .ftr{grid-template-columns:1fr 1fr;gap:32px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo"><img src="logo.png" alt="Inflexion" height="36"></a>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="contact.html" class="cta-btn">Audit</a>
+      <div class="dropdown">
+        <span class="dropdown-toggle" style="font-size:12px;font-weight:400;letter-spacing:.04em;color:var(--muted);text-decoration:none">AI Discovery</span>
+        <div class="dropdown-menu">
+          <div class="dropdown-menu-inner">
+            <a href="aeo.html">AEO — Answer Engine Optimisation</a>
+            <a href="ai-visibility-analytics.html">AI Visibility Analytics</a>
+            <a href="technical-geo.html">Technical GEO</a>
+            <a href="digital-pr.html">Digital PR for AEO</a>
+          </div>
+        </div>
+      </div>
+      <a href="retail-media.html">Retail Media</a>
+      <a href="consultancy.html">Consultancy</a>
+      
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <canvas id="data-field-canvas" aria-hidden="true"></canvas>
+  <div class="w">
+    <div class="sup">Measurement</div>
+    <h1>Share of answer.<br>Share of shelf.<br><em>Not just clicks.</em></h1>
+    <p class="desc">How we define the only two headline numbers that matter in an AI-mediated buying journey, and what sits underneath them.</p>
+    <div class="cta-row">
+      <a href="#methodology" class="link">Read the methodology</a>
+    </div>
+    <div class="data-banner">
+      <div class="d"><div class="v">68%</div><div class="l">Searches end without a click</div><div class="s">Similarweb, 2025</div></div>
+      <div class="d"><div class="v">82%</div><div class="l">Citations from earned media</div><div class="s">Muck Rack, 2025</div></div>
+      <div class="d"><div class="v">41%</div><div class="l">GEO visibility lift</div><div class="s">Princeton / GEO KDD 2024</div></div>
+      <div class="d"><div class="v">15.9%</div><div class="l">AI referral conversion</div><div class="s">Seer Interactive, 2025</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 01. THE METHODOLOGY -->
+<section id="methodology" style="background:#fff">
+  <div class="section-inner">
+    <div class="tag" style="margin-bottom:16px">01. The methodology</div>
+    <h2 class="d2" style="margin-bottom:16px">Same questions. Same models. <span style="font-weight:600;color:var(--accent)">Comparable answers.</span></h2>
+    <p class="prose" style="font-size:15px;line-height:1.7;color:var(--muted);font-weight:300;margin-bottom:32px;max-width:36em">Measurement that changes the questions every quarter is not measurement — it's a mood ring. Our methodology is fixed, auditable, and built to be re-run by anyone.</p>
+    <div class="why-row">
+      <div class="n">01</div>
+      <div class="hd">Fixed prompt set.</div>
+      <div class="bd">We build a set of buyer questions specific to your category, covering the range from broad category questions through to comparison and purchase-intent queries. The set is fixed and published to you at the start. Changing the questions changes the number, so we don't change them without re-baselining.</div>
+    </div>
+    <div class="why-row">
+      <div class="n">02</div>
+      <div class="hd">Cross-model testing.</div>
+      <div class="bd">The same prompt set run across the models your buyers actually use — because models disagree with each other more than people expect. A brand can be well cited in one and absent from another. We test across ChatGPT, Gemini, Perplexity, Copilot, and category-relevant vertical models.</div>
+    </div>
+    <div class="why-row">
+      <div class="n">03</div>
+      <div class="hd">Source mapping.</div>
+      <div class="bd">When a model does name a brand, we trace what it drew from — owned content, earned media, review platforms, forums, structured data. That tells you which sources carry authority in your category, which is usually the most actionable finding in the whole audit.</div>
+    </div>
+    <p class="shift-note" style="color:var(--muted);max-width:50%;margin-top:32px">The prompt set is re-run on a fixed monthly schedule. Every run is date-stamped, model-versioned, and stored so you can compare apples to apples across quarters.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 02. WHAT WE MEASURE -->
+<section style="background:var(--h);color:var(--h-text)">
+  <div class="section-inner">
+    <div class="tag" style="color:rgba(250,250,249,.5);margin-bottom:16px">02. What we measure</div>
+    <h2 class="d2" style="margin-bottom:16px">Four signals. <span style="font-weight:600;color:var(--accent)">One composite picture.</span></h2>
+    <p class="prose" style="font-size:15px;line-height:1.7;color:rgba(250,250,249,.6);font-weight:300;margin-bottom:32px;max-width:36em">Headline share of answer is the composite. Each component tells you something different about how you're being surfaced, cited, and positioned.</p>
+    <div class="why-row">
+      <div class="n">01</div>
+      <div class="hd">Share of answer.</div>
+      <div class="bd">The proportion of prompts in which your brand appears in the model output. This is the headline metric. It tells you whether you're visible at all. The baseline is always zero until you measure it.</div>
+    </div>
+    <div class="why-row">
+      <div class="n">02</div>
+      <div class="hd">Position within the answer.</div>
+      <div class="bd">Being mentioned in passing and being named as the recommendation are fundamentally different outcomes. We track where in the output the brand appears — first recommendation, middle of a list, or a passing reference — because position correlates strongly with click-through and consideration.</div>
+    </div>
+    <div class="why-row">
+      <div class="n">03</div>
+      <div class="hd">Citation velocity.</div>
+      <div class="bd">How quickly new earned media and owned content are reflected in model outputs. Some brands take weeks for a press release to appear in citations. Others are reflected within days. Velocity is a leading indicator of source authority.</div>
+    </div>
+    <div class="why-row">
+      <div class="n">04</div>
+      <div class="hd">Sentiment & framing.</div>
+      <div class="bd">Whether the model presents your brand neutrally, favourably, or with caveats. Models don't express opinion — but they do frame. A brand described as "a leading provider" competes differently from one described as "also offers."</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 03. COMPETITIVE INTELLIGENCE -->
+<section style="background:#fff">
+  <div class="section-inner">
+    <div class="tag" style="margin-bottom:16px">03. Competitive intelligence</div>
+    <h2 class="d2" style="margin-bottom:16px">Your share means nothing <span style="font-weight:600;color:var(--accent)">without the market.</span></h2>
+    <p class="prose" style="font-size:15px;line-height:1.7;color:var(--muted);font-weight:300;margin-bottom:32px;max-width:36em">Share of answer is a relative number. Knowing yours without knowing your competitors' is like knowing your position on a map without knowing where anyone else is standing.</p>
+    <div class="why-row">
+      <div class="n">01</div>
+      <div class="hd">Share of voice (SOV).</div>
+      <div class="bd">Each competitor's share of the total brand citations across the prompt set. Who owns the answer today, who is gaining, and who is being displaced. This is the competitive baseline that most brands cannot produce because they aren't running the same prompt set against their competitors.</div>
+    </div>
+    <div class="why-row">
+      <div class="n">02</div>
+      <div class="hd">Gap analysis.</div>
+      <div class="bd">Where competitors appear and you don't — by question, by model, by source type. The gaps tell you what to build, what to earn, and what to fix. They are the most actionable output of the entire measurement system.</div>
+    </div>
+    <div class="why-row">
+      <div class="n">03</div>
+      <div class="hd">Benchmarking.</div>
+      <div class="bd">How your category's discovery landscape changes over time. We track the average number of brands cited per prompt, the stability of citations across runs, and which source types are gaining or losing weight in model outputs.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 04. FRAMEWORK APPLIED -->
+<section style="background:var(--h);color:var(--h-text)">
+  <div class="section-inner">
+    <div class="tag" style="color:rgba(250,250,249,.5);margin-bottom:16px">04. Framework applied</div>
+    <h2 class="d2" style="margin-bottom:16px">From raw data <span style="font-weight:600;color:var(--accent)">to running decisions.</span></h2>
+    <p class="prose" style="font-size:15px;line-height:1.7;color:rgba(250,250,249,.6);font-weight:300;margin-bottom:32px;max-width:36em">Measurement is useless without a framework that turns it into action. Here is how the data flows from collection through to the decisions it informs.</p>
+    <div class="process-grid">
+      <div class="proc-step"><div class="num">01</div><div class="t">Collect</div><div class="d">Fixed prompt set run across models on a fixed schedule. Raw outputs stored, versioned, auditable.</div></div>
+      <div class="proc-step"><div class="num">02</div><div class="t">Score</div><div class="d">Each brand's presence scored by occurrence, position, source type, and sentiment. Weighted by model share of use.</div></div>
+      <div class="proc-step"><div class="num">03</div><div class="t">Surface</div><div class="d">Gaps surfaced by question, model, and competitor. No dashboard that hides the bad news behind averages.</div></div>
+      <div class="proc-step"><div class="num">04</div><div class="t">Prioritise</div><div class="d">Gaps triaged by winability and commercial impact. The question with the highest combined score gets the work.</div></div>
+      <div class="proc-step"><div class="num">05</div><div class="t">Track</div><div class="d">Month-over-month change in share of answer and share of shelf. If the number isn't moving, we change what we're doing.</div></div>
+    </div>
+    <p class="shift-note" style="color:rgba(250,250,249,.6);max-width:50%;margin-top:32px">This is the same framework we apply to every engagement. It means the work is comparable across clients and across time.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 05. HONEST LIMITATIONS -->
+<section style="background:#fff">
+  <div class="section-inner" style="max-width:900px">
+    <div class="tag" style="margin-bottom:16px">05. Honest limitations</div>
+    <h2 class="d2" style="margin-bottom:16px">What this number <span style="font-weight:600;color:var(--accent)">does not tell you.</span></h2>
+    <p class="prose" style="font-size:15px;line-height:1.7;color:var(--muted);font-weight:300;margin-bottom:32px;max-width:36em">Every measurement system has boundaries. Ours does too. We set them out here because the number is only useful if you know what it excludes.</p>
+    <div class="why-row">
+      <div class="n">01</div>
+      <div class="hd">It isn't revenue.</div>
+      <div class="bd">Share of answer is a leading indicator, not a replacement for commercial measurement. It correlates with market share over time — it does not equal it. Treat it the way share of search has been treated: an early signal that earns you the budget to invest further.</div>
+    </div>
+    <div class="why-row">
+      <div class="n">02</div>
+      <div class="hd">Prompt coverage isn't universal.</div>
+      <div class="bd">No fixed prompt set captures every question a buyer might ask. We aim for representative coverage of the category's buying journey, but a prompt set is a sample, not a census. We tell you what's in and what's out, and we don't change it without warning.</div>
+    </div>
+    <div class="why-row">
+      <div class="n">03</div>
+      <div class="hd">Models change without notice.</div>
+      <div class="bd">When a model updates, your share of answer can shift overnight. We flag model-version changes alongside the data so you know whether the movement is in your positioning or in the algorithm. We cannot control the models' release schedules, only the transparency with which we report them.</div>
+    </div>
+    <div class="why-row">
+      <div class="n">04</div>
+      <div class="hd">Sentiment analysis is directional.</div>
+      <div class="bd">We categorise framing as positive, neutral, or negative based on structured criteria. But model outputs are probabilistic and framing can be subtle. We do not present sentiment scoring as precise — we present it as directional, with the raw output available for your own review.</div>
+    </div>
+    <p class="shift-note" style="color:var(--muted);max-width:50%;margin-top:32px">We report these limitations alongside every measurement output. If you see a number from us, you will always also see its caveats.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 06. CTA -->
+<section style="background:#fff">
+  <div class="section-inner">
+    <div class="cta-inner">
+      <div>
+        <h2>Start with a baseline, <em>not a pitch.</em></h2>
+        <p>A fixed-scope diagnostic across AI discovery and the retail shelf. You keep the output either way.</p>
+      </div>
+      <a href="contact.html" class="btn">Set up measurement →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:var(--bg);border-top:1px solid var(--border)">
+  <div style="max-width:1280px;margin:0 auto;padding:0 48px">
+    <div class="ftr">
+      <div>
+        <a href="index.html"><img src="logo.png" alt="Inflexion" height="36" style="height:36px;width:auto;display:block;margin-bottom:16px"></a>
+        <p>Built for the AI inflection.</p>
+      </div>
+      <div><div class="fh">Services</div><a href="aeo.html">AEO — Answer Engine Optimisation</a><a href="ai-visibility-analytics.html">AI Visibility Analytics</a><a href="technical-geo.html">Technical GEO</a><a href="digital-pr.html">Digital PR for AEO</a><a href="retail-media.html">Retail Media</a><a href="consultancy.html">AI Consultancy</a></div>
+      <div><div class="fh">Company</div><a href="measurement.html">Measurement</a></div>
+      <div><div class="fh">Contact</div><a href="contact.html">Start the audit</a><a href="contact.html">hello@inflexion.co</a></div>
+    </div>
+    <div class="btm"><span>© 2026 Inflexion</span><span>Privacy · Terms</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})
+  });
+  var h = document.querySelector('.hamburger');
+  var n = document.querySelector('header nav');
+  if(h){h.addEventListener('click',function(){n.classList.toggle('open');h.classList.toggle('open')})}
+  n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');h.classList.remove('open')})});
+  if(typeof gsap!=='undefined'){
+    gsap.timeline({delay:0.3})
+      .from('.hero .sup',{y:30,opacity:0,duration:0.6,ease:'power3.out'})
+      .from('.hero h1',{y:40,opacity:0,duration:0.8,ease:'power3.out'},'-=0.3')
+      .from('.hero .desc, .hero .cta-row > *',{y:30,opacity:0,duration:0.6,stagger:0.1,ease:'power2.out'},'-=0.4')
+      .from('.hero .data-banner > *',{y:20,opacity:0,duration:0.5,stagger:0.08,ease:'power2.out'},'-=0.3');
+  }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('visible');io.unobserve(en.target)}});
+    },{threshold:0.01});
+    document.querySelectorAll('.shift-row, .shift-note, .why-row, .proc-step, .stat-card, .research-item, .reveal, .cta-inner > *').forEach(function(el){io.observe(el)});
+  }else{
+    document.querySelectorAll('.shift-row, .shift-note, .why-row, .proc-step, .stat-card, .research-item, .reveal, .cta-inner > *').forEach(function(el){el.style.opacity='1';el.style.transform='none'});
+  }
+  setTimeout(function(){
+    document.querySelectorAll('.shift-row, .shift-note, .why-row, .proc-step, .stat-card, .research-item, .reveal, .cta-inner > *').forEach(function(el){
+      if(window.getComputedStyle(el).opacity === '0'){el.classList.add('visible');el.style.opacity='1';el.style.transform='none'}
+    });
+  }, 2500);
+  (function(){
+    var canvas = document.getElementById('data-field-canvas');
+    if (!canvas || typeof THREE === 'undefined') return;
+    var scene = new THREE.Scene();
+    scene.background = null;
+    var camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.set(0, -2, 9);
+    var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+    renderer.setClearColor(0x000000, 0);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    var group = new THREE.Group();
+    scene.add(group);
+    var numLines = 60, pts = 100;
+    for (var i = 0; i < numLines; i++) {
+      var points = [];
+      var xPos = (i - numLines / 2) * 0.22;
+      for (var j = 0; j < pts; j++) {
+        points.push(new THREE.Vector3(xPos, (j - pts / 2) * 0.2, 0));
+      }
+      var t = i / numLines;
+      var color = new THREE.Color().setHSL(0.08 - t * 0.12, 0.8, 0.6 + t * 0.3);
+      var mat = new THREE.LineBasicMaterial({ color: color, transparent: true, opacity: 0.2 + Math.random() * 0.3, blending: THREE.AdditiveBlending });
+      var line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), mat);
+      group.add(line);
+    }
+    group.rotation.x = Math.PI / 3;
+    group.rotation.z = -Math.PI / 8;
+    function animate() {
+      requestAnimationFrame(animate);
+      var time = performance.now() * 0.0004;
+      group.children.forEach(function(line){
+        var pos = line.geometry.attributes.position.array;
+        for (var j = 0; j < pts; j++) {
+          var idx = j * 3;
+          var x = pos[idx], y = pos[idx + 1];
+          pos[idx + 2] = Math.sin(y * 1.2 + time + x * 0.8) * 0.8 + Math.cos(x * 1.5 - time * 0.8 + y * 0.5) * 0.6;
+        }
+        line.geometry.attributes.position.needsUpdate = true;
+      });
+      renderer.render(scene, camera);
+    }
+    animate();
+    window.addEventListener('resize', function(){
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  })();
+})();
+</script>
+</body>
+</html>

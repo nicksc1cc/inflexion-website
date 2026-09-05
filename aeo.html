@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Answer Engine Optimisation — Getting Cited by AI | Inflexion</title>
+<meta name="description" content="AEO services: prompt set audits, source authority mapping, content built for citation. Measured across ChatGPT, Gemini, Perplexity, and Claude.">
+<link rel="canonical" href="https://nicksc1cc.github.io/inflexion-website/aeo.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Answer Engine Optimisation — Getting Cited by AI | Inflexion">
+<meta property="og:description" content="AEO services: prompt set audits, source authority mapping, content built for citation. Measured across ChatGPT, Gemini, Perplexity, and Claude.">
+<meta property="og:url" content="https://nicksc1cc.github.io/inflexion-website/aeo.html">
+<meta property="og:image" content="https://nicksc1cc.github.io/inflexion-website/assets/og-aeo.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Answer Engine Optimisation — Getting Cited by AI | Inflexion">
+<meta name="twitter:description" content="AEO services: prompt set audits, source authority mapping, content built for citation. Measured across ChatGPT, Gemini, Perplexity, and Claude.">
+<meta name="twitter:image" content="https://nicksc1cc.github.io/inflexion-website/assets/og-aeo.svg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Answer Engine Optimisation",
+  "description": "Prompt set audits, source authority mapping, citation tracking, and content built to be cited by AI answer engines.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Inflexion",
+    "url": "https://nicksc1cc.github.io/inflexion-website/"
+  },
+  "areaServed": "Global",
+  "serviceType": "AEO / GEO / SEO"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  :root{--bg:#FAFAF9;--fg:#0A0A0B;--muted:#71717A;--muted2:#A1A1AA;--accent:#FF5A1F;--accent2:#FF5A1F;--border:#E4E4E7;--h:#0A0A0B;--h-text:#FAFAF9;--stat-bg:rgba(36,56,218,.04);--stat-border:rgba(36,56,218,.1)}
+  body{font-family:'Montserrat',-apple-system,sans-serif;background:var(--bg);color:var(--fg);-webkit-font-smoothing:antialiased}
+  ::selection{background:var(--accent);color:#0A0A0B}
+  .mono{font-family:'IBM Plex Mono',monospace}
+  .tag{font-size:11px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+  .d2{font-size:clamp(32px,4.5vw,56px);font-weight:300;line-height:1.05;letter-spacing:-.02em}
+  .d3{font-size:clamp(24px,3vw,36px);font-weight:300;line-height:1.1;letter-spacing:-.015em}
+
+  /* ===== HEADER ===== */
+  header{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;background:rgba(250,250,249,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+  .header-inner{display:flex;align-items:center;justify-content:space-between;max-width:1280px;margin:0 auto;padding:0 48px;height:100%}
+  .logo{display:flex;align-items:center;text-decoration:none}
+  .logo img{height:36px;width:auto;display:block}
+  header nav{display:flex;align-items:center;gap:24px}
+  header nav a{font-size:12px;font-weight:400;letter-spacing:.04em;color:var(--muted);text-decoration:none;transition:color .2s}
+  header nav a:hover{color:var(--fg)}
+  .cta-btn{background:var(--fg);color:var(--bg);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:12px 20px;text-decoration:none;transition:opacity .2s;cursor:pointer}
+  .cta-btn:hover{opacity:.7}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+  .hamburger span{display:block;width:22px;height:2px;background:var(--fg);transition:.3s;border-radius:1px}
+  .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+  /* Dropdown */
+  .dropdown{position:relative;display:inline-block}
+  .dropdown-toggle{cursor:pointer}
+  .dropdown-toggle::after{content:'';display:inline-block;width:0;height:0;margin-left:4px;border-left:3px solid transparent;border-right:3px solid transparent;border-top:4px solid var(--muted);vertical-align:middle;transition:transform .2s}
+  .dropdown-toggle:hover::after{border-top-color:var(--fg)}
+  .dropdown-menu{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:8px;min-width:240px;z-index:200}
+  .dropdown:hover .dropdown-menu{display:block}
+  .dropdown-menu-inner{background:var(--bg);border:1px solid var(--border);border-radius:4px;box-shadow:0 8px 24px rgba(0,0,0,.08);overflow:hidden}
+  .dropdown-menu a{display:block;font-size:12px;font-weight:400;letter-spacing:.04em;color:var(--muted);padding:12px 20px;text-decoration:none;border-bottom:1px solid var(--border);transition:color .2s,background .2s}
+  .dropdown-menu a:last-child{border-bottom:none}
+  .dropdown-menu a:hover{color:var(--fg);background:rgba(36,56,218,.04)}
+
+  /* ===== HERO ===== */
+  .hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 80px;background:var(--h);color:var(--h-text);overflow:hidden;position:relative}
+  .hero #data-field-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;display:block}
+  .hero .w{max-width:1280px;margin:0 auto;padding:0 48px;position:relative;z-index:2;width:100%}
+  .hero .sup{font-size:11px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:rgba(250,250,249,.5);margin-bottom:24px}
+  .hero h1{font-size:clamp(36px,7vw,84px);font-weight:200;line-height:1.0;letter-spacing:-.03em;max-width:80%;margin-bottom:32px}
+  .hero h1 em{font-style:normal;color:var(--accent);font-weight:400}
+  .hero .desc{font-size:clamp(15px,1.4vw,17px);line-height:1.7;color:rgba(250,250,249,.65);font-weight:300;max-width:40%;margin-bottom:40px}
+  .hero .cta-row{display:flex;align-items:center;gap:24px;margin-bottom:56px}
+  .hero .btn{display:inline-flex;align-items:center;gap:8px;background:#0A0A0B;color:#FAFAF9;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:14px 24px;text-decoration:none;transition:opacity .2s}
+  .hero .btn:hover{opacity:.7}
+  .hero .link{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,250,249,.8);text-decoration:none;border-bottom:1px solid rgba(250,250,249,.3);padding-bottom:3px;transition:color .2s,border-color .2s}
+  .hero .link:hover{color:var(--accent);border-color:var(--accent)}
+
+  /* ===== SECTION ===== */
+  section{padding:120px 0}
+  .section-inner{max-width:1280px;margin:0 auto;padding:0 48px}
+  .divider{width:100%;height:1px;background:var(--border);margin:0}
+
+  /* ===== DATA STATS BANNER ===== */
+  .data-banner{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(250,250,249,.12);padding-top:32px}
+  .data-banner .d{text-align:left}
+  .data-banner .v{font-size:clamp(32px,4vw,56px);font-weight:200;line-height:.9;letter-spacing:-.03em;color:var(--accent);margin-bottom:4px}
+  .data-banner .l{font-size:11px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:rgba(250,250,249,.5);line-height:1.5}
+  .data-banner .s{font-size:10px;font-weight:400;color:rgba(250,250,249,.35);margin-top:2px}
+
+  /* ===== SHIFT ROWS ===== */
+  .shift-row{display:grid;grid-template-columns:180px 1fr 1fr;gap:40px;padding:40px 0;border-bottom:1px solid var(--border);align-items:center;opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+  .shift-row:first-of-type{border-top:1px solid var(--border)}
+  .shift-row.visible{opacity:1;transform:translateY(0)}
+  .shift-row .l{font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .shift-row .old{font-size:22px;color:var(--muted);text-decoration:line-through;text-decoration-thickness:1px;font-weight:300}
+  .shift-row .new{font-size:22px;font-weight:600;color:var(--fg)}
+  .shift-note{max-width:50%;margin-top:32px;color:var(--muted);opacity:0;transform:translateY(20px);transition:opacity .6s .2s ease,transform .6s .2s ease}
+  .shift-note.visible{opacity:1;transform:translateY(0)}
+
+  /* ===== 3-COL SERVICE GRID ===== */
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+  .svc{padding:56px 48px;display:flex;flex-direction:column;gap:20px;opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+  .svc.visible{opacity:1;transform:translateY(0)}
+  .svc .t{font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+  .svc .h{font-size:clamp(24px,3vw,32px);font-weight:600;line-height:1.1;letter-spacing:-.015em}
+  .svc .b{font-size:15px;line-height:1.6;color:var(--muted);font-weight:300}
+  .svc .lnk{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);text-decoration:none;padding-top:16px;transition:color .2s;display:inline-flex;align-items:center;gap:4px}
+  .svc .lnk:hover{color:var(--fg)}
+  .svc .st{display:flex;gap:16px;padding-top:16px;border-top:1px solid var(--border);margin-top:8px}
+  .svc .st span{font-size:10px;font-weight:400;letter-spacing:.06em;text-transform:uppercase;color:var(--muted2)}
+
+  /* ===== DATA STATS ROW ===== */
+  .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin:48px 0}
+  .stat-card{background:var(--stat-bg);padding:32px 24px;text-align:center;border:1px solid var(--stat-border);opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+  .stat-card.visible{opacity:1;transform:translateY(0)}
+  .stat-card .v{font-size:clamp(36px,3.5vw,56px);font-weight:200;line-height:.9;letter-spacing:-.03em;color:var(--accent);margin-bottom:8px}
+  .stat-card .l{font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);line-height:1.6}
+  .stat-card .s{font-size:9px;font-weight:400;color:var(--muted2);margin-top:4px}
+  @media(max-width:900px){.stat-row{grid-template-columns:repeat(2,1fr)}}
+
+  /* ===== DARK STATS ===== */
+  .dark .stat-card{background:rgba(250,250,249,.06);border-color:rgba(250,250,249,.12)}
+  .dark .stat-card .v{color:var(--accent)}
+  .dark .stat-card .l{color:rgba(250,250,249,.6)}
+  .dark .stat-card .s{color:rgba(250,250,249,.35)}
+
+  /* ===== WHY ROWS ===== */
+  .why-row{display:grid;grid-template-columns:48px 1fr 1.3fr;gap:40px;padding:32px 0;border-bottom:1px solid var(--border);align-items:start;opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+  .why-row:first-of-type{border-top:1px solid var(--border)}
+  .why-row.visible{opacity:1;transform:translateY(0)}
+  .why-row .n{font-size:14px;font-weight:500;color:var(--muted)}
+  .why-row .hd{font-size:clamp(18px,2.2vw,24px);font-weight:600;line-height:1.25}
+  .why-row .bd{font-size:15px;line-height:1.6;color:var(--muted);font-weight:300}
+
+  /* ===== DARK SECTION ===== */
+  .bx{background:#fff;position:relative;margin-bottom:0}
+  .bx.dark{background:var(--h);color:var(--h-text);border-color:transparent}
+  .bx.dark .prose{color:rgba(250,250,249,.9)}
+  .bx.dark .why-row .bd{color:rgba(250,250,249,.85)}
+  .bx.dark .shift-row .old{color:rgba(250,250,249,.7)}
+  .bx.dark .shift-row .l{color:rgba(250,250,249,.8)}
+  .bx.dark .why-row .n{color:rgba(250,250,249,.6)}
+  .bx.dark .shift-note{color:rgba(250,250,249,.6)}
+  .bx.dark .why-row{border-color:rgba(250,250,249,.12)}
+  .bx.dark .shift-row{border-color:rgba(250,250,249,.12)}
+
+  /* ===== BIG STATS SECTION ===== */
+  .big-stat{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:80px 0}
+  .big-stat .v{font-size:clamp(72px,10vw,140px);font-weight:200;line-height:.8;letter-spacing:-.04em;color:var(--accent)}
+  .big-stat .c{font-size:15px;line-height:1.7;color:var(--muted);font-weight:300;max-width:32em}
+  .big-stat .c strong{color:var(--fg);font-weight:500}
+  @media(max-width:900px){.big-stat{grid-template-columns:1fr;gap:24px;padding:40px 0}}
+
+  /* ===== QUOTE BLOCK ===== */
+  .quote-block{padding-top:64px;margin-top:64px;border-top:1px solid rgba(250,250,249,.15);display:grid;grid-template-columns:1.5fr 1fr;gap:64px;align-items:end;opacity:0;transform:translateY(30px);transition:opacity .6s .2s ease,transform .6s .2s ease}
+  .quote-block.visible{opacity:1;transform:translateY(0)}
+  .quote-block blockquote{font-size:clamp(20px,2.8vw,32px);line-height:1.25;letter-spacing:-.015em;font-weight:300;color:var(--h-text);margin:0}
+  .quote-block blockquote em{color:var(--accent);font-style:normal;font-weight:400}
+  .quote-block .att{font-size:11px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,250,249,.5);line-height:1.8}
+
+  /* ===== PROCESS GRID ===== */
+  .process-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;margin-top:48px}
+  .process-grid.four{grid-template-columns:repeat(4,1fr)}
+  @media(max-width:900px){.process-grid,.process-grid.four{grid-template-columns:1fr}}
+  .proc-step{text-align:center;padding:8px;opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+  .proc-step.visible{opacity:1;transform:translateY(0)}
+  .proc-step .num{font-family:'IBM Plex Mono',monospace;font-size:48px;font-weight:300;color:var(--accent);opacity:.12;line-height:1;margin-bottom:8px}
+  .proc-step .t{font-size:16px;font-weight:600;margin-bottom:8px}
+  .proc-step .d{font-size:14px;line-height:1.6;color:var(--muted);font-weight:300}
+
+  /* ===== RESEARCH GRID ===== */
+  .research-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:32px}
+  .research-item{padding:24px;border:1px solid var(--border);opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+  .research-item.visible{opacity:1;transform:translateY(0)}
+  .research-item .q{font-size:14px;font-weight:300;color:var(--muted);margin-bottom:8px;font-style:italic}
+  .research-item .a{font-size:15px;font-weight:500;color:var(--fg)}
+  .research-item .src{font-size:9px;font-weight:400;color:var(--muted2);margin-top:8px;letter-spacing:.04em}
+  @media(max-width:900px){.research-grid{grid-template-columns:1fr}}
+
+  /* ===== PROSE ===== */
+  .prose{font-size:15px;line-height:1.7;color:var(--muted);font-weight:300;max-width:40em}
+
+  /* ===== LIMITATIONS ===== */
+  .lim-row{display:grid;grid-template-columns:48px 1fr;gap:40px;padding:32px 0;border-bottom:1px solid var(--border);align-items:start;opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+  .lim-row:first-of-type{border-top:1px solid var(--border)}
+  .lim-row.visible{opacity:1;transform:translateY(0)}
+  .lim-row .n{font-size:14px;font-weight:500;color:var(--muted);font-family:'IBM Plex Mono',monospace}
+  .lim-row .hd{font-size:clamp(16px,1.8vw,20px);font-weight:600;line-height:1.25;margin-bottom:6px}
+  .lim-row .bd{font-size:15px;line-height:1.6;color:var(--muted);font-weight:300}
+
+  /* ===== CTA ===== */
+  .cta-inner{display:grid;grid-template-columns:1.4fr auto;gap:64px;align-items:center}
+  .cta-inner>*{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+  .cta-inner>.visible{opacity:1;transform:translateY(0)}
+  .cta-inner h2{font-size:clamp(28px,4vw,56px);font-weight:300;line-height:1.05;letter-spacing:-.025em;margin-bottom:16px}
+  .cta-inner h2 em{font-weight:600;color:var(--accent);font-style:normal}
+  .cta-inner p{font-size:16px;line-height:1.6;color:var(--muted);max-width:32em;font-weight:300}
+  .cta-inner .btn{display:inline-flex;align-items:center;gap:8px;background:var(--fg);color:var(--bg);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:18px 32px;text-decoration:none;transition:opacity .2s;white-space:nowrap}
+  .cta-inner .btn:hover{opacity:.7}
+
+  /* ===== FOOTER ===== */
+  .ftr{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:60px;padding:60px 0 40px}
+  .ftr .fh{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+  .ftr a{display:block;font-size:14px;font-weight:400;color:var(--fg);text-decoration:none;padding:6px 0;transition:color .2s}
+  .ftr a:hover{color:var(--accent)}
+  .ftr p{font-size:14px;line-height:1.6;color:var(--muted);max-width:24em;font-weight:300}
+  .btm{padding:24px 0;margin-top:40px;border-top:1px solid var(--border);display:flex;justify-content:space-between;font-size:11px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+  /* ===== REVEAL ===== */
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+  .reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}.reveal-delay-4{transition-delay:.4s}.reveal-delay-5{transition-delay:.5s}
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:900px){
+    .header-inner{padding:0 24px}
+    header nav{display:none;position:fixed;top:72px;left:0;right:0;background:rgba(250,250,249,.98);border-bottom:1px solid var(--border);flex-direction:column;padding:24px;gap:16px;align-items:stretch}
+    header nav.open{display:flex}
+    header nav a{font-size:14px;padding:8px 0}
+    header nav .cta-btn{text-align:center}
+    .hamburger{display:flex}
+    .dropdown{display:block}
+    .dropdown-menu{position:static;transform:none;padding-top:0;min-width:auto}
+    .dropdown-menu-inner{box-shadow:none;border:none;background:transparent}
+    .dropdown-menu a{padding:8px 0 8px 16px;font-size:13px;border-bottom:none}
+    .hero .cta-row{flex-direction:column;align-items:flex-start}
+    .hero .data-banner{grid-template-columns:repeat(2,1fr);gap:24px}
+    .hero h1,.hero .desc{max-width:100%}
+    section{padding:80px 0}
+    .section-inner{padding:0 24px}
+    .shift-row{grid-template-columns:1fr;gap:8px;padding:20px 0}
+    .shift-note{max-width:100%}
+    .svc-grid{grid-template-columns:1fr}
+    .svc{padding:32px 24px;border-bottom:1px solid var(--border)}
+    .svc:last-child{border-bottom:none}
+    .why-row{grid-template-columns:1fr;gap:8px;padding:24px 0}
+    .stat-row{grid-template-columns:repeat(2,1fr)}
+    .quote-block{grid-template-columns:1fr;gap:32px}
+    .research-grid{grid-template-columns:1fr}
+    .lim-row{grid-template-columns:1fr;gap:8px;padding:24px 0}
+    .cta-inner{grid-template-columns:1fr;gap:32px}
+    .ftr{grid-template-columns:1fr 1fr;gap:32px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo"><img src="logo.png" alt="Inflexion" height="36"></a>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="contact.html" class="cta-btn">Audit</a>
+      <div class="dropdown">
+        <span class="dropdown-toggle" style="font-size:12px;font-weight:400;letter-spacing:.04em;color:var(--muted);text-decoration:none">AI Discovery</span>
+        <div class="dropdown-menu">
+          <div class="dropdown-menu-inner">
+            <a href="aeo.html">AEO — Answer Engine Optimisation</a>
+            <a href="ai-visibility-analytics.html">AI Visibility Analytics</a>
+            <a href="technical-geo.html">Technical GEO</a>
+            <a href="digital-pr.html">Digital PR for AEO</a>
+          </div>
+        </div>
+      </div>
+      <a href="retail-media.html">Retail Media</a>
+      <a href="consultancy.html">Consultancy</a>
+      
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <canvas id="data-field-canvas" aria-hidden="true"></canvas>
+  <div class="w">
+    <div class="sup">Answer Engine Optimisation</div>
+    <h1>Get your brand cited <em>when AI gives the answer.</em></h1>
+    <p class="desc">ChatGPT, Gemini, Perplexity — billions of users get answers from AI. Brands cited in those answers win discovery. Everyone else is invisible.</p>
+    <div class="cta-row">
+      <a href="contact.html" class="btn">Run the citation audit →</a>
+      <a href="#problem" class="link">Why AEO matters</a>
+    </div>
+    <div class="data-banner">
+      <div class="d"><div class="v">900M</div><div class="l">Weekly ChatGPT users</div><div class="s">Source: OpenAI, Feb 2026</div></div>
+      <div class="d"><div class="v">69%</div><div class="l">Zero-click searches</div><div class="s">Source: Similarweb, 2025</div></div>
+      <div class="d"><div class="v">40%</div><div class="l">GEO visibility lift</div><div class="s">Source: Princeton/KDD, 2024</div></div>
+      <div class="d"><div class="v">83%</div><div class="l">Citations outside top 10</div><div class="s">Source: ConvertMate, 2026</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DIAGRAM: AI Visibility Stack -->
+<section id="visual-stack" style="background:#fff;padding:80px 0">
+  <div class="section-inner" style="max-width:900px">
+    <div class="tag" style="margin-bottom:12px;text-align:center">The AI visibility stack</div>
+    <img src="assets/diagram-stack.svg" alt="AI visibility stack: Foundation, Content, Signals, Execution" style="display:block;width:100%;height:auto;margin:0 auto">
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 01. THE PROBLEM -->
+<section id="problem" style="background:#fff">
+  <div class="section-inner" style="max-width:900px">
+    <div class="tag" style="margin-bottom:16px">01. The problem</div>
+    <h2 class="d2" style="margin-bottom:16px">Search became answers. <span style="font-weight:600;color:var(--accent)">Your SEO didn't follow.</span></h2>
+    <p class="prose" style="margin-bottom:24px">Answer Engine Optimisation is not rebadged SEO. The signals are fundamentally different: keyword density matters less than factual clarity; backlink volume matters less than citation frequency across authoritative sources; page speed matters less than whether your content can be parsed into a direct answer.</p>
+    <p class="prose" style="margin-bottom:24px">We have measured brands ranking first on Google that are entirely absent from the AI answer to the same query. <strong style="color:var(--fg);font-weight:500">This is a new discipline.</strong></p>
+    <div class="stat-row">
+      <div class="stat-card"><div class="v">68%</div><div class="l">Zero-click on informational queries</div><div class="s">Source: Similarweb, 2025</div></div>
+      <div class="stat-card"><div class="v">5-10%</div><div class="l">Own-site citations</div><div class="s">Source: Muck Rack, 2025</div></div>
+      <div class="stat-card"><div class="v">83%</div><div class="l">Citations from outside top 10</div><div class="s">Source: ConvertMate, 2026</div></div>
+      <div class="stat-card"><div class="v">3x</div><div class="l">Brand mentions &gt; backlinks</div><div class="s">Source: Ahrefs, 2025</div></div>
+    </div>
+    <p class="prose">Search engine optimisation optimises for a list of blue links. Answer Engine Optimisation optimises for the generated answer. The goal is <strong style="color:var(--fg);font-weight:500">share of answer</strong> — not share of clicks.</p>
+  </div>
+</section>
+
+<!-- 03. 5C FRAMEWORK -->
+<section id="framework" class="bx dark" style="padding:120px 0">
+  <div class="section-inner" style="max-width:900px">
+    <div class="tag" style="color:rgba(250,250,249,.5);margin-bottom:16px">03. The 5C Framework</div>
+    <h2 class="d2" style="margin-bottom:16px">Five dimensions. <span style="font-weight:600;color:var(--accent)">One system.</span></h2>
+    <p class="prose" style="margin-bottom:48px">We structure AEO around five interconnected dimensions. Each feeds the others — you cannot fix citation without addressing structure, or structure without addressing signal authority.</p>
+    <div class="why-row">
+      <div class="n">C1</div>
+      <div class="hd">Clarity</div>
+      <div class="bd">Does the model understand what you are saying? We restructure content so the model can extract the answer directly — one question per page, concise answers, clear entity relationships marked up in schema.</div>
+    </div>
+    <div class="why-row">
+      <div class="n">C2</div>
+      <div class="hd">Authority</div>
+      <div class="bd">Models cite sources other sources cite. We map which outlets, research papers, forums, and data sets carry authority in your category, then build a prioritised plan for earning citations there.</div>
+    </div>
+    <div class="why-row">
+      <div class="n">C3</div>
+      <div class="hd">Structure</div>
+      <div class="bd">Schema, headings, entity relationships — the scaffolding that tells a model what a page is about. Without it, even good content gets ignored because the model cannot categorise it reliably.</div>
+    </div>
+    <div class="why-row">
+      <div class="n">C4</div>
+      <div class="hd">Freshness</div>
+      <div class="bd">Models weight recent content differently. A page from 2021 is nearly invisible even if still correct. We build content programmes that keep the model's view of your category updated.</div>
+    </div>
+    <div class="why-row">
+      <div class="n">C5</div>
+      <div class="hd">Measurement</div>
+      <div class="bd">Share of answer across models. Whether you are named, at what position, in response to which prompts — tracked month over month against a fixed, published baseline.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 04. FRAMEWORK APPLIED -->
+<section id="applied" style="background:#fff">
+  <div class="section-inner" style="max-width:900px">
+    <div class="tag" style="margin-bottom:16px">04. Framework applied</div>
+    <h2 class="d2" style="margin-bottom:48px">Diagnose. Measure. Run. <span style="font-weight:600;color:var(--accent)">For AEO.</span></h2>
+    <div class="shift-row">
+      <div class="l">Diagnose</div>
+      <div class="old">Keyword rankings</div>
+      <div class="new">Prompt set audit + source map + citation gap</div>
+    </div>
+    <div class="shift-row">
+      <div class="l">Measure</div>
+      <div class="old">Organic traffic</div>
+      <div class="new">Share of answer, position within answer, citation velocity</div>
+    </div>
+    <div class="shift-row">
+      <div class="l">Run</div>
+      <div class="old">Content for ranking</div>
+      <div class="new">Content built to be cited, shipped by the team that ran the diagnostic</div>
+    </div>
+    <p class="shift-note">Most categories are under-optimised for AI citation right now. The window closes as more brands catch up. <a href="framework.html" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent)">See the full framework →</a></p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 05. WHAT YOU GET -->
+<section id="deliverables" class="bx dark" style="padding:120px 0">
+  <div class="section-inner" style="max-width:900px">
+    <div class="tag" style="color:rgba(250,250,249,.5);margin-bottom:16px">05. What you get</div>
+    <h2 class="d2" style="margin-bottom:48px">Concrete deliverables. <span style="font-weight:600;color:var(--accent)">Not promises.</span></h2>
+    <div class="why-row">
+      <div class="n">01</div>
+      <div class="hd">A prompt set audit.</div>
+      <div class="bd">A fixed set of buyer questions run across four to six models. You see exactly where you are cited, where competitors are cited, and where neither of you is.</div>
+    </div>
+    <div class="why-row">
+      <div class="n">02</div>
+      <div class="hd">A source authority map.</div>
+      <div class="bd">The outlets, forums, papers, and data sources models trust in your category — ranked by influence, with a prioritised plan for earning citations there.</div>
+    </div>
+    <div class="why-row">
+      <div class="n">03</div>
+      <div class="hd">AEO-optimised content.</div>
+      <div class="bd">Pages restructured or written from scratch to maximise citability: one question per page, clear answer structure, schema that signals entity relationships.</div>
+    </div>
+    <div class="why-row">
+      <div class="n">04</div>
+      <div class="hd">Monthly tracking.</div>
+      <div class="bd">Share of answer with position and citation status, tracked month over month. The baseline is fixed and published — the number means something.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 06. HONEST LIMITATIONS -->
+<section id="limitations" style="background:#fff">
+  <div class="section-inner" style="max-width:900px">
+    <div class="tag" style="margin-bottom:16px">06. Honest limitations</div>
+    <h2 class="d2" style="margin-bottom:16px">What AEO <span style="font-weight:600;color:var(--accent)">cannot do.</span></h2>
+    <p class="prose" style="margin-bottom:32px">We believe in AEO. But we also believe in telling you what it is not, so you can invest with your eyes open.</p>
+    <div class="lim-row">
+      <div class="n">01</div>
+      <div>
+        <div class="hd">It cannot replace SEO.</div>
+        <div class="bd">AI search is growing fast, but traditional search remains the larger channel for most categories. AEO should sit alongside SEO, not replace it. If a brand ignores organic entirely in favour of AEO, they miss the majority of current demand.</div>
+      </div>
+    </div>
+    <div class="lim-row">
+      <div class="n">02</div>
+      <div>
+        <div class="hd">It cannot guarantee citation.</div>
+        <div class="bd">AI models are black boxes. We can optimise the signals models are known to favour, but no agency can guarantee a specific citation outcome. Models change, retrieval algorithms shift, and what works today may work differently tomorrow. We track this honestly.</div>
+      </div>
+    </div>
+    <div class="lim-row">
+      <div class="n">03</div>
+      <div>
+        <div class="hd">It cannot work without substance.</div>
+        <div class="bd">AEO is not a trick. Models are increasingly good at detecting content written solely for algorithmic consumption. The brands that win are the ones with real expertise, real data, and real authority to back up the answers they are cited for.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 07. CTA -->
+<section id="cta" style="background:#fff">
+  <div class="section-inner">
+    <div class="cta-inner">
+      <div>
+        <h2>Find out if AI even <em>knows who you are.</em></h2>
+        <p>A citation audit across the models your buyers actually use. You keep the baseline either way.</p>
+      </div>
+      <a href="contact.html" class="btn">Run the citation audit →</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FOOTER -->
+<footer style="background:var(--bg);border-top:1px solid var(--border)">
+  <div style="max-width:1280px;margin:0 auto;padding:0 48px">
+    <div class="ftr">
+      <div>
+        <a href="index.html"><img src="logo.png" alt="Inflexion" height="36" style="height:36px;width:auto;display:block;margin-bottom:16px"></a>
+        <p>Built for the AI inflection.</p>
+      </div>
+      <div><div class="fh">Services</div><a href="aeo.html">AEO — Answer Engine Optimisation</a><a href="ai-visibility-analytics.html">AI Visibility Analytics</a><a href="technical-geo.html">Technical GEO</a><a href="digital-pr.html">Digital PR for AEO</a><a href="retail-media.html">Retail Media</a><a href="consultancy.html">AI Consultancy</a></div>
+      <div><div class="fh">Company</div><a href="measurement.html">Measurement</a></div>
+      <div><div class="fh">Contact</div><a href="contact.html">Start the audit</a><a href="contact.html">hello@inflexion.co</a></div>
+    </div>
+    <div class="btm"><span>© 2026 Inflexion</span><span>Privacy · Terms</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})
+  });
+  var h = document.querySelector('.hamburger');
+  var n = document.querySelector('header nav');
+  if(h){h.addEventListener('click',function(){n.classList.toggle('open');h.classList.toggle('open')})}
+  n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');h.classList.remove('open')})});
+  if(typeof gsap!=='undefined'){
+    gsap.timeline({delay:0.3})
+      .from('.hero .sup',{y:30,opacity:0,duration:0.6,ease:'power3.out'})
+      .from('.hero h1',{y:40,opacity:0,duration:0.8,ease:'power3.out'},'-=0.3')
+      .from('.hero .desc, .hero .cta-row > *',{y:30,opacity:0,duration:0.6,stagger:0.1,ease:'power2.out'},'-=0.4')
+      .from('.hero .data-banner > *',{y:20,opacity:0,duration:0.5,stagger:0.08,ease:'power2.out'},'-=0.3');
+  }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('visible');io.unobserve(en.target)}});
+    },{threshold:0.01});
+    document.querySelectorAll('.shift-row, .shift-note, .svc, .why-row, .lim-row, .proc-step, .stat-card, .research-item, .quote-block, .reveal, .cta-inner > *').forEach(function(el){io.observe(el)});
+  }else{
+    document.querySelectorAll('.shift-row, .shift-note, .svc, .why-row, .lim-row, .proc-step, .stat-card, .research-item, .quote-block, .reveal, .cta-inner > *').forEach(function(el){el.style.opacity='1';el.style.transform='none'});
+  }
+  setTimeout(function(){
+    document.querySelectorAll('.shift-row, .shift-note, .svc, .why-row, .lim-row, .proc-step, .stat-card, .research-item, .quote-block, .reveal, .cta-inner > *').forEach(function(el){
+      if(window.getComputedStyle(el).opacity === '0'){el.classList.add('visible');el.style.opacity='1';el.style.transform='none'}
+    });
+  }, 2500);
+  (function(){
+    var canvas = document.getElementById('data-field-canvas');
+    if (!canvas || typeof THREE === 'undefined') return;
+    var scene = new THREE.Scene();
+    scene.background = null;
+    var camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.set(0, -2, 9);
+    var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+    renderer.setClearColor(0x000000, 0);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    var group = new THREE.Group();
+    scene.add(group);
+    var numLines = 60, pts = 100;
+    for (var i = 0; i < numLines; i++) {
+      var points = [];
+      var xPos = (i - numLines / 2) * 0.22;
+      for (var j = 0; j < pts; j++) {
+        points.push(new THREE.Vector3(xPos, (j - pts / 2) * 0.2, 0));
+      }
+      var t = i / numLines;
+      var color = new THREE.Color().setHSL(0.08 - t * 0.12, 0.8, 0.6 + t * 0.3);
+      var mat = new THREE.LineBasicMaterial({ color: color, transparent: true, opacity: 0.2 + Math.random() * 0.3, blending: THREE.AdditiveBlending });
+      var line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), mat);
+      group.add(line);
+    }
+    group.rotation.x = Math.PI / 3;
+    group.rotation.z = -Math.PI / 8;
+    function animate() {
+      requestAnimationFrame(animate);
+      var time = performance.now() * 0.0004;
+      group.children.forEach(function(line){
+        var pos = line.geometry.attributes.position.array;
+        for (var j = 0; j < pts; j++) {
+          var idx = j * 3;
+          var x = pos[idx], y = pos[idx + 1];
+          pos[idx + 2] = Math.sin(y * 1.2 + time + x * 0.8) * 0.8 + Math.cos(x * 1.5 - time * 0.8 + y * 0.5) * 0.6;
+        }
+        line.geometry.attributes.position.needsUpdate = true;
+      });
+      renderer.render(scene, camera);
+    }
+    animate();
+    window.addEventListener('resize', function(){
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  })();
+})();
+</script>
+</body>
+</html>

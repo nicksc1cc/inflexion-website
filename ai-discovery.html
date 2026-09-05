@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AI Discovery — Getting cited by AI | Inflexion</title>
+<meta name="description" content="AI Discovery service: prompt set construction, cross-model testing, source authority mapping. Measured across ChatGPT, Gemini, Perplexity, and Claude.">
+<link rel="canonical" href="https://nicksc1cc.github.io/inflexion-website/ai-discovery.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI Discovery — Getting Cited by AI | Inflexion">
+<meta property="og:description" content="AI Discovery service: prompt set construction, cross-model testing, source authority mapping. Measured across ChatGPT, Gemini, Perplexity, and Claude.">
+<meta property="og:url" content="https://nicksc1cc.github.io/inflexion-website/ai-discovery.html">
+<meta property="og:image" content="https://nicksc1cc.github.io/inflexion-website/assets/og-ai-discovery.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Discovery — Getting Cited by AI | Inflexion">
+<meta name="twitter:description" content="AI Discovery service: prompt set construction, cross-model testing, source authority mapping. Measured across ChatGPT, Gemini, Perplexity, and Claude.">
+<meta name="twitter:image" content="https://nicksc1cc.github.io/inflexion-website/assets/og-ai-discovery.svg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "AI Discovery",
+  "description": "Prompt set construction, cross-model citation testing, and source authority mapping for AI answer engine visibility.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Inflexion",
+    "url": "https://nicksc1cc.github.io/inflexion-website/"
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  :root{--bg:#FAFAF9;--fg:#0A0A0B;--muted:#71717A;--muted2:#A1A1AA;--accent:#FF5A1F;--accent2:#FF5A1F;--border:#E4E4E7;--h:#0A0A0B;--h-text:#FAFAF9;--stat-bg:rgba(36,56,218,.04);--stat-border:rgba(36,56,218,.1)}
+  body{font-family:'Montserrat',-apple-system,sans-serif;background:var(--bg);color:var(--fg);-webkit-font-smoothing:antialiased}
+  ::selection{background:var(--accent);color:#0A0A0B}
+  .mono{font-family:'IBM Plex Mono',monospace}
+  .tag{font-size:11px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+  .d2{font-size:clamp(28px,4vw,48px);font-weight:300;line-height:1.05;letter-spacing:-.02em}
+  .page{position:relative}
+
+  /* ===== HEADER ===== */
+  header{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;background:rgba(250,250,249,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+  .header-inner{display:flex;align-items:center;justify-content:space-between;max-width:1280px;margin:0 auto;padding:0 48px;height:100%}
+  .logo{display:flex;align-items:center;text-decoration:none}
+  .logo img{height:36px;width:auto;display:block}
+  header nav{display:flex;align-items:center;gap:24px}
+  header nav a{font-size:12px;font-weight:400;letter-spacing:.04em;color:var(--muted);text-decoration:none;transition:color .2s}
+  header nav a:hover{color:var(--fg)}
+  .cta-btn{background:var(--fg);color:var(--bg);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:12px 20px;text-decoration:none;transition:opacity .2s;cursor:pointer}
+  .cta-btn:hover{opacity:.7}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+  .hamburger span{display:block;width:22px;height:2px;background:var(--fg);transition:.3s;border-radius:1px}
+  .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+  /* ===== DROPDOWN ===== */
+  .dropdown{position:relative;display:inline-block}
+  .dropdown-toggle{cursor:pointer}
+  .dropdown-toggle::after{content:'';display:inline-block;width:0;height:0;margin-left:4px;border-left:3px solid transparent;border-right:3px solid transparent;border-top:4px solid var(--muted);vertical-align:middle;transition:transform .2s}
+  .dropdown-toggle:hover::after{border-top-color:var(--fg)}
+  .dropdown-menu{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:8px;min-width:220px;z-index:200}
+  .dropdown:hover .dropdown-menu{display:block}
+  .dropdown-menu-inner{background:var(--bg);border:1px solid var(--border);border-radius:4px;box-shadow:0 8px 24px rgba(0,0,0,.08);overflow:hidden}
+  .dropdown-menu a{display:block;font-size:12px;font-weight:400;letter-spacing:.04em;color:var(--muted);padding:12px 20px;text-decoration:none;border-bottom:1px solid var(--border);transition:color .2s,background .2s}
+  .dropdown-menu a:last-child{border-bottom:none}
+  .dropdown-menu a:hover{color:var(--fg);background:rgba(36,56,218,.04)}
+
+  /* ===== HERO ===== */
+  .hero{min-height:80vh;display:flex;align-items:center;padding:120px 0 80px;background:var(--h);color:var(--h-text);overflow:hidden;position:relative}
+  .hero #data-field-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;display:block}
+  .hero .w{max-width:1280px;margin:0 auto;padding:0 48px;position:relative;z-index:2;width:100%}
+  .hero h1{font-size:clamp(32px,6.5vw,76px);font-weight:200;line-height:1.05;letter-spacing:-.025em;max-width:70%;margin-bottom:24px}
+  .hero h1 b{font-weight:600;color:var(--accent)}
+  .hero .desc{font-size:clamp(15px,1.4vw,17px);line-height:1.7;color:rgba(250,250,249,.7);font-weight:300;max-width:42%;margin-bottom:40px}
+  .hero .cta-row{display:flex;align-items:center;gap:24px;margin-bottom:56px}
+  .hero .btn{display:inline-block;background:#0A0A0B;color:#FAFAF9;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:14px 24px;text-decoration:none;transition:opacity .2s}
+  .hero .btn:hover{opacity:.7}
+  .hero .link{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,250,249,.8);text-decoration:none;border-bottom:1px solid rgba(250,250,249,.3);padding-bottom:3px;transition:color .2s,border-color .2s}
+  .hero .link:hover{color:var(--accent);border-color:var(--accent)}
+
+  /* ===== CONTENT AREA ===== */
+  .content-area{max-width:1280px;margin:0 auto;padding:64px 48px}
+
+  /* ===== BOX ===== */
+  .bx{background:#fff;position:relative;padding:48px;margin-bottom:32px;border:1px solid var(--border)}
+  .bx:last-child{margin-bottom:0}
+  .bx>*{position:relative;z-index:1}
+  .bx.dark{background:var(--h);color:var(--h-text);border-color:transparent}
+  .bx.dark .prose{color:rgba(250,250,249,.9)}
+  .bx.dark .why-row .bd{color:rgba(250,250,249,.85)}
+  .bx.dark .shift-row .old{color:rgba(250,250,249,.7)}
+  .bx.dark .shift-row .l{color:rgba(250,250,249,.8)}
+  .bx.dark .why-row .n{color:rgba(250,250,249,.6)}
+
+  .sec-hdr{display:flex;align-items:baseline;gap:16px;margin-bottom:48px}
+  .sec-hdr .n{font-size:14px;font-weight:500;color:var(--accent);opacity:.5}
+  .sec-hdr .l{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+  /* Why rows */
+  .why-row{display:grid;grid-template-columns:48px 1fr 1.3fr;gap:40px;padding:32px 0;border-bottom:1px solid var(--border);align-items:start}
+  .why-row:first-of-type{border-top:1px solid var(--border)}
+  .why-row .n{font-size:14px;font-weight:500;color:var(--muted)}
+  .why-row .hd{font-size:clamp(18px,2.2vw,24px);font-weight:600;line-height:1.25}
+  .why-row .bd{font-size:15px;line-height:1.6;color:var(--muted);font-weight:300}
+
+  /* Shift rows */
+  .shift-row{display:grid;grid-template-columns:180px 1fr 1fr;gap:40px;padding:32px 0;border-bottom:1px solid var(--border);align-items:center}
+  .shift-row:first-of-type{border-top:1px solid var(--border)}
+  .shift-row .l{font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .shift-row .old{font-size:22px;color:var(--muted);text-decoration:line-through;text-decoration-thickness:1px;font-weight:300}
+  .shift-row .new{font-size:22px;font-weight:600;color:var(--fg)}
+  .shift-note{max-width:50%;margin-top:32px;color:var(--muted)}
+
+  /* Process grid */
+  .process-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:24px}
+  .process-grid.four{grid-template-columns:repeat(4,1fr)}
+  @media(max-width:900px){.process-grid,.process-grid.four{grid-template-columns:1fr}}
+  .proc-step{text-align:center;padding:8px}
+  .proc-step .num{font-family:'IBM Plex Mono',monospace;font-size:48px;font-weight:300;color:var(--accent);opacity:.12;line-height:1;margin-bottom:8px}
+  .proc-step .t{font-size:16px;font-weight:600;margin-bottom:8px}
+  .proc-step .d{font-size:14px;line-height:1.6;color:var(--muted);font-weight:300}
+
+  /* Prose */
+  .prose{font-size:16px;line-height:1.7;color:var(--muted);max-width:40em;font-weight:300}
+  .prose strong{color:var(--fg);font-weight:500}
+  .prose+p{margin-top:1em}
+
+  /* CTA */
+  .cta-inner{display:grid;grid-template-columns:1.4fr auto;gap:64px;align-items:center}
+  .cta-inner h2{font-size:clamp(28px,4vw,56px);font-weight:300;line-height:1.05;letter-spacing:-.025em;margin-bottom:16px}
+  .cta-inner h2 b{font-weight:600;color:var(--accent)}
+  .cta-inner p{font-size:16px;line-height:1.6;color:var(--muted);max-width:32em;font-weight:300}
+  .cta-inner .btn{display:inline-block;background:var(--fg);color:var(--bg);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:18px 32px;text-decoration:none;transition:opacity .2s;white-space:nowrap}
+  .cta-inner .btn:hover{opacity:.7}
+
+  /* Footer */
+  .ftr{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:60px;padding:60px 0 40px}
+  .svc .t{font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+  .ftr a{display:block;font-size:14px;font-weight:400;color:var(--fg);text-decoration:none;padding:6px 0;transition:color .2s}
+  .ftr a:hover{color:var(--accent)}
+  .ftr p{font-size:14px;line-height:1.6;color:var(--muted);max-width:24em;font-weight:300}
+  .btm{padding:24px 0;margin-top:40px;border-top:1px solid var(--border);display:flex;justify-content:space-between;font-size:11px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+  /* Reveal */
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+  .reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}.reveal-delay-4{transition-delay:.4s}.reveal-delay-5{transition-delay:.5s}
+
+  @media(max-width:900px){
+    .header-inner{padding:0 24px}
+    header nav{display:none;position:fixed;top:72px;left:0;right:0;background:rgba(250,250,249,.98);border-bottom:1px solid var(--border);flex-direction:column;padding:24px;gap:16px;align-items:stretch}
+    header nav.open{display:flex}
+    header nav a{font-size:14px;padding:8px 0}
+    header nav .cta-btn{text-align:center}
+    .hamburger{display:flex}
+    .hero .cta-row{flex-direction:column;align-items:flex-start}
+    .hero h1,.hero .desc{max-width:100%}
+    .content-area{padding:32px 16px}
+    .bx{padding:24px}
+    .why-row{grid-template-columns:1fr;gap:8px;padding:24px 0}
+    .shift-row{grid-template-columns:1fr;gap:8px;padding:20px 0}
+    .shift-note{max-width:100%}
+    .prose{max-width:100%}
+    .cta-inner{grid-template-columns:1fr;gap:32px}
+    .ftr{grid-template-columns:1fr 1fr;gap:32px}
+        .dropdown{display:block}
+    .dropdown-menu{position:static;transform:none;padding-top:0;min-width:auto}
+    .dropdown-menu-inner{box-shadow:none;border:none;background:transparent}
+    .dropdown-menu a{padding:8px 0 8px 16px;font-size:13px;border-bottom:none}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo"><img src="logo.png" alt="Inflexion" height="36"></a>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="contact.html" class="cta-btn">Audit</a>
+      <div class="dropdown">
+        <span class="dropdown-toggle" style="font-size:12px;font-weight:400;letter-spacing:.04em;color:var(--muted);text-decoration:none">AI Discovery</span>
+        <div class="dropdown-menu">
+          <div class="dropdown-menu-inner">
+            <a href="aeo.html">AEO — Answer Engine Optimisation</a>
+            <a href="ai-visibility-analytics.html">AI Visibility Analytics</a>
+            <a href="technical-geo.html">Technical GEO</a>
+            <a href="digital-pr.html">Digital PR for AEO</a>
+          </div>
+        </div>
+      </div>
+      <a href="retail-media.html">Retail Media</a>
+      <a href="consultancy.html">Consultancy</a>
+      
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="hero">
+  <canvas id="data-field-canvas" aria-hidden="true"></canvas>
+  <div class="w">
+    <div class="tag" style="color:rgba(250,250,249,.6);margin-bottom:24px">AI Discovery</div>
+    <h1>Getting cited by AI <b>is not the same as ranking.</b></h1>
+    <p class="desc">Models don't read your SERP position. They read your content. We measure whether you appear in the answer, across the models your buyers actually use.</p>
+    <div class="cta-row">
+      <a href="contact.html" class="btn">Run the prompt set audit →</a>
+      <a href="framework.html" class="link">How we diagnose</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DIAGRAM -->
+<section style="background:#fff;padding:80px 0">
+  <div style="max-width:900px;margin:0 auto;padding:0 48px">
+    <div class="tag" style="margin-bottom:12px;text-align:center">The AI visibility stack</div>
+    <img src="assets/diagram-stack.svg" alt="AI visibility stack" style="display:block;width:100%;height:auto;margin:0 auto">
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<div class="content-area">
+
+<!-- 01. THE REAL MECHANICS -->
+<div class="bx" id="mechanics">
+  <div class="sec-hdr reveal"><span class="n">01.</span><span class="l">The real mechanics</span></div>
+  <h2 class="d2 reveal reveal-delay-1">How AI models decide who to cite — <span class="b">and what that means for your content strategy.</span></h2>
+  <p class="prose reveal reveal-delay-2" style="margin-top:24px">When a user asks a model a question, the model does not search Google and read the top result. It generates an answer from its training data, then supplements that answer by retrieving from sources it has been trained to trust. Models rewards four things: <strong>authority</strong> (how often a source is cited by other sources the model trusts), <strong>relevance</strong> (whether the content directly answers the question being asked), <strong>clarity</strong> (whether the information is structured so the model can parse it), and <strong>freshness</strong> (how recent the content is).</p>
+  <p class="prose reveal reveal-delay-3" style="margin-top:16px">There is no position one through ten. There is <strong>being in the answer</strong> and <strong>not being in the answer</strong>. Brands that rank first on Google for a query are often absent from the AI answer to the same query, because models and search engines weigh signals differently. We have measured this gap across dozens of categories. It is larger than most marketing teams realise.</p>
+  <p class="prose reveal reveal-delay-4" style="margin-top:16px">This is why traditional SEO — built around keyword ranking, backlink volume and click-through rate — does not translate directly to AI citation. The work is adjacent but distinct. The skills overlap but the output metric is different. Most agencies selling "AEO" today are selling rebadged SEO. The actual work is about <strong>being the clearest, most authoritative source on a specific question</strong>, not about filling a keyword gap.</p>
+</div>
+
+<!-- 02. THE AUDIT -->
+<div class="bx dark no-grid" id="audit">
+  <div class="sec-hdr reveal"><span class="n">02.</span><span class="l">The audit</span></div>
+  <h2 class="d2 reveal reveal-delay-1">What we actually check <span class="b">when we check your AI visibility.</span></h2>
+  <p class="prose reveal reveal-delay-2" style="margin-bottom:24px">Nobody can plan this without a baseline, and almost nobody has one. The diagnostic is deliberately specified tightly enough that you could commission it from someone else. What you won't find elsewhere is the operational reading of the output and the plan that follows from it.</p>
+  <div class="why-row reveal reveal-delay-2"><div class="n">01</div><div class="hd">Prompt set construction.</div><div class="bd">We build a set of buyer questions specific to your category, covering the arc from broad category awareness through to comparison and purchase-intent queries. We exclude brand-name searches: nobody discovers you by typing your name. The prompt set is published to you and fixed for the duration of the engagement.</div></div>
+  <div class="why-row reveal reveal-delay-3"><div class="n">02</div><div class="hd">Cross-model testing.</div><div class="bd">The same prompt set run across four to six models, depending on what your buyers actually use. Models disagree more than expected: a brand well-cited in Claude can be absent from GPT, and neither pattern predicts Gemini or Perplexity. Testing one model gives a misleading picture.</div></div>
+  <div class="why-row reveal reveal-delay-4"><div class="n">03</div><div class="hd">Source mapping.</div><div class="bd">When a model names a competitor, we trace what it drew from. This reveals which sources carry authority in your category — independent reviews, comparison tables, analyst reports, forum discussions. The source map is often the most actionable finding in the audit, because it tells you exactly where to build credibility.</div></div>
+  <div class="why-row reveal reveal-delay-5"><div class="n">04</div><div class="hd">Gap analysis and prioritisation.</div><div class="bd">The baseline tells you two things: where you stand today, and what the category authority landscape looks like. The prioritised plan identifies which gaps are winnable within a quarter, which require longer investment, and which are structural constraints that cannot be engineered around.</div></div>
+  <p class="shift-note reveal reveal-delay-5" style="margin-top:32px">The output is a baseline document, not a pitch. You keep it whether or not you work with us.</p>
+</div>
+
+<!-- 03. THE FRAMEWORK, APPLIED -->
+<div class="bx" id="framework-applied">
+  <div class="sec-hdr reveal"><span class="n">03.</span><span class="l">The framework, applied</span></div>
+  <h2 class="d2 reveal reveal-delay-1">Diagnose. Measure. Run. <span class="b">For discovery.</span></h2>
+  <div class="shift-row reveal reveal-delay-2">
+    <div class="l">Diagnose</div>
+    <div class="old">Keyword rankings</div>
+    <div class="new">Prompt set audit + source map</div>
+  </div>
+  <div class="shift-row reveal reveal-delay-3">
+    <div class="l">Measure</div>
+    <div class="old">Organic traffic</div>
+    <div class="new">Share of answer, position, citation</div>
+  </div>
+  <div class="shift-row reveal reveal-delay-4">
+    <div class="l">Run</div>
+    <div class="old">Content for ranking</div>
+    <div class="new">Content built to be cited, shipped by the team that ran the audit</div>
+  </div>
+  <p class="shift-note reveal reveal-delay-5">Most categories are winnable cheaply right now because almost nobody is optimising for citation. That window closes as the category catches up.</p>
+  <div style="margin-top:24px"><a href="framework.html" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent)">See the full framework →</a></div>
+</div>
+
+<!-- 04. WHAT SHARE OF ANSWER LOOKS LIKE -->
+<div class="bx dark no-grid" id="measurement">
+  <div class="sec-hdr reveal"><span class="n">04.</span><span class="l">How we measure it</span></div>
+  <h2 class="d2 reveal reveal-delay-1">Share of answer, tracked. <span class="b">Not traffic, not rankings.</span></h2>
+  <div class="why-row reveal reveal-delay-2"><div class="n">The metric</div><div class="hd">Share of answer.</div><div class="bd">The proportion of a defined buyer prompt set, across a defined set of models, in which your brand appears in the generated answer. Position within the answer is recorded — being named as the first recommendation is different from being mentioned in a list of three.</div></div>
+  <div class="why-row reveal reveal-delay-3"><div class="n">The integrity</div><div class="hd">The prompt set is fixed and published.</div><div class="bd">We do not change the prompts without telling you and re-baselining. Changing the questions changes the number, and we want the number to mean something.</div></div>
+  <div class="why-row reveal reveal-delay-4"><div class="n">The caveat</div><div class="hd">This is not revenue.</div><div class="bd">It is a leading indicator. Treat it the way share of search has been treated — an early signal that correlates with commercial outcomes, not a substitute for measuring them.</div></div>
+  <div style="margin-top:24px"><a href="measurement.html" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent)">Full measurement methodology →</a></div>
+</div>
+
+<!-- 05. FIRST NINETY DAYS -->
+<div class="bx" id="ninety">
+  <div class="sec-hdr reveal"><span class="n">05.</span><span class="l">First ninety days</span></div>
+  <h2 class="d2 reveal reveal-delay-1">From standing start <span class="b">to first tracked movement.</span></h2>
+  <div class="process-grid four">
+    <div class="proc-step reveal reveal-delay-2"><div class="num">01</div><div class="t">Weeks 1–3: baseline</div><div class="d">Prompt set built, models tested, source map produced. Output is the baseline document you keep.</div></div>
+    <div class="proc-step reveal reveal-delay-3"><div class="num">02</div><div class="t">Weeks 4–6: plan</div><div class="d">Prioritised by what the baseline shows is winnable. Measurement agreed and instrumented before any content ships.</div></div>
+    <div class="proc-step reveal reveal-delay-4"><div class="num">03</div><div class="t">Weeks 7–12: build</div><div class="d">SEO foundations fixed, content written to be cited. Shipped by the same team that ran the diagnostic.</div></div>
+    <div class="proc-step reveal reveal-delay-5"><div class="num">04</div><div class="t">Ongoing: track</div><div class="d">Monthly re-run of the prompt set. Models change. So does the work.</div></div>
+  </div>
+</div>
+
+<!-- 06. WHAT WE WON'T TELL YOU IT DOES -->
+<div class="bx" id="wont-tell">
+  <div class="sec-hdr reveal"><span class="n">06.</span><span class="l">What we won't tell you it does</span></div>
+  <h2 class="d2 reveal reveal-delay-1">The honest limitations, <span class="b">up front.</span></h2>
+  <div class="why-row reveal reveal-delay-2"><div class="n">01</div><div class="hd">It will not work in a month.</div><div class="bd">Models re-crawl and re-weight sources on their own schedule. Expect first meaningful movement around month three, and treat anyone promising faster with justified suspicion.</div></div>
+  <div class="why-row reveal reveal-delay-3"><div class="n">02</div><div class="hd">It will not fix weak positioning.</div><div class="bd">Models cite sources that answer a question well. If the underlying product, service or positioning is poorly defined, optimising the content around it will not rescue the narrative.</div></div>
+  <div class="why-row reveal reveal-delay-4"><div class="n">03</div><div class="hd">It is not permanent.</div><div class="bd">Models change, sources shift, competitors optimise. This is a tracked programme, not a project with an end date. The baseline should be re-run quarterly as a minimum.</div></div>
+</div>
+
+<!-- 07. WHAT YOU GET -->
+<div class="bx dark no-grid" id="deliverables">
+  <div class="sec-hdr reveal"><span class="n">07.</span><span class="l">What you get</span></div>
+  <h2 class="d2 reveal reveal-delay-1">Concrete deliverables, <span class="b">not promises.</span></h2>
+  <div class="why-row reveal reveal-delay-2"><div class="n">01</div><div class="hd">A baseline document you keep.</div><div class="bd">Whether or not you continue, the diagnostic output is yours. Prompt set, model responses, source map, gap analysis.</div></div>
+  <div class="why-row reveal reveal-delay-3"><div class="n">02</div><div class="hd">A written plan with prioritisation reasoning shown.</div><div class="bd">Not a list of tactics. Why each item, in what order, and what it is expected to move.</div></div>
+  <div class="why-row reveal reveal-delay-4"><div class="n">03</div><div class="hd">A monthly tracked report against the baseline.</div><div class="bd">Share of answer with position and citation status, tracked month over month. Changes in source authority flagged.</div></div>
+  <div class="why-row reveal reveal-delay-5"><div class="n">04</div><div class="hd">One team you speak to, not an account layer.</div><div class="bd">The people who ran the audit are the people who do the work.</div></div>
+</div>
+
+<!-- CTA -->
+<div class="bx" id="cta">
+  <div class="cta-inner reveal">
+    <div class="reveal-delay-1">
+      <h2>Find out if AI even <b>knows you exist.</b></h2>
+      <p class="reveal-delay-2">An AI visibility audit across the answer engines that matter to your category. You keep the baseline either way.</p>
+    </div>
+    <a href="contact.html" class="btn">Run the prompt set audit →</a>
+  </div>
+</div>
+</div>
+
+<div class="bx no-grid">
+  <div class="ftr">
+    <div><a href="index.html"><img src="logo.png" alt="Inflexion" height="36" style="height:36px;width:auto;display:block;margin-bottom:16px"></a><p style="font-weight:300">Built for the AI inflection.</p></div>
+    <div><div class="fh">Services</div><a href="aeo.html">AEO — Answer Engine Optimisation</a><a href="ai-visibility-analytics.html">AI Visibility Analytics</a><a href="technical-geo.html">Technical GEO</a><a href="digital-pr.html">Digital PR for AEO</a><a href="retail-media.html">Retail Media</a><a href="consultancy.html">AI Consultancy</a></div>
+    <div><div class="fh">Company</div><a href="measurement.html">Measurement</a></div>
+    <div><div class="fh">Contact</div><a href="contact.html">Start the audit</a><a href="contact.html">hello@inflexion.co</a></div>
+  </div>
+  <div class="btm"><span>© 2026 Inflexion</span><span>Privacy · Terms</span></div>
+</div>
+</div>
+
+<script>
+(function(){
+  var h=document.querySelector('.hamburger'),n=document.querySelector('header nav');
+  if(h){h.addEventListener('click',function(){n.classList.toggle('open');h.classList.toggle('open')})}
+  if(n){n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');h.classList.remove('open')})})}
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('visible');io.unobserve(en.target)}});
+    },{threshold:0.01});
+    document.querySelectorAll('.reveal, .why-row, .shift-row, .shift-note, .proc-step, .svc, .stat-cell, .quote-block, .cta-inner > *').forEach(function(el){io.observe(el)});
+  }else{
+    document.querySelectorAll('.reveal, .why-row, .shift-row, .shift-note, .proc-step, .svc, .stat-cell, .quote-block, .cta-inner > *').forEach(function(el){el.style.opacity='1';el.style.transform='none'});
+  }
+  // Fallback: force visible after 2.5s
+  setTimeout(function(){
+    document.querySelectorAll('.reveal, .why-row, .shift-row, .shift-note, .proc-step, .svc, .stat-cell, .quote-block, .cta-inner > *').forEach(function(el){
+      if(window.getComputedStyle(el).opacity==='0'){el.classList.add('visible');el.style.opacity='1';el.style.transform='none'}
+    });
+  },2500);
+  // Hero entrance
+  if(typeof gsap!=='undefined'){
+    gsap.timeline({delay:0.3})
+      .from('.hero .tag',{y:30,opacity:0,duration:0.6,ease:'power3.out'})
+      .from('.hero h1',{y:40,opacity:0,duration:0.8,ease:'power3.out'},'-=0.3')
+      .from('.hero .desc, .hero .cta-row > *',{y:30,opacity:0,duration:0.6,stagger:0.1,ease:'power2.out'},'-=0.4');
+  }
+
+  // Three.js Data Field
+  (function(){
+    var canvas = document.getElementById('data-field-canvas');
+    if (!canvas || typeof THREE === 'undefined') return;
+    var scene = new THREE.Scene();
+    scene.background = null;
+    var camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.set(0, -2, 9);
+    var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+    renderer.setClearColor(0x000000, 0);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    var group = new THREE.Group();
+    scene.add(group);
+    var numLines = 60, pts = 100;
+    for (var i = 0; i < numLines; i++) {
+      var points = [];
+      var xPos = (i - numLines / 2) * 0.22;
+      for (var j = 0; j < pts; j++) {
+        points.push(new THREE.Vector3(xPos, (j - pts / 2) * 0.2, 0));
+      }
+      var t = i / numLines;
+      var color = new THREE.Color().setHSL(0.08 - t * 0.12, 0.8, 0.6 + t * 0.3);
+      var mat = new THREE.LineBasicMaterial({ color: color, transparent: true, opacity: 0.2 + Math.random() * 0.3, blending: THREE.AdditiveBlending });
+      var line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), mat);
+      group.add(line);
+    }
+    group.rotation.x = Math.PI / 3;
+    group.rotation.z = -Math.PI / 8;
+    function animate() {
+      requestAnimationFrame(animate);
+      var time = performance.now() * 0.0004;
+      group.children.forEach(function(line){
+        var pos = line.geometry.attributes.position.array;
+        for (var j = 0; j < pts; j++) {
+          var idx = j * 3;
+          var x = pos[idx], y = pos[idx + 1];
+          pos[idx + 2] = Math.sin(y * 1.2 + time + x * 0.8) * 0.8 + Math.cos(x * 1.5 - time * 0.8 + y * 0.5) * 0.6;
+        }
+        line.geometry.attributes.position.needsUpdate = true;
+      });
+      renderer.render(scene, camera);
+    }
+    animate();
+    window.addEventListener('resize', function(){
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  })();
+})();
+</script>
+</body>
+</html>

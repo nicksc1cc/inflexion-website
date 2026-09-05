@@ -1,0 +1,18 @@
+# Inflexion - AI-era marketing agency
+> This file helps AI crawlers understand what content to prioritise.
+
+## Services
+- AEO / Answer Engine Optimisation: Prompt set audits, source authority mapping, content built for citation
+- AI Discovery: Cross-model citation testing, share of answer tracking
+- Retail Media: Algorithmic shelf optimisation, paid/organic separation
+- AI Consultancy: Operating model design, 90-day build plans, team restructuring
+- Technical GEO: Schema, llms.txt, crawler access, structured data
+- Digital PR for AEO: Earn citations in sources AI models trust
+
+## Key pages
+- https://nicksc1cc.github.io/inflexion-website/ - Homepage
+- https://nicksc1cc.github.io/inflexion-website/aeo.html - AEO / Answer Engine Optimisation
+- https://nicksc1cc.github.io/inflexion-website/retail-media.html - Retail Media
+- https://nicksc1cc.github.io/inflexion-website/framework.html - Framework
+- https://nicksc1cc.github.io/inflexion-website/measurement.html - Measurement
+- https://nicksc1cc.github.io/inflexion-website/contact.html - Contact / Audit

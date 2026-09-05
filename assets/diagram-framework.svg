@@ -1,0 +1,116 @@
+<svg viewBox="0 0 1064 440" xmlns="http://www.w3.org/2000/svg" aria-label="Inflexion framework: Diagnose, Measure, Run" role="img" style="display:block;width:100%;height:auto;max-width:1100px;background:#FAFAF9;font-family:'Geist',system-ui,sans-serif">
+  <defs>
+    <pattern id="d" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="0.8" fill="rgba(10,10,11,.10)"/></pattern>
+    <marker id="a" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#71717A"/></marker>
+    <marker id="aa" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#FF5A1F"/></marker>
+  </defs>
+  <rect width="1064" height="440" fill="#FAFAF9"/><rect width="1064" height="440" fill="url(#d)" opacity=".55"/>
+
+  <!-- Phase headers -->
+  <g text-anchor="middle">
+    <rect x="80" y="12" width="16" height="16" rx="8" fill="rgba(10,10,11,.12)"/>
+    <text x="88" y="23" fill="#0A0A0B" font-size="7" font-weight="600" font-family="'Geist Mono',monospace">1</text>
+    <text x="120" y="24" fill="#71717A" font-size="6" font-weight="500" font-family="'Geist Mono',monospace" letter-spacing=".12em">DIAGNOSE</text>
+
+    <rect x="420" y="12" width="16" height="16" rx="8" fill="rgba(10,10,11,.12)"/>
+    <text x="428" y="23" fill="#0A0A0B" font-size="7" font-weight="600" font-family="'Geist Mono',monospace">2</text>
+    <text x="460" y="24" fill="#71717A" font-size="6" font-weight="500" font-family="'Geist Mono',monospace" letter-spacing=".12em">MEASURE</text>
+
+    <rect x="760" y="12" width="16" height="16" rx="8" fill="rgba(10,10,11,.12)"/>
+    <text x="768" y="23" fill="#0A0A0B" font-size="7" font-weight="600" font-family="'Geist Mono',monospace">3</text>
+    <text x="800" y="24" fill="#71717A" font-size="6" font-weight="500" font-family="'Geist Mono',monospace" letter-spacing=".12em">RUN</text>
+  </g>
+
+  <!-- Phase 1: Diagnose nodes -->
+  <g text-anchor="middle">
+    <rect x="40" y="60" width="160" height="72" rx="6" fill="#fff" stroke="rgba(10,10,11,.25)" stroke-width="1"/>
+    <rect x="44" y="64" width="20" height="10" rx="2" fill="rgba(10,10,11,.10)"/><text x="54" y="72" fill="#0A0A0B" font-size="6" font-weight="600" font-family="'Geist Mono',monospace">D1</text>
+    <text x="120" y="90" fill="#0A0A0B" font-size="9" font-weight="600">Prompt set audit</text>
+    <text x="120" y="106" fill="#71717A" font-size="6.5" font-family="'Geist Mono',monospace">Buyer questions × 4+ models</text>
+    <text x="120" y="120" fill="#A1A1AA" font-size="6.5" font-family="'Geist Mono',monospace">Who is cited, where, how often</text>
+
+    <rect x="40" y="160" width="160" height="72" rx="6" fill="#fff" stroke="rgba(10,10,11,.25)" stroke-width="1"/>
+    <rect x="44" y="164" width="20" height="10" rx="2" fill="rgba(10,10,11,.10)"/><text x="54" y="172" fill="#0A0A0B" font-size="6" font-weight="600" font-family="'Geist Mono',monospace">D2</text>
+    <text x="120" y="190" fill="#0A0A0B" font-size="9" font-weight="600">Source authority map</text>
+    <text x="120" y="206" fill="#71717A" font-size="6.5" font-family="'Geist Mono',monospace">What models trust, ranked</text>
+    <text x="120" y="220" fill="#A1A1AA" font-size="6.5" font-family="'Geist Mono',monospace">Outlets, papers, forums</text>
+
+    <rect x="40" y="260" width="160" height="72" rx="6" fill="rgba(255,90,31,.08)" stroke="#FF5A1F" stroke-width="1.2"/>
+    <rect x="44" y="264" width="20" height="10" rx="2" fill="rgba(255,90,31,.25)"/><text x="54" y="272" fill="#FF5A1F" font-size="6" font-weight="600" font-family="'Geist Mono',monospace">D3</text>
+    <text x="120" y="290" fill="#0A0A0B" font-size="9" font-weight="600">Citation gap</text>
+    <text x="120" y="306" fill="#71717A" font-size="6.5" font-family="'Geist Mono',monospace">You vs competitors vs nobody</text>
+    <text x="120" y="320" fill="#A1A1AA" font-size="6.5" font-family="'Geist Mono',monospace">Ranked fix list</text>
+  </g>
+
+  <!-- Internal Diagnose arrows -->
+  <line x1="120" y1="132" x2="120" y2="155" stroke="#71717A" stroke-width="1" marker-end="url(#a)"/>
+  <line x1="120" y1="232" x2="120" y2="255" stroke="#71717A" stroke-width="1" marker-end="url(#a)"/>
+
+  <!-- Connector: Diagnose → Measure -->
+  <path d="M200 296 H300 Q308 296 308 288 V220" fill="none" stroke="#FF5A1F" stroke-width="1.2" marker-end="url(#aa)"/>
+
+  <!-- Phase 2: Measure nodes -->
+  <g text-anchor="middle">
+    <rect x="380" y="60" width="200" height="72" rx="6" fill="#fff" stroke="rgba(10,10,11,.25)" stroke-width="1"/>
+    <rect x="384" y="64" width="20" height="10" rx="2" fill="rgba(10,10,11,.10)"/><text x="394" y="72" fill="#0A0A0B" font-size="6" font-weight="600" font-family="'Geist Mono',monospace">M1</text>
+    <text x="480" y="90" fill="#0A0A0B" font-size="9" font-weight="600">Share of answer</text>
+    <text x="480" y="106" fill="#71717A" font-size="6.5" font-family="'Geist Mono',monospace">Across ChatGPT, Gemini, Perplexity</text>
+    <text x="480" y="120" fill="#A1A1AA" font-size="6.5" font-family="'Geist Mono',monospace">Position · velocity · stability</text>
+
+    <rect x="380" y="160" width="200" height="72" rx="6" fill="#fff" stroke="rgba(10,10,11,.25)" stroke-width="1"/>
+    <rect x="384" y="164" width="20" height="10" rx="2" fill="rgba(10,10,11,.10)"/><text x="394" y="172" fill="#0A0A0B" font-size="6" font-weight="600" font-family="'Geist Mono',monospace">M2</text>
+    <text x="480" y="190" fill="#0A0A0B" font-size="9" font-weight="600">Share of shelf</text>
+    <text x="480" y="206" fill="#71717A" font-size="6.5" font-family="'Geist Mono',monospace">Paid vs organic shelf position</text>
+    <text x="480" y="220" fill="#A1A1AA" font-size="6.5" font-family="'Geist Mono',monospace">Algorithmic rank drivers</text>
+
+    <rect x="380" y="260" width="200" height="72" rx="6" fill="rgba(255,90,31,.08)" stroke="#FF5A1F" stroke-width="1.2"/>
+    <rect x="384" y="264" width="20" height="10" rx="2" fill="rgba(255,90,31,.25)"/><text x="394" y="272" fill="#FF5A1F" font-size="6" font-weight="600" font-family="'Geist Mono',monospace">M3</text>
+    <text x="480" y="290" fill="#0A0A0B" font-size="9" font-weight="600">Baseline report</text>
+    <text x="480" y="306" fill="#71717A" font-size="6.5" font-family="'Geist Mono',monospace">Fixed, published, repeatable</text>
+    <text x="480" y="320" fill="#A1A1AA" font-size="6.5" font-family="'Geist Mono',monospace">Month-over-month tracking</text>
+  </g>
+
+  <!-- Internal Measure arrows -->
+  <line x1="480" y1="132" x2="480" y2="155" stroke="#71717A" stroke-width="1" marker-end="url(#a)"/>
+  <line x1="480" y1="232" x2="480" y2="255" stroke="#71717A" stroke-width="1" marker-end="url(#a)"/>
+
+  <!-- Connector: Measure → Run -->
+  <path d="M580 296 H700 Q708 296 708 288 V220" fill="none" stroke="#FF5A1F" stroke-width="1.2" marker-end="url(#aa)"/>
+
+  <!-- Phase 3: Run nodes -->
+  <g text-anchor="middle">
+    <rect x="760" y="60" width="200" height="72" rx="6" fill="#fff" stroke="rgba(10,10,11,.25)" stroke-width="1"/>
+    <rect x="764" y="64" width="20" height="10" rx="2" fill="rgba(10,10,11,.10)"/><text x="774" y="72" fill="#0A0A0B" font-size="6" font-weight="600" font-family="'Geist Mono',monospace">R1</text>
+    <text x="860" y="90" fill="#0A0A0B" font-size="9" font-weight="600">Content built for citation</text>
+    <text x="860" y="106" fill="#71717A" font-size="6.5" font-family="'Geist Mono',monospace">One question per page</text>
+    <text x="860" y="120" fill="#A1A1AA" font-size="6.5" font-family="'Geist Mono',monospace">Schema · authority · freshness</text>
+
+    <rect x="760" y="160" width="200" height="72" rx="6" fill="#fff" stroke="rgba(10,10,11,.25)" stroke-width="1"/>
+    <rect x="764" y="164" width="20" height="10" rx="2" fill="rgba(10,10,11,.10)"/><text x="774" y="172" fill="#0A0A0B" font-size="6" font-weight="600" font-family="'Geist Mono',monospace">R2</text>
+    <text x="860" y="190" fill="#0A0A0B" font-size="9" font-weight="600">Shelf optimisation</text>
+    <text x="860" y="206" fill="#71717A" font-size="6.5" font-family="'Geist Mono',monospace">Separate paid from organic</text>
+    <text x="860" y="220" fill="#A1A1AA" font-size="6.5" font-family="'Geist Mono',monospace">Algorithm-aware placement</text>
+
+    <rect x="760" y="260" width="200" height="72" rx="6" fill="rgba(255,90,31,.08)" stroke="#FF5A1F" stroke-width="1.2"/>
+    <rect x="764" y="264" width="20" height="10" rx="2" fill="rgba(255,90,31,.25)"/><text x="774" y="272" fill="#FF5A1F" font-size="6" font-weight="600" font-family="'Geist Mono',monospace">R3</text>
+    <text x="860" y="290" fill="#0A0A0B" font-size="9" font-weight="600">One team, one system</text>
+    <text x="860" y="306" fill="#71717A" font-size="6.5" font-family="'Geist Mono',monospace">Discovery + shelf together</text>
+    <text x="860" y="320" fill="#A1A1AA" font-size="6.5" font-family="'Geist Mono',monospace">Same signals, same measurement</text>
+  </g>
+
+  <!-- Internal Run arrows -->
+  <line x1="860" y1="132" x2="860" y2="155" stroke="#71717A" stroke-width="1" marker-end="url(#a)"/>
+  <line x1="860" y1="232" x2="860" y2="255" stroke="#71717A" stroke-width="1" marker-end="url(#a)"/>
+
+  <!-- Key -->
+  <g>
+    <rect x="80" y="370" width="12" height="12" rx="6" fill="rgba(10,10,11,.12)"/>
+    <text x="100" y="380" fill="#71717A" font-size="8">Sequential step</text>
+    <line x1="200" y1="376" x2="220" y2="376" stroke="#71717A" stroke-width="1" marker-end="url(#a)"/>
+    <text x="228" y="380" fill="#71717A" font-size="8">Internal handoff</text>
+    <line x1="340" y1="376" x2="360" y2="376" stroke="#FF5A1F" stroke-width="1.2" marker-end="url(#aa)"/>
+    <text x="368" y="380" fill="#71717A" font-size="8">Phase transition</text>
+    <rect x="480" y="370" width="12" height="12" rx="6" fill="rgba(255,90,31,.25)" stroke="#FF5A1F" stroke-width="1"/>
+    <text x="500" y="380" fill="#71717A" font-size="8">Key output</text>
+  </g>
+</svg>

@@ -1,0 +1,12 @@
+node_modules/
+screenshots/
+full-shot.js
+shot.js
+shots.js
+v2-shots.js
+screenshot.js
+study-noir.js
+logo.jpg
+.DS_Store
+*.logcmr/
+cmr/

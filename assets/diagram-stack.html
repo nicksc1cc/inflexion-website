@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The AI Visibility Stack · Layers</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--paper:#FAFAF9;--ink:#0A0A0B;--muted:#71717A;--soft:#A1A1AA;--accent:#FF5A1F;--accent-tint:rgba(255,90,31,.08);--blue:#2438DA;--blue-tint:rgba(36,56,218,.08);--rule:rgba(10,10,11,.12);--dot:rgba(10,10,11,.10);--sans:'Geist',system-ui,sans-serif;--serif:'Instrument Serif',serif;--mono:'Geist Mono',ui-monospace,monospace}
+    body{font-family:var(--sans);background:var(--paper);color:var(--ink);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:3rem 2rem}
+    .frame{max-width:1000px;width:100%}.eyebrow{font:500 .66rem var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}h1{font:400 clamp(1.5rem,2.4vw + .75rem,2rem)/1.15 var(--serif);letter-spacing:-.02em;margin-bottom:1.5rem}svg{width:100%;min-width:900px;display:block}
+    svg text{font-family:var(--sans)}.mono{font-family:var(--mono)}.layer-box{stroke:var(--rule);stroke-width:1}.layer-accent{fill:var(--accent-tint);stroke:var(--accent);stroke-width:1}.layer-blue{fill:var(--blue-tint);stroke:var(--blue);stroke-width:1}.layer-label{fill:var(--ink);font:600 14px var(--serif);text-anchor:middle}.layer-sub{fill:var(--muted);font:400 10px var(--sans);text-anchor:middle}.layer-detail{fill:var(--soft);font:500 7.5px var(--mono);text-anchor:middle;letter-spacing:.04em}.arrow{fill:none;stroke:var(--muted);stroke-width:1}.arrow-down{fill:none;stroke:var(--accent);stroke-width:1.2;stroke-dasharray:4 3}
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <p class="eyebrow">Layers · Inflexion</p>
+    <h1>The AI visibility stack</h1>
+    <svg viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg" aria-label="The AI visibility stack showing four layers from foundation to execution" role="img" aria-labelledby="layers-title layers-desc">
+      <title id="layers-title">The AI visibility stack</title>
+      <desc id="layers-desc">Four layers: Foundation (structured data, schema, technical), Authoritative Content (earned media, owned content, expert sourcing), Signal Architecture (citations, brand mentions, entity alignment), Execution (prompt-set audit, share tracking, optimisation cycle).</desc>
+      <defs>
+        <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="0.8" fill="var(--dot)"/></pattern>
+        <marker id="arrow-blue" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="var(--blue)"/></marker>
+      </defs>
+      <rect width="900" height="520" fill="var(--paper)"/><rect width="900" height="520" fill="url(#dots)" opacity=".55"/>
+
+      <!-- Layer 4 (top): Execution -->
+      <rect class="layer-accent" x="80" y="40" width="740" height="100" rx="4"/>
+      <text class="layer-label" x="450" y="68">Execution</text>
+      <text class="layer-sub" x="450" y="88">Prompt-set audit · Share tracking · Optimisation cycle</text>
+      <text class="layer-detail" x="200" y="115">Fixed baseline across 4+ models</text>
+      <text class="layer-detail" x="450" y="115">Monthly re-measurement</text>
+      <text class="layer-detail" x="700" y="115">Ranked fix list per cycle</text>
+
+      <!-- Layer 3 -->
+      <rect class="layer-box" x="120" y="170" width="660" height="100" rx="4"/>
+      <text class="layer-label" x="450" y="198">Signal Architecture</text>
+      <text class="layer-sub" x="450" y="218">Citations · Brand mentions · Entity alignment</text>
+      <text class="layer-detail" x="250" y="245">Citation velocity tracking</text>
+      <text class="layer-detail" x="450" y="245">Entity graph building</text>
+      <text class="layer-detail" x="650" y="245">Competitor signal map</text>
+
+      <!-- Layer 2 -->
+      <rect class="layer-blue" x="160" y="300" width="580" height="100" rx="4"/>
+      <text class="layer-label" x="450" y="328">Authoritative Content</text>
+      <text class="layer-sub" x="450" y="348">Earned media · Owned content · Expert sourcing</text>
+      <text class="layer-detail" x="250" y="375">PR for citation</text>
+      <text class="layer-detail" x="450" y="375">Q&A-structured pages</text>
+      <text class="layer-detail" x="650" y="375">Data-backed authority</text>
+
+      <!-- Layer 1 (bottom): Foundation -->
+      <rect class="layer-box" x="200" y="430" width="500" height="70" rx="4"/>
+      <text class="layer-label" x="450" y="458">Foundation</text>
+      <text class="layer-sub" x="450" y="475">Structured data · Schema · Technical infrastructure</text>
+
+      <!-- Arrow from bottom to middle -->
+      <path class="arrow" d="M450 370 V300" marker-end="url(#arrow)"/>
+      <path class="arrow" d="M450 240 V170" marker-end="url(#arrow)"/>
+      <path class="arrow-down" d="M450 140 V40" marker-end="url(#arrow-blue)"/>
+    </svg>
+  </div>
+</body>
+</html>

@@ -1,0 +1,238 @@
+{
+  "index.html": {
+    "title": "Inflexion \u2014 Marketing for the AI inflection",
+    "description": "Inflexion helps brands win AI visibility across answer engines and the algorithmic shelf. AEO, retail media, and AI consultancy.",
+    "og_type": "website",
+    "og_image": "/assets/og-home.png",
+    "schema_type": "Organization",
+    "schema_data": {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Inflexion",
+      "url": "https://nicksc1cc.github.io/inflexion-website/",
+      "logo": "https://nicksc1cc.github.io/inflexion-website/logo.png",
+      "sameAs": [
+        "https://www.linkedin.com/company/inflexion",
+        "https://twitter.com/inflexion"
+      ],
+      "description": "Marketing agency for the AI inflection. AEO, retail media, and AI consultancy."
+    }
+  },
+  "aeo.html": {
+    "title": "Answer Engine Optimisation \u2014 Getting Cited by AI | Inflexion",
+    "description": "AEO services: prompt set audits, source authority mapping, content built for citation. Measured across ChatGPT, Gemini, Perplexity, and Claude.",
+    "og_type": "website",
+    "og_image": "/assets/og-aeo.png",
+    "schema_type": "Service",
+    "schema_data": {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Answer Engine Optimisation",
+      "description": "Prompt set audits, source authority mapping, citation tracking, and content built to be cited by AI answer engines.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Inflexion",
+        "url": "https://nicksc1cc.github.io/inflexion-website/"
+      },
+      "areaServed": "Global",
+      "serviceType": "AEO / GEO / SEO"
+    }
+  },
+  "ai-discovery.html": {
+    "title": "AI Discovery \u2014 Getting Cited by AI | Inflexion",
+    "description": "AI Discovery service: prompt set construction, cross-model testing, source authority mapping. Measured across ChatGPT, Gemini, Perplexity, and Claude.",
+    "og_type": "website",
+    "og_image": "/assets/og-ai-discovery.png",
+    "schema_type": "Service",
+    "schema_data": {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "AI Discovery",
+      "description": "Prompt set construction, cross-model citation testing, and source authority mapping for AI answer engine visibility.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Inflexion",
+        "url": "https://nicksc1cc.github.io/inflexion-website/"
+      }
+    }
+  },
+  "retail-media.html": {
+    "title": "Retail Media & the Algorithmic Shelf | Inflexion",
+    "description": "Retail media optimisation: paid/organic separation, shelf position tracking, algorithm-aware placement. Measure share of shelf across Amazon and retailers.",
+    "og_type": "website",
+    "og_image": "/assets/og-retail-media.png",
+    "schema_type": "Service",
+    "schema_data": {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Retail Media Optimisation",
+      "description": "Algorithmic shelf position tracking, paid/organic separation, and retail media budget optimisation across Amazon and major retailers.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Inflexion",
+        "url": "https://nicksc1cc.github.io/inflexion-website/"
+      }
+    }
+  },
+  "consultancy.html": {
+    "title": "AI Consultancy \u2014 Strategy, Data, Automation, Operating Model | Inflexion",
+    "description": "AI consultancy: operating model design, 90-day build plans, data strategy, team restructuring. One team across AI discovery and retail media.",
+    "og_type": "website",
+    "og_image": "/assets/og-consultancy.png",
+    "schema_type": "Service",
+    "schema_data": {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "AI Consultancy",
+      "description": "Operating model design, team restructuring, 90-day build plans, and data strategy for AI-era marketing teams.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Inflexion",
+        "url": "https://nicksc1cc.github.io/inflexion-website/"
+      }
+    }
+  },
+  "framework.html": {
+    "title": "Framework \u2014 Diagnose. Measure. Run. | Inflexion",
+    "description": "Inflexion's three-phase framework: Diagnose (prompt set audit, source mapping), Measure (share of answer, share of shelf), Run (content, shelf, one team).",
+    "og_type": "website",
+    "og_image": "/assets/og-framework.png",
+    "schema_type": "Article",
+    "schema_data": {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "The Inflexion Framework: Diagnose, Measure, Run",
+      "description": "Three-phase framework for AI-era marketing: Diagnose (prompt set audit, source mapping), Measure (share of answer, share of shelf), Run (content, shelf, one team).",
+      "author": {
+        "@type": "Organization",
+        "name": "Inflexion"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Inflexion",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://nicksc1cc.github.io/inflexion-website/logo.png"
+        }
+      }
+    }
+  },
+  "measurement.html": {
+    "title": "Measurement \u2014 Share of Answer & Shelf | Inflexion",
+    "description": "Measurement methodology: share of answer across LLMs, share of shelf on retail platforms. Fixed prompt sets, monthly tracking, cited sources.",
+    "og_type": "website",
+    "og_image": "/assets/og-measurement.png",
+    "schema_type": "Article",
+    "schema_data": {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Measurement: Share of Answer & Share of Shelf",
+      "description": "How Inflexion measures AI visibility: share of answer across LLMs, share of shelf on retail platforms. Fixed prompt sets, monthly re-runs, cited source mapping.",
+      "author": {
+        "@type": "Organization",
+        "name": "Inflexion"
+      }
+    }
+  },
+  "contact.html": {
+    "title": "The Audit \u2014 Request an AI Visibility Baseline | Inflexion",
+    "description": "Request an AI visibility audit: prompt set audit across 4+ models, source authority map, citation gap analysis, shelf position baseline. You keep the baseline.",
+    "og_type": "website",
+    "og_image": "/assets/og-contact.png",
+    "schema_type": "WebPage",
+    "schema_data": {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Request an AI Visibility Audit",
+      "description": "Request a baseline AI visibility audit: prompt set audit across 4+ models, source authority map, citation gap analysis, shelf position baseline.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Inflexion"
+      }
+    }
+  },
+  "approach.html": {
+    "title": "Approach \u2014 Inflexion",
+    "description": "Inflexion's approach: the problem with traditional marketing, how we work, maturity model, framework applied, and honest limitations.",
+    "og_type": "website",
+    "og_image": "/assets/og-approach.png",
+    "schema_type": "Article",
+    "schema_data": {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Our Approach to AI-Era Marketing",
+      "description": "Why traditional marketing fails in the AI era, and how Inflexion's integrated approach across discovery and shelf solves it.",
+      "author": {
+        "@type": "Organization",
+        "name": "Inflexion"
+      }
+    }
+  },
+  "perspective.html": {
+    "title": "Perspective \u2014 Inflexion",
+    "description": "Inflexion's perspective on AI search, retail media, and marketing strategy. Long-form thinking on what's changing and what isn't.",
+    "og_type": "website",
+    "og_image": "/assets/og-perspective.png",
+    "schema_type": "Blog",
+    "schema_data": {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Inflexion Perspective",
+      "description": "Long-form thinking on AI search, retail media, and marketing strategy from Inflexion."
+    }
+  },
+  "technical-geo.html": {
+    "title": "Technical GEO \u2014 AI Crawler Optimisation | Inflexion",
+    "description": "Technical GEO service: crawler access, structured data, schema implementation, llms.txt, server-side rendering for AI. Make your site readable by answer engines.",
+    "og_type": "website",
+    "og_image": "/assets/og-technical-geo.png",
+    "schema_type": "Service",
+    "schema_data": {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Technical GEO",
+      "description": "Technical AI crawler optimisation: schema, llms.txt, SSR, bot access management. Make your site readable by answer engines.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Inflexion",
+        "url": "https://nicksc1cc.github.io/inflexion-website/"
+      }
+    }
+  },
+  "digital-pr.html": {
+    "title": "Digital PR for AEO \u2014 Earn the Citations AI Trusts Most | Inflexion",
+    "description": "Digital PR for AEO: earn citations in sources AI models trust. Outreach to high-authority outlets, papers, forums. Measured by citation lift.",
+    "og_type": "website",
+    "og_image": "/assets/og-digital-pr.png",
+    "schema_type": "Service",
+    "schema_data": {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Digital PR for AEO",
+      "description": "Earn citations in sources AI models trust. Outreach to high-authority outlets, papers, forums. Measured by citation lift.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Inflexion",
+        "url": "https://nicksc1cc.github.io/inflexion-website/"
+      }
+    }
+  },
+  "ai-visibility-analytics.html": {
+    "title": "AI Visibility Analytics \u2014 Track Brand Performance in LLMs | Inflexion",
+    "description": "AI visibility analytics: share of answer tracking, citation position, competitor benchmarking, monthly re-runs. Fixed prompt set, cross-model.",
+    "og_type": "website",
+    "og_image": "/assets/og-analytics.png",
+    "schema_type": "Service",
+    "schema_data": {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "AI Visibility Analytics",
+      "description": "Track brand performance in LLMs: share of answer, citation position, competitor benchmarking. Monthly re-runs, fixed prompt set.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Inflexion",
+        "url": "https://nicksc1cc.github.io/inflexion-website/"
+      }
+    }
+  }
+}

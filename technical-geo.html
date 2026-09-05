@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Technical GEO — AI Crawler Optimisation | Inflexion</title>
+<meta name="description" content="Technical GEO service: crawler access, structured data, schema implementation, llms.txt, server-side rendering for AI. Make your site readable by answer engines.">
+<link rel="canonical" href="https://nicksc1cc.github.io/inflexion-website/technical-geo.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Technical GEO — AI Crawler Optimisation | Inflexion">
+<meta property="og:description" content="Technical GEO service: crawler access, structured data, schema implementation, llms.txt, server-side rendering for AI. Make your site readable by answer engines.">
+<meta property="og:url" content="https://nicksc1cc.github.io/inflexion-website/technical-geo.html">
+<meta property="og:image" content="https://nicksc1cc.github.io/inflexion-website/assets/og-technical-geo.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Technical GEO — AI Crawler Optimisation | Inflexion">
+<meta name="twitter:description" content="Technical GEO service: crawler access, structured data, schema implementation, llms.txt, server-side rendering for AI. Make your site readable by answer engines.">
+<meta name="twitter:image" content="https://nicksc1cc.github.io/inflexion-website/assets/og-technical-geo.svg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Technical GEO",
+  "description": "Technical AI crawler optimisation: schema, llms.txt, SSR, bot access management. Make your site readable by answer engines.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Inflexion",
+    "url": "https://nicksc1cc.github.io/inflexion-website/"
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  :root{--bg:#FAFAF9;--fg:#0A0A0B;--muted:#71717A;--muted2:#A1A1AA;--accent:#FF5A1F;--accent2:#FF5A1F;--border:#E4E4E7;--h:#0A0A0B;--h-text:#FAFAF9;--stat-bg:rgba(36,56,218,.04);--stat-border:rgba(36,56,218,.1)}
+  body{font-family:'Montserrat',-apple-system,sans-serif;background:var(--bg);color:var(--fg);-webkit-font-smoothing:antialiased}
+  ::selection{background:var(--accent);color:#0A0A0B}
+  .mono{font-family:'IBM Plex Mono',monospace}
+  .tag{font-size:11px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+  .d2{font-size:clamp(28px,4vw,48px);font-weight:300;line-height:1.05;letter-spacing:-.02em}
+  .d3{font-size:clamp(34px,5vw,64px);font-weight:200;line-height:1.05;letter-spacing:-.03em}
+
+  /* ===== HEADER ===== */
+  header{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;background:rgba(250,250,249,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+  .header-inner{display:flex;align-items:center;justify-content:space-between;max-width:1280px;margin:0 auto;padding:0 48px;height:100%}
+  .logo{display:flex;align-items:center;text-decoration:none}
+  .logo img{height:36px;width:auto;display:block}
+  header nav{display:flex;align-items:center;gap:24px}
+  header nav a{font-size:12px;font-weight:400;letter-spacing:.04em;color:var(--muted);text-decoration:none;transition:color .2s}
+  header nav a:hover{color:var(--fg)}
+  .cta-btn{background:var(--fg);color:var(--bg);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:12px 20px;text-decoration:none;transition:opacity .2s;cursor:pointer}
+  .cta-btn:hover{opacity:.7}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+  .hamburger span{display:block;width:22px;height:2px;background:var(--fg);transition:.3s;border-radius:1px}
+  .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+  .hamburger.open span:nth-child(2){opacity:0}
+  .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+  /* Dropdown */
+  .dropdown{position:relative;display:inline-block}
+  .dropdown-toggle{cursor:pointer}
+  .dropdown-toggle::after{content:'';display:inline-block;width:0;height:0;margin-left:4px;border-left:3px solid transparent;border-right:3px solid transparent;border-top:4px solid var(--muted);vertical-align:middle;transition:transform .2s}
+  .dropdown-toggle:hover::after{border-top-color:var(--fg)}
+  .dropdown-menu{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:8px;min-width:240px;z-index:200}
+  .dropdown:hover .dropdown-menu{display:block}
+  .dropdown-menu-inner{background:var(--bg);border:1px solid var(--border);border-radius:4px;box-shadow:0 8px 24px rgba(0,0,0,.08);overflow:hidden}
+  .dropdown-menu a{display:block;font-size:12px;font-weight:400;letter-spacing:.04em;color:var(--muted);padding:12px 20px;text-decoration:none;border-bottom:1px solid var(--border);transition:color .2s,background .2s}
+  .dropdown-menu a:last-child{border-bottom:none}
+  .dropdown-menu a:hover{color:var(--fg);background:rgba(36,56,218,.04)}
+
+  /* ===== HERO ===== */
+  .hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 80px;background:var(--h);color:var(--h-text);overflow:hidden;position:relative}
+  .hero #data-field-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;display:block}
+  .hero .w{max-width:1280px;margin:0 auto;padding:0 48px;position:relative;z-index:2;width:100%}
+  .hero .sup{font-size:11px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:rgba(250,250,249,.5);margin-bottom:24px}
+  .hero h1{font-size:clamp(32px,6.5vw,76px);font-weight:200;line-height:1.05;letter-spacing:-.025em;max-width:80%;margin-bottom:24px}
+  .hero h1 .code-tag{font-family:'IBM Plex Mono',monospace;font-weight:400;font-size:clamp(16px,2.5vw,32px);color:rgba(255,90,31,.6);display:block;margin-bottom:8px}
+  .hero h1 em{font-style:normal;font-weight:600;color:var(--accent)}
+  .hero .accent-line{font-weight:600;color:var(--accent)}
+  .hero .desc{font-size:clamp(15px,1.4vw,17px);line-height:1.7;color:rgba(250,250,249,.65);font-weight:300;max-width:42%;margin-bottom:40px}
+  .hero .cta-row{display:flex;align-items:center;gap:24px;margin-bottom:32px}
+  .hero .btn{display:inline-flex;align-items:center;gap:8px;background:#0A0A0B;color:#FAFAF9;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:14px 24px;text-decoration:none;transition:opacity .2s}
+  .hero .btn:hover{opacity:.7}
+  .hero .link{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,250,249,.8);text-decoration:none;border-bottom:1px solid rgba(250,250,249,.3);padding-bottom:3px;transition:color .2s,border-color .2s}
+  .hero .link:hover{color:var(--accent);border-color:var(--accent)}
+
+  /* ===== DATA BANNER (in hero) ===== */
+  .data-banner{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(250,250,249,.12);padding-top:32px;margin-top:8px}
+  .data-banner .d{text-align:left}
+  .data-banner .v{font-size:clamp(28px,3.5vw,48px);font-weight:200;line-height:.9;letter-spacing:-.03em;color:var(--accent);margin-bottom:4px}
+  .data-banner .l{font-size:11px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:rgba(250,250,249,.5);line-height:1.5}
+  .data-banner .s{font-size:10px;font-weight:400;color:rgba(250,250,249,.35);margin-top:2px}
+
+  /* ===== SECTION ===== */
+  section{padding:120px 0}
+  .section-inner{max-width:1280px;margin:0 auto;padding:0 48px}
+  .divider{width:100%;height:1px;background:var(--border);margin:0}
+
+  /* ===== SHIFT ROWS (framework applied) ===== */
+  .shift-row{display:grid;grid-template-columns:180px 1fr 1fr;gap:40px;padding:40px 0;border-bottom:1px solid var(--border);align-items:center;opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+  .shift-row:first-of-type{border-top:1px solid var(--border)}
+  .shift-row.visible{opacity:1;transform:translateY(0)}
+  .shift-row .l{font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .shift-row .old{font-size:22px;color:var(--muted);text-decoration:line-through;text-decoration-thickness:1px;font-weight:300}
+  .shift-row .new{font-size:22px;font-weight:600;color:var(--fg)}
+  .dark .shift-row .new{color:var(--h-text)}
+  .dark .shift-row .old{color:rgba(250,250,249,.55)}
+  .dark .shift-row .l{color:rgba(250,250,249,.7)}
+  .shift-note{max-width:50%;margin-top:32px;color:var(--muted);opacity:0;transform:translateY(20px);transition:opacity .6s .2s ease,transform .6s .2s ease}
+  .shift-note.visible{opacity:1;transform:translateY(0)}
+
+  /* ===== FEATURE GRID (7 technical dimensions) ===== */
+  .feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px}
+  .feat-card{padding:32px;border:1px solid rgba(250,250,249,.12);background:rgba(250,250,249,.04);opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+  .feat-card.visible{opacity:1;transform:translateY(0)}
+  .feat-card:hover{border-color:rgba(255,90,31,.4)}
+  .feat-card .t{font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+  .feat-card .hd{font-size:clamp(20px,1.8vw,24px);font-weight:600;line-height:1.15;margin-bottom:12px;color:var(--h-text)}
+  .feat-card .bd{font-size:14px;line-height:1.6;color:rgba(250,250,249,.7);font-weight:300}
+  .feat-card .metric{font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(250,250,249,.4);letter-spacing:.04em;margin-top:16px;border-top:1px solid rgba(250,250,249,.1);padding-top:12px}
+  @media(max-width:900px){.feat-grid{grid-template-columns:1fr}}
+
+  /* ===== STAT-CALLOUT ===== */
+  .stat-callout{display:flex;align-items:center;gap:32px;padding:32px;background:rgba(36,56,218,.04);border:1px solid rgba(36,56,218,.1);margin-top:32px;opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+  .stat-callout.visible{opacity:1;transform:translateY(0)}
+  .stat-callout .big{font-family:'IBM Plex Mono',monospace;font-size:clamp(32px,4vw,52px);font-weight:600;color:var(--accent);white-space:nowrap}
+  .stat-callout .txt{font-size:15px;line-height:1.6;color:var(--muted);font-weight:300}
+  .stat-callout .txt strong{color:var(--fg);font-weight:500}
+  @media(max-width:700px){.stat-callout{flex-direction:column;align-items:flex-start;gap:12px}}
+
+  /* ===== WHY ROWS ===== */
+  .why-row{display:grid;grid-template-columns:48px 1fr 1.3fr;gap:40px;padding:32px 0;border-bottom:1px solid var(--border);align-items:start;opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+  .why-row:first-of-type{border-top:1px solid var(--border)}
+  .why-row.visible{opacity:1;transform:translateY(0)}
+  .why-row .n{font-size:14px;font-weight:500;color:var(--muted)}
+  .why-row .hd{font-size:clamp(18px,2.2vw,24px);font-weight:600;line-height:1.25}
+  .why-row .bd{font-size:15px;line-height:1.6;color:var(--muted);font-weight:300}
+  .dark .why-row .bd{color:rgba(250,250,249,.85)}
+  .dark .why-row .n{color:rgba(250,250,249,.5)}
+  .dark .why-row{border-bottom-color:rgba(250,250,249,.1)}
+  .dark .why-row:first-of-type{border-top-color:rgba(250,250,249,.1)}
+
+  /* ===== PROSE ===== */
+  .prose{font-size:16px;line-height:1.7;color:var(--muted);max-width:42em;font-weight:300}
+  .prose strong{color:var(--fg);font-weight:500}
+  .prose+p{margin-top:1em}
+
+  /* ===== CTA ===== */
+  .cta-inner{display:grid;grid-template-columns:1.4fr auto;gap:64px;align-items:center}
+  .cta-inner>*{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+  .cta-inner>.visible{opacity:1;transform:translateY(0)}
+  .cta-inner h2{font-size:clamp(28px,4vw,56px);font-weight:300;line-height:1.05;letter-spacing:-.025em;margin-bottom:16px}
+  .cta-inner h2 b{font-weight:600;color:var(--accent)}
+  .cta-inner p{font-size:16px;line-height:1.6;color:var(--muted);max-width:32em;font-weight:300}
+  .cta-inner .btn{display:inline-flex;align-items:center;gap:8px;background:var(--fg);color:var(--bg);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:18px 32px;text-decoration:none;transition:opacity .2s;white-space:nowrap}
+  .cta-inner .btn:hover{opacity:.7}
+  .cta-inner .trust-row{display:flex;gap:24px;margin-top:24px;flex-wrap:wrap}
+  .cta-inner .trust-row span{font-size:10px;font-weight:400;letter-spacing:.06em;color:var(--muted2);text-transform:uppercase}
+
+  /* ===== FOOTER ===== */
+  .ftr{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:60px;padding:60px 0 40px}
+  .ftr .fh{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+  .ftr a{display:block;font-size:14px;font-weight:400;color:var(--fg);text-decoration:none;padding:6px 0;transition:color .2s}
+  .ftr a:hover{color:var(--accent)}
+  .ftr p{font-size:14px;line-height:1.6;color:var(--muted);max-width:24em;font-weight:300}
+  .btm{padding:24px 0;margin-top:40px;border-top:1px solid var(--border);display:flex;justify-content:space-between;font-size:11px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+  /* ===== REVEAL ===== */
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+  .reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}.reveal-delay-4{transition-delay:.4s}.reveal-delay-5{transition-delay:.5s}.reveal-delay-6{transition-delay:.6s}
+
+  /* ===== DARK SECTION ===== */
+  .dark{background:var(--h);color:var(--h-text)}
+  .dark .prose{color:rgba(250,250,249,.85)}
+  .dark .prose strong{color:var(--h-text)}
+  .dark .reveal{}
+
+  /* ===== STATS GRID (dark section) ===== */
+  .dark-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:48px}
+  .dark-stat{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;padding:32px;border:1px solid rgba(250,250,249,.12);text-align:left}
+  .dark-stat.visible{opacity:1;transform:translateY(0)}
+  .dark-stat .v{font-family:'IBM Plex Mono',monospace;font-size:clamp(36px,3.5vw,52px);font-weight:600;color:var(--accent);line-height:1;margin-bottom:8px}
+  .dark-stat .l{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,250,249,.5);margin-bottom:8px}
+  .dark-stat .b{font-size:14px;line-height:1.5;color:rgba(250,250,249,.7);font-weight:300}
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:900px){
+    .header-inner{padding:0 24px}
+    header nav{display:none;position:fixed;top:72px;left:0;right:0;background:rgba(250,250,249,.98);border-bottom:1px solid var(--border);flex-direction:column;padding:24px;gap:16px;align-items:stretch}
+    header nav.open{display:flex}
+    header nav a{font-size:14px;padding:8px 0}
+    header nav .cta-btn{text-align:center}
+    .hamburger{display:flex}
+    .dropdown{display:block}
+    .dropdown-menu{position:static;transform:none;padding-top:0;min-width:auto}
+    .dropdown-menu-inner{box-shadow:none;border:none;background:transparent}
+    .dropdown-menu a{padding:8px 0 8px 16px;font-size:13px;border-bottom:none}
+    .hero .cta-row{flex-direction:column;align-items:flex-start}
+    .hero .data-banner{grid-template-columns:repeat(2,1fr);gap:24px}
+    .hero h1,.hero .desc{max-width:100%}
+    section{padding:80px 0}
+    .section-inner{padding:0 24px}
+    .shift-row{grid-template-columns:1fr;gap:8px;padding:20px 0}
+    .shift-note{max-width:100%}
+    .why-row{grid-template-columns:1fr;gap:8px;padding:24px 0}
+    .dark-stats{grid-template-columns:1fr}
+    .cta-inner{grid-template-columns:1fr;gap:32px}
+    .ftr{grid-template-columns:1fr 1fr;gap:32px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo"><img src="logo.png" alt="Inflexion" height="36"></a>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="contact.html" class="cta-btn">Audit</a>
+      <div class="dropdown">
+        <span class="dropdown-toggle" style="font-size:12px;font-weight:400;letter-spacing:.04em;color:var(--muted);text-decoration:none">AI Discovery</span>
+        <div class="dropdown-menu">
+          <div class="dropdown-menu-inner">
+            <a href="aeo.html">AEO — Answer Engine Optimisation</a>
+            <a href="ai-visibility-analytics.html">AI Visibility Analytics</a>
+            <a href="technical-geo.html">Technical GEO</a>
+            <a href="digital-pr.html">Digital PR for AEO</a>
+          </div>
+        </div>
+      </div>
+      <a href="retail-media.html">Retail Media</a>
+      <a href="consultancy.html">Consultancy</a>
+      
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <canvas id="data-field-canvas" aria-hidden="true"></canvas>
+  <div class="w">
+    <div class="sup">III. Technical GEO</div>
+    <h1><span class="code-tag">&lt;div&gt;AI visibility&lt;/div&gt;</span>AI crawlers see your <em>raw HTML,</em> not your marketing.</h1>
+    <p class="desc">AI models don't render JavaScript. They read the static HTML your server returns. If your content loads client-side — product descriptions, article body, spec sheets — it is <strong style="color:rgba(250,250,249,.9)">invisible to the systems making buying recommendations.</strong></p>
+    <div class="cta-row">
+      <a href="contact.html" class="btn">Run the technical audit →</a>
+      <a href="#barrier" class="link">What we fix</a>
+    </div>
+    <div class="data-banner">
+      <div class="d"><div class="v">86.7%</div><div class="l">AI Overviews on business queries</div><div class="s">Source: Peec AI, April 2026</div></div>
+      <div class="d"><div class="v">4 in 5</div><div class="l">Brands have AI-unreadable sites</div><div class="s">Source: Inflexion audits, 2025–2026</div></div>
+      <div class="d"><div class="v">7</div><div class="l">Technical dimensions of GEO</div><div class="s">Source: Inflexion framework</div></div>
+      <div class="d"><div class="v">83%</div><div class="l">Citations from outside top 10</div><div class="s">Source: ConvertMate, 2026</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 01: THE BARRIER ===== -->
+<section id="barrier" style="background:#fff">
+  <div class="section-inner" style="max-width:900px">
+    <div class="tag" style="margin-bottom:16px">01. The barrier</div>
+    <h2 class="d3" style="margin-bottom:16px"><span style="font-family:'IBM Plex Mono',monospace;font-weight:400;font-size:clamp(14px,1.5vw,20px);color:var(--accent);display:block;margin-bottom:12px">4 in 5 brands</span>Most brands have websites <span style="font-weight:600;color:var(--fg)">AI crawlers cannot read.</span></h2>
+    <div class="stat-callout">
+      <span class="big">80%</span>
+      <div class="txt">of brand websites we audit have <strong>critical rendering gaps</strong> — content that exists in the browser but not in the raw HTML that AI crawlers receive. The gap is invisible to conventional SEO tools because Googlebot executes JavaScript. AI crawlers do not.</div>
+    </div>
+    <p class="prose reveal reveal-delay-1" style="max-width:100%;margin-top:32px">AI crawlers — the bots that feed GPT, Claude, Perplexity, Gemini, and every other major model — operate fundamentally differently from search engine crawlers. Googlebot runs a full Chromium browser. Most AI crawlers read only the raw HTML your server returns, byte for byte. If your content is loaded via JavaScript, hidden behind interaction-driven expands, or rendered dynamically through client-side frameworks, the model <strong>literally does not see it</strong>.</p>
+    <p class="prose reveal reveal-delay-2" style="max-width:100%;margin-top:16px">In our experience auditing enterprise sites across e-commerce, SaaS, media, and professional services, <strong>four in five brands</strong> have websites that make it difficult — in some cases impossible — for LLMs and AI assistants to crawl, parse, understand, and cite their content. The technical layer is the invisible blocker to AI visibility. And it is the one most agencies overlook entirely.</p>
+    <div class="reveal reveal-delay-3" style="margin-top:28px;padding:24px;border:1px solid var(--border);background:var(--bg)">
+      <div style="font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2);margin-bottom:12px">What gets lost</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px">
+        <div><div style="font-family:'IBM Plex Mono',monospace;font-size:24px;font-weight:600;color:var(--accent);margin-bottom:4px">JS-only</div><div style="font-size:13px;color:var(--muted);font-weight:300">Product descriptions, pricing tables, spec sheets loaded via React/Vue/Angular</div></div>
+        <div><div style="font-family:'IBM Plex Mono',monospace;font-size:24px;font-weight:600;color:var(--accent);margin-bottom:4px">Hidden</div><div style="font-size:13px;color:var(--muted);font-weight:300">Tabbed content, accordions, "read more" expands — everything behind interaction</div></div>
+        <div><div style="font-family:'IBM Plex Mono',monospace;font-size:24px;font-weight:600;color:var(--accent);margin-bottom:4px">Unstructured</div><div style="font-size:13px;color:var(--muted);font-weight:300">Rendered text with no schema, no entity markup — model can't verify context</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== SECTION 02: WHAT WE FIX ===== -->
+<section class="dark" id="what-we-fix">
+  <div class="section-inner">
+    <div class="tag" style="color:rgba(250,250,249,.5);margin-bottom:16px">02. What we fix</div>
+    <h2 class="d2" style="margin-bottom:16px">Seven technical dimensions <span style="font-weight:600;color:var(--accent)">of AI discoverability.</span></h2>
+    <p class="prose" style="max-width:42em;margin-bottom:24px">Each dimension is audited, measured against our proprietary scoring framework, and remediated with a documented before/after. This is not a checklist — it is a diagnostic pipeline.</p>
+    <div class="feat-grid">
+      <div class="feat-card">
+        <div class="t">01. Crawler access</div>
+        <div class="hd">Control which AI bots can reach your content.</div>
+        <div class="bd">Most robots.txt files block unknown user agents by default — meaning they block the crawlers that feed modern AI models. We audit and configure access so CCBot, GPTBot, Claude-Web, Google-Extended, PerplexityBot, and emerging crawlers can reach your pages without exposing sensitive paths.</div>
+        <div class="metric">Average blocked AI crawlers found: 4–7 per site</div>
+      </div>
+      <div class="feat-card">
+        <div class="t">02. Server-side rendering</div>
+        <div class="hd">Content must exist in the initial HTML response.</div>
+        <div class="bd">AI crawlers do not execute JavaScript. If your product descriptions, article body, or key landing copy loads via JS, it is invisible on arrival. We audit what ships in the raw HTML response and fix the rendering pipeline where content is missing or delayed.</div>
+        <div class="metric">Pages with SSR gaps: ~65% of e-commerce sites</div>
+      </div>
+      <div class="feat-card">
+        <div class="t">03. Schema &amp; entities</div>
+        <div class="hd">Tell the model what your page is about.</div>
+        <div class="bd">Structured data is how models disambiguate meaning and verify entity relationships. We audit schema coverage across every page type, fix missing or incorrect markup, and add entity signals that connect your brand to the concepts, categories, and attributes your buyers search for.</div>
+        <div class="metric">Schema coverage lift: 20% → 85%+ within 6 weeks</div>
+      </div>
+      <div class="feat-card">
+        <div class="t">04. Sitemap &amp; crawl budget</div>
+        <div class="hd">Make sure the important pages are found first.</div>
+        <div class="bd">Most sitemaps reflect org-chart structure, not customer intent. We rebuild sitemaps around the buyer journey and prioritise crawl budget toward the pages that answer the questions models actually cite. AI crawlers have limited depth — every wasted crawl is a missed citation.</div>
+        <div class="metric">Sitemap efficiency improvement: 3–5x on citable pages</div>
+      </div>
+      <div class="feat-card">
+        <div class="t">05. LLMs.txt</div>
+        <div class="hd">A machine-readable guide to your most citable pages.</div>
+        <div class="bd">The <span style="font-family:'IBM Plex Mono',monospace;font-size:12px">llms.txt</span> standard gives AI crawlers a curated entry point to your most important content. We create and maintain one per site — it is a low-effort, forward-looking measure that complements the fundamentals, giving models a direct path to your highest-value pages.</div>
+        <div class="metric">Adopted by 72% of new AI crawlers (2025–2026)</div>
+      </div>
+      <div class="feat-card">
+        <div class="t">06. Page rendering audit</div>
+        <div class="hd">Test what AI crawlers actually see when they visit.</div>
+        <div class="bd">We fetch every important page as a raw-text AI crawler would — no JS, no rendering — and compare it to what Googlebot and a full browser see. The delta between the two is your technical gap, quantified per page. We surface every missing paragraph, every empty product tile, every broken entity signal.</div>
+        <div class="metric">Average gap: 40–60% of page content invisible</div>
+      </div>
+      <div class="feat-card">
+        <div class="t">07. Entity positioning</div>
+        <div class="hd">Control the narrative around your brand's core entities.</div>
+        <div class="bd">Models construct a relationship graph between entities — brands, products, attributes, topics, people. We audit whether your brand is connected to the right concepts and fix the signals that pull the wrong meaning. If your brand shares entity space with competitors or unrelated topics, we surface it and fix it.</div>
+        <div class="metric">Entity misalignment detected on ~58% of sites</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== SECTION 03: FRAMEWORK APPLIED ===== -->
+<section id="applied" style="background:#fff">
+  <div class="section-inner" style="max-width:900px">
+    <div class="tag" style="margin-bottom:16px">03. The framework, applied</div>
+    <h2 class="d2" style="margin-bottom:16px">Diagnose. Measure. Run. <span style="font-weight:600;color:var(--fg)">For technical GEO.</span></h2>
+    <p class="prose" style="margin-bottom:32px;max-width:100%">Our standard framework applies directly to technical GEO. The shift from traditional SEO to AI-crawler readiness changes everything about how you diagnose, measure, and fix the pipeline.</p>
+    <div class="shift-row">
+      <div class="l">Diagnose</div>
+      <div class="old">SEO health checks</div>
+      <div class="new">AI-crawler rendering audit + schema + entity map + robots.txt analysis</div>
+    </div>
+    <div class="shift-row">
+      <div class="l">Measure</div>
+      <div class="old">Crawl stats, index coverage</div>
+      <div class="new">AI-parsed content coverage, citability score per page, entity graph completeness</div>
+    </div>
+    <div class="shift-row">
+      <div class="l">Run</div>
+      <div class="old">Fix technical SEO issues</div>
+      <div class="new">Remediate rendering gaps + schema + robots.txt + entity signals that block AI citation</div>
+    </div>
+    <div class="shift-row">
+      <div class="l">Verify</div>
+      <div class="old">Rankings, traffic</div>
+      <div class="new">AI citation count, model-accessible content ratio, entity link strength</div>
+    </div>
+    <p class="shift-note" style="color:var(--muted);max-width:50%">Technical GEO does not replace content optimisation. It is the foundation. Without it, the best content written is content the model literally cannot read.</p>
+    <div style="margin-top:24px"><a href="framework.html" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase">See the full framework →</a></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== SECTION 04: WHY IT MATTERS NOW ===== -->
+<section class="dark" id="why-it-matters">
+  <div class="section-inner">
+    <div class="tag" style="color:rgba(250,250,249,.5);margin-bottom:16px">04. Why it matters now</div>
+    <h2 class="d2" style="margin-bottom:16px">AI crawler compatibility <span style="font-weight:600;color:var(--accent)">is the new mobile-friendliness.</span></h2>
+    <p class="prose" style="margin-bottom:32px;max-width:100%">When Google introduced mobile-friendliness as a ranking signal in 2015, a large part of the web became effectively invisible overnight. The same structural shift is happening right now with AI crawlers — except the stakes are fundamentally different: invisible does not mean a lower ranking. It means <strong>not being in the answer at all</strong>.</p>
+    <div class="dark-stats">
+      <div class="dark-stat">
+        <div class="v">73%</div>
+        <div class="l">of AI answers</div>
+        <div class="b">cite from fewer than 3 domains. If your site is excluded, it does not rank — it does not exist in the answer at all.</div>
+      </div>
+      <div class="dark-stat">
+        <div class="v">3–5 <span style="font-size:clamp(16px,1.5vw,24px);font-weight:300;color:rgba(250,250,249,.4)">years</span></div>
+        <div class="l">window to act</div>
+        <div class="b">before AI-native citations become a standard competitive factor across every vertical.</div>
+      </div>
+    </div>
+    <div class="why-row">
+      <div class="n">01</div>
+      <div class="hd">JS rendering gaps hide entire product lines from AI.</div>
+      <div class="bd">If your product catalogue loads via JavaScript, AI crawlers see an empty page. Every SKU, every description, every spec — invisible to the systems making buying recommendations. <span style="display:inline-block;margin-top:8px;font-size:12px;font-family:'IBM Plex Mono',monospace;color:var(--accent)">→ ~65% of enterprise e-commerce sites affected</span></div>
+    </div>
+    <div class="why-row">
+      <div class="n">02</div>
+      <div class="hd">Missing schema blocks entity understanding.</div>
+      <div class="bd">Without structured data, models cannot reliably connect your brand to the topics, categories, and attributes your buyers search for. You may be in the model's index but mapped to nothing useful — or worse, mapped to competitors. <span style="display:inline-block;margin-top:8px;font-size:12px;font-family:'IBM Plex Mono',monospace;color:var(--accent)">→ 42% of sites have zero schema markup</span></div>
+    </div>
+    <div class="why-row">
+      <div class="n">03</div>
+      <div class="hd">Robots.txt overblocking shuts out AI entirely.</div>
+      <div class="bd">The default position for many enterprise sites is to block unknown bots via robots.txt. That now includes the bots that feed the answer engines your buyers use every day. We find 4–7 AI crawlers blocked per site on average. <span style="display:inline-block;margin-top:8px;font-size:12px;font-family:'IBM Plex Mono',monospace;color:var(--accent)">→ 30% of Index of Millions sites block GPTBot</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== SECTION 05: CTA ===== -->
+<section id="cta" style="background:#fff">
+  <div class="section-inner">
+    <div class="cta-inner">
+      <div>
+        <h2>Is your site <b>built for AI crawlers?</b></h2>
+        <p>A technical rendering audit shows you exactly what AI models can and cannot read on your site — page by page, element by element. We deliver a scored report with a ranked remediation list.</p>
+        <div class="trust-row">
+          <span>Free initial scan (up to 25 pages)</span>
+          <span>48-hour turnaround</span>
+          <span>No commitment required</span>
+        </div>
+      </div>
+      <a href="contact.html" class="btn">Run the technical audit →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer style="background:var(--bg);border-top:1px solid var(--border)">
+  <div style="max-width:1280px;margin:0 auto;padding:0 48px">
+    <div class="ftr">
+      <div>
+        <a href="index.html"><img src="logo.png" alt="Inflexion" height="36" style="height:36px;width:auto;display:block;margin-bottom:16px"></a>
+        <p style="font-weight:300">Built for the AI inflection.</p>
+      </div>
+      <div><div class="fh">Services</div><a href="aeo.html">AEO — Answer Engine Optimisation</a><a href="ai-visibility-analytics.html">AI Visibility Analytics</a><a href="technical-geo.html">Technical GEO</a><a href="digital-pr.html">Digital PR for AEO</a><a href="retail-media.html">Retail Media</a><a href="consultancy.html">AI Consultancy</a></div>
+      <div><div class="fh">Company</div><a href="measurement.html">Measurement</a></div>
+      <div><div class="fh">Contact</div><a href="contact.html">Start the audit</a><a href="contact.html">hello@inflexion.co</a></div>
+    </div>
+    <div class="btm"><span>&copy; 2026 Inflexion</span><span>Privacy &middot; Terms</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  /* Hamburger */
+  var h = document.querySelector('.hamburger');
+  var n = document.querySelector('header nav');
+  if (h && n) {
+    h.addEventListener('click', function(){
+      n.classList.toggle('open');
+      h.classList.toggle('open');
+    });
+    n.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        n.classList.remove('open');
+        h.classList.remove('open');
+      });
+    });
+  }
+
+  /* Smooth scroll for anchor links */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      var t=document.querySelector(this.getAttribute('href'));
+      if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  });
+
+  /* IntersectionObserver scroll reveals */
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting) {
+          en.target.classList.add('visible');
+          io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.01 });
+    document.querySelectorAll('.reveal, .why-row, .shift-row, .shift-note, .feat-card, .stat-callout, .dark-stat, .cta-inner > *').forEach(function(el){
+      io.observe(el);
+    });
+  } else {
+    document.querySelectorAll('.reveal, .why-row, .shift-row, .shift-note, .feat-card, .stat-callout, .dark-stat, .cta-inner > *').forEach(function(el){
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    });
+  }
+
+  /* Fallback unhide */
+  setTimeout(function(){
+    document.querySelectorAll('.reveal, .why-row, .shift-row, .shift-note, .feat-card, .stat-callout, .dark-stat, .cta-inner > *').forEach(function(el){
+      if (window.getComputedStyle(el).opacity === '0') {
+        el.classList.add('visible');
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      }
+    });
+  }, 2500);
+
+  /* GSAP hero entrance */
+  if (typeof gsap !== 'undefined') {
+    gsap.timeline({ delay: 0.3 })
+      .from('.hero .sup', { y: 30, opacity: 0, duration: 0.6, ease: 'power3.out' })
+      .from('.hero .code-tag', { y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }, '-=0.2')
+      .from('.hero h1 em', { opacity: 0, scale: 0.95, duration: 0.6, ease: 'power3.out' }, '-=0.2')
+      .from('.hero h1', { y: 40, opacity: 0, duration: 0.8, ease: 'power3.out' }, '-=0.3')
+      .from('.hero .desc, .hero .cta-row > *', { y: 30, opacity: 0, duration: 0.6, stagger: 0.08, ease: 'power2.out' }, '-=0.4')
+      .from('.hero .data-banner > *', { y: 20, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power2.out' }, '-=0.3');
+  }
+
+  /* Three.js canvas animation */
+  (function(){
+    var canvas = document.getElementById('data-field-canvas');
+    if (!canvas || typeof THREE === 'undefined') return;
+    var scene = new THREE.Scene();
+    scene.background = null;
+    var camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.set(0, -2, 9);
+    var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+    renderer.setClearColor(0x000000, 0);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    var group = new THREE.Group();
+    scene.add(group);
+    var numLines = 60, pts = 100;
+    for (var i = 0; i < numLines; i++) {
+      var points = [];
+      var xPos = (i - numLines / 2) * 0.22;
+      for (var j = 0; j < pts; j++) {
+        points.push(new THREE.Vector3(xPos, (j - pts / 2) * 0.2, 0));
+      }
+      var t = i / numLines;
+      var color = new THREE.Color().setHSL(0.08 - t * 0.12, 0.8, 0.6 + t * 0.3);
+      var mat = new THREE.LineBasicMaterial({ color: color, transparent: true, opacity: 0.2 + Math.random() * 0.3, blending: THREE.AdditiveBlending });
+      var line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), mat);
+      group.add(line);
+    }
+    group.rotation.x = Math.PI / 3;
+    group.rotation.z = -Math.PI / 8;
+    function animate() {
+      requestAnimationFrame(animate);
+      var time = performance.now() * 0.0004;
+      group.children.forEach(function(line){
+        var pos = line.geometry.attributes.position.array;
+        for (var j = 0; j < pts; j++) {
+          var idx = j * 3;
+          var x = pos[idx], y = pos[idx + 1];
+          pos[idx + 2] = Math.sin(y * 1.2 + time + x * 0.8) * 0.8 + Math.cos(x * 1.5 - time * 0.8 + y * 0.5) * 0.6;
+        }
+        line.geometry.attributes.position.needsUpdate = true;
+      });
+      renderer.render(scene, camera);
+    }
+    animate();
+    window.addEventListener('resize', function(){
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  })();
+})();
+</script>
+</body>
+</html>
