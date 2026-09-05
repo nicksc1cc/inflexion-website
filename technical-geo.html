@@ -32,10 +32,29 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<link rel="stylesheet" href="assets/common.css">
 <style>
-  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  :root{--bg:#FAFAF9;--fg:#0A0A0B;--muted:#71717A;--muted2:#A1A1AA;--accent:#FF5A1F;--accent2:#FF5A1F;--border:#E4E4E7;--h:#0A0A0B;--h-text:#FAFAF9;--stat-bg:rgba(36,56,218,.04);--stat-border:rgba(36,56,218,.1)}
+  .feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px}
+  .feat-card{padding:32px;border:1px solid rgba(250,250,249,.12);background:rgba(250,250,249,.04);
+    opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+  .feat-card.visible{opacity:1;transform:translateY(0)}
+  .feat-card:hover{border-color:rgba(255,90,31,.4)}
+  .feat-card .t{font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+  .feat-card .hd{font-size:clamp(20px,1.8vw,24px);font-weight:600;line-height:1.15;margin-bottom:12px;color:var(--h-text)}
+  .feat-card .bd{font-size:14px;line-height:1.6;color:rgba(250,250,249,.7);font-weight:300}
+  .feat-card .metric{font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(250,250,249,.4);letter-spacing:.04em;
+    margin-top:16px;border-top:1px solid rgba(250,250,249,.1);padding-top:12px}
+  .dark-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:48px}
+  .dark-stat{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;
+    padding:32px;border:1px solid rgba(250,250,249,.12);text-align:left}
+  .dark-stat.visible{opacity:1;transform:translateY(0)}
+  .dark-stat .v{font-family:'IBM Plex Mono',monospace;font-size:clamp(36px,3.5vw,52px);font-weight:600;color:var(--accent);line-height:1;margin-bottom:8px}
+  .dark-stat .l{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,250,249,.5);margin-bottom:8px}
+  .dark-stat .b{font-size:14px;line-height:1.5;color:rgba(250,250,249,.7);font-weight:300}
+  @media(max-width:900px){.feat-grid{grid-template-columns:1fr}.dark-stats{grid-template-columns:1fr}}
+</style>
+
   body{font-family:'Montserrat',-apple-system,sans-serif;background:var(--bg);color:var(--fg);-webkit-font-smoothing:antialiased}
   ::selection{background:var(--accent);color:#0A0A0B}
   .mono{font-family:'IBM Plex Mono',monospace}
@@ -366,7 +385,7 @@
       <div class="new">AI citation count, model-accessible content ratio, entity link strength</div>
     </div>
     <p class="shift-note" style="color:var(--muted);max-width:50%">Technical GEO does not replace content optimisation. It is the foundation. Without it, the best content written is content the model literally cannot read.</p>
-    <div style="margin-top:24px"><a href="framework.html" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase">See the full framework →</a></div>
+    <div style="margin-top:24px"><a href="contact.html" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase">See the full framework →</a></div>
   </div>
 </section>
 

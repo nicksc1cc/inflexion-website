@@ -32,11 +32,34 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<link rel="stylesheet" href="assets/common.css">
 <style>
-  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  :root{--bg:#FAFAF9;--fg:#0A0A0B;--muted:#71717A;--muted2:#A1A1AA;--accent:#FF5A1F;--accent2:#FF5A1F;--border:#E4E4E7;--h:#0A0A0B;--h-text:#FAFAF9;--stat-bg:rgba(36,56,218,.04);--stat-border:rgba(36,56,218,.1)}
+  .page{position:relative}
+  .content-area{max-width:1280px;margin:0 auto;padding:64px 48px}
+  .sec-hdr{display:flex;align-items:baseline;gap:16px;margin-bottom:48px}
+  .sec-hdr .n{font-size:14px;font-weight:500;color:var(--accent);opacity:.5}
+  .sec-hdr .l{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px}
+  .feat-card{padding:32px;border:1px solid var(--border);background:rgba(255,255,255,.08)}
+  .feat-card .t{font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+  .feat-card .hd{font-size:clamp(20px,1.8vw,24px);font-weight:600;line-height:1.15;margin-bottom:12px}
+  .feat-card .bd{font-size:14px;line-height:1.6;color:var(--muted);font-weight:300}
+  .data-callout{background:rgba(36,56,218,.04);border-left:3px solid var(--accent);padding:24px 32px;margin-top:32px;border-radius:0 4px 4px 0}
+  .data-callout .val{font-size:clamp(32px,6vw,56px);font-weight:200;color:var(--accent);line-height:1}
+  .data-callout .ctx{font-size:14px;line-height:1.6;color:var(--muted);font-weight:300;margin-top:8px}
+  .bx.dark .data-callout{background:rgba(255,255,255,.06);border-left-color:var(--accent)}
+  .bx.dark .data-callout .val{color:var(--accent)}
+  .bx.dark .data-callout .ctx{color:rgba(250,250,249,.8)}
+  .three-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:32px}
+  .three-card{padding:32px;border:1px solid var(--border);background:rgba(255,255,255,.06)}
+  .three-card .t{font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+  .three-card .hd{font-size:clamp(16px,1.5vw,20px);font-weight:600;line-height:1.2;margin-bottom:8px}
+  .three-card .bd{font-size:14px;line-height:1.6;color:var(--muted);font-weight:300}
+  @media(max-width:900px){.content-area{padding:32px 24px}.feat-grid{grid-template-columns:1fr}.three-grid{grid-template-columns:1fr}}
+</style>
+
   body{font-family:'Montserrat',-apple-system,sans-serif;background:var(--bg);color:var(--fg);-webkit-font-smoothing:antialiased}
   ::selection{background:var(--accent);color:#0A0A0B}
   .mono{font-family:'IBM Plex Mono',monospace}
@@ -333,7 +356,7 @@
     <div class="new">Citation-weighted media outreach, targeted entity building, community presence, data journalism</div>
   </div>
   <p class="shift-note reveal reveal-delay-5">The output is a citation footprint, not a link portfolio. You read it monthly against a fixed prompt set and see exactly which piece of coverage moved the number — no attribution guesswork.</p>
-  <div style="margin-top:24px"><a href="framework.html" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent)">See the full framework →</a></div>
+  <div style="margin-top:24px"><a href="contact.html" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent)">See the full framework →</a></div>
 </div>
 
 <!-- 05. HOW WE MEASURE -->
