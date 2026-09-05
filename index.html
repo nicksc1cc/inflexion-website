@@ -128,6 +128,66 @@
 
 <div class="divider"></div>
 
+<!-- 03. WHAT WE DO -->
+<section id="services" style="background:#fff">
+  <div class="section-inner">
+    <div class="tag" style="margin-bottom:16px">03. What we do</div>
+    <h2 class="d2" style="margin-bottom:16px">Six capabilities. <span style="font-weight:600;color:var(--accent)">One system.</span></h2>
+    <p class="prose" style="margin-bottom:48px;max-width:36em">Each capability stands alone. Together they form the only marketing operating model built for an AI-mediated buyer journey.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="num">I</div>
+        <div class="title">AEO — Answer Engine Optimisation</div>
+        <div class="desc">Visibility monitoring, technical GEO, content and PR, run together to earn citations from the models your buyers actually use.</div>
+        <div class="proof"><span>+40% visibility lift</span><span>Princeton, KDD 2024</span></div>
+        <a href="aeo.html" class="link">How citation works <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <div class="service-card">
+        <div class="num">II</div>
+        <div class="title">SEO — Search Still Sends the Most Traffic</div>
+        <div class="desc">Technical fixes and content done properly, not assumed solved. Built to work for search engines and the models reading the same pages.</div>
+        <div class="proof"><span>53% of traffic still organic</span><span>Branch, 2026</span></div>
+        <a href="contact.html" class="link">Where SEO fits now <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <div class="service-card">
+        <div class="num">III</div>
+        <div class="title">Retail Media</div>
+        <div class="desc">Campaigns and optimisation across Amazon, Walmart, Instacart and the rest, with paid spend tracked separately from organic rank.</div>
+        <div class="proof"><span>5x AI referral conversion</span><span>Seer Interactive, 2025</span></div>
+        <a href="retail-media.html" class="link">How the shelf works <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <div class="service-card">
+        <div class="num">IV</div>
+        <div class="title">AI-Optimised Media</div>
+        <div class="desc">Bidding, allocation and creative testing adjusted against live performance data instead of a scheduled review.</div>
+        <div class="proof"><span>15.3% of budgets already AI-directed</span><span>Gartner, 2026</span></div>
+        <a href="contact.html" class="link">How AI media works <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <div class="service-card">
+        <div class="num">V</div>
+        <div class="title">Strategic Consultancy</div>
+        <div class="desc">Most teams run discovery, retail and media as separate jobs with separate budgets and separate data. We run them as one.</div>
+        <div class="proof"><span>92% plan to, 40.6% do</span><span>ConvertMate, 2026</span></div>
+        <a href="consultancy.html" class="link">The operating model <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <div class="service-card">
+        <div class="num">VI</div>
+        <div class="title">Data & Measurement</div>
+        <div class="desc">One framework covering AI visibility, retail rank and media performance, so you can see what's actually driving results.</div>
+        <div class="proof"><span>Only 30% stay visible across sessions</span><span>AirOps, 2026</span></div>
+        <a href="measurement.html" class="link">See the framework <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- CTA -->
 <section id="cta" style="background:#fff">
   <div class="section-inner">
@@ -177,12 +237,12 @@
     var io=new IntersectionObserver(function(entries){
       entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('visible');io.unobserve(en.target)}});
     },{threshold:0.01});
-    document.querySelectorAll('.shift-row, .shift-note, .svc, .why-row, .proc-step, .stat-card, .research-item, .quote-block, .reveal, .cta-inner > *').forEach(function(el){io.observe(el)});
+    document.querySelectorAll('.shift-row, .shift-note, .svc, .why-row, .proc-step, .stat-card, .research-item, .quote-block, .reveal, .cta-inner > *, .service-card').forEach(function(el){io.observe(el)});
   }else{
-    document.querySelectorAll('.shift-row, .shift-note, .svc, .why-row, .proc-step, .stat-card, .research-item, .quote-block, .reveal, .cta-inner > *').forEach(function(el){el.style.opacity='1';el.style.transform='none'});
+    document.querySelectorAll('.shift-row, .shift-note, .svc, .why-row, .proc-step, .stat-card, .research-item, .quote-block, .reveal, .cta-inner > *, .service-card').forEach(function(el){el.style.opacity='1';el.style.transform='none'});
   }
   setTimeout(function(){
-    document.querySelectorAll('.shift-row, .shift-note, .svc, .why-row, .proc-step, .stat-card, .research-item, .quote-block, .reveal, .cta-inner > *').forEach(function(el){
+    document.querySelectorAll('.shift-row, .shift-note, .svc, .why-row, .proc-step, .stat-card, .research-item, .quote-block, .reveal, .cta-inner > *, .service-card').forEach(function(el){
       if(window.getComputedStyle(el).opacity === '0'){el.classList.add('visible');el.style.opacity='1';el.style.transform='none'}
     });
   }, 2500);
