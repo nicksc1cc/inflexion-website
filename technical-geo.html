@@ -33,6 +33,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <link rel="stylesheet" href="assets/common.css">
 <style>
   .feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px}
@@ -464,77 +465,90 @@
 </footer>
 
 <script>
-(function(){
-  'use strict';
+  gsap.registerPlugin(ScrollTrigger);
 
-  /* Hamburger */
-  var h = document.querySelector('.hamburger');
-  var n = document.querySelector('header nav');
-  if (h && n) {
-    h.addEventListener('click', function(){
-      n.classList.toggle('open');
-      h.classList.toggle('open');
-    });
-    n.querySelectorAll('a').forEach(function(a){
-      a.addEventListener('click', function(){
-        n.classList.remove('open');
-        h.classList.remove('open');
-      });
-    });
-  }
+  // --- Hero entrance ---
+  gsap.timeline({delay:0.3})
+    .from('.hero .sup', { y: 30, opacity: 0, duration: 0.6, ease: 'power3.out' })
+    .from('.hero h1', { y: 40, opacity: 0, duration: 0.8, ease: 'power3.out' }, '-=0.3')
+    .from('.hero .desc, .hero .cta-row > *', { y: 30, opacity: 0, duration: 0.6, stagger: 0.1, ease: 'power2.out' }, '-=0.4')
+    .from('.hero .data-banner > *', { y: 20, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power2.out' }, '-=0.3');
 
-  /* Smooth scroll for anchor links */
-  document.querySelectorAll('a[href^="#"]').forEach(function(a){
-    a.addEventListener('click',function(e){
-      e.preventDefault();
-      var t=document.querySelector(this.getAttribute('href'));
-      if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
+  // --- Scroll-triggered reveals ---
+  const revealDefaults = { opacity: 0, y: 40, duration: 0.9, ease: 'power2.out' };
+  // Shift rows (.shift-row)
+  gsap.utils.toArray('.shift-row').forEach((el) => {
+    gsap.from(el.querySelector('.old'), {
+      ...revealDefaults,
+      x: -30,
+      scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+    });
+    gsap.from(el.querySelector('.new'), {
+      ...revealDefaults,
+      x: 30, delay: 0.1,
+      scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
     });
   });
 
-  /* IntersectionObserver scroll reveals */
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if (en.isIntersecting) {
-          en.target.classList.add('visible');
-          io.unobserve(en.target);
-        }
-      });
-    }, { threshold: 0.01 });
-    document.querySelectorAll('.reveal, .why-row, .shift-row, .shift-note, .feat-card, .stat-callout, .dark-stat, .cta-inner > *').forEach(function(el){
-      io.observe(el);
-    });
-  } else {
-    document.querySelectorAll('.reveal, .why-row, .shift-row, .shift-note, .feat-card, .stat-callout, .dark-stat, .cta-inner > *').forEach(function(el){
-      el.style.opacity = '1';
-      el.style.transform = 'none';
-    });
+  // feat-card
+  gsap.from('feat-card', {
+    ...revealDefaults,
+    stagger: 0.1,
+    scrollTrigger: { trigger: '.feat-card', start: 'top 80%', toggleActions: 'play none none none' }
+  });
+  // dark-stat
+  gsap.from('dark-stat', {
+    ...revealDefaults,
+    stagger: 0.1,
+    scrollTrigger: { trigger: '.dark-stat', start: 'top 80%', toggleActions: 'play none none none' }
+  });
+  // proc-step
+  gsap.from('proc-step', {
+    ...revealDefaults,
+    stagger: 0.1,
+    scrollTrigger: { trigger: '.proc-step', start: 'top 80%', toggleActions: 'play none none none' }
+  });
+  // stat-card
+  gsap.from('stat-card', {
+    ...revealDefaults,
+    stagger: 0.1,
+    scrollTrigger: { trigger: '.stat-card', start: 'top 80%', toggleActions: 'play none none none' }
+  });
+  // cta-inner
+  gsap.from('cta-inner', {
+    ...revealDefaults,
+    stagger: 0.1,
+    scrollTrigger: { trigger: '.cta-inner', start: 'top 80%', toggleActions: 'play none none none' }
+  });
+
+  // --- Reduced-motion ---
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    gsap.globalTimeline.clear();
+    ScrollTrigger.getAll().forEach(t => t.kill());
   }
 
-  /* Fallback unhide */
-  setTimeout(function(){
-    document.querySelectorAll('.reveal, .why-row, .shift-row, .shift-note, .feat-card, .stat-callout, .dark-stat, .cta-inner > *').forEach(function(el){
-      if (window.getComputedStyle(el).opacity === '0') {
-        el.classList.add('visible');
+  // --- Fallback ---
+  setTimeout(() => {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+      document.querySelectorAll('.econ-col, .econ-shift > *, .shift-row > *, .proc-step, .svc, .cta-inner > *').forEach(el => {
         el.style.opacity = '1';
         el.style.transform = 'none';
-      }
-    });
-  }, 2500);
+      });
+    }
+  }, 3000);
 
-  /* GSAP hero entrance */
-  if (typeof gsap !== 'undefined') {
-    gsap.timeline({ delay: 0.3 })
-      .from('.hero .sup', { y: 30, opacity: 0, duration: 0.6, ease: 'power3.out' })
-      .from('.hero .code-tag', { y: 20, opacity: 0, duration: 0.5, ease: 'power2.out' }, '-=0.2')
-      .from('.hero h1 em', { opacity: 0, scale: 0.95, duration: 0.6, ease: 'power3.out' }, '-=0.2')
-      .from('.hero h1', { y: 40, opacity: 0, duration: 0.8, ease: 'power3.out' }, '-=0.3')
-      .from('.hero .desc, .hero .cta-row > *', { y: 30, opacity: 0, duration: 0.6, stagger: 0.08, ease: 'power2.out' }, '-=0.4')
-      .from('.hero .data-banner > *', { y: 20, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power2.out' }, '-=0.3');
-  }
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})});
+  });
 
-  /* Three.js canvas animation */
+  // Mobile menu toggle
+  var h = document.querySelector('.hamburger');
+  var n = document.querySelector('header nav');
+  if(h){h.addEventListener('click',function(){n.classList.toggle('open');h.classList.toggle('open')})}
+  n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');h.classList.remove('open')})});
+
+  // Three.js Data Field animation
   (function(){
     var canvas = document.getElementById('data-field-canvas');
     if (!canvas || typeof THREE === 'undefined') return;
@@ -584,7 +598,17 @@
       renderer.setSize(window.innerWidth, window.innerHeight);
     });
   })();
-})();
+
+  // Mobile menu toggle
+  var h = document.querySelector('.hamburger');
+  var n = document.querySelector('header nav');
+  if(h){h.addEventListener('click',function(){n.classList.toggle('open');h.classList.toggle('open')})}
+  n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');h.classList.remove('open')})});
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})});
+  });
 </script>
 </body>
 </html>

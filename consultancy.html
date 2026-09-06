@@ -34,6 +34,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <link rel="stylesheet" href="assets/common.css">
 <style>
   .sec-hdr{display:flex;align-items:baseline;gap:16px;margin-bottom:48px}
@@ -434,59 +435,150 @@
 </footer>
 
 <script>
-(function(){
-  document.querySelectorAll('a[href^="#"]').forEach(function(a){
-    a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})
-  });
-  var h=document.querySelector('.hamburger'),n=document.querySelector('header nav');
-  if(h){h.addEventListener('click',function(){n.classList.toggle('open');h.classList.toggle('open')})}
-  if(n){n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');h.classList.remove('open')})})}
-  if(typeof gsap!=='undefined'){
-    gsap.timeline({delay:0.3})
-      .from('.hero .sup',{y:30,opacity:0,duration:0.6,ease:'power3.out'})
-      .from('.hero h1',{y:40,opacity:0,duration:0.8,ease:'power3.out'},'-=0.3')
-      .from('.hero .desc, .hero .cta-row > *',{y:30,opacity:0,duration:0.6,stagger:0.1,ease:'power2.out'},'-=0.4')
-      .from('.hero .data-banner > *',{y:20,opacity:0,duration:0.5,stagger:0.08,ease:'power2.out'},'-=0.3');
-  }
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('visible');io.unobserve(en.target)}});
-    },{threshold:0.01});
-    document.querySelectorAll('.reveal, .shift-row, .shift-note, .svc, .why-row, .proc-step, .stat-card, .client-strip, .cta-inner > *').forEach(function(el){io.observe(el)});
-  }else{
-    document.querySelectorAll('.reveal, .shift-row, .shift-note, .svc, .why-row, .proc-step, .stat-card, .client-strip, .cta-inner > *').forEach(function(el){el.style.opacity='1';el.style.transform='none'});
-  }
-  setTimeout(function(){
-    document.querySelectorAll('.reveal, .shift-row, .shift-note, .svc, .why-row, .proc-step, .stat-card, .cta-inner > *').forEach(function(el){
-      if(window.getComputedStyle(el).opacity==='0'){el.classList.add('visible');el.style.opacity='1';el.style.transform='none'}
+  gsap.registerPlugin(ScrollTrigger);
+
+  // --- Hero entrance ---
+  gsap.timeline({delay:0.3})
+    .from('.hero .sup', { y: 30, opacity: 0, duration: 0.6, ease: 'power3.out' })
+    .from('.hero h1', { y: 40, opacity: 0, duration: 0.8, ease: 'power3.out' }, '-=0.3')
+    .from('.hero .desc, .hero .cta-row > *', { y: 30, opacity: 0, duration: 0.6, stagger: 0.1, ease: 'power2.out' }, '-=0.4')
+    .from('.hero .data-banner > *', { y: 20, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power2.out' }, '-=0.3');
+
+  // --- Scroll-triggered reveals ---
+  const revealDefaults = { opacity: 0, y: 40, duration: 0.9, ease: 'power2.out' };
+  // Shift rows (.shift-row)
+  gsap.utils.toArray('.shift-row').forEach((el) => {
+    gsap.from(el.querySelector('.old'), {
+      ...revealDefaults,
+      x: -30,
+      scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
     });
-  },2500);
+    gsap.from(el.querySelector('.new'), {
+      ...revealDefaults,
+      x: 30, delay: 0.1,
+      scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+    });
+  });
+
+  // feat-card
+  gsap.from('feat-card', {
+    ...revealDefaults,
+    stagger: 0.1,
+    scrollTrigger: { trigger: '.feat-card', start: 'top 80%', toggleActions: 'play none none none' }
+  });
+  // client-strip span
+  gsap.from('client-strip span', {
+    ...revealDefaults,
+    stagger: 0.1,
+    scrollTrigger: { trigger: '.client-strip', start: 'top 80%', toggleActions: 'play none none none' }
+  });
+  // proc-step
+  gsap.from('proc-step', {
+    ...revealDefaults,
+    stagger: 0.1,
+    scrollTrigger: { trigger: '.proc-step', start: 'top 80%', toggleActions: 'play none none none' }
+  });
+  // stat-card
+  gsap.from('stat-card', {
+    ...revealDefaults,
+    stagger: 0.1,
+    scrollTrigger: { trigger: '.stat-card', start: 'top 80%', toggleActions: 'play none none none' }
+  });
+  // cta-inner
+  gsap.from('cta-inner', {
+    ...revealDefaults,
+    stagger: 0.1,
+    scrollTrigger: { trigger: '.cta-inner', start: 'top 80%', toggleActions: 'play none none none' }
+  });
+
+  // --- Reduced-motion ---
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    gsap.globalTimeline.clear();
+    ScrollTrigger.getAll().forEach(t => t.kill());
+  }
+
+  // --- Fallback ---
+  setTimeout(() => {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+      document.querySelectorAll('.econ-col, .econ-shift > *, .shift-row > *, .proc-step, .svc, .cta-inner > *').forEach(el => {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      });
+    }
+  }, 3000);
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})});
+  });
+
+  // Mobile menu toggle
+  var h = document.querySelector('.hamburger');
+  var n = document.querySelector('header nav');
+  if(h){h.addEventListener('click',function(){n.classList.toggle('open');h.classList.toggle('open')})}
+  n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');h.classList.remove('open')})});
+
+  // Three.js Data Field animation
   (function(){
-    var canvas=document.getElementById('data-field-canvas');
-    if(!canvas||typeof THREE==='undefined')return;
-    var scene=new THREE.Scene();scene.background=null;
-    var camera=new THREE.PerspectiveCamera(55,window.innerWidth/window.innerHeight,0.1,100);
-    camera.position.set(0,-2,9);
-    var renderer=new THREE.WebGLRenderer({canvas:canvas,alpha:true,antialias:true});
-    renderer.setClearColor(0x000000,0);
-    renderer.setSize(window.innerWidth,window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
-    var group=new THREE.Group();scene.add(group);
-    var numLines=60,pts=100;
-    for(var i=0;i<numLines;i++){
-      var points=[],xPos=(i-numLines/2)*0.22;
-      for(var j=0;j<pts;j++)points.push(new THREE.Vector3(xPos,(j-pts/2)*0.2,0));
-      var t=i/numLines,color=new THREE.Color().setHSL(0.08-t*0.12,0.8,0.6+t*0.3);
-      var mat=new THREE.LineBasicMaterial({color:color,transparent:true,opacity:0.2+Math.random()*0.3,blending:THREE.AdditiveBlending});
-      var line=new THREE.Line(new THREE.BufferGeometry().setFromPoints(points),mat);
+    var canvas = document.getElementById('data-field-canvas');
+    if (!canvas || typeof THREE === 'undefined') return;
+    var scene = new THREE.Scene();
+    scene.background = null;
+    var camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.set(0, -2, 9);
+    var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+    renderer.setClearColor(0x000000, 0);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    var group = new THREE.Group();
+    scene.add(group);
+    var numLines = 60, pts = 100;
+    for (var i = 0; i < numLines; i++) {
+      var points = [];
+      var xPos = (i - numLines / 2) * 0.22;
+      for (var j = 0; j < pts; j++) {
+        points.push(new THREE.Vector3(xPos, (j - pts / 2) * 0.2, 0));
+      }
+      var t = i / numLines;
+      var color = new THREE.Color().setHSL(0.08 - t * 0.12, 0.8, 0.6 + t * 0.3);
+      var mat = new THREE.LineBasicMaterial({ color: color, transparent: true, opacity: 0.2 + Math.random() * 0.3, blending: THREE.AdditiveBlending });
+      var line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), mat);
       group.add(line);
     }
-    group.rotation.x=Math.PI/3;group.rotation.z=-Math.PI/8;
-    function animate(){requestAnimationFrame(animate);var time=performance.now()*0.0004;group.children.forEach(function(line){var pos=line.geometry.attributes.position.array;for(var j=0;j<pts;j++){var idx=j*3,x=pos[idx],y=pos[idx+1];pos[idx+2]=Math.sin(y*1.2+time+x*0.8)*0.8+Math.cos(x*1.5-time*0.8+y*0.5)*0.6}line.geometry.attributes.position.needsUpdate=true});renderer.render(scene,camera)}
+    group.rotation.x = Math.PI / 3;
+    group.rotation.z = -Math.PI / 8;
+    function animate() {
+      requestAnimationFrame(animate);
+      var time = performance.now() * 0.0004;
+      group.children.forEach(function(line){
+        var pos = line.geometry.attributes.position.array;
+        for (var j = 0; j < pts; j++) {
+          var idx = j * 3;
+          var x = pos[idx], y = pos[idx + 1];
+          pos[idx + 2] = Math.sin(y * 1.2 + time + x * 0.8) * 0.8 + Math.cos(x * 1.5 - time * 0.8 + y * 0.5) * 0.6;
+        }
+        line.geometry.attributes.position.needsUpdate = true;
+      });
+      renderer.render(scene, camera);
+    }
     animate();
-    window.addEventListener('resize',function(){camera.aspect=window.innerWidth/window.innerHeight;camera.updateProjectionMatrix();renderer.setSize(window.innerWidth,window.innerHeight)});
+    window.addEventListener('resize', function(){
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
   })();
-})();
+
+  // Mobile menu toggle
+  var h = document.querySelector('.hamburger');
+  var n = document.querySelector('header nav');
+  if(h){h.addEventListener('click',function(){n.classList.toggle('open');h.classList.toggle('open')})}
+  n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');h.classList.remove('open')})});
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})});
+  });
 </script>
 </body>
 </html>
