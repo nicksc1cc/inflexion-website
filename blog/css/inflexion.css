@@ -1,0 +1,87 @@
+/* Inflexion Blog — Brand Override for Landscape Theme */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500&display=swap');
+
+:root {
+  --bg:#0A0A0B;
+  --fg:#FAFAF9;
+  --muted:#A1A1AA;
+  --accent:#FF5A1F;
+  --accent2:#2438DA;
+  --border:rgba(250,250,249,.12);
+}
+
+body {
+  font-family:'Montserrat',-apple-system,sans-serif;
+  background:var(--bg);
+  color:var(--fg);
+  -webkit-font-smoothing:antialiased;
+  font-weight:300;
+  line-height:1.7;
+  font-size:16px;
+}
+
+a { color:var(--accent); text-decoration:none; }
+a:hover { text-decoration:underline; }
+
+/* Header */
+header { background:var(--bg); border-bottom:1px solid var(--border); }
+header a { color:var(--muted); }
+header a:hover { color:var(--fg); }
+header h1 { font-weight:300; font-size:1.6rem; }
+header h1 a { color:var(--fg); }
+header .description { color:var(--muted); font-size:.85rem; }
+header nav a { color:var(--muted); }
+header nav a:hover { color:var(--accent); }
+
+/* Posts */
+article { border-bottom:1px solid var(--border); padding:2rem 0; }
+article h1, article h2 { font-weight:300; }
+article h1 a, article h2 a { color:var(--fg); }
+article .entry { color:var(--muted); }
+article .entry a { color:var(--accent); }
+
+/* Post meta */
+.article-meta { color:var(--muted); font-size:.85rem; }
+.article-meta a { color:var(--muted); }
+.article-meta a:hover { color:var(--accent); }
+.article-meta time { color:var(--muted); }
+.article-meta .category a { color:var(--accent); }
+
+/* Code */
+code { background:rgba(250,250,249,.06); color:var(--accent); font-family:'IBM Plex Mono',monospace; }
+pre { background:rgba(250,250,249,.06); border:1px solid var(--border); border-radius:0; }
+pre code { background:transparent; color:var(--fg); }
+
+/* Sidebar / Widgets */
+.sidebar .widget { border:1px solid var(--border); background:rgba(250,250,249,.03); padding:1.2rem; margin-bottom:1.5rem; }
+.sidebar .widget .title { color:var(--accent); font-weight:500; text-transform:uppercase; font-size:.75rem; letter-spacing:.12em; }
+.sidebar .widget a { color:var(--muted); }
+.sidebar .widget a:hover { color:var(--fg); }
+
+/* Tags */
+.tag { background:rgba(255,90,31,.1); color:var(--accent); padding:2px 8px; border-radius:2px; font-size:.8rem; }
+.tag:hover { background:var(--accent); color:#0A0A0B; }
+
+/* Pagination */
+.pagination { text-align:center; padding:2rem 0; }
+.pagination a { color:var(--muted); padding:.5rem 1rem; border:1px solid var(--border); }
+.pagination a:hover { border-color:var(--accent); color:var(--accent); }
+.pagination .page-number { color:var(--muted); padding:.5rem 1rem; }
+.pagination .current { color:var(--accent); border-color:var(--accent); }
+
+/* Footer */
+footer { border-top:1px solid var(--border); color:var(--muted); font-size:.85rem; padding:2rem 0; }
+footer a { color:var(--muted); }
+footer a:hover { color:var(--fg); }
+
+/* Blockquote */
+blockquote { border-left:3px solid var(--accent); padding-left:1.2rem; color:var(--muted); }
+
+/* Buttons */
+.btn { background:var(--accent); color:var(--bg); padding:.6rem 1.2rem; border:none; font-weight:500; }
+.btn:hover { opacity:.8; text-decoration:none; }
+
+/* Archive */
+.archive-article { border-bottom:1px solid var(--border); padding:.8rem 0; }
+.archive-article a { color:var(--fg); }
+.archive-article time { color:var(--muted); font-size:.85rem; }
