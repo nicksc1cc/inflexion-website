@@ -1,4 +1,4 @@
-<svg viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg" aria-label="AI visibility stack" role="img" style="display:block;width:100%;height:auto;max-width:900px;background:#FAFAF9;font-family:'Geist',system-ui,sans-serif">
+<svg viewBox="0 0 900 500" width="900" height="500" xmlns="http://www.w3.org/2000/svg" aria-label="AI visibility stack" role="img">
   <defs>
     <pattern id="d" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="0.8" fill="rgba(10,10,11,.10)"/></pattern>
     <marker id="a" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#71717A"/></marker>
@@ -7,31 +7,31 @@
 
   <!-- Layer 4 (top): Execution -->
   <rect x="80" y="30" width="740" height="100" rx="4" fill="rgba(255,90,31,.08)" stroke="#FF5A1F" stroke-width="1"/>
-  <text x="450" y="58" fill="#0A0A0B" font-size="14" font-weight="600" text-anchor="middle" font-family="'Instrument Serif',serif">Execution</text>
+  <text x="450" y="58" fill="#0A0A0B" font-size="14" font-weight="600" text-anchor="middle" font-family="system-ui,sans-serif">Execution</text>
   <text x="450" y="78" fill="#71717A" font-size="10" text-anchor="middle">Prompt-set audit · Share tracking · Optimisation cycle</text>
-  <text x="200" y="105" fill="#A1A1AA" font-size="7.5" font-family="'Geist Mono',monospace" text-anchor="middle" letter-spacing=".04em">Fixed baseline across 4+ models</text>
-  <text x="450" y="105" fill="#A1A1AA" font-size="7.5" font-family="'Geist Mono',monospace" text-anchor="middle" letter-spacing=".04em">Monthly re-measurement</text>
-  <text x="700" y="105" fill="#A1A1AA" font-size="7.5" font-family="'Geist Mono',monospace" text-anchor="middle" letter-spacing=".04em">Ranked fix list per cycle</text>
+  <text x="200" y="105" fill="#A1A1AA" font-size="7.5" font-family="monospace" text-anchor="middle" letter-spacing=".04em">Fixed baseline across 4+ models</text>
+  <text x="450" y="105" fill="#A1A1AA" font-size="7.5" font-family="monospace" text-anchor="middle" letter-spacing=".04em">Monthly re-measurement</text>
+  <text x="700" y="105" fill="#A1A1AA" font-size="7.5" font-family="monospace" text-anchor="middle" letter-spacing=".04em">Ranked fix list per cycle</text>
 
   <!-- Layer 3 -->
   <rect x="120" y="155" width="660" height="100" rx="4" fill="#fff" stroke="rgba(10,10,11,.25)" stroke-width="1"/>
-  <text x="450" y="183" fill="#0A0A0B" font-size="14" font-weight="600" text-anchor="middle" font-family="'Instrument Serif',serif">Signal Architecture</text>
+  <text x="450" y="183" fill="#0A0A0B" font-size="14" font-weight="600" text-anchor="middle" font-family="system-ui,sans-serif">Signal Architecture</text>
   <text x="450" y="203" fill="#71717A" font-size="10" text-anchor="middle">Citations · Brand mentions · Entity alignment</text>
-  <text x="230" y="230" fill="#A1A1AA" font-size="7.5" font-family="'Geist Mono',monospace" text-anchor="middle" letter-spacing=".04em">Citation velocity tracking</text>
-  <text x="450" y="230" fill="#A1A1AA" font-size="7.5" font-family="'Geist Mono',monospace" text-anchor="middle" letter-spacing=".04em">Entity graph building</text>
-  <text x="670" y="230" fill="#A1A1AA" font-size="7.5" font-family="'Geist Mono',monospace" text-anchor="middle" letter-spacing=".04em">Competitor signal map</text>
+  <text x="230" y="230" fill="#A1A1AA" font-size="7.5" font-family="monospace" text-anchor="middle" letter-spacing=".04em">Citation velocity tracking</text>
+  <text x="450" y="230" fill="#A1A1AA" font-size="7.5" font-family="monospace" text-anchor="middle" letter-spacing=".04em">Entity graph building</text>
+  <text x="670" y="230" fill="#A1A1AA" font-size="7.5" font-family="monospace" text-anchor="middle" letter-spacing=".04em">Competitor signal map</text>
 
   <!-- Layer 2 -->
   <rect x="160" y="280" width="580" height="100" rx="4" fill="rgba(36,56,218,.08)" stroke="#2438DA" stroke-width="1"/>
-  <text x="450" y="308" fill="#0A0A0B" font-size="14" font-weight="600" text-anchor="middle" font-family="'Instrument Serif',serif">Authoritative Content</text>
+  <text x="450" y="308" fill="#0A0A0B" font-size="14" font-weight="600" text-anchor="middle" font-family="system-ui,sans-serif">Authoritative Content</text>
   <text x="450" y="328" fill="#71717A" font-size="10" text-anchor="middle">Earned media · Owned content · Expert sourcing</text>
-  <text x="230" y="355" fill="#A1A1AA" font-size="7.5" font-family="'Geist Mono',monospace" text-anchor="middle" letter-spacing=".04em">PR for citation</text>
-  <text x="450" y="355" fill="#A1A1AA" font-size="7.5" font-family="'Geist Mono',monospace" text-anchor="middle" letter-spacing=".04em">Q&A-structured pages</text>
-  <text x="670" y="355" fill="#A1A1AA" font-size="7.5" font-family="'Geist Mono',monospace" text-anchor="middle" letter-spacing=".04em">Data-backed authority</text>
+  <text x="230" y="355" fill="#A1A1AA" font-size="7.5" font-family="monospace" text-anchor="middle" letter-spacing=".04em">PR for citation</text>
+  <text x="450" y="355" fill="#A1A1AA" font-size="7.5" font-family="monospace" text-anchor="middle" letter-spacing=".04em">Q&amp;A-structured pages</text>
+  <text x="670" y="355" fill="#A1A1AA" font-size="7.5" font-family="monospace" text-anchor="middle" letter-spacing=".04em">Data-backed authority</text>
 
   <!-- Layer 1 (bottom): Foundation -->
   <rect x="200" y="410" width="500" height="60" rx="4" fill="#fff" stroke="rgba(10,10,11,.25)" stroke-width="1"/>
-  <text x="450" y="438" fill="#0A0A0B" font-size="14" font-weight="600" text-anchor="middle" font-family="'Instrument Serif',serif">Foundation</text>
+  <text x="450" y="438" fill="#0A0A0B" font-size="14" font-weight="600" text-anchor="middle" font-family="system-ui,sans-serif">Foundation</text>
   <text x="450" y="455" fill="#71717A" font-size="10" text-anchor="middle">Structured data · Schema · Technical infrastructure</text>
 
   <!-- Arrows between layers -->
