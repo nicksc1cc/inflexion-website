@@ -435,160 +435,224 @@
 </footer>
 
 <script>
-  gsap.registerPlugin(ScrollTrigger);
-
-  // --- Hero entrance ---
-  gsap.timeline({delay:0.3})
-    .from('.hero .sup', { y: 30, opacity: 0, duration: 0.6, ease: 'power3.out' })
-    .from('.hero h1', { y: 40, opacity: 0, duration: 0.8, ease: 'power3.out' }, '-=0.3')
-    .from('.hero .desc, .hero .cta-row > *', { y: 30, opacity: 0, duration: 0.6, stagger: 0.1, ease: 'power2.out' }, '-=0.4')
-    .from('.hero .data-banner > *', { y: 20, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power2.out' }, '-=0.3');
-
-  // --- Scroll-triggered reveals ---
-  const revealDefaults = { opacity: 0, y: 40, duration: 0.9, ease: 'power2.out' };
-  // Shift rows (.shift-row)
-  gsap.utils.toArray('.shift-row').forEach((el) => {
-    gsap.from(el.querySelector('.old'), {
-      ...revealDefaults,
-      x: -30,
-      scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
-    });
-    gsap.from(el.querySelector('.new'), {
-      ...revealDefaults,
-      x: 30, delay: 0.1,
-      scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
-    });
-  });
-
-  // feat-card
-  gsap.from('feat-card', {
-    ...revealDefaults,
-    stagger: 0.1,
-    scrollTrigger: { trigger: '.feat-card', start: 'top 80%', toggleActions: 'play none none none' }
-  });
-  // client-strip span
-  gsap.from('client-strip span', {
-    ...revealDefaults,
-    stagger: 0.1,
-    scrollTrigger: { trigger: '.client-strip', start: 'top 80%', toggleActions: 'play none none none' }
-  });
-  // proc-step
-  gsap.from('proc-step', {
-    ...revealDefaults,
-    stagger: 0.1,
-    scrollTrigger: { trigger: '.proc-step', start: 'top 80%', toggleActions: 'play none none none' }
-  });
-  // stat-card
-  gsap.from('stat-card', {
-    ...revealDefaults,
-    stagger: 0.1,
-    scrollTrigger: { trigger: '.stat-card', start: 'top 80%', toggleActions: 'play none none none' }
-  });
-  // cta-inner
-  gsap.from('cta-inner', {
-    ...revealDefaults,
-    stagger: 0.1,
-    scrollTrigger: { trigger: '.cta-inner', start: 'top 80%', toggleActions: 'play none none none' }
-  });
-
-  // --- Reduced-motion ---
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    gsap.globalTimeline.clear();
-    ScrollTrigger.getAll().forEach(t => t.kill());
-  }
-
-// --- Fallback ---
-  setTimeout(() => {
-    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
-      document.querySelectorAll('.econ-col, .econ-shift > *, .shift-row > *, .proc-step, .svc, .cta-inner > *').forEach(el => {
-        el.style.opacity = '1';
-        el.style.transform = 'none';
-      });
-    }
-  }, 3000);
-
-  // Safety: ensure animated elements become visible even if ScrollTrigger misses
-  setTimeout(() => {
-    document.querySelectorAll('.proc-step, .svc, .feat-card, .why-row, .lim-row, .stat-card, .cta-inner > *').forEach(el => {
-      if (window.getComputedStyle(el).opacity === '0') {
-        el.style.opacity = '1';
-        el.style.transform = 'none';
-      }
-    });
-  }, 800);
-
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(function(a){
-    a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})});
-  });
-
-  // Mobile menu toggle
-  var h = document.querySelector('.hamburger');
-  var n = document.querySelector('header nav');
-  if(h){h.addEventListener('click',function(){n.classList.toggle('open');h.classList.toggle('open')})}
-  n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');h.classList.remove('open')})});
-
-  // Three.js Data Field animation
+  // Navigation & smooth scroll (runs immediately, doesn't depend on GSAP)
   (function(){
-    var canvas = document.getElementById('data-field-canvas');
-    if (!canvas || typeof THREE === 'undefined') return;
-    var scene = new THREE.Scene();
-    scene.background = null;
-    var camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 100);
-    camera.position.set(0, -2, 9);
-    var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
-    renderer.setClearColor(0x000000, 0);
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    var group = new THREE.Group();
-    scene.add(group);
-    var numLines = 60, pts = 100;
-    for (var i = 0; i < numLines; i++) {
-      var points = [];
-      var xPos = (i - numLines / 2) * 0.22;
-      for (var j = 0; j < pts; j++) {
-        points.push(new THREE.Vector3(xPos, (j - pts / 2) * 0.2, 0));
-      }
-      var t = i / numLines;
-      var color = new THREE.Color().setHSL(0.08 - t * 0.12, 0.8, 0.6 + t * 0.3);
-      var mat = new THREE.LineBasicMaterial({ color: color, transparent: true, opacity: 0.2 + Math.random() * 0.3, blending: THREE.AdditiveBlending });
-      var line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), mat);
-      group.add(line);
-    }
-    group.rotation.x = Math.PI / 3;
-    group.rotation.z = -Math.PI / 8;
-    function animate() {
-      requestAnimationFrame(animate);
-      var time = performance.now() * 0.0004;
-      group.children.forEach(function(line){
-        var pos = line.geometry.attributes.position.array;
-        for (var j = 0; j < pts; j++) {
-          var idx = j * 3;
-          var x = pos[idx], y = pos[idx + 1];
-          pos[idx + 2] = Math.sin(y * 1.2 + time + x * 0.8) * 0.8 + Math.cos(x * 1.5 - time * 0.8 + y * 0.5) * 0.6;
-        }
-        line.geometry.attributes.position.needsUpdate = true;
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})
+    });
+    var h = document.querySelector('.hamburger');
+    var n = document.querySelector('header nav');
+    if(h){h.addEventListener('click',function(){n.classList.toggle('open');h.classList.toggle('open')})}
+    n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');h.classList.remove('open')})});
+
+    // Dropdown menu (CSS hover-based, but ensure mobile works)
+    document.querySelectorAll('.dropdown-toggle').forEach(function(toggle){
+      toggle.addEventListener('click',function(e){
+        e.preventDefault();
+        var menu = this.nextElementSibling;
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
       });
-      renderer.render(scene, camera);
-    }
-    animate();
-    window.addEventListener('resize', function(){
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+    document.addEventListener('click',function(e){
+      if(!e.target.closest('.dropdown')){document.querySelectorAll('.dropdown-menu').forEach(function(m){m.style.display='none'})}
     });
   })();
 
-  // Mobile menu toggle
-  var h = document.querySelector('.hamburger');
-  var n = document.querySelector('header nav');
-  if(h){h.addEventListener('click',function(){n.classList.toggle('open');h.classList.toggle('open')})}
-  n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');h.classList.remove('open')})});
+  // GSAP animations (wrapped in error boundary)
+  (function(){
+    if(typeof gsap==='undefined'||typeof ScrollTrigger==='undefined'){return}
+    gsap.registerPlugin(ScrollTrigger);
 
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(function(a){
-    a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})});
-  });
+    // --- Hero entrance ---
+    gsap.timeline({delay:0.3})
+      .from('.hero .sup', { y: 30, opacity: 0, duration: 0.6, ease: 'power3.out' })
+      .from('.hero h1', { y: 40, opacity: 0, duration: 0.8, ease: 'power3.out' }, '-=0.3')
+      .from('.hero .desc', { y: 30, opacity: 0, duration: 0.6, ease: 'power2.out' }, '-=0.4')
+      .from('.hero .cta-row > *', { y: 30, opacity: 0, duration: 0.6, stagger: 0.1, ease: 'power2.out' }, '-=0.4')
+      .from('.hero .data-banner > *', { y: 20, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power2.out' }, '-=0.3');
+
+    // --- Scroll-triggered reveals ---
+    // Elements start visible (CSS default). Animate y on scroll trigger.
+    const sr = { y: 40, duration: 0.9, ease: 'power2.out', opacity: 0 };
+
+    // Scroll-triggered reveals for various elements
+    const srDefaults = { y: 40, duration: 0.9, ease: 'power2.out', opacity: 0 };
+
+    gsap.from('.proc-step', {
+      ...srDefaults,
+      stagger: 0.1,
+      scrollTrigger: { trigger: '.process-grid', start: 'top 80%', toggleActions: 'play none none none' }
+    });
+
+    gsap.from('.svc', {
+      ...srDefaults,
+      stagger: 0.1,
+      scrollTrigger: { trigger: '.svc-grid', start: 'top 80%', toggleActions: 'play none none none' }
+    });
+
+    gsap.from('.feat-card', {
+      ...srDefaults,
+      stagger: 0.1,
+      scrollTrigger: { trigger: '.feat-grid', start: 'top 80%', toggleActions: 'play none none none' }
+    });
+
+    gsap.from('.three-card', {
+      ...srDefaults,
+      stagger: 0.1,
+      scrollTrigger: { trigger: '.three-grid', start: 'top 80%', toggleActions: 'play none none none' }
+    });
+
+    gsap.from('.dark-stat', {
+      ...srDefaults,
+      stagger: 0.1,
+      scrollTrigger: { trigger: '.dark-stats', start: 'top 80%', toggleActions: 'play none none none' }
+    });
+
+    gsap.from('.why-row', {
+      ...srDefaults,
+      stagger: 0.1,
+      scrollTrigger: { trigger: '.why-row:first-of-type', start: 'top 80%', toggleActions: 'play none none none' }
+    });
+
+    gsap.from('.lim-row', {
+      ...srDefaults,
+      stagger: 0.1,
+      scrollTrigger: { trigger: '.lim-row:first-of-type', start: 'top 80%', toggleActions: 'play none none none' }
+    });
+
+    gsap.from('.stat-card', {
+      ...srDefaults,
+      stagger: 0.1,
+      scrollTrigger: { trigger: '.stat-row', start: 'top 80%', toggleActions: 'play none none none' }
+    });
+
+    gsap.from('.research-item', {
+      ...srDefaults,
+      stagger: 0.1,
+      scrollTrigger: { trigger: '.research-grid', start: 'top 80%', toggleActions: 'play none none none' }
+    );
+
+    gsap.from('.cta-inner > *', {
+      ...srDefaults,
+      stagger: 0.15,
+      scrollTrigger: { trigger: '.cta-inner', start: 'top 85%', toggleActions: 'play none none none' }
+    });
+
+    // Shift rows (old/new pairs)
+    gsap.utils.toArray('.shift-row').forEach((el) => {
+      gsap.from(el.querySelector('.old'), {
+        ...srDefaults,
+        x: -30,
+        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+      });
+      gsap.from(el.querySelector('.new'), {
+        ...srDefaults,
+        x: 30, delay: 0.1,
+        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+      });
+    });
+
+    gsap.utils.toArray('.econ-shift').forEach((el) => {
+      gsap.from(el.querySelector('.econ-old'), {
+        ...srDefaults,
+        x: -30,
+        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+      });
+      gsap.from(el.querySelector('.econ-new'), {
+        ...srDefaults,
+        x: 30, delay: 0.1,
+        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+      });
+    });
+
+    // --- Reduced-motion ---
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      gsap.globalTimeline.clear();
+      ScrollTrigger.getAll().forEach(t => t.kill());
+    }
+
+    // --- Fallback ---
+    setTimeout(() => {
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        document.querySelectorAll('.econ-col, .econ-shift > *, .shift-row > *, .proc-step, .svc, .feat-card, .why-row, .lim-row, .stat-card, .cta-inner > *').forEach(el => {
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+        });
+      }
+    }, 3000);
+
+    // Safety: ensure animated elements become visible even if ScrollTrigger misses
+    setTimeout(() => {
+      document.querySelectorAll('.proc-step, .svc, .feat-card, .why-row, .lim-row, .stat-card, .cta-inner > *').forEach(el => {
+        if (window.getComputedStyle(el).opacity === '0') {
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+        }
+      });
+    }, 800);
+
+    // Three.js Data Field animation
+    (function(){
+      var canvas = document.getElementById('data-field-canvas');
+      if (!canvas || typeof THREE === 'undefined') return;
+      var scene = new THREE.Scene();
+      scene.background = null;
+      var camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 100);
+      camera.position.set(0, -2, 9);
+      var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+      renderer.setClearColor(0x000000, 0);
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      var group = new THREE.Group();
+      scene.add(group);
+      var numLines = 60, pts = 100;
+      for (var i = 0; i < numLines; i++) {
+        var points = [];
+        var xPos = (i - numLines / 2) * 0.22;
+        for (var j = 0; j < pts; j++) {
+          points.push(new THREE.Vector3(xPos, (j - pts / 2) * 0.2, 0));
+        }
+        var t = i / numLines;
+        var color = new THREE.Color().setHSL(0.08 - t * 0.12, 0.8, 0.6 + t * 0.3);
+        var mat = new THREE.LineBasicMaterial({ color: color, transparent: true, opacity: 0.2 + Math.random() * 0.3, blending: THREE.AdditiveBlending });
+        var line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), mat);
+        group.add(line);
+      }
+      group.rotation.x = Math.PI / 3;
+      group.rotation.z = -Math.PI / 8;
+      function animate() {
+        requestAnimationFrame(animate);
+        var time = performance.now() * 0.0004;
+        group.children.forEach(function(line){
+          var pos = line.geometry.attributes.position.array;
+          for (var j = 0; j < pts; j++) {
+            var idx = j * 3;
+            var x = pos[idx], y = pos[idx + 1];
+            pos[idx + 2] = Math.sin(y * 1.2 + time + x * 0.8) * 0.8 + Math.cos(x * 1.5 - time * 0.8 + y * 0.5) * 0.6;
+          }
+          line.geometry.attributes.position.needsUpdate = true;
+        });
+        renderer.render(scene, camera);
+      }
+      animate();
+      window.addEventListener('resize', function(){
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      });
+    })();
+
+    // Mobile menu toggle
+    var h = document.querySelector('.hamburger');
+    var n = document.querySelector('header nav');
+    if(h){h.addEventListener('click',function(){n.classList.toggle('open');h.classList.toggle('open')})}
+    n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');h.classList.remove('open')})});
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})
+    });
+  })();
 </script>
 </body>
 </html>
