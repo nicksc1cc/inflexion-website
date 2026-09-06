@@ -44,7 +44,6 @@
     <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     <nav>
       <a href="index.html">Home</a>
-      <a href="contact.html" class="cta-btn">Audit</a>
       <div class="dropdown">
         <span class="dropdown-toggle" style="font-size:12px;font-weight:400;letter-spacing:.04em;color:var(--muted);text-decoration:none">AI Discovery</span>
         <div class="dropdown-menu">
@@ -58,7 +57,7 @@
       </div>
       <a href="retail-media.html">Retail Media</a>
       <a href="consultancy.html">Consultancy</a>
-      
+      <a href="contact.html" class="cta-btn">Free tools</a>
     </nav>
   </div>
 </header>
@@ -266,11 +265,12 @@
     .from('.hero .data-banner > *', { y: 20, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power2.out' }, '-=0.3');
 
   // --- Scroll-triggered reveals ---
-  const revealDefaults = { opacity: 0, y: 40, duration: 0.9, ease: 'power2.out' };
+  // Elements start visible (CSS default). Animate y on scroll trigger.
+  const sr = { y: 40, duration: 0.9, ease: 'power2.out', opacity: 0 };
 
   // Econ grid columns (01)
   gsap.from('.econ-col', {
-    ...revealDefaults,
+    ...sr,
     stagger: 0.12,
     scrollTrigger: { trigger: '.econ-grid', start: 'top 80%', toggleActions: 'play none none none' }
   });
@@ -278,12 +278,12 @@
   // Shift rows (econ-old/econ-new pairs)
   gsap.utils.toArray('.econ-shift').forEach((el, i) => {
     gsap.from(el.querySelector('.econ-old'), {
-      ...revealDefaults,
+      ...sr,
       x: -30,
       scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
     });
     gsap.from(el.querySelector('.econ-new'), {
-      ...revealDefaults,
+      ...sr,
       x: 30, delay: 0.1,
       scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
     });
@@ -291,34 +291,34 @@
 
   // Centered narrative blocks
   gsap.from('#means > div > div[style*="text-align:center"]:first-of-type > *', {
-    ...revealDefaults,
+    ...sr,
     stagger: 0.15,
     scrollTrigger: { trigger: '#means > div > div[style*="text-align:center"]:first-of-type', start: 'top 80%', toggleActions: 'play none none none' }
   });
 
   gsap.from('#means > div > div[style*="text-align:center"]:last-of-type > *', {
-    ...revealDefaults,
+    ...sr,
     stagger: 0.15,
     scrollTrigger: { trigger: '#means > div > div[style*="text-align:center"]:last-of-type', start: 'top 80%', toggleActions: 'play none none none' }
   });
 
   // Process grid steps (02)
   gsap.from('.proc-step', {
-    ...revealDefaults,
+    ...sr,
     stagger: 0.1,
     scrollTrigger: { trigger: '.process-grid', start: 'top 80%', toggleActions: 'play none none none' }
   });
 
   // Service cards (services)
   gsap.from('.svc', {
-    ...revealDefaults,
+    ...sr,
     stagger: 0.1,
     scrollTrigger: { trigger: '.svc-grid', start: 'top 80%', toggleActions: 'play none none none' }
   });
 
   // CTA section
   gsap.from('.cta-inner > *', {
-    ...revealDefaults,
+    ...sr,
     stagger: 0.15,
     scrollTrigger: { trigger: '.cta-inner', start: 'top 85%', toggleActions: 'play none none none' }
   });
