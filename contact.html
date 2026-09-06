@@ -30,7 +30,6 @@
     <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     <nav>
       <a href="index.html">Home</a>
-      <a href="contact.html" class="cta-btn">Audit</a>
       <div class="dropdown">
         <span class="dropdown-toggle" style="font-size:12px;font-weight:400;letter-spacing:.04em;color:var(--muted);text-decoration:none">AI Discovery</span>
         <div class="dropdown-menu">
@@ -44,7 +43,7 @@
       </div>
       <a href="retail-media.html">Retail Media</a>
       <a href="consultancy.html">Consultancy</a>
-      
+      <a href="contact.html" class="cta-btn">Free tools</a>
     </nav>
   </div>
 </header>
@@ -121,17 +120,15 @@
 </footer>
 
 <script>
-  // Navigation & smooth scroll (runs immediately, doesn't depend on GSAP)
+  // --- Immediate: Navigation, smooth scroll, dropdown, Three.js (independent of GSAP) ---
   (function(){
-    document.querySelectorAll('a[href^="#"]').forEach(function(a){
-      a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})
-    });
+    // Mobile menu toggle
     var h = document.querySelector('.hamburger');
     var n = document.querySelector('header nav');
     if(h){h.addEventListener('click',function(){n.classList.toggle('open');h.classList.toggle('open')})}
     n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');h.classList.remove('open')})});
 
-    // Dropdown menu (CSS hover-based, but ensure mobile works)
+    // Dropdown menu (click for mobile, hover for desktop via CSS)
     document.querySelectorAll('.dropdown-toggle').forEach(function(toggle){
       toggle.addEventListener('click',function(e){
         e.preventDefault();
@@ -142,9 +139,65 @@
     document.addEventListener('click',function(e){
       if(!e.target.closest('.dropdown')){document.querySelectorAll('.dropdown-menu').forEach(function(m){m.style.display='none'})}
     });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})
+    });
+
+    // Three.js Data Field animation
+    (function(){
+      var canvas = document.getElementById('data-field-canvas');
+      if (!canvas || typeof THREE === 'undefined') return;
+      var scene = new THREE.Scene();
+      scene.background = null;
+      var camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 100);
+      camera.position.set(0, -2, 9);
+      var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+      renderer.setClearColor(0x000000, 0);
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      var group = new THREE.Group();
+      scene.add(group);
+      var numLines = 60, pts = 100;
+      for (var i = 0; i < numLines; i++) {
+        var points = [];
+        var xPos = (i - numLines / 2) * 0.22;
+        for (var j = 0; j < pts; j++) {
+          points.push(new THREE.Vector3(xPos, (j - pts / 2) * 0.2, 0));
+        }
+        var t = i / numLines;
+        var color = new THREE.Color().setHSL(0.08 - t * 0.12, 0.8, 0.6 + t * 0.3);
+        var mat = new THREE.LineBasicMaterial({ color: color, transparent: true, opacity: 0.2 + Math.random() * 0.3, blending: THREE.AdditiveBlending });
+        var line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), mat);
+        group.add(line);
+      }
+      group.rotation.x = Math.PI / 3;
+      group.rotation.z = -Math.PI / 8;
+      function animate() {
+        requestAnimationFrame(animate);
+        var time = performance.now() * 0.0004;
+        group.children.forEach(function(line){
+          var pos = line.geometry.attributes.position.array;
+          for (var j = 0; j < pts; j++) {
+            var idx = j * 3;
+            var x = pos[idx], y = pos[idx + 1];
+            pos[idx + 2] = Math.sin(y * 1.2 + time + x * 0.8) * 0.8 + Math.cos(x * 1.5 - time * 0.8 + y * 0.5) * 0.6;
+          }
+          line.geometry.attributes.position.needsUpdate = true;
+        });
+        renderer.render(scene, camera);
+      }
+      animate();
+      window.addEventListener('resize', function(){
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      });
+    })();
   })();
 
-  // GSAP animations (wrapped in error boundary)
+  // GSAP animations (wrapped in error boundary, runs after DOM ready)
   (function(){
     if(typeof gsap==='undefined'||typeof ScrollTrigger==='undefined'){return}
     gsap.registerPlugin(ScrollTrigger);
@@ -158,10 +211,6 @@
       .from('.hero .data-banner > *', { y: 20, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power2.out' }, '-=0.3');
 
     // --- Scroll-triggered reveals ---
-    // Elements start visible (CSS default). Animate y on scroll trigger.
-    const sr = { y: 40, duration: 0.9, ease: 'power2.out', opacity: 0 };
-
-    // Scroll-triggered reveals for various elements
     const srDefaults = { y: 40, duration: 0.9, ease: 'power2.out', opacity: 0 };
 
     gsap.from('.proc-step', {
@@ -216,7 +265,7 @@
       ...srDefaults,
       stagger: 0.1,
       scrollTrigger: { trigger: '.research-grid', start: 'top 80%', toggleActions: 'play none none none' }
-    );
+    });
 
     gsap.from('.cta-inner > *', {
       ...srDefaults,
@@ -277,67 +326,6 @@
       });
     }, 800);
 
-    // Three.js Data Field animation
-    (function(){
-      var canvas = document.getElementById('data-field-canvas');
-      if (!canvas || typeof THREE === 'undefined') return;
-      var scene = new THREE.Scene();
-      scene.background = null;
-      var camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 100);
-      camera.position.set(0, -2, 9);
-      var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
-      renderer.setClearColor(0x000000, 0);
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      var group = new THREE.Group();
-      scene.add(group);
-      var numLines = 60, pts = 100;
-      for (var i = 0; i < numLines; i++) {
-        var points = [];
-        var xPos = (i - numLines / 2) * 0.22;
-        for (var j = 0; j < pts; j++) {
-          points.push(new THREE.Vector3(xPos, (j - pts / 2) * 0.2, 0));
-        }
-        var t = i / numLines;
-        var color = new THREE.Color().setHSL(0.08 - t * 0.12, 0.8, 0.6 + t * 0.3);
-        var mat = new THREE.LineBasicMaterial({ color: color, transparent: true, opacity: 0.2 + Math.random() * 0.3, blending: THREE.AdditiveBlending });
-        var line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), mat);
-        group.add(line);
-      }
-      group.rotation.x = Math.PI / 3;
-      group.rotation.z = -Math.PI / 8;
-      function animate() {
-        requestAnimationFrame(animate);
-        var time = performance.now() * 0.0004;
-        group.children.forEach(function(line){
-          var pos = line.geometry.attributes.position.array;
-          for (var j = 0; j < pts; j++) {
-            var idx = j * 3;
-            var x = pos[idx], y = pos[idx + 1];
-            pos[idx + 2] = Math.sin(y * 1.2 + time + x * 0.8) * 0.8 + Math.cos(x * 1.5 - time * 0.8 + y * 0.5) * 0.6;
-          }
-          line.geometry.attributes.position.needsUpdate = true;
-        });
-        renderer.render(scene, camera);
-      }
-      animate();
-      window.addEventListener('resize', function(){
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-      });
-    })();
-
-    // Mobile menu toggle
-    var h = document.querySelector('.hamburger');
-    var n = document.querySelector('header nav');
-    if(h){h.addEventListener('click',function(){n.classList.toggle('open');h.classList.toggle('open')})}
-    n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');h.classList.remove('open')})});
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(function(a){
-      a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})
-    });
   })();
 </script>
 </body>
