@@ -527,7 +527,7 @@
     ScrollTrigger.getAll().forEach(t => t.kill());
   }
 
-  // --- Fallback ---
+// --- Fallback ---
   setTimeout(() => {
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
       document.querySelectorAll('.econ-col, .econ-shift > *, .shift-row > *, .proc-step, .svc, .cta-inner > *').forEach(el => {
@@ -536,6 +536,16 @@
       });
     }
   }, 3000);
+
+  // Safety: ensure animated elements become visible even if ScrollTrigger misses
+  setTimeout(() => {
+    document.querySelectorAll('.proc-step, .svc, .feat-card, .why-row, .lim-row, .stat-card, .cta-inner > *').forEach(el => {
+      if (window.getComputedStyle(el).opacity === '0') {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      }
+    });
+  }, 800);
 
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(function(a){

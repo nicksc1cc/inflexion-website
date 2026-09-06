@@ -339,6 +339,16 @@
     }
   }, 3000);
 
+  // Safety: ensure animated elements become visible even if ScrollTrigger misses
+  setTimeout(() => {
+    document.querySelectorAll('.proc-step, .svc, .cta-inner > *').forEach(el => {
+      if (window.getComputedStyle(el).opacity === '0') {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      }
+    });
+  }, 800);
+
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(function(a){
     a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})
