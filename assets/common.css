@@ -297,6 +297,46 @@ section{padding:var(--section-pad) 0}
   font-size:9px;font-weight:400;color:var(--muted2);margin-top:4px
 }
 
+/* --- Feature Cards (2-col grid) --- */
+.feat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin-top:48px}
+.feat-card{
+  padding:40px 32px;display:flex;flex-direction:column;gap:12px;
+  border-bottom:1px solid rgba(250,250,249,.12);
+  transition:opacity .6s ease,transform .6s ease
+}
+.feat-card .t{
+  font-size:10px;font-weight:500;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--accent)
+}
+.feat-card .hd{
+  font-size:clamp(16px,1.6vw,20px);font-weight:600;line-height:1.25
+}
+.feat-card .bd{font-size:14px;line-height:1.6;color:var(--muted);font-weight:300}
+.bx.dark .feat-card .bd{color:rgba(250,250,249,.85)}
+.feat-card:nth-child(odd){border-right:1px solid rgba(250,250,249,.12)}
+.feat-card:nth-last-child(-n+2){border-bottom:none}
+@media(max-width:900px){
+  .feat-grid{grid-template-columns:1fr}
+  .feat-card{padding:32px 24px}
+  .feat-card:nth-child(odd){border-right:none}
+  .feat-card:last-child{border-bottom:none}
+}
+
+/* --- Chart Sections --- */
+.chart-section{margin:0 auto;max-width:900px}
+.chart-title{font-size:18px;font-weight:500;margin-bottom:8px}
+.chart-caption{font-size:13px;color:var(--muted);margin-bottom:24px;max-width:36em}
+.chart-wrapper{position:relative;margin:0 auto}
+.chart-note{font-size:11px;color:var(--muted2);margin-top:12px;text-align:center}
+.sparkline-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;max-width:900px;margin:0 auto}
+.sparkline-card{background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08);border-radius:4px;padding:16px}
+.sparkline-label{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.sparkline-meta{display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:rgba(250,250,249,.4)}
+@media(max-width:600px){
+  .sparkline-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .chart-wrapper canvas{max-width:100%}
+}
+
 /* Dark stat cards (on dark backgrounds) */
 .dark .stat-card{background:rgba(250,250,249,.06);border-color:rgba(250,250,249,.12)}
 .dark .stat-card .v{color:var(--accent)}

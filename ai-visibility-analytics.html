@@ -106,10 +106,58 @@
     <p class="prose" style="font-size:15px;line-height:1.7;color:rgba(250,250,249,.6);font-weight:300;margin-bottom:24px;max-width:36em">We send thousands of targeted prompts daily across the models your buyers actually use. The result is a dataset that tells you where you stand, who you are competing against, and what is driving the answers — with full transparency into every prompt, response, and citation source.</p>
 
     <div class="stat-row dark">
-      <div class="stat-card"><div class="v">8+</div><div class="l">AI models tracked daily</div><div class="s">ChatGPT, Perplexity, Gemini, Claude, Rufus &amp; more</div></div>
+      <div class="stat-card"><div class="v">8+</div><div class="l">AI models tracked daily</div><div class="s">ChatGPT, Perplexity, Gemini, Claude, Rufus & more</div></div>
       <div class="stat-card"><div class="v">1000s</div><div class="l">Targeted prompts per day</div><div class="s">Buyer-intent query sets across categories</div></div>
       <div class="stat-card"><div class="v">5</div><div class="l">Citation source categories</div><div class="s">Earned, owned, review, social, forum</div></div>
-      <div class="stat-card"><div class="v">100%</div><div class="l">Transparent methodology</div><div class="s">Every prompt, response &amp; citation logged</div></div>
+      <div class="stat-card"><div class="v">100%</div><div class="l">Transparent methodology</div><div class="s">Every prompt, response & citation logged</div></div>
+    </div>
+
+    <!-- VISUAL: Multi-Model Radar / Spider Chart -->
+    <div class="chart-section" style="margin-top:64px">
+      <h3 class="chart-title" style="font-size:18px;font-weight:500;margin-bottom:8px;color:var(--h-text)">Brand Visibility Profile Across Models</h3>
+      <p class="chart-caption" style="font-size:13px;color:rgba(250,250,249,.5);margin-bottom:24px;max-width:36em">Radar chart comparing your brand's citation rate, mention rate, sentiment, position, and consistency across 6 major AI platforms. Each axis = one metric; larger area = stronger overall presence.</p>
+      <div class="chart-wrapper" style="position:relative;max-width:500px;margin:0 auto">
+        <canvas id="radar-chart" width="500" height="500" style="display:block;width:100%;height:auto"></canvas>
+      </div>
+      <p class="chart-note" style="font-size:11px;color:rgba(250,250,249,.4);margin-top:12px;text-align:center">Mock data — replace with live API data. Axes: Citation Rate, Mention Rate, Sentiment Score, Avg. Position, Consistency, Prominence.</p>
+    </div>
+
+    <!-- VISUAL: Small Multiples - Per-Model Trend Sparklines -->
+    <div class="chart-section" style="margin-top:64px">
+      <h3 class="chart-title" style="font-size:18px;font-weight:500;margin-bottom:8px;color:var(--h-text)">Weekly Visibility Trend by Model</h3>
+      <p class="chart-caption" style="font-size:13px;color:rgba(250,250,249,.5);margin-bottom:24px;max-width:36em">Sparklines show 12-week share-of-voice trend per model. Identical y-axis scale enables direct comparison. Min/max markers flag volatility.</p>
+      <div class="sparkline-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:0 auto;max-width:900px">
+        <div class="sparkline-card" style="background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08);border-radius:4px;padding:16px">
+          <div class="sparkline-label" style="font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px">ChatGPT</div>
+          <canvas id="spark-chatgpt" width="180" height="60" style="display:block;width:100%;height:auto"></canvas>
+          <div class="sparkline-meta" style="display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:rgba(250,250,249,.4)"><span>Min: 12%</span><span>Max: 28%</span></div>
+        </div>
+        <div class="sparkline-card" style="background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08);border-radius:4px;padding:16px">
+          <div class="sparkline-label" style="font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px">Perplexity</div>
+          <canvas id="spark-perplexity" width="180" height="60" style="display:block;width:100%;height:auto"></canvas>
+          <div class="sparkline-meta" style="display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:rgba(250,250,249,.4)"><span>Min: 8%</span><span>Max: 22%</span></div>
+        </div>
+        <div class="sparkline-card" style="background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08);border-radius:4px;padding:16px">
+          <div class="sparkline-label" style="font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px">Gemini</div>
+          <canvas id="spark-gemini" width="180" height="60" style="display:block;width:100%;height:auto"></canvas>
+          <div class="sparkline-meta" style="display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:rgba(250,250,249,.4)"><span>Min: 5%</span><span>Max: 18%</span></div>
+        </div>
+        <div class="sparkline-card" style="background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08);border-radius:4px;padding:16px">
+          <div class="sparkline-label" style="font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px">Claude</div>
+          <canvas id="spark-claude" width="180" height="60" style="display:block;width:100%;height:auto"></canvas>
+          <div class="sparkline-meta" style="display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:rgba(250,250,249,.4)"><span>Min: 3%</span><span>Max: 15%</span></div>
+        </div>
+        <div class="sparkline-card" style="background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08);border-radius:4px;padding:16px">
+          <div class="sparkline-label" style="font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px">Amazon Rufus</div>
+          <canvas id="spark-rufus" width="180" height="60" style="display:block;width:100%;height:auto"></canvas>
+          <div class="sparkline-meta" style="display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:rgba(250,250,249,.4)"><span>Min: 1%</span><span>Max: 9%</span></div>
+        </div>
+        <div class="sparkline-card" style="background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08);border-radius:4px;padding:16px">
+          <div class="sparkline-label" style="font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px">Copilot</div>
+          <canvas id="spark-copilot" width="180" height="60" style="display:block;width:100%;height:auto"></canvas>
+          <div class="sparkline-meta" style="display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:rgba(250,250,249,.4)"><span>Min: 2%</span><span>Max: 11%</span></div>
+        </div>
+      </div>
     </div>
 
     <div class="feat-grid">
@@ -144,6 +192,17 @@
   <div class="section-inner">
     <div class="tag" style="margin-bottom:16px">03. Competitive intelligence</div>
     <h2 class="d2" style="margin-bottom:48px">Know where you stand <span style="font-weight:600;color:var(--accent)">against every competitor.</span></h2>
+
+    <!-- VISUAL: Slopegraph - Competitive Share of Voice Shift -->
+    <div class="chart-section" style="margin-bottom:48px">
+      <h3 class="chart-title" style="font-size:18px;font-weight:500;margin-bottom:8px">Competitive Share of Voice: 3-Month Shift</h3>
+      <p class="chart-caption" style="font-size:13px;color:var(--muted);margin-bottom:24px;max-width:36em">Slopegraph comparing your brand's AI SoV vs top 4 competitors across 6 models. Lines slope up = gaining ground; down = losing. Direct labels replace legend.</p>
+      <div class="chart-wrapper" style="position:relative;max-width:900px;margin:0 auto">
+        <canvas id="slopegraph-chart" width="900" height="400" style="display:block;width:100%;height:auto"></canvas>
+      </div>
+      <p class="chart-note" style="font-size:11px;color:var(--muted2);margin-top:12px;text-align:center">Mock data — replace with live API data. Each line = one brand. Dots = current month; labels show 3-month delta.</p>
+    </div>
+
     <div class="why-row">
       <div class="n">SOV</div>
       <div class="hd">Share of voice across every model.</div>
@@ -170,6 +229,17 @@
     <div class="tag" style="margin-bottom:16px">04. The evidence</div>
     <h2 class="d2" style="margin-bottom:16px">What the data <span style="font-weight:600;color:var(--accent)">actually says.</span></h2>
     <p class="prose" style="font-size:15px;line-height:1.7;color:var(--muted);font-weight:300;margin-bottom:32px;max-width:36em">Independent research from Princeton, Similarweb, Ahrefs, Muck Rack, and others. Every figure sourced and dated.</p>
+
+    <!-- VISUAL: Citation Source Breakdown - Radial / Donut with annotations -->
+    <div class="chart-section" style="margin-bottom:48px">
+      <h3 class="chart-title" style="font-size:18px;font-weight:500;margin-bottom:8px">Where AI Citations Come From: Source Type Distribution</h3>
+      <p class="chart-caption" style="font-size:13px;color:var(--muted);margin-bottom:24px;max-width:36em">Radial area chart showing citation source composition across 75,000 brands. Earned media dominates at 82%; owned content only 12%. Segment angles = share; radius = trust score (citation velocity × authority).</p>
+      <div class="chart-wrapper" style="position:relative;max-width:500px;margin:0 auto">
+        <canvas id="radial-chart" width="500" height="500" style="display:block;width:100%;height:auto"></canvas>
+      </div>
+      <p class="chart-note" style="font-size:11px;color:var(--muted2);margin-top:12px;text-align:center">Mock data — replace with live API data. Source: Ahrefs 75K-brand study 2025; Muck Rack 2025.</p>
+    </div>
+
     <div class="research-grid">
       <div class="research-item"><div class="q">"How consistent is AI brand visibility?"</div><div class="a">Only 30% of brands stay visible across consecutive AI sessions</div><div class="src">AirOps, 2026 State of AI Search</div></div>
       <div class="research-item"><div class="q">"Do ChatGPT and Perplexity cite the same sources?"</div><div class="a">Only 11% domain overlap — they draw from fundamentally different content</div><div class="src">Similarweb, 2026 Generative AI Brand Visibility Index</div></div>
@@ -314,6 +384,341 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
       });
     })();
+  })();
+
+  // --- Tufte-style Chart Rendering (Canvas 2D) ---
+  (function() {
+    var ACCENT = '#FF5A1F';
+    var ACCENT2 = '#2438DA';
+    var MUTED = '#71717A';
+    var MUTED2 = '#A1A1AA';
+    var FG = '#0A0A0B';
+    var BG = '#FAFAF9';
+    var DARK = '#0A0A0B';
+
+    // Helper: draw a Tufte-style range frame (top + right axes only)
+    function rangeFrame(ctx, x, y, w, h) {
+      ctx.strokeStyle = 'rgba(10,10,11,.15)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(x, y + h); ctx.lineTo(x, y); ctx.lineTo(x + w, y);
+      ctx.stroke();
+    }
+
+    // Helper: direct label with small font
+    function label(ctx, text, x, y, color, align) {
+      ctx.fillStyle = color || MUTED;
+      ctx.font = '10px "IBM Plex Mono",monospace';
+      ctx.textAlign = align || 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(text, x, y);
+    }
+
+    // 1. RADAR CHART
+    (function() {
+      var c = document.getElementById('radar-chart');
+      if (!c) return;
+      var ctx = c.getContext('2d');
+      var W = c.width, H = c.height;
+      var cx = W/2, cy = H/2, R = 190;
+      var levels = 5;
+      var metrics = ['Citation Rate','Mention Rate','Sentiment','Position','Consistency','Prominence'];
+      var N = metrics.length;
+      var angleStep = (2 * Math.PI) / N;
+
+      // Data: [Your Brand, Competitor A, Competitor B]
+      var brands = [
+        { label: 'Your Brand', color: ACCENT, values: [0.82, 0.65, 0.75, 0.70, 0.55, 0.80] },
+        { label: 'Competitor A', color: ACCENT2, values: [0.60, 0.55, 0.50, 0.65, 0.45, 0.58] },
+        { label: 'Competitor B', color: MUTED2, values: [0.45, 0.50, 0.60, 0.40, 0.35, 0.42] }
+      ];
+
+      ctx.clearRect(0, 0, W, H);
+
+      // Grid circles
+      for (var l = 1; l <= levels; l++) {
+        var r = (R / levels) * l;
+        ctx.beginPath();
+        for (var i = 0; i <= N; i++) {
+          var a = -Math.PI/2 + i * angleStep;
+          var x = cx + r * Math.cos(a);
+          var y = cy + r * Math.sin(a);
+          i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+        }
+        ctx.strokeStyle = 'rgba(10,10,11,.08)';
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+      }
+
+      // Axis lines + labels
+      for (var i = 0; i < N; i++) {
+        var a = -Math.PI/2 + i * angleStep;
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(cx + R * Math.cos(a), cy + R * Math.sin(a));
+        ctx.strokeStyle = 'rgba(10,10,11,.12)';
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+        var lx = cx + (R + 32) * Math.cos(a);
+        var ly = cy + (R + 32) * Math.sin(a);
+        ctx.fillStyle = MUTED;
+        ctx.font = '10px "IBM Plex Mono",monospace';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(metrics[i], lx, ly);
+      }
+
+      // Brand polygons
+      brands.forEach(function(b) {
+        ctx.beginPath();
+        b.values.forEach(function(v, i) {
+          var a = -Math.PI/2 + i * angleStep;
+          var r = R * v;
+          var x = cx + r * Math.cos(a);
+          var y = cy + r * Math.sin(a);
+          i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+        });
+        ctx.closePath();
+        ctx.fillStyle = b.color.replace(')', ',.08)').replace('rgb', 'rgba');
+        ctx.fill();
+        ctx.strokeStyle = b.color;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+      });
+
+      // Direct labels
+      brands.forEach(function(b) {
+        var lastVal = b.values[b.values.length - 1];
+        var lastAngle = -Math.PI/2 + (N - 1) * angleStep;
+        var lx = cx + (R * lastVal + 12) * Math.cos(lastAngle);
+        var ly = cy + (R * lastVal + 12) * Math.sin(lastAngle);
+        ctx.fillStyle = b.color;
+        ctx.font = '10px "IBM Plex Mono",monospace';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(b.label, lx + 8, ly);
+      });
+    })();
+
+    // 2. SPARKLINES
+    function drawSparkline(id, data, color) {
+      var c = document.getElementById(id);
+      if (!c) return;
+      var ctx = c.getContext('2d');
+      var W = c.width, H = c.height;
+      var pad = { t: 4, b: 4, l: 4, r: 4 };
+      var pw = W - pad.l - pad.r;
+      var ph = H - pad.t - pad.b;
+      var min = Math.min.apply(null, data);
+      var max = Math.max.apply(null, data);
+      var range = max - min || 1;
+
+      ctx.clearRect(0, 0, W, H);
+
+      // Data line
+      ctx.beginPath();
+      data.forEach(function(v, i) {
+        var x = pad.l + (i / (data.length - 1)) * pw;
+        var y = pad.t + ph - ((v - min) / range) * ph;
+        i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      });
+      ctx.strokeStyle = color || ACCENT;
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+
+      // Min marker
+      var minIdx = data.indexOf(min);
+      var minX = pad.l + (minIdx / (data.length - 1)) * pw;
+      var minY = pad.t + ph - 0;
+      ctx.beginPath();
+      ctx.arc(minX, minY, 2, 0, 2*Math.PI);
+      ctx.fillStyle = MUTED2;
+      ctx.fill();
+
+      // Max marker
+      var maxIdx = data.indexOf(max);
+      var maxX = pad.l + (maxIdx / (data.length - 1)) * pw;
+      var maxY = pad.t + ph - ph;
+      ctx.beginPath();
+      ctx.arc(maxX, maxY, 2, 0, 2*Math.PI);
+      ctx.fillStyle = color || ACCENT;
+      ctx.fill();
+    }
+
+    var weeks = [1,2,3,4,5,6,7,8,9,10,11,12];
+    drawSparkline('spark-chatgpt', [12,15,14,18,22,20,24,26,25,28,27,28], ACCENT);
+    drawSparkline('spark-perplexity', [8,10,12,11,14,16,18,17,20,22,21,22], ACCENT2);
+    drawSparkline('spark-gemini', [5,6,7,8,10,12,11,14,15,17,18,16], '#71717A');
+    drawSparkline('spark-claude', [3,4,5,6,7,9,10,12,11,13,14,15], '#A1A1AA');
+    drawSparkline('spark-rufus', [1,2,2,3,4,5,4,6,7,8,8,9], '#FF5A1F');
+    drawSparkline('spark-copilot', [2,3,3,4,5,6,7,8,8,9,10,11], '#2438DA');
+
+    // 3. SLOPEGRAPH
+    (function() {
+      var c = document.getElementById('slopegraph-chart');
+      if (!c) return;
+      var ctx = c.getContext('2d');
+      var W = c.width, H = c.height;
+      var pad = { t: 40, b: 40, l: 80, r: 80 };
+      var col1 = pad.l + 20;
+      var col2 = W - pad.r - 20;
+      var yPad = 60;
+
+      ctx.clearRect(0, 0, W, H);
+
+      // Tufte range frame
+      rangeFrame(ctx, pad.l, pad.t, W - pad.l - pad.r, H - pad.t - pad.b);
+
+      // Column labels
+      ctx.fillStyle = MUTED;
+      ctx.font = '10px "IBM Plex Mono",monospace';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'bottom';
+      ctx.fillText('3 months ago', col1, pad.t - 8);
+      ctx.fillText('Current', col2, pad.t - 8);
+
+      // Data: [brand, oldVal, newVal, color]
+      var data = [
+        ['Your Brand', 18, 28, ACCENT],
+        ['Competitor A', 22, 20, ACCENT2],
+        ['Competitor B', 15, 18, '#71717A'],
+        ['Competitor C', 12, 11, '#A1A1AA'],
+        ['Competitor D', 8, 12, '#D4D4D8']
+      ];
+
+      // Normalize positions
+      var allOld = data.map(function(d) { return d[1]; });
+      var allNew = data.map(function(d) { return d[2]; });
+      var minAll = Math.min.apply(null, allOld.concat(allNew));
+      var maxAll = Math.max.apply(null, allOld.concat(allNew));
+      var rangeAll = maxAll - minAll || 1;
+      var plotH = H - pad.t - pad.b - yPad;
+
+      data.forEach(function(d, i) {
+        var y = pad.t + yPad/2 + (i / (data.length - 1)) * plotH;
+        var oldY = pad.t + yPad/2 + plotH - ((d[1] - minAll) / rangeAll) * plotH;
+        var newY = pad.t + yPad/2 + plotH - ((d[2] - minAll) / rangeAll) * plotH;
+
+        ctx.beginPath();
+        ctx.moveTo(col1, oldY);
+        ctx.lineTo(col2, newY);
+        ctx.strokeStyle = d[3];
+        ctx.lineWidth = d[0] === 'Your Brand' ? 2.5 : 1.2;
+        ctx.stroke();
+
+        // Dot at start
+        ctx.beginPath();
+        ctx.arc(col1, oldY, d[0] === 'Your Brand' ? 4 : 3, 0, 2*Math.PI);
+        ctx.fillStyle = d[3];
+        ctx.fill();
+
+        // Dot at end
+        ctx.beginPath();
+        ctx.arc(col2, newY, d[0] === 'Your Brand' ? 4 : 3, 0, 2*Math.PI);
+        ctx.fillStyle = d[3];
+        ctx.fill();
+
+        // Direct label at start
+        ctx.fillStyle = d[3];
+        ctx.font = d[0] === 'Your Brand' ? 'bold 11px Montserrat,sans-serif' : '10px Montserrat,sans-serif';
+        ctx.textAlign = 'right';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(d[0] + ' ' + d[1] + '%', col1 - 10, oldY);
+
+        // Value at end
+        ctx.fillStyle = d[3];
+        ctx.font = '10px "IBM Plex Mono",monospace';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'middle';
+        var delta = d[2] - d[1];
+        var sign = delta > 0 ? '+' : '';
+        ctx.fillText(d[2] + '% (' + sign + delta + 'pp)', col2 + 10, newY);
+      });
+    })();
+
+    // 4. RADIAL AREA CHART (Citation Source Breakdown)
+    (function() {
+      var c = document.getElementById('radial-chart');
+      if (!c) return;
+      var ctx = c.getContext('2d');
+      var W = c.width, H = c.height;
+      var cx = W/2, cy = H/2, R = 180;
+
+      ctx.clearRect(0, 0, W, H);
+
+      // Tufte range frame
+      rangeFrame(ctx, 20, 20, W - 40, H - 40);
+
+      var segments = [
+        { label: 'Earned Media', share: 0.82, color: '#FF5A1F', trust: 0.85 },
+        { label: 'Owned Content', share: 0.12, color: '#2438DA', trust: 0.60 },
+        { label: 'Review Sites', share: 0.03, color: '#71717A', trust: 0.45 },
+        { label: 'Social', share: 0.02, color: '#A1A1AA', trust: 0.30 },
+        { label: 'Forums', share: 0.01, color: '#D4D4D8', trust: 0.25 }
+      ];
+
+      var totalAngle = 2 * Math.PI;
+      var startAngle = -Math.PI/2;
+
+      segments.forEach(function(seg) {
+        var sweepAngle = seg.share * totalAngle;
+        var endAngle = startAngle + sweepAngle;
+        var midAngle = startAngle + sweepAngle / 2;
+        var radius = R * (0.3 + 0.7 * seg.trust);
+
+        // Wedge
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.arc(cx, cy, radius, startAngle, endAngle);
+        ctx.closePath();
+        ctx.fillStyle = seg.color.replace(')', ',.12)').replace('rgb', 'rgba');
+        ctx.fill();
+        ctx.strokeStyle = seg.color;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        // Radius line
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(cx + radius * Math.cos(endAngle), cy + radius * Math.sin(endAngle));
+        ctx.strokeStyle = 'rgba(10,10,11,.06)';
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+
+        // Direct label
+        var lr = radius + 28;
+        var lx = cx + lr * Math.cos(midAngle);
+        var ly = cy + lr * Math.sin(midAngle);
+        ctx.fillStyle = seg.color;
+        ctx.font = 'bold 10px Montserrat,sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(seg.label, lx, ly);
+        // Percentage
+        var pct = Math.round(seg.share * 100) + '%';
+        ctx.fillStyle = MUTED;
+        ctx.font = '9px "IBM Plex Mono",monospace';
+        ctx.fillText(pct, lx, ly + 14);
+
+        // Inner radius annotation
+        ctx.fillStyle = MUTED2;
+        ctx.font = '8px "IBM Plex Mono",monospace';
+        ctx.fillText('trust: ' + Math.round(seg.trust * 100) + '%', lx, ly + 28);
+
+        startAngle = endAngle;
+      });
+
+      // Center label
+      ctx.fillStyle = FG;
+      ctx.font = 'bold 12px Montserrat,sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('75K', cx, cy - 8);
+      ctx.fillStyle = MUTED;
+      ctx.font = '8px Montserrat,sans-serif';
+      ctx.fillText('brands', cx, cy + 8);
+    })();
+
   })();
 
   // GSAP animations (wrapped in error boundary, runs after DOM ready)
