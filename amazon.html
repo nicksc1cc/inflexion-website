@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Amazon — Shelf Strategy, Sponsored Ads & DSP | Inflexion</title>
+<meta name="description" content="Amazon strategy and optimisation: Sponsored Products, Brands, Display, DSP. Product data completeness, review velocity, conversion rate optimisation. Separate paid from organic.">
+<link rel="canonical" href="https://nicksc1cc.github.io/inflexion-website/amazon.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Amazon — Shelf Strategy, Sponsored Ads & DSP | Inflexion">
+<meta property="og:description" content="Amazon strategy: Sponsored Products, Brands, Display, DSP as one campaign system. Paid/organic separation, signal audit, shelf position tracking.">
+<meta property="og:url" content="https://nicksc1cc.github.io/inflexion-website/amazon.html">
+<meta property="og:image" content="https://nicksc1cc.github.io/inflexion-website/assets/og-retail-media.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Amazon — Shelf Strategy, Sponsored Ads & DSP | Inflexion">
+<meta name="twitter:description" content="Amazon strategy: Sponsored Products, Brands, Display, DSP as one campaign system. Paid/organic separation.">
+<meta name="twitter:image" content="https://nicksc1cc.github.io/inflexion-website/assets/og-retail-media.svg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Amazon Optimisation",
+  "description": "Amazon shelf strategy, Sponsored Products, Brands, Display, DSP. Product data, review velocity, conversion optimisation. Paid/organic separation.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Inflexion",
+    "url": "https://nicksc1cc.github.io/inflexion-website/"
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="assets/common.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo"><img src="logo.png" alt="Inflexion" height="36"></a>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav>
+      <a href="index.html">Home</a>
+      <div class="dropdown">
+        <span class="dropdown-toggle" style="font-size:12px;font-weight:400;letter-spacing:.04em;color:var(--muted);text-decoration:none">AI Discovery</span>
+        <div class="dropdown-menu">
+          <div class="dropdown-menu-inner">
+            <a href="aeo.html">AEO — Answer Engine Optimisation</a>
+            <a href="ai-visibility-analytics.html">AI Visibility Analytics</a>
+            <a href="technical-geo.html">Technical GEO</a>
+            <a href="digital-pr.html">Digital PR for AEO</a>
+          </div>
+        </div>
+      </div>
+      <div class="dropdown">
+        <span class="dropdown-toggle" style="font-size:12px;font-weight:400;letter-spacing:.04em;color:var(--muted);text-decoration:none">Media</span>
+        <div class="dropdown-menu">
+          <div class="dropdown-menu-inner">
+            <a href="retail-media.html">Retail Media & the Algorithmic Shelf</a>
+            <a href="amazon.html" style="color:var(--fg)">Amazon</a>
+            <a href="ai-media.html">AI-Powered Traditional Media</a>
+          </div>
+        </div>
+      </div>
+      <a href="consultancy.html">Consultancy</a>
+      <a href="contact.html" class="cta-btn">Free tools</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <canvas id="data-field-canvas" aria-hidden="true"></canvas>
+  <div class="w">
+    <div class="sup">Amazon</div>
+    <h1>Amazon is not a media channel. <em>It is a product algorithm.</em></h1>
+    <p class="desc">Sponsored Products, Brands, Display, DSP — run as one campaign system, not four separate products. Amazon rewards product data completeness, conversion history, and inventory depth alongside the bid. We optimise all four, not just the bid.</p>
+    <div class="cta-row">
+      <a href="contact.html" class="btn">Audit your Amazon shelf →</a>
+      <a href="#signals" class="link">The signals that matter</a>
+    </div>
+    <div class="data-banner">
+      <div class="d"><div class="v">60%</div><div class="l">Amazon share of retail media</div><div class="s">eMarketer, 2026</div></div>
+      <div class="d"><div class="v">71%</div><div class="l">Units from organic</div><div class="s">Jungle Scout, 2025</div></div>
+      <div class="d"><div class="v">4.4×</div><div class="l">Organic vs paid ROAS</div><div class="s">Marketplace Pulse, 2025</div></div>
+      <div class="d"><div class="v">2.1M</div><div class="l">Amazon sellers (2026)</div><div class="s">Marketplace Pulse</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== 01. THE SIGNALS ===== -->
+<section id="signals" style="background:#fff">
+  <div class="section-inner" style="max-width:900px">
+    <div class="tag" style="margin-bottom:16px">01. The signals</div>
+    <h2 class="d2" style="margin-bottom:16px">What the algorithm reads — <span style="font-weight:600;color:var(--accent)">and what most setups miss.</span></h2>
+    <p class="prose" style="margin-bottom:24px">Amazon's A9 algorithm ranks products, not ads. Sponsored placements are layered on top of the organic rank, not independent of it. The signals are documented from published sources and empirical testing.</p>
+
+    <div class="why-row">
+      <div class="n">01</div>
+      <div class="hd">Product data completeness.</div>
+      <div class="bd">Titles, bullet points, images, A+ content, attributes, backend search terms. The algorithm reads this before it reads the bid. Incomplete product data is the most common constraint we find. Every missing attribute is a signal gap that paid spend cannot close.</div>
+    </div>
+    <div class="why-row">
+      <div class="n">02</div>
+      <div class="hd">Review velocity and sentiment.</div>
+      <div class="bd">How quickly reviews accumulate and what they say. The algorithm weights recency and sentiment alongside volume. A product with 500 old reviews can be outperformed by a product with 50 recent positive ones. Velocity is the signal that most brands under-invest in.</div>
+    </div>
+    <div class="why-row">
+      <div class="n">03</div>
+      <div class="hd">Conversion rate by traffic source.</div>
+      <div class="bd">Organic, sponsored, external — we track conversion separately for each. A blended number hides whether the problem is product or placement. A high-spend product with low conversion may need page optimisation, not a higher bid.</div>
+    </div>
+    <div class="why-row">
+      <div class="n">04</div>
+      <div class="hd">Price and promotion competitiveness.</div>
+      <div class="bd">Relative to the alternatives shown on the same search results page. We benchmark pricing, coupon depth, and deal timing against category competitors. The algorithm rewards the combination that converts, not the lowest price alone.</div>
+    </div>
+    <div class="why-row">
+      <div class="n">05</div>
+      <div class="hd">Inventory depth and fulfilment.</div>
+      <div class="bd">Stock-outs, shipping speed, and fulfilment method all feed the algorithm. A product that cannot ship Prime loses position even if everything else is optimised. FBA vs FBA is increasingly a ranking signal, not just a logistics choice.</div>
+    </div>
+    <div class="why-row">
+      <div class="n">06</div>
+      <div class="hd">Paid position vs organic position.</div>
+      <div class="bd">We separate the two in every report. If position improves but conversion does not follow, we flag it rather than present it as success. Share of shelf is meaningless without the paid/organic split.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== 02. THE AD PRODUCTS ===== -->
+<section class="dark" id="ad-products" style="padding:100px 0">
+  <div class="section-inner" style="max-width:900px">
+    <div class="tag" style="color:rgba(250,250,249,.5);margin-bottom:16px">02. The ad products</div>
+    <h2 class="d2" style="margin-bottom:16px">Four surfaces. <span style="font-weight:600;color:var(--accent)">One campaign system.</span></h2>
+    <p class="prose" style="margin-bottom:32px">Amazon offers four ad products, but they are only effective when planned and reported as one system. The bid on one product affects the rank of another. We structure them as a single campaign with shared objectives, not four separate budgets.</p>
+    <div class="feat-grid">
+      <div class="feat-card">
+        <div class="t">Sponsored Products</div>
+        <div class="hd">The foundation of every Amazon programme.</div>
+        <div class="bd">Keyword-targeted ads that appear in search results and product detail pages. We manage them against organic rank, not just ACOS. The goal is to earn the organic position through paid support, not replace organic revenue with paid spend.</div>
+      </div>
+      <div class="feat-card">
+        <div class="t">Sponsored Brands</div>
+        <div class="hd">Brand awareness at the top of the funnel.</div>
+        <div class="bd">Customisable headline ads featuring your logo, tagline, and multiple products. Measured against category share of voice, not just click-through. The attribution window is longer than Sponsored Products and we track it separately.</div>
+      </div>
+      <div class="feat-card">
+        <div class="t">Sponsored Display</div>
+        <div class="hd">Remarketing and audience targeting.</div>
+        <div class="bd">Display ads that follow shoppers across Amazon and off-platform. We use them for audience retargeting, cross-sell, and competitor conquest. The data feeds back into the product-level signal optimisation loop.</div>
+      </div>
+      <div class="feat-card">
+        <div class="t">Amazon DSP</div>
+        <div class="hd">Programmatic buying at scale.</div>
+        <div class="bd">Amazon's demand-side platform for buying display, video, and audio ads on and off Amazon. We use it to drive traffic into the algorithm, feed first-party data signals, and retarget across the post-purchase journey.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== 03. THE AUDIT ===== -->
+<section style="background:#fff">
+  <div class="section-inner" style="max-width:900px">
+    <div class="tag" style="margin-bottom:16px">03. The audit</div>
+    <h2 class="d2" style="margin-bottom:48px">What we check. <span style="font-weight:600;color:var(--accent)">Every time.</span></h2>
+    <div class="why-row"><div class="n">01</div><div class="hd">Product data completeness.</div><div class="bd">All titles, bullets, images, A+ content, attributes, backend terms. Score per ASIN. Ranked fix list.</div></div>
+    <div class="why-row"><div class="n">02</div><div class="hd">Review analysis.</div><div class="bd">Velocity, sentiment, recency. Flagged products with review gaps.</div></div>
+    <div class="why-row"><div class="n">03</div><div class="hd">Conversion rate by traffic source.</div><div class="bd">Organic vs sponsored vs external. Separated per product.</div></div>
+    <div class="why-row"><div class="n">04</div><div class="hd">Price benchmarking.</div><div class="bd">Relative to category competitors. Coupon and deal strategy.</div></div>
+    <div class="why-row"><div class="n">05</div><div class="hd">Inventory and fulfilment.</div><div class="bd">Stock-out history, Prime eligibility, FBA vs FBA signals.</div></div>
+    <div class="why-row"><div class="n">06</div><div class="hd">Paid vs organic shelf position.</div><div class="bd">Ranked per keyword. Separated. No blended reporting.</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== 04. CTA ===== -->
+<section id="cta" style="background:#fff">
+  <div class="section-inner">
+    <div class="cta-inner">
+      <div>
+        <h2>Find out what your Amazon shelf <em>actually looks like.</em></h2>
+        <p>A full signal audit across your catalogue. Paid and organic separated. You keep the baseline either way.</p>
+      </div>
+      <a href="contact.html" class="btn">Audit your Amazon shelf →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer style="background:var(--bg);border-top:1px solid var(--border)">
+  <div style="max-width:1280px;margin:0 auto;padding:0 48px">
+    <div class="ftr">
+      <div>
+        <a href="index.html"><img src="logo.png" alt="Inflexion" height="36" style="height:36px;width:auto;display:block;margin-bottom:16px"></a>
+        <p>Built for the AI inflection.</p>
+      </div>
+      <div><div class="fh">Services</div><a href="aeo.html">AEO — Answer Engine Optimisation</a><a href="ai-visibility-analytics.html">AI Visibility Analytics</a><a href="technical-geo.html">Technical GEO</a><a href="digital-pr.html">Digital PR for AEO</a><a href="retail-media.html">Retail Media</a><a href="amazon.html">Amazon</a><a href="ai-media.html">AI-Powered Media</a><a href="consultancy.html">AI Consultancy</a></div>
+      <div><div class="fh">Company</div><a href="measurement.html">Measurement</a><a href="https://nicksc1cc.github.io/inflexion-perspectives/">Perspectives</a></div>
+      <div><div class="fh">Contact</div><a href="contact.html">Start the audit</a><a href="mailto:hello@inflexion.co">hello@inflexion.co</a></div>
+    </div>
+    <div class="btm"><span>© 2026 Inflexion</span><span>Privacy · Terms</span></div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var h = document.querySelector('.hamburger');
+    var n = document.querySelector('header nav');
+    if(h){h.addEventListener('click',function(){n.classList.toggle('open');h.classList.toggle('open')})}
+    n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');h.classList.remove('open')})});
+    document.querySelectorAll('.dropdown-toggle').forEach(function(toggle){
+      toggle.addEventListener('click',function(e){
+        e.preventDefault();
+        var menu = this.nextElementSibling;
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+    document.addEventListener('click',function(e){
+      if(!e.target.closest('.dropdown')){document.querySelectorAll('.dropdown-menu').forEach(function(m){m.style.display='none'})}
+    });
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})
+    });
+    var canvas = document.getElementById('data-field-canvas');
+    if (canvas && typeof THREE !== 'undefined') {
+      var scene = new THREE.Scene(); scene.background = null;
+      var camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 100);
+      camera.position.set(0, -2, 9);
+      var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+      renderer.setClearColor(0x000000, 0);
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      var group = new THREE.Group(); scene.add(group);
+      var numLines = 60, pts = 100;
+      for (var i = 0; i < numLines; i++) {
+        var points = [];
+        var xPos = (i - numLines / 2) * 0.22;
+        for (var j = 0; j < pts; j++) { points.push(new THREE.Vector3(xPos, (j - pts / 2) * 0.2, 0)); }
+        var t = i / numLines;
+        var color = new THREE.Color().setHSL(0.08 - t * 0.12, 0.8, 0.6 + t * 0.3);
+        var mat = new THREE.LineBasicMaterial({ color: color, transparent: true, opacity: 0.2 + Math.random() * 0.3, blending: THREE.AdditiveBlending });
+        var line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), mat);
+        group.add(line);
+      }
+      group.rotation.x = Math.PI / 3; group.rotation.z = -Math.PI / 8;
+      function animate() {
+        requestAnimationFrame(animate);
+        var time = performance.now() * 0.0004;
+        group.children.forEach(function(line){
+          var pos = line.geometry.attributes.position.array;
+          for (var j = 0; j < pts; j++) {
+            var idx = j * 3;
+            var x = pos[idx], y = pos[idx + 1];
+            pos[idx + 2] = Math.sin(y * 1.2 + time + x * 0.8) * 0.8 + Math.cos(x * 1.5 - time * 0.8 + y * 0.5) * 0.6;
+          }
+          line.geometry.attributes.position.needsUpdate = true;
+        });
+        renderer.render(scene, camera);
+      }
+      animate();
+      window.addEventListener('resize', function(){
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      });
+    }
+    if(typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined'){
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.timeline({delay:0.3})
+        .from('.hero .sup', { y: 30, opacity: 0, duration: 0.6, ease: 'power3.out' })
+        .from('.hero h1', { y: 40, opacity: 0, duration: 0.8, ease: 'power3.out' }, '-=0.3')
+        .from('.hero .desc', { y: 30, opacity: 0, duration: 0.6, ease: 'power2.out' }, '-=0.4')
+        .from('.hero .cta-row > *', { y: 30, opacity: 0, duration: 0.6, stagger: 0.1, ease: 'power2.out' }, '-=0.4')
+        .from('.hero .data-banner > *', { y: 20, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power2.out' }, '-=0.3');
+      const sr = { y: 40, duration: 0.9, ease: 'power2.out', opacity: 0 };
+      gsap.from('.why-row', { ...sr, stagger: 0.1, scrollTrigger: { trigger: '.why-row:first-of-type', start: 'top 80%', toggleActions: 'play none none none' }});
+      gsap.from('.feat-card', { ...sr, stagger: 0.1, scrollTrigger: { trigger: '.feat-grid', start: 'top 80%', toggleActions: 'play none none none' }});
+      gsap.from('.cta-inner > *', { ...sr, stagger: 0.15, scrollTrigger: { trigger: '.cta-inner', start: 'top 85%', toggleActions: 'play none none none' }});
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { gsap.globalTimeline.clear(); ScrollTrigger.getAll().forEach(function(t){t.kill()}); }
+    }
+  })();
+</script>
+</body>
+</html>
