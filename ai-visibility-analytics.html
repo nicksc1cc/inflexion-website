@@ -479,11 +479,12 @@
           i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
         });
         ctx.closePath();
-        ctx.fillStyle = b.color.replace(')', ',.08)').replace('rgb', 'rgba');
-        ctx.fill();
+        // No fill - just clean lines per Tufte
         ctx.strokeStyle = b.color;
-        ctx.lineWidth = 1.5;
+        ctx.lineWidth = b.label === 'Your Brand' ? 2.5 : 1.5;
+        ctx.setLineDash(b.label === 'Your Brand' ? [] : [6, 4]);
         ctx.stroke();
+        ctx.setLineDash([]);
       });
 
       // Direct labels
