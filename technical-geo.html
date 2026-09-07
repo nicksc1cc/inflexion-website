@@ -161,6 +161,57 @@
 
 <div class="divider"></div>
 
+<!-- ===== VISUAL: Technical Audit Scorecard ===== -->
+<section style="background:#fff">
+  <div class="section-inner">
+    <div class="tag" style="margin-bottom:16px">Technical audit scorecard</div>
+    <h2 class="d2" style="margin-bottom:16px">Seven dimensions. <span style="font-weight:600;color:var(--accent)">One diagnostic.</span></h2>
+    <p class="prose" style="margin-bottom:24px;max-width:36em">Each dimension is scored 0–100 on a page-level crawl. The radar profile shows where your site is AI-ready and where rendering gaps block citation.</p>
+
+    <!-- VISUAL: Technical GEO Radar -->
+    <div class="chart-section" style="margin-bottom:48px">
+      <h3 class="chart-title" style="font-size:18px;font-weight:500;margin-bottom:8px">Technical GEO Readiness Profile</h3>
+      <p class="chart-caption" style="font-size:13px;color:var(--muted);margin-bottom:24px;max-width:36em">Radar chart of the 7 technical dimensions. Larger area = more AI-crawler-friendly. Your Brand vs Industry Average vs Best-in-Class.</p>
+      <div class="chart-wrapper" style="position:relative;max-width:500px;margin:0 auto">
+        <canvas id="geo-radar-chart" width="500" height="500" style="display:block;width:100%;height:auto"></canvas>
+      </div>
+      <p class="chart-note" style="font-size:11px;color:var(--muted2);margin-top:12px;text-align:center">Mock data — replace with live audit API data. Axes: Crawler Access, SSR Coverage, Schema & Entities, Sitemap Efficiency, LLMs.txt, Rendering Audit, Entity Positioning.</p>
+    </div>
+
+    <!-- VISUAL: Small Multiples - Browser vs AI Crawler Content Gap -->
+    <div class="chart-section" style="margin-bottom:48px">
+      <h3 class="chart-title" style="font-size:18px;font-weight:500;margin-bottom:8px">What the Browser Sees vs What AI Crawls</h3>
+      <p class="chart-caption" style="font-size:13px;color:var(--muted);margin-bottom:24px;max-width:36em">Slopegraph comparing content element visibility between full browser render and raw HTML AI crawler response. Lines slope down = content invisible to AI.</p>
+      <div class="chart-wrapper" style="position:relative;max-width:900px;margin:0 auto">
+        <canvas id="geo-slopegraph" width="900" height="350" style="display:block;width:100%;height:auto"></canvas>
+      </div>
+      <p class="chart-note" style="font-size:11px;color:var(--muted2);margin-top:12px;text-align:center">Mock data — replace with live page-level rendering audit. Each line = one content element type.</p>
+    </div>
+
+    <!-- VISUAL: Schema Coverage Area Chart -->
+    <div class="chart-section" style="margin-bottom:48px">
+      <h3 class="chart-title" style="font-size:18px;font-weight:500;margin-bottom:8px">Schema Coverage Over Remediation Sprint</h3>
+      <p class="chart-caption" style="font-size:13px;color:var(--muted);margin-bottom:24px;max-width:36em">Area chart showing page-level schema coverage improving across a 6-week remediation. Shaded region = gap from baseline to target (85%+).</p>
+      <div class="chart-wrapper" style="position:relative;max-width:700px;margin:0 auto">
+        <canvas id="geo-area-chart" width="700" height="300" style="display:block;width:100%;height:auto"></canvas>
+      </div>
+      <p class="chart-note" style="font-size:11px;color:var(--muted2);margin-top:12px;text-align:center">Mock data — replace with live schema audit progression. Target: 85%+ schema coverage on citable pages.</p>
+    </div>
+
+    <!-- VISUAL: Crawler Access Status -->
+    <div class="chart-section" style="margin-bottom:48px">
+      <h3 class="chart-title" style="font-size:18px;font-weight:500;margin-bottom:8px">AI Crawler Access: Allowed vs Blocked</h3>
+      <p class="chart-caption" style="font-size:13px;color:var(--muted);margin-bottom:24px;max-width:36em">Radial bar showing which major AI crawlers can access your site. Green = allowed; orange = blocked in robots.txt; gray = unknown/untested. Average enterprise blocks 4–7.</p>
+      <div class="chart-wrapper" style="position:relative;max-width:500px;margin:0 auto">
+        <canvas id="geo-crawler-chart" width="500" height="500" style="display:block;width:100%;height:auto"></canvas>
+      </div>
+      <p class="chart-note" style="font-size:11px;color:var(--muted2);margin-top:12px;text-align:center">Mock data — replace with live robots.txt + crawl test results. Crawlers: GPTBot, CCBot, Claude-Web, Google-Extended, PerplexityBot, BingPreview, Applebot, Anthropic-AI.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- ===== SECTION 03: FRAMEWORK APPLIED ===== -->
 <section id="applied" style="background:#fff">
   <div class="section-inner" style="max-width:900px">
@@ -342,6 +393,384 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
       });
     })();
+  })();
+
+  // --- Tufte-style Technical GEO Charts (Canvas 2D) ---
+  (function() {
+    var ACCENT = '#FF5A1F';
+    var ACCENT2 = '#2438DA';
+    var MUTED = '#71717A';
+    var MUTED2 = '#A1A1AA';
+    var FG = '#0A0A0B';
+    var OK = '#10B981';
+    var WARN = '#F59E0B';
+    var ERR = '#EF4444';
+
+    function rangeFrame(ctx, x, y, w, h) {
+      ctx.strokeStyle = 'rgba(10,10,11,.15)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(x, y + h); ctx.lineTo(x, y); ctx.lineTo(x + w, y);
+      ctx.stroke();
+    }
+
+    // 1. TECHNICAL GEO RADAR (7 axes)
+    (function() {
+      var c = document.getElementById('geo-radar-chart');
+      if (!c) return;
+      var ctx = c.getContext('2d');
+      var W = c.width, H = c.height;
+      var cx = W/2, cy = H/2, R = 190;
+      var levels = 5;
+      var metrics = ['Crawler Access','SSR Coverage','Schema & Entities','Sitemap Eff.','LLMs.txt','Rendering Audit','Entity Positioning'];
+      var N = metrics.length;
+      var angleStep = (2 * Math.PI) / N;
+
+      var profiles = [
+        { label: 'Your Brand', color: ACCENT, values: [0.85, 0.45, 0.60, 0.55, 0.30, 0.40, 0.50], solid: true },
+        { label: 'Industry Avg', color: MUTED2, values: [0.55, 0.40, 0.35, 0.45, 0.25, 0.30, 0.40], solid: false },
+        { label: 'Best-in-Class', color: ACCENT2, values: [0.95, 0.85, 0.90, 0.88, 0.80, 0.92, 0.85], solid: false }
+      ];
+
+      ctx.clearRect(0, 0, W, H);
+
+      // Grid circles
+      for (var l = 1; l <= levels; l++) {
+        var r = (R / levels) * l;
+        ctx.beginPath();
+        for (var i = 0; i <= N; i++) {
+          var a = -Math.PI/2 + i * angleStep;
+          var x = cx + r * Math.cos(a);
+          var y = cy + r * Math.sin(a);
+          i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+        }
+        ctx.strokeStyle = 'rgba(10,10,11,.08)';
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+      }
+
+      // Axis lines + labels
+      for (var i = 0; i < N; i++) {
+        var a = -Math.PI/2 + i * angleStep;
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(cx + R * Math.cos(a), cy + R * Math.sin(a));
+        ctx.strokeStyle = 'rgba(10,10,11,.12)';
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+        var lx = cx + (R + 32) * Math.cos(a);
+        var ly = cy + (R + 32) * Math.sin(a);
+        ctx.fillStyle = MUTED;
+        ctx.font = '10px "IBM Plex Mono",monospace';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(metrics[i], lx, ly);
+      }
+
+      // Profile polygons - lines only, no fills
+      profiles.forEach(function(p) {
+        ctx.beginPath();
+        p.values.forEach(function(v, i) {
+          var a = -Math.PI/2 + i * angleStep;
+          var r = R * v;
+          var x = cx + r * Math.cos(a);
+          var y = cy + r * Math.sin(a);
+          i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+        });
+        ctx.closePath();
+        ctx.strokeStyle = p.color;
+        ctx.lineWidth = p.solid ? 2.5 : 1.5;
+        ctx.setLineDash(p.solid ? [] : [6, 4]);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      });
+
+      // Direct labels
+      profiles.forEach(function(p) {
+        var lastVal = p.values[p.values.length - 1];
+        var lastAngle = -Math.PI/2 + (N - 1) * angleStep;
+        var lx = cx + (R * lastVal + 12) * Math.cos(lastAngle);
+        var ly = cy + (R * lastVal + 12) * Math.sin(lastAngle);
+        ctx.fillStyle = p.color;
+        ctx.font = '10px "IBM Plex Mono",monospace';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(p.label, lx + 8, ly);
+      });
+    })();
+
+    // 2. SLOPEGRAPH: Browser vs AI Crawler visibility
+    (function() {
+      var c = document.getElementById('geo-slopegraph');
+      if (!c) return;
+      var ctx = c.getContext('2d');
+      var W = c.width, H = c.height;
+      var pad = { t: 40, b: 40, l: 120, r: 180 };
+      var col1 = pad.l + 20;
+      var col2 = W - pad.r - 20;
+
+      ctx.clearRect(0, 0, W, H);
+      rangeFrame(ctx, pad.l, pad.t, W - pad.l - pad.r, H - pad.t - pad.b);
+
+      // Column labels
+      ctx.fillStyle = MUTED;
+      ctx.font = '10px "IBM Plex Mono",monospace';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'bottom';
+      ctx.fillText('Full Browser Render', col1, pad.t - 8);
+      ctx.fillText('AI Crawler (Raw HTML)', col2, pad.t - 8);
+
+      var data = [
+        { label: 'Product descriptions', browser: 100, ai: 35, color: ERR },
+        { label: 'Pricing tables', browser: 100, ai: 42, color: ERR },
+        { label: 'Specification sheets', browser: 100, ai: 28, color: ERR },
+        { label: 'Article body content', browser: 100, ai: 85, color: WARN },
+        { label: 'Navigation/menus', browser: 100, ai: 90, color: OK },
+        { label: 'Structured data (schema)', browser: 100, ai: 15, color: ERR },
+        { label: 'Meta/title tags', browser: 100, ai: 100, color: OK },
+        { label: 'Image alt text', browser: 100, ai: 60, color: WARN },
+        { label: 'User reviews', browser: 100, ai: 20, color: ERR },
+        { label: 'FAQ/accordion content', browser: 100, ai: 12, color: ERR }
+      ];
+
+      var plotH = H - pad.t - pad.b - 60;
+      data.forEach(function(d, i) {
+        var y = pad.t + 30 + (i / (data.length - 1)) * plotH;
+        var by = pad.t + 30 + plotH - (d.browser / 100) * plotH;
+        var ay = pad.t + 30 + plotH - (d.ai / 100) * plotH;
+
+        ctx.beginPath();
+        ctx.moveTo(col1, by);
+        ctx.lineTo(col2, ay);
+        ctx.strokeStyle = d.color;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        // Dots
+        [col1, col2].forEach(function(cx, idx) {
+          var val = idx === 0 ? d.browser : d.ai;
+          var y = idx === 0 ? by : ay;
+          ctx.beginPath();
+          ctx.arc(cx, y, 3, 0, 2*Math.PI);
+          ctx.fillStyle = d.color;
+          ctx.fill();
+        });
+
+        // Label at left
+        ctx.fillStyle = FG;
+        ctx.font = '10px Montserrat,sans-serif';
+        ctx.textAlign = 'right';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(d.label, col1 - 12, y);
+
+        // Values at right
+        ctx.fillStyle = d.color;
+        ctx.font = '10px "IBM Plex Mono",monospace';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(d.browser + '%', col2 + 8, by);
+        ctx.fillText(d.ai + '%', col2 + 8, ay);
+      });
+    })();
+
+    // 3. AREA CHART: Schema coverage over time
+    (function() {
+      var c = document.getElementById('geo-area-chart');
+      if (!c) return;
+      var ctx = c.getContext('2d');
+      var W = c.width, H = c.height;
+      var pad = { t: 30, b: 40, l: 70, r: 40 };
+      var pw = W - pad.l - pad.r;
+      var ph = H - pad.t - pad.b;
+
+      ctx.clearRect(0, 0, W, H);
+      rangeFrame(ctx, pad.l, pad.t, pw, ph);
+
+      // Data: week 0-6
+      var weeks = [0,1,2,3,4,5,6];
+      var actual = [20, 35, 52, 65, 74, 81, 86];
+      var target = [20, 30, 45, 60, 75, 85, 85];
+
+      // Target area (shaded gap)
+      ctx.beginPath();
+      ctx.moveTo(pad.l, pad.t + ph);
+      weeks.forEach(function(w, i) {
+        var x = pad.l + (w / 6) * pw;
+        var y = pad.t + ph - (target[i] / 100) * ph;
+        i === 0 ? ctx.lineTo(x, y) : ctx.lineTo(x, y);
+      });
+      weeks.slice().reverse().forEach(function(w, i) {
+        var x = pad.l + (w / 6) * pw;
+        var y = pad.t + ph;
+        ctx.lineTo(x, y);
+      });
+      ctx.closePath();
+      ctx.fillStyle = 'rgba(255,90,31,.06)';
+      ctx.fill();
+
+      // Target line
+      ctx.beginPath();
+      weeks.forEach(function(w, i) {
+        var x = pad.l + (w / 6) * pw;
+        var y = pad.t + ph - (target[i] / 100) * ph;
+        i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      });
+      ctx.strokeStyle = ACCENT2;
+      ctx.setLineDash([4, 4]);
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Actual area
+      ctx.beginPath();
+      ctx.moveTo(pad.l, pad.t + ph);
+      weeks.forEach(function(w, i) {
+        var x = pad.l + (w / 6) * pw;
+        var y = pad.t + ph - (actual[i] / 100) * ph;
+        i === 0 ? ctx.lineTo(x, y) : ctx.lineTo(x, y);
+      });
+      weeks.slice().reverse().forEach(function(w, i) {
+        var x = pad.l + (w / 6) * pw;
+        var y = pad.t + ph;
+        ctx.lineTo(x, y);
+      });
+      ctx.closePath();
+      ctx.fillStyle = 'rgba(255,90,31,.12)';
+      ctx.fill();
+
+      // Actual line
+      ctx.beginPath();
+      weeks.forEach(function(w, i) {
+        var x = pad.l + (w / 6) * pw;
+        var y = pad.t + ph - (actual[i] / 100) * ph;
+        i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      });
+      ctx.strokeStyle = ACCENT;
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      // Dots
+      weeks.forEach(function(w, i) {
+        var x = pad.l + (w / 6) * pw;
+        var y = pad.t + ph - (actual[i] / 100) * ph;
+        ctx.beginPath();
+        ctx.arc(x, y, 4, 0, 2*Math.PI);
+        ctx.fillStyle = ACCENT;
+        ctx.fill();
+      });
+
+      // Y-axis labels
+      [20,40,60,80,100].forEach(function(v) {
+        var y = pad.t + ph - (v/100) * ph;
+        ctx.fillStyle = MUTED2;
+        ctx.font = '9px "IBM Plex Mono",monospace';
+        ctx.textAlign = 'right';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(v + '%', pad.l - 8, y);
+      });
+
+      // X-axis labels
+      weeks.forEach(function(w) {
+        var x = pad.l + (w / 6) * pw;
+        ctx.fillStyle = MUTED;
+        ctx.font = '9px "IBM Plex Mono",monospace';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'top';
+        ctx.fillText('W' + w, x, H - pad.b + 8);
+      });
+
+      // Title
+      ctx.fillStyle = FG;
+      ctx.font = 'bold 11px Montserrat,sans-serif';
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'bottom';
+      ctx.fillText('Actual coverage', pad.l, pad.t - 6);
+      ctx.fillStyle = ACCENT2;
+      ctx.fillText('Target (85%+)', pad.l + 140, pad.t - 6);
+    })();
+
+    // 4. RADIAL BAR: Crawler access status
+    (function() {
+      var c = document.getElementById('geo-crawler-chart');
+      if (!c) return;
+      var ctx = c.getContext('2d');
+      var W = c.width, H = c.height;
+      var cx = W/2, cy = H/2, R = 180;
+
+      ctx.clearRect(0, 0, W, H);
+      rangeFrame(ctx, 20, 20, W - 40, H - 40);
+
+      var crawlers = [
+        { name: 'GPTBot', status: 'allowed', share: 1.0 },
+        { name: 'CCBot', status: 'allowed', share: 1.0 },
+        { name: 'Claude-Web', status: 'allowed', share: 1.0 },
+        { name: 'Google-Extended', status: 'allowed', share: 1.0 },
+        { name: 'PerplexityBot', status: 'blocked', share: 0.8 },
+        { name: 'BingPreview', status: 'blocked', share: 0.7 },
+        { name: 'Applebot', status: 'allowed', share: 1.0 },
+        { name: 'Anthropic-AI', status: 'unknown', share: 0.5 }
+      ];
+
+      var totalAngle = 2 * Math.PI;
+      var startAngle = -Math.PI/2;
+      var barWidth = 80;
+
+      crawlers.forEach(function(cr, i) {
+        var sweepAngle = (totalAngle / crawlers.length) * 0.8;
+        var gap = (totalAngle / crawlers.length) * 0.2;
+        var endAngle = startAngle + sweepAngle;
+        var midAngle = startAngle + sweepAngle / 2;
+        var innerR = R - barWidth;
+        var outerR = R;
+
+        var color;
+        if (cr.status === 'allowed') color = OK;
+        else if (cr.status === 'blocked') color = ERR;
+        else color = WARN;
+
+        // Radial bar segment
+        ctx.beginPath();
+        ctx.arc(cx, cy, outerR, startAngle, endAngle);
+        ctx.arc(cx, cy, innerR, endAngle, startAngle, true);
+        ctx.closePath();
+        ctx.fillStyle = color.replace(')', ',.15)').replace('rgb', 'rgba');
+        ctx.fill();
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        // Label
+        var lr = outerR + 28;
+        var lx = cx + lr * Math.cos(midAngle);
+        var ly = cy + lr * Math.sin(midAngle);
+        ctx.fillStyle = color;
+        ctx.font = 'bold 10px Montserrat,sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(cr.name, lx, ly);
+
+        // Status
+        var sr = innerR - 12;
+        var sx = cx + sr * Math.cos(midAngle);
+        var sy = cy + sr * Math.sin(midAngle);
+        ctx.fillStyle = color;
+        ctx.font = '8px "IBM Plex Mono",monospace';
+        ctx.fillText(cr.status.toUpperCase(), sx, sy);
+
+        startAngle = endAngle + gap;
+      });
+
+      // Center
+      ctx.fillStyle = FG;
+      ctx.font = 'bold 14px Montserrat,sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('8', cx, cy - 10);
+      ctx.fillStyle = MUTED;
+      ctx.font = '8px Montserrat,sans-serif';
+      ctx.fillText('crawlers', cx, cy + 10);
+    })();
+
   })();
 
   // GSAP animations (wrapped in error boundary, runs after DOM ready)
