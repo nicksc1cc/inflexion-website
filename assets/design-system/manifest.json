@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "od-design-system-project/v1",
+  "id": "inflexion",
+  "name": "Inflexion",
+  "category": "Brand & Agency",
+  "description": "Full-service marketing agency for the AI era. Editorial monochrome design with a single orange accent (#FF5A1F) and blue data accent (#2438DA).",
+  "source": {
+    "type": "custom",
+    "origin": "Inflexion brand guidelines — proprietary"
+  },
+  "files": {
+    "design": "DESIGN.md",
+    "tokens": "tokens.css"
+  }
+}
