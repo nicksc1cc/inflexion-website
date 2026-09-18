@@ -16,3 +16,5 @@
 - https://nicksc1cc.github.io/inflexion-website/framework.html - Framework
 - https://nicksc1cc.github.io/inflexion-website/measurement.html - Measurement
 - https://nicksc1cc.github.io/inflexion-website/contact.html - Contact / Audit
+- https://nicksc1cc.github.io/inflexion-website/blog.html - Inflexion Journal
+- https://nicksc1cc.github.io/inflexion-website/ai-in-retail-media.html - AI in retail media: the shelf is becoming a decision system
