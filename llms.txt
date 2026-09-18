@@ -18,3 +18,8 @@
 - https://nicksc1cc.github.io/inflexion-website/contact.html - Contact / Audit
 - https://nicksc1cc.github.io/inflexion-website/blog.html - Inflexion Journal
 - https://nicksc1cc.github.io/inflexion-website/ai-in-retail-media.html - AI in retail media: the shelf is becoming a decision system
+- https://nicksc1cc.github.io/inflexion-website/aeo-rankings-to-citations.html - AEO: the shift from keyword rankings to citation tracking
+- https://nicksc1cc.github.io/inflexion-website/amazon-rufus-sponsored-prompts.html - Amazon Rufus and the sponsored prompt evolution
+- https://nicksc1cc.github.io/inflexion-website/amazon-ai-creative-studio.html - Amazon AI Creative Studio and the collapse of production timelines
+- https://nicksc1cc.github.io/inflexion-website/agentic-media-buying.html - Agentic media buying: from dashboards to autonomous execution
+- https://nicksc1cc.github.io/inflexion-website/shoppable-ai-search.html - Shoppable AI search: the battle for share of generated sentence
