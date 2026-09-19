@@ -332,8 +332,15 @@ section{padding:var(--section-pad) 0}
 .sparkline-card{background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08);border-radius:4px;padding:16px}
 .sparkline-label{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
 .sparkline-meta{display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:rgba(250,250,249,.4)}
+/* --- Value Grid (3-col for delivery section) --- */
+.value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:900px){
+  .value-grid{grid-template-columns:repeat(2,1fr)}
+}
 @media(max-width:600px){
-  .sparkline-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .stat-row{grid-template-columns:1fr}
+  .feat-card{padding:24px 20px}
+  .value-grid{display:grid;grid-template-columns:1fr;gap:24px}
   .chart-wrapper canvas{max-width:100%}
 }
 
