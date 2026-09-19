@@ -521,14 +521,12 @@ gsap.timeline({delay:0.3}).from('.hero .sup',{y:30,opacity:0,duration:0.6,ease:'
 
 // Section reveal animations
 var sr={y:40,duration:1,ease:'power2.out',opacity:0};
-gsap.from('.section-intro',{y:20,opacity:0,duration:0.6,scrollTrigger:{trigger:'.section-intro',start:'top 85%',once:true}});
 gsap.from('.shift-item',{...sr,stagger:0.15,scrollTrigger:{trigger:'.shift-comparison',start:'top 80%'}});
 gsap.from('.stat-card',{...sr,stagger:0.1,scrollTrigger:{trigger:'.stat-row',start:'top 80%'}});
 gsap.from('.feat-card',{...sr,stagger:0.08,scrollTrigger:{trigger:'.feat-grid',start:'top 80%'}});
 gsap.from('.why-row',{...sr,stagger:0.1,scrollTrigger:{trigger:'.why-row',start:'top 80%'}});
 gsap.from('.cta-inner>*',{...sr,stagger:0.15,scrollTrigger:{trigger:'.cta-inner',start:'top 85%'}});
 gsap.from('.pull-quote-narrow',{...sr,scrollTrigger:{trigger:'.pull-quote-narrow',start:'top 85%'}});
-gsap.from('.editorial-pull-quote',{...sr,scrollTrigger:{trigger:'.editorial-pull-quote',start:'top 85%',once:true}});
 gsap.from('.big-stat',{...sr,scrollTrigger:{trigger:'.big-stat',start:'top 80%'}});
 gsap.from('.journey-diagram',{...sr,scrollTrigger:{trigger:'.journey-diagram',start:'top 80%'}});
 
@@ -536,7 +534,7 @@ gsap.from('.journey-diagram',{...sr,scrollTrigger:{trigger:'.journey-diagram',st
 gsap.utils.toArray('[data-parallax]').forEach(function(el){gsap.fromTo(el,{y:-40},{y:0,duration:1.2,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 95%',end:'top 20%',scrub:1}})});
 
 if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){gsap.globalTimeline.clear();ScrollTrigger.getAll().forEach(function(t){t.kill()})}
-setTimeout(function(){document.querySelectorAll('.stat-card,.feat-card,.why-row,.cta-inner>*,.editorial-pull-quote,.section-intro,.big-stat,.journey-diagram').forEach(function(el){if(window.getComputedStyle(el).opacity==='0'){el.style.opacity='1';el.style.transform='none'}})},800)})();
+setTimeout(function(){document.querySelectorAll('.stat-card,.feat-card,.why-row,.cta-inner>*,.big-stat,.journey-diagram').forEach(function(el){if(window.getComputedStyle(el).opacity==='0'){el.style.opacity='1';el.style.transform='none'}})},800)})();
 </script>
 </body>
 </html>
