@@ -140,7 +140,7 @@ body{background:var(--ivory);color:var(--ink)}
 .sec.dark.chart .chart-note{color:rgba(248,245,240,.35)}
 
 /* Canvas backgrounds */
-canvas#ctr-slopegraph, canvas#source-bar-chart{background:#F8F5F0}
+canvas#ctr-slopegraph{background:#F8F5F0}
 canvas#forgetting-curve, canvas#validation-chart{background:#0A0A0B}
 
 /* Value grid in final dark section */
@@ -165,6 +165,37 @@ footer{background:var(--ivory)!important;border-top:1px solid var(--hairline)!im
 .d2 span{font-weight:600!important}
 .hero h1,.sec.dark .d2,.sec.dark .cta-inner h2{font-weight:600}
 .stat-card .v{font-weight:500;letter-spacing:0}
+
+/* Final fixes */
+.hero h1{color:#F8F5F0}
+.hero .sup{color:rgba(248,245,240,.7)}
+.d2 span[style*="accent"]{color:#D9480F!important}
+.pull-quote-narrow .attr{font-family:'Montserrat',sans-serif;font-style:normal}
+
+.section-inner.chart-section{max-width:900px}
+.chart-title{font-family:var(--serif);font-weight:500;font-size:clamp(24px,2.6vw,30px);
+  line-height:1.2;letter-spacing:0;font-optical-sizing:none;font-variation-settings:"opsz" 11}
+.sub{font-family:var(--serif);font-weight:500;font-size:22px;letter-spacing:0;
+  font-optical-sizing:none;font-variation-settings:"opsz" 11}
+.chart-caption{font-size:15px;line-height:1.6;color:var(--stone);text-align:left;
+  max-width:40em;margin:0 0 28px}
+.chart-note{font-size:12px;line-height:1.5;color:var(--stone);text-align:left;margin-top:20px}
+.sec.dark .chart-caption,.sec.dark .chart-note{color:rgba(248,245,240,.6)}
+.chart-wrapper canvas{margin:0!important}
+
+.bars{display:grid;gap:14px;margin:8px 0}
+.bar-row{display:grid;grid-template-columns:190px 1fr 56px;align-items:center;gap:16px}
+.bar-l{font-size:14px;color:var(--ink)}
+.bar-t{display:block;height:26px}
+.bar-f{display:block;height:100%;background:var(--ink)}
+.bar-f.key{background:var(--accent)}
+.bar-v{font-family:var(--serif);font-size:22px;font-weight:500;color:var(--ink);
+  font-optical-sizing:none;font-variation-settings:"opsz" 11}
+.bar-v.key{color:var(--accent)}
+@media(max-width:700px){
+  .bar-row{grid-template-columns:1fr 48px;gap:6px 12px}
+  .bar-l{grid-column:1 / -1}
+}
 </style>
 </head>
 <body>
@@ -201,12 +232,12 @@ footer{background:var(--ivory)!important;border-top:1px solid var(--hairline)!im
 
 <!-- HERO -->
 <section class="hero" style="min-height:90vh;display:flex;align-items:center;overflow:hidden;position:relative;padding:0">
-<div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,11,.92) 0%,rgba(10,10,11,.7) 45%,rgba(10,10,11,.1) 100%)"></div>
 <div style="position:absolute;inset:0;background:url('assets/images/img_bd6177960ac1.jpg') center/cover no-repeat;opacity:.75"></div>
-<div class="w" style="position:relative;z-index:1;color:var(--ink)">
+<div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,11,.92) 0%,rgba(10,10,11,.7) 45%,rgba(10,10,11,.1) 100%)"></div>
+<div class="w" style="position:relative;z-index:1;color:#F8F5F0">
 <div class="sup" style="margin-bottom:16px;opacity:.7">Inflexion ◆ For Beauty</div>
 <h1 style="margin-bottom:20px;line-height:1.05">The beauty shelf and the search engine are the same algorithm now.</h1>
-<p class="desc" style="color:var(--stone);max-width:520px;font-size:17px">Search results and store shelves are both controlled by AI now. Beauty brands that win before the prompt, and at every step after, own the category.</p>
+<p class="desc" style="color:rgba(248,245,240,.8);max-width:520px;font-size:17px">Search results and store shelves are both controlled by AI now. Beauty brands that win before the prompt, and at every step after, own the category.</p>
 </div>
 </section>
 
@@ -374,6 +405,10 @@ footer{background:var(--ivory)!important;border-top:1px solid var(--hairline)!im
 <div class="stat-card"><div class="v">22%</div><div class="l">Shoppers already use an AI shopping tool by March 2026</div><div class="s">PartnerCentric</div></div>
 <div class="stat-card"><div class="v">2.5x</div><div class="l">More likely to visit a brand's site after a ChatGPT product recommendation in the beauty vertical</div><div class="s">Paz.ai</div></div>
 </div>
+<div class="pull-quote-narrow" style="margin-top:48px">
+&ldquo;A third of consumers expect at least one in ten purchases to be AI-driven within a year.&rdquo;
+<span class="attr">Checkout.com: Agentic Commerce 2026</span>
+</div>
 </div>
 </section>
 
@@ -455,7 +490,13 @@ Brand memory &rarr; Prompt &rarr; AI recommendation &rarr; Human validation &rar
 <div class="section-inner chart-section">
 <h3 class="chart-title">Where AI Shopping Agents Get Their Answers</h3>
 <p class="chart-caption">Source-type distribution across ChatGPT Shopping Research, Perplexity, Google AI Mode and Gemini for beauty queries.</p>
-<div class="chart-wrapper"><canvas id="source-bar-chart" width="700" height="360" style="width:100%;max-width:700px;display:block;margin:0 auto"></canvas></div>
+<div class="bars" role="img" aria-label="Earned media 36%, retailer pages 24%, community 18%, brand content 12%, creator content 10%">
+<div class="bar-row"><span class="bar-l">Earned media / editorial</span><span class="bar-t"><span class="bar-f key" style="width:90%"></span></span><span class="bar-v key">36%</span></div>
+<div class="bar-row"><span class="bar-l">Retailer product pages</span><span class="bar-t"><span class="bar-f" style="width:60%"></span></span><span class="bar-v">24%</span></div>
+<div class="bar-row"><span class="bar-l">Community (Reddit etc.)</span><span class="bar-t"><span class="bar-f" style="width:45%"></span></span><span class="bar-v">18%</span></div>
+<div class="bar-row"><span class="bar-l">Brand owned content</span><span class="bar-t"><span class="bar-f" style="width:30%"></span></span><span class="bar-v">12%</span></div>
+<div class="bar-row"><span class="bar-l">Creator / social content</span><span class="bar-t"><span class="bar-f" style="width:25%"></span></span><span class="bar-v">10%</span></div>
+</div>
 <p class="chart-note">Source: Semrush via The Verge · Readyt · Inflexion beauty-vertical AI citation analysis, Q3 2026</p>
 </div>
 </section>
@@ -518,10 +559,6 @@ Brand memory &rarr; Prompt &rarr; AI recommendation &rarr; Human validation &rar
 <div class="stat-row" style="margin-top:32px">
 <div class="stat-card"><div class="v">4</div><div class="l">Surfaces unified in Google's Universal Cart: Search, Gemini, YouTube, Gmail</div><div class="s">Google I/O, 2026</div></div>
 <div class="stat-card"><div class="v">2026</div><div class="l">UK launch targeted for Universal Commerce Protocol checkout</div><div class="s">Google</div></div>
-</div>
-<div class="pull-quote-narrow" style="margin-top:48px">
-&ldquo;A third of consumers expect at least one in ten purchases to be AI-driven within a year.&rdquo;
-<span class="attr">Checkout.com: Agentic Commerce 2026</span>
 </div>
 </div>
 </section>
@@ -595,21 +632,19 @@ var ACCENT='#FF5A1F';
 var LIGHT={bg:'#F8F5F0',ink:'#1A1714',grey:'#8A837C',faint:'#C9C2BA',rule:'rgba(26,23,20,.1)'};
 var DARK={bg:'#0A0A0B',ink:'#F8F5F0',grey:'rgba(248,245,240,.55)',faint:'rgba(248,245,240,.25)',rule:'rgba(248,245,240,.12)'};
 function hiDPI(c){var r=window.devicePixelRatio||1;if(!c._w){c._w=c.width;c._h=c.height}c.width=c._w*r;c.height=c._h*r;var ctx=c.getContext('2d');ctx.setTransform(r,0,0,r,0,0);return ctx}
+function F(ctx,s){var c=ctx.canvas,k=Math.min(1.6,Math.max(1,(c._w||c.width)/(c.clientWidth||c._w)));ctx.font=s.replace(/(\d+)px/,function(m,n){return Math.round(n*k)+'px'})}
 function grid(ctx,p,ph,pw,t){ctx.strokeStyle=t.rule;ctx.lineWidth=1;for(var y of [0,50,100]){var yy=p.t+ph-(y/100)*ph;ctx.beginPath();ctx.moveTo(p.l,yy);ctx.lineTo(p.l+pw,yy);ctx.stroke()}}
 
 document.fonts.ready.then(function(){
 
 /* Chart 1: CTR Slopegraph (light) */
-(function(){var c=document.getElementById('ctr-slopegraph');if(!c)return;var ctx=hiDPI(c);var W=c._w,H=c._h,p={t:40,b:70,l:90,r:110},pw=W-p.l-p.r,ph=H-p.t-p.b;var t=LIGHT;ctx.fillStyle=t.bg;ctx.fillRect(0,0,W,H);grid(ctx,p,ph,pw,t);var data=[{l:'Organic CTR',b:4.2,a:5.7},{l:'Paid CTR',b:2.1,a:4.0},{l:'Store Visit',b:1.8,a:3.3},{l:'Add to Cart',b:8.5,a:14.2}];var x1=p.l+20,x2=p.l+pw-20;var yStep=ph/(data.length+1);data.forEach(function(d,i){var y=p.t+yStep*(i+1);ctx.beginPath();ctx.moveTo(x1,y);ctx.lineTo(x2,y);ctx.strokeStyle=t.ink;ctx.lineWidth=1.5;ctx.stroke();ctx.beginPath();ctx.arc(x1,y,4,0,Math.PI*2);ctx.fillStyle=t.grey;ctx.fill();ctx.fillStyle=t.grey;ctx.font='500 12px Montserrat,sans-serif';ctx.textAlign='right';ctx.textBaseline='middle';ctx.fillText(d.b+'%',x1-12,y);ctx.beginPath();ctx.arc(x2,y,4,0,Math.PI*2);ctx.fillStyle=ACCENT;ctx.fill();ctx.fillStyle=ACCENT;ctx.font='400 16px \"Bodoni Moda\",Georgia,serif';ctx.textAlign='left';ctx.textBaseline='middle';ctx.fillText(d.a+'%',x2+14,y);ctx.fillStyle=t.grey;ctx.font='500 12px Montserrat,sans-serif';ctx.textAlign='right';ctx.fillText(d.l,p.l-14,y)});ctx.fillStyle=t.grey;ctx.font='500 12px Montserrat,sans-serif';ctx.textAlign='center';ctx.textBaseline='top';ctx.fillText('Absent from AI answer',x1,p.t+ph+18);ctx.fillText('Cited in AI answer',x2,p.t+ph+18)})();
+(function(){var c=document.getElementById('ctr-slopegraph');if(!c)return;var ctx=hiDPI(c);var W=c._w,H=c._h,p={t:40,b:70,l:90,r:110},pw=W-p.l-p.r,ph=H-p.t-p.b;var t=LIGHT;ctx.fillStyle=t.bg;ctx.fillRect(0,0,W,H);grid(ctx,p,ph,pw,t);var data=[{l:'Organic CTR',b:4.2,a:5.7},{l:'Paid CTR',b:2.1,a:4.0},{l:'Store Visit',b:1.8,a:3.3},{l:'Add to Cart',b:8.5,a:14.2}];var x1=p.l+20,x2=p.l+pw-20;var yStep=ph/(data.length+1);data.forEach(function(d,i){var y=p.t+yStep*(i+1);ctx.beginPath();ctx.moveTo(x1,y);ctx.lineTo(x2,y);ctx.strokeStyle=t.ink;ctx.lineWidth=1.5;ctx.stroke();ctx.beginPath();ctx.arc(x1,y,4,0,Math.PI*2);ctx.fillStyle=t.grey;ctx.fill();F(ctx,'500 12px Montserrat,sans-serif');ctx.textAlign='right';ctx.textBaseline='middle';ctx.fillText(d.b+'%',x1-12,y);ctx.beginPath();ctx.arc(x2,y,4,0,Math.PI*2);ctx.fillStyle=ACCENT;ctx.fill();F(ctx,'400 16px "Bodoni Moda",Georgia,serif');ctx.textAlign='left';ctx.textBaseline='middle';ctx.fillText(d.a+'%',x2+14,y);F(ctx,'500 12px Montserrat,sans-serif');ctx.textAlign='right';ctx.fillText(d.l,p.l-14,y)});F(ctx,'500 12px Montserrat,sans-serif');ctx.textAlign='center';ctx.textBaseline='top';ctx.fillText('Absent from AI answer',x1,p.t+ph+18);ctx.fillText('Cited in AI answer',x2,p.t+ph+18)})();
 
 /* Chart 2: Forgetting Curve (dark) */
-(function(){var c=document.getElementById('forgetting-curve');if(!c)return;var ctx=hiDPI(c);var W=c._w,H=c._h,p={t:40,b:60,l:70,r:100},pw=W-p.l-p.r,ph=H-p.t-p.b;var t=DARK;ctx.fillStyle=t.bg;ctx.fillRect(0,0,W,H);grid(ctx,p,ph,pw,t);var days=30;function curve(base,fade,reinfDays){var d=[];for(var day=0;day<days;day++){var b=base*Math.pow(fade,day/14);reinfDays.forEach(function(r){if(day===r.d){b+=r.v*Math.exp(-((day-r.d)%7)/3)}});d.push(Math.min(b,95))}return d}var single=curve(100,0.7,[{d:0,v:0}]);var spaced=curve(100,0.75,[{d:7,v:40},{d:14,v:35},{d:21,v:30}]);function draw(data,color){ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=data===spaced?2.5:1.5;ctx.lineCap='round';for(var d=0;d<days;d++){var x=p.l+(d/days)*pw;var y=p.t+ph-(data[d]/100)*ph;if(d===0)ctx.moveTo(x,y);else ctx.lineTo(x,y)}ctx.stroke();[0,days-1].forEach(function(idx){var x=p.l+(idx/days)*pw;var y=p.t+ph-(data[idx]/100)*ph;ctx.beginPath();ctx.arc(x,y,4,0,Math.PI*2);ctx.fillStyle=color;ctx.fill()})}draw(single,t.grey);draw(spaced,ACCENT);ctx.fillStyle=ACCENT;ctx.font='500 12px Montserrat,sans-serif';ctx.textAlign='left';ctx.textBaseline='bottom';ctx.fillText('Spaced campaign',p.l+pw-8,p.t+ph-(spaced[spaced.length-1]/100)*ph-6);ctx.fillStyle=t.grey;ctx.textBaseline='top';ctx.fillText('Single burst',p.l+pw-8,p.t+ph-(single[single.length-1]/100)*ph+6);ctx.fillStyle=t.grey;ctx.font='500 12px Montserrat,sans-serif';ctx.textAlign='right';ctx.textBaseline='middle';ctx.fillText('100%',p.l-10,p.t+8);ctx.fillText('50%',p.l-10,p.t+ph/2+3);ctx.fillText('0%',p.l-10,p.t+ph-4);ctx.textAlign='center';ctx.textBaseline='top';ctx.fillText('Day 0',p.l,p.t+ph+16);ctx.fillText('Day 7',p.l+pw*7/days,p.t+ph+16);ctx.fillText('Day 14',p.l+pw*14/days,p.t+ph+16);ctx.fillText('Day 21',p.l+pw*21/days,p.t+ph+16);ctx.fillText('Day 30',p.l+pw,p.t+ph+16);[7,14,21].forEach(function(d){ctx.strokeStyle=t.rule;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(p.l+pw*d/days,p.t);ctx.lineTo(p.l+pw*d/days,p.t+ph);ctx.stroke();ctx.fillStyle=t.grey;ctx.font='500 10px Montserrat,sans-serif';ctx.textAlign='center';ctx.textBaseline='bottom';ctx.fillText('reinforcement',p.l+pw*d/days,p.t-6)})})();
-
-/* Chart 3: Source Distribution (light) */
-(function(){var c=document.getElementById('source-bar-chart');if(!c)return;var ctx=hiDPI(c);var W=c._w,H=c._h,p={t:30,b:50,l:190,r:90},pw=W-p.l-p.r,ph=H-p.t-p.b;var t=LIGHT;ctx.fillStyle=t.bg;ctx.fillRect(0,0,W,H);grid(ctx,p,ph,pw,t);var data=[{l:'Earned media / editorial',v:36},{l:'Retailer product pages',v:24},{l:'Community (Reddit etc.)',v:18},{l:'Brand owned content',v:12},{l:'Creator / social content',v:10}];var barH=38,gap=10,totalH=data.length*(barH+gap)-gap,startY=p.t+(ph-totalH)/2;data.forEach(function(d,i){var y=startY+i*(barH+gap);var w=(d.v/40)*pw;ctx.fillStyle=t.faint;ctx.fillRect(p.l,y,pw,barH);ctx.fillStyle=i===0?ACCENT:t.ink;ctx.fillRect(p.l,y,w,barH);ctx.fillStyle=t.grey;ctx.font='500 12px Montserrat,sans-serif';ctx.textAlign='right';ctx.textBaseline='middle';ctx.fillText(d.l,p.l-10,y+barH/2);ctx.fillStyle=i===0?ACCENT:t.ink;ctx.font='400 16px \"Bodoni Moda\",Georgia,serif';ctx.fillText(d.v+'%',p.l+w+10,y+barH/2)})})();
+(function(){var c=document.getElementById('forgetting-curve');if(!c)return;var ctx=hiDPI(c);var W=c._w,H=c._h,p={t:40,b:60,l:70,r:100},pw=W-p.l-p.r,ph=H-p.t-p.b;var t=DARK;ctx.fillStyle=t.bg;ctx.fillRect(0,0,W,H);grid(ctx,p,ph,pw,t);var days=30;function curve(base,fade,reinfDays){var d=[];for(var day=0;day<days;day++){var b=base*Math.pow(fade,day/14);reinfDays.forEach(function(r){if(day===r.d){b+=r.v*Math.exp(-((day-r.d)%7)/3)}});d.push(Math.min(b,95))}return d}var single=curve(100,0.7,[{d:0,v:0}]);var spaced=curve(100,0.75,[{d:7,v:40},{d:14,v:35},{d:21,v:30}]);function draw(data,color){ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=data===spaced?2.5:1.5;ctx.lineCap='round';for(var d=0;d<days;d++){var x=p.l+(d/days)*pw;var y=p.t+ph-(data[d]/100)*ph;if(d===0)ctx.moveTo(x,y);else ctx.lineTo(x,y)}ctx.stroke();[0,days-1].forEach(function(idx){var x=p.l+(idx/days)*pw;var y=p.t+ph-(data[idx]/100)*ph;ctx.beginPath();ctx.arc(x,y,4,0,Math.PI*2);ctx.fillStyle=color;ctx.fill()})}draw(single,t.grey);draw(spaced,ACCENT);F(ctx,'500 12px Montserrat,sans-serif');ctx.textAlign='left';ctx.textBaseline='bottom';ctx.fillText('Spaced campaign',p.l+pw-8,p.t+ph-(spaced[spaced.length-1]/100)*ph-6);F(ctx,'500 12px Montserrat,sans-serif');ctx.textBaseline='top';ctx.fillText('Single burst',p.l+pw-8,p.t+ph-(single[single.length-1]/100)*ph+6);F(ctx,'500 12px Montserrat,sans-serif');ctx.textAlign='right';ctx.textBaseline='middle';ctx.fillText('100%',p.l-10,p.t+8);ctx.fillText('50%',p.l-10,p.t+ph/2+3);ctx.fillText('0%',p.l-10,p.t+ph-4);F(ctx,'500 12px Montserrat,sans-serif');ctx.textAlign='center';ctx.textBaseline='top';ctx.fillText('Day 0',p.l,p.t+ph+16);ctx.fillText('Day 7',p.l+pw*7/days,p.t+ph+16);ctx.fillText('Day 14',p.l+pw*14/days,p.t+ph+16);ctx.fillText('Day 21',p.l+pw*21/days,p.t+ph+16);ctx.fillText('Day 30',p.l+pw,p.t+ph+16);[7,14,21].forEach(function(d){ctx.strokeStyle=t.rule;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(p.l+pw*d/days,p.t);ctx.lineTo(p.l+pw*d/days,p.t+ph);ctx.stroke();F(ctx,'500 10px Montserrat,sans-serif');ctx.textAlign='center';ctx.textBaseline='bottom';ctx.fillText('reinforcement',p.l+pw*d/days,p.t-6)})})();
 
 /* Chart 4: Validation Funnel (dark) */
-(function(){var c=document.getElementById('validation-chart');if(!c)return;var ctx=hiDPI(c);var W=c._w,H=c._h,p={t:40,b:80,l:60,r:50},pw=W-p.l-p.r,ph=H-p.t-p.b;var t=DARK;ctx.fillStyle=t.bg;ctx.fillRect(0,0,W,H);grid(ctx,p,ph,pw,t);var data=[{l:'Check reviews',t:65,c:52},{l:'Watch creator content',t:48,c:38},{l:'Visit retailer page',t:42,c:45},{l:'Check brand site',t:35,c:28},{l:'Ask social/community',t:28,c:22}];var gap=12,barW=(pw-(data.length-1)*gap)/data.length;data.forEach(function(d,i){var x=p.l+i*(barW+gap);var th=(d.t/70)*ph;ctx.fillStyle=ACCENT;ctx.globalAlpha=0.2;ctx.fillRect(x,p.t+ph-th,barW,th);ctx.globalAlpha=1;ctx.fillRect(x,p.t+ph-th,barW/2-2,th);ctx.fillStyle=t.ink;ctx.globalAlpha=0.85;ctx.fillRect(x+barW/2+2,p.t+ph-(d.c/70)*ph,barW/2-2,(d.c/70)*ph);ctx.globalAlpha=1;ctx.fillStyle=t.grey;ctx.font='500 12px Montserrat,sans-serif';ctx.textAlign='center';ctx.textBaseline='bottom';ctx.fillText(d.t+'%',x+barW/4-1,p.t+ph-th-4);ctx.fillStyle=t.ink;ctx.fillText(d.c+'%',x+barW*3/4+1,p.t+ph-(d.c/70)*ph-4);ctx.fillStyle=t.grey;ctx.font='500 11px Montserrat,sans-serif';ctx.textAlign='center';ctx.textBaseline='top';ctx.fillText(d.l,x+barW/2,p.t+ph+10)});ctx.fillStyle=t.grey;ctx.font='500 11px Montserrat,sans-serif';ctx.textAlign='left';ctx.textBaseline='top';ctx.fillRect(6,p.t+ph+36,10,10);ctx.fillStyle=ACCENT;ctx.fillRect(18,p.t+ph+36,10,10);ctx.fillStyle=t.grey;ctx.fillText('Conversion impact    Trust impact',48,p.t+ph+37)})();
+(function(){var c=document.getElementById('validation-chart');if(!c)return;var ctx=hiDPI(c);var W=c._w,H=c._h,p={t:40,b:80,l:60,r:50},pw=W-p.l-p.r,ph=H-p.t-p.b;var t=DARK;ctx.fillStyle=t.bg;ctx.fillRect(0,0,W,H);grid(ctx,p,ph,pw,t);var data=[{l:'Check reviews',t:65,c:52},{l:'Watch creator content',t:48,c:38},{l:'Visit retailer page',t:42,c:45},{l:'Check brand site',t:35,c:28},{l:'Ask social/community',t:28,c:22}];var gap=12,barW=(pw-(data.length-1)*gap)/data.length;data.forEach(function(d,i){var x=p.l+i*(barW+gap);var th=(d.t/70)*ph;ctx.fillStyle=ACCENT;ctx.globalAlpha=0.2;ctx.fillRect(x,p.t+ph-th,barW,th);ctx.globalAlpha=1;ctx.fillRect(x,p.t+ph-th,barW/2-2,th);ctx.fillStyle=t.ink;ctx.globalAlpha=0.85;ctx.fillRect(x+barW/2+2,p.t+ph-(d.c/70)*ph,barW/2-2,(d.c/70)*ph);ctx.globalAlpha=1;F(ctx,'500 12px Montserrat,sans-serif');ctx.textAlign='center';ctx.textBaseline='bottom';ctx.fillText(d.t+'%',x+barW/4-1,p.t+ph-th-4);F(ctx,'400 16px "Bodoni Moda",Georgia,serif');ctx.fillText(d.c+'%',x+barW*3/4+1,p.t+ph-(d.c/70)*ph-4);F(ctx,'500 11px Montserrat,sans-serif');ctx.textAlign='center';ctx.textBaseline='top';ctx.fillText(d.l,x+barW/2,p.t+ph+10)});F(ctx,'500 11px Montserrat,sans-serif');ctx.textAlign='left';ctx.textBaseline='top';ctx.fillRect(6,p.t+ph+36,10,10);ctx.fillStyle=ACCENT;ctx.fillRect(18,p.t+ph+36,10,10);F(ctx,'500 11px Montserrat,sans-serif');ctx.fillText('Conversion impact    Trust impact',48,p.t+ph+37)})();
 
 });
 </script>
