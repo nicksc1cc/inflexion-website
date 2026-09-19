@@ -18,7 +18,7 @@
 <meta name="twitter:description" content="AI is increasingly mediating both discovery and purchase in beauty.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -33,7 +33,55 @@
 .dark .pull-quote-narrow{color:var(--h-text)}
 .dark .pull-quote-narrow .attr{color:rgba(250,250,249,.5)}
 .chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin:48px 0}
+@font-face{font-family:'GT-Super';src:local('Georgia'),local('Times New Roman');font-weight:400;font-style:normal}
+
+/* --- Magazine editorial additions --- */
+.magazine-hero{position:relative;min-height:90vh;display:flex;align-items:center;overflow:hidden}
+.magazine-hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1600&q=80') center/cover no-repeat;opacity:.15;z-index:0}
+.magazine-hero .w{position:relative;z-index:2}
+
+.editorial-pull-quote{font-family:'Playfair Display',Georgia,serif;font-size:clamp(28px,3.5vw,48px);font-style:italic;font-weight:400;line-height:1.2;text-align:center;padding:64px 0;margin:48px 0;position:relative;letter-spacing:-.02em;color:var(--accent)}
+.editorial-pull-quote::before{content:'\\201C';font-size:clamp(60px,6vw,96px);position:absolute;top:-8px;left:50%;transform:translateX(-50%);color:var(--accent);opacity:.25;font-family:'Playfair Display',Georgia,serif}
+.editorial-pull-quote .attr{display:block;font-size:11px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:16px;font-style:normal;font-family:Montserrat,sans-serif}
+.dark .editorial-pull-quote{color:var(--h-text)}
+.dark .editorial-pull-quote::before{color:var(--h-text);opacity:.15}
+
+.image-spread{position:relative;width:100vw;left:50%;right:50%;margin:64px 0;margin-left:-50vw;margin-right:-50vw;height:clamp(300px,50vw,600px);overflow:hidden}
+.image-spread img{width:100%;height:100%;object-fit:cover;display:block}
+.image-spread .overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,10,11,.7) 0%,rgba(10,10,11,.2) 100%);display:flex;align-items:center;justify-content:center;padding:48px}
+.image-spread .overlay-text{max-width:700px;text-align:center;color:#FAFAF9}
+.image-spread .overlay-text .label{font-size:10px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.image-spread .overlay-text .quote{font-family:'Playfair Display',Georgia,serif;font-size:clamp(24px,3vw,40px);font-style:italic;font-weight:400;line-height:1.3;letter-spacing:-.01em}
+.image-spread .overlay-text .source{font-size:13px;color:rgba(250,250,249,.6);margin-top:16px}
+
+.drop-cap::first-letter{float:left;font-size:clamp(52px,5vw,72px);line-height:.9;padding-top:4px;padding-right:12px;font-weight:600;color:var(--accent);font-family:Montserrat,sans-serif}
+
+.section-intro{border-top:2px solid var(--accent);padding-top:16px;margin-bottom:24px;display:flex;align-items:center;gap:16px}
+.section-intro .num{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.section-intro .line{flex:1;height:1px;background:var(--border)}
+
+.magazine-section{padding:80px 0;position:relative}
+.magazine-section.dark{background:var(--bg)}
+.magazine-section.light{background:#fff}
+
+.editorial-stat{font-family:'Playfair Display',Georgia,serif;font-weight:400;text-align:center;padding:32px 0}
+.editorial-stat .v{font-size:clamp(48px,6vw,80px);font-weight:600;color:var(--accent);line-height:1;letter-spacing:-.03em;font-family:Montserrat,sans-serif}
+.editorial-stat .l{font-size:16px;color:var(--muted);margin-top:8px;font-family:Montserrat,sans-serif;font-weight:300;font-style:normal}
+
+/* Section decorative border */
+.section-border-top{border-top:1px solid var(--border);padding-top:48px;margin-top:48px}
+.section-border-bottom{border-bottom:1px solid var(--border);padding-bottom:48px;margin-bottom:48px}
+
+/* Journey diagram - dark */
+.journey-diagram{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;padding:48px 32px;margin:32px 0;background:linear-gradient(135deg,rgba(36,56,218,.04) 0%,rgba(255,90,31,.04) 100%);border:1px solid var(--border);border-radius:4px;position:relative}
+.journey-diagram .step{text-align:center;padding:8px 12px}
+.journey-diagram .step .s{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+.journey-diagram .step .l{font-size:13px;font-weight:400;color:var(--fg);white-space:nowrap}
+.journey-diagram .arrow{color:var(--muted);font-size:18px;padding:0 4px}
+@media(max-width:768px){.journey-diagram{padding:24px 16px;flex-direction:column;gap:4px}.journey-diagram .arrow{transform:rotate(90deg);padding:4px 0}}
+
 @media(max-width:900px){.chart-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.image-spread{height:clamp(240px,70vw,400px)}}
 </style>
 </head>
 <body>
@@ -69,7 +117,7 @@
 </header>
 
 <!-- HERO -->
-<section class="hero" id="hero">
+<section class="hero magazine-hero" id="hero">
 <div class="beauty-hero-bg"></div>
 <canvas id="data-field-canvas" aria-hidden="true"></canvas>
 <div class="w">
@@ -85,11 +133,15 @@
 
 <div class="divider"></div>
 
-<!-- THE SHIFT: Two gatekeepers, both algorithms -->
-<section id="shift" style="background:#fff;padding:60px 0">
+<!-- THE SHIFT -->
+<section id="shift" class="magazine-section light">
 <div class="section-inner narrow">
+<div class="section-intro">
+<span class="num">01</span>
+<span class="line"></span>
+</div>
 <h2 class="d2" style="margin-bottom:24px">Two gatekeepers. <span style="font-weight:600;color:var(--accent)">Both algorithms.</span></h2>
-<p class="prose" style="margin-bottom:16px">A shopper searches for a moisturiser. An AI answer recommends three brands. She clicks one, checks reviews, then lands on a retailer page where another algorithm decides which product gets her attention.</p>
+<p class="prose drop-cap" style="margin-bottom:16px">A shopper searches for a moisturiser. An AI answer recommends three brands. She clicks one, checks reviews, then lands on a retailer page where another algorithm decides which product gets her attention.</p>
 <p class="prose" style="margin-bottom:16px">Buyers used to find brands through search results and on the shelf. Both are now run by AI: the answer engines that pick who gets recommended, and the retail-media algorithms that pick who gets seen. A brand can lose visibility at more than one point in the journey.</p>
 <p class="prose" style="margin-bottom:16px">This matters especially in beauty, because shoppers research, compare and validate extensively before buying. The more steps a shopper takes, the more chances a brand has to disappear.</p>
 
@@ -116,7 +168,7 @@
 </section>
 
 <!-- CHART: CTR Impact -->
-<section style="background:#fff;padding:60px 0">
+<section class="magazine-section light" style="padding-top:0">
 <div class="section-inner chart-section">
 <h3 class="chart-title">What Happens When AI Cites You vs. When It Doesn't</h3>
 <p class="chart-caption">Organic and paid click-through rates for beauty brands cited in AI answers vs. those absent from the answer. Based on 10,000+ beauty queries across Google AI Overview, ChatGPT and Perplexity. Beauty brands cited in the answer see every metric lift; absent brands lose across the board.</p>
@@ -125,14 +177,30 @@
 </div>
 </section>
 
+<!-- EDITORIAL PULL QUOTE -->
+<div class="image-spread" data-parallax>
+<img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=1600&q=80" alt="Lipstick application" loading="lazy">
+<div class="overlay">
+<div class="overlay-text">
+<div class="label">The evidence</div>
+<div class="quote">Beauty brands cited in the AI answer see every metric lift. Absent brands lose across the board.</div>
+<div class="source">Seer Interactive, 2026</div>
+</div>
+</div>
+</div>
+
 <div class="divider"></div>
 
-<!-- WHY BEAUTY MAKES THIS VISIBLE (moved up to support argument) -->
-<section style="background:#fff">
+<!-- WHY BEAUTY -->
+<section class="magazine-section light">
 <div class="section-inner narrow">
+<div class="section-intro">
+<span class="num">02</span>
+<span class="line"></span>
+</div>
 <h2 class="d2" style="margin-bottom:24px">Beauty makes the shift unusually visible.</h2>
 <p class="prose" style="margin-bottom:16px">Beauty products contain highly structured attributes that map naturally to AI-assisted shopping: skin type, concern, ingredient, shade, finish, SPF, hair type, price, product format. This makes beauty one of the categories where agentic shopping becomes particularly tangible.</p>
-<p class="prose" style="margin-bottom:24px">When Google, OpenAI and Perplexity build their shopping agents, beauty is a category they can actually reason over. A foundation shade is a data point. A skincare concern is a filter. A sunscreen SPF is a number. The shift is already live — Ulta on Google UCP, Sephora across AI Mode retailer rosters, Glossier on ChatGPT's agentic checkout. What works here gets copied everywhere else.</p>
+<p class="prose" style="margin-bottom:24px">When Google, OpenAI and Perplexity build their shopping agents, beauty is a category they can actually reason over. A foundation shade is a data point. A skincare concern is a filter. A sunscreen SPF is a number. The shift is already live: Ulta on Google UCP, Sephora across AI Mode retailer rosters, Glossier on ChatGPT's agentic checkout. What works here gets copied everywhere else.</p>
 
 <div class="stat-row" style="margin-top:16px">
 <div class="stat-card"><div class="v">30%</div><div class="l">Consumers name beauty a top category for AI-assisted shopping in 2026</div><div class="s">PartnerCentric</div></div>
@@ -145,26 +213,44 @@
 <div class="divider"></div>
 
 <!-- THE JOURNEY HAS CHANGED -->
-<section style="background:#fff">
+<section class="magazine-section light">
 <div class="section-inner narrow">
+<div class="section-intro">
+<span class="num">03</span>
+<span class="line"></span>
+</div>
 <h2 class="d2" style="margin-bottom:24px">The old funnel is no longer sufficient.</h2>
 <p class="prose" style="margin-bottom:16px">The traditional model — Awareness → Consideration → Purchase — assumed a linear path where media could be planned and measured in separate stages. That model no longer matches how beauty shoppers actually move.</p>
 <p class="prose" style="margin-bottom:16px">The emerging journey looks different:</p>
 
-<div style="margin:32px 0;padding:24px;background:var(--muted-2);border-radius:4px;font-family:'IBM Plex Mono',monospace;font-size:14px;line-height:2;text-align:center;color:var(--fg)">
-Brand memory → Prompt → AI recommendation → Human validation → Purchase → Data
+<div class="journey-diagram">
+<div class="step"><div class="s">Brand memory</div></div>
+<div class="arrow">→</div>
+<div class="step"><div class="s">Prompt</div></div>
+<div class="arrow">→</div>
+<div class="step"><div class="s">AI recommendation</div></div>
+<div class="arrow">→</div>
+<div class="step"><div class="s">Human validation</div></div>
+<div class="arrow">→</div>
+<div class="step"><div class="s">Purchase</div></div>
+<div class="arrow">→</div>
+<div class="step"><div class="s">Data</div></div>
 </div>
 
-<p class="prose" style="margin-bottom:16px">The important point is not that AI has eliminated consumer choice. Shoppers still make decisions. The argument is that AI increasingly mediates the journey and introduces new points at which a brand can become invisible — before the prompt is typed, when the answer is assembled, and when the shopper pauses to validate.</p>
+<p class="prose" style="margin-bottom:16px">The important point is not that AI has eliminated consumer choice. Shoppers still make decisions. The argument is that AI increasingly mediates the journey and introduces new points at which a brand can become invisible: before the prompt is typed, when the answer is assembled, and when the shopper pauses to validate.</p>
 <p class="prose" style="margin-bottom:16px">The media task now extends across this entire sequence. Brand building, structured data, validation content and connected measurement are not separate disciplines. They are connected parts of the same decision journey.</p>
 </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- AI DOESN'T START WITH THE PROMPT (Brand Building) -->
-<section class="bx dark">
+<!-- AI DOESN'T START WITH THE PROMPT -->
+<section class="bx dark magazine-section dark" style="padding:80px 0">
 <div class="section-inner narrow">
+<div class="section-intro">
+<span class="num" style="color:var(--accent)">04</span>
+<span class="line" style="background:rgba(250,250,249,.15)"></span>
+</div>
 <h2 class="d2" style="margin-bottom:24px">AI does not start with the prompt.</h2>
 <p class="prose" style="margin-bottom:16px">An AI agent can only recommend what it already knows. If a brand isn't front of mind before the shopper types a question, it won't appear in the answer. Twenty years of brand equity compresses into a single recommendation.</p>
 <p class="prose" style="margin-bottom:24px">This makes brand building part of AI visibility rather than a separate discipline. The Ebbinghaus forgetting curve is not a theory; it's a media planning constraint. Forty-eight percent of a new memory is gone within 24 hours without reinforcement. Brands need sustained memory-building activity rather than isolated bursts, because future AI-mediated discovery is partly dependent on what is already known about the brand.</p>
@@ -173,6 +259,11 @@ Brand memory → Prompt → AI recommendation → Human validation → Purchase 
 <div class="stat-card"><div class="v">33%</div><div class="l">Consumers spend more time considering more brands than before</div><div class="s">Think with Google, 2026</div></div>
 <div class="stat-card"><div class="v">25%</div><div class="l">Shoppers switch to brand #2 just from seeing its name during exploration</div><div class="s">Behavioural Architects</div></div>
 <div class="stat-card"><div class="v">5–7</div><div class="l">Exposures within 30 days needed for genuine brand familiarity</div><div class="s">Amra & Elma</div></div>
+</div>
+
+<div class="editorial-pull-quote">
+An AI agent can only recommend what it already knows.
+<span class="attr">Inflexion</span>
 </div>
 
 <div class="feat-grid">
@@ -185,7 +276,7 @@ Brand memory → Prompt → AI recommendation → Human validation → Purchase 
 </section>
 
 <!-- CHART: Forgetting Curve -->
-<section class="bx dark" style="padding-top:0;padding-bottom:60px">
+<section class="bx dark magazine-section dark" style="padding-top:0;padding-bottom:60px">
 <div class="section-inner chart-section">
 <h3 class="chart-title" style="color:var(--h-text)">The Spacing Effect: How Often Is Enough?</h3>
 <p class="chart-caption" style="color:rgba(250,250,249,.6)">Memory retention across single-burst vs. spaced campaigns over 30 days. Spaced repetition is what makes a brand stick; reinforcement days 7, 14 and 21 maintain recall that a single heavy week cannot. Beauty brand frequency planning should match this curve.</p>
@@ -196,9 +287,13 @@ Brand memory → Prompt → AI recommendation → Human validation → Purchase 
 
 <div class="divider"></div>
 
-<!-- THE PRODUCT FEED IS BECOMING THE INTERFACE (Structured Data) -->
-<section style="background:#fff">
+<!-- THE PRODUCT FEED IS BECOMING THE INTERFACE -->
+<section class="magazine-section light">
 <div class="section-inner narrow">
+<div class="section-intro">
+<span class="num">05</span>
+<span class="line"></span>
+</div>
 <h2 class="d2" style="margin-bottom:24px">The product feed is becoming the interface.</h2>
 <p class="prose" style="margin-bottom:16px">AI agents read structured data, not landing pages. A beautifully designed product page is invisible to a shopping agent if its attributes — ingredient, shade, concern, skin type — are not machine-readable. The product feed is now the primary user interface for AI commerce.</p>
 <p class="prose" style="margin-bottom:24px">Google's Shopping Graph contains sixty billion products. When a user asks Gemini for a "hydrating serum for sensitive skin," the answer is assembled from product feeds, not brand copy. If your product is not tagged for "sensitive skin," it does not exist in the answer. This is a data problem, not an SEO problem. The rules changed faster than the industry adapted.</p>
@@ -217,13 +312,11 @@ Brand memory → Prompt → AI recommendation → Human validation → Purchase 
 <div class="why-row" style="border-top:1px solid var(--border);margin-top:16px;padding-top:24px">
 <div class="hd">Community & Reviews</div>
 <div class="bd">Reddit features in 44.7% of Perplexity's sourced shopping answers. ChatGPT's Shopping Research pulls from DTC pages, editorial, Reddit, YouTube and merchant feeds in the same response. Brief all three together or miss the citation.</div></div>
-
-<img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1200&q=80" alt="Skincare products" style="width:100%;height:clamp(180px,24vw,320px);object-fit:cover;display:block;margin:32px 0;border-radius:4px">
 </div>
 </section>
 
 <!-- CHART: Source Distribution -->
-<section style="background:#fff;padding:60px 0">
+<section class="magazine-section light" style="padding-top:0;padding-bottom:60px">
 <div class="section-inner chart-section">
 <h3 class="chart-title">Where AI Shopping Agents Get Their Answers</h3>
 <p class="chart-caption">Source-type distribution across ChatGPT Shopping Research, Perplexity, Google AI Mode and Gemini for beauty queries. Beauty brands that appear across all three source types dominate AI citations.</p>
@@ -232,11 +325,27 @@ Brand memory → Prompt → AI recommendation → Human validation → Purchase 
 </div>
 </section>
 
+<!-- IMAGE SPREAD WITH OVERLAY -->
+<div class="image-spread" data-parallax>
+<img src="https://images.unsplash.com/photo-1487412912498-0447578fcca8?w=1600&q=80" alt="Perfume and skincare" loading="lazy">
+<div class="overlay">
+<div class="overlay-text">
+<div class="label">The insight</div>
+<div class="quote">The product feed is now the primary user interface for AI commerce. If your product isn't tagged, it doesn't exist in the answer.</div>
+<div class="source">Inflexion</div>
+</div>
+</div>
+</div>
+
 <div class="divider"></div>
 
-<!-- THE RECOMMENDATION IS NOT THE SALE (Validation - emotional center) -->
-<section class="bx dark">
+<!-- THE RECOMMENDATION IS NOT THE SALE -->
+<section class="bx dark magazine-section dark">
 <div class="section-inner narrow">
+<div class="section-intro">
+<span class="num" style="color:var(--accent)">06</span>
+<span class="line" style="background:rgba(250,250,249,.15)"></span>
+</div>
 <h2 class="d2" style="margin-bottom:24px">The recommendation is not the sale.</h2>
 <p class="prose" style="margin-bottom:16px">Even a confident AI recommendation does not close the sale. Shoppers pause — checking reviews, watching a creator's routine, comparing on the retailer's site — before buying. That pause is a media moment. It is where paid media, retail media and creators earn the sale the AI started. The recommendation gets them to the door; what they find when they arrive determines whether they buy.</p>
 <p class="prose" style="margin-bottom:24px">Eighty-nine percent of AI-assisted shoppers double-check the recommendation before buying. Only 46% fully trust the AI on its own. The remaining 54% is where media reinforces confidence at the exact moment a shopper is deciding whether to believe it. That is the most valuable media moment in the new journey.</p>
@@ -245,6 +354,11 @@ Brand memory → Prompt → AI recommendation → Human validation → Purchase 
 <div class="stat-card"><div class="v">89%</div><div class="l">Of AI-assisted shoppers double-check the recommendation before buying</div><div class="s">IAB, 2025–26</div></div>
 <div class="stat-card"><div class="v">46%</div><div class="l">Fully trust the AI recommendation on its own; the rest needs reinforcement</div><div class="s">IAB, 2026</div></div>
 <div class="stat-card"><div class="v">$200.4B</div><div class="l">Global retail media ad spend in 2026</div><div class="s">WARC, 2026</div></div>
+</div>
+
+<div class="editorial-pull-quote">
+That pause is a media moment.
+<span class="attr">Inflexion</span>
 </div>
 
 <div class="feat-grid">
@@ -257,7 +371,7 @@ Brand memory → Prompt → AI recommendation → Human validation → Purchase 
 </section>
 
 <!-- CHART: Validation -->
-<section class="bx dark" style="padding-top:0;padding-bottom:60px">
+<section class="bx dark magazine-section dark" style="padding-top:0;padding-bottom:60px">
 <div class="section-inner chart-section">
 <h3 class="chart-title" style="color:var(--h-text)">The Validation Funnel: Trust vs. Conversion</h3>
 <p class="chart-caption" style="color:rgba(250,250,249,.6)">Shoppers who receive an AI recommendation take additional validation actions before purchasing. Each surface either reinforces or undercuts the recommendation, and therefore the purchase.</p>
@@ -268,9 +382,13 @@ Brand memory → Prompt → AI recommendation → Human validation → Purchase 
 
 <div class="divider"></div>
 
-<!-- MEASUREMENT BREAKS WHEN THE JOURNEY DOESN'T -->
-<section style="background:#fff">
+<!-- MEASUREMENT -->
+<section class="magazine-section light">
 <div class="section-inner narrow">
+<div class="section-intro">
+<span class="num">07</span>
+<span class="line"></span>
+</div>
 <h2 class="d2" style="margin-bottom:24px">Measurement breaks when the journey doesn't follow the old model.</h2>
 <p class="prose" style="margin-bottom:16px">The same shopper may interact with Search, AI, creators, retail media, social, retailer pages and the brand site — in no fixed order. Those interactions are currently measured in separate systems.</p>
 <p class="prose" style="margin-bottom:16px">The measurement problem is no longer simply "which channel got the last click?" It is understanding how the different interactions contributed to the decision. Budget follows what actually converts, not what is easiest to track. If you are running separate attribution for Amazon, for paid social and for brand health, you are seeing different versions of the same customer.</p>
@@ -289,8 +407,22 @@ Brand memory → Prompt → AI recommendation → Human validation → Purchase 
 
 <div class="divider"></div>
 
+<!-- IMAGE SPREAD -->
+<div class="image-spread" data-parallax>
+<img src="https://images.unsplash.com/photo-1583248832489-579e3f812a5f?w=1600&q=80" alt="Luxury skincare products" loading="lazy">
+<div class="overlay">
+<div class="overlay-text">
+<div class="label">The opportunity</div>
+<div class="quote">The brands that win are the ones connecting retail media, paid signals and organic data back to one customer view.</div>
+<div class="source">Inflexion</div>
+</div>
+</div>
+</div>
+
+<div class="divider"></div>
+
 <!-- HOW INFLEXION DELIVERS -->
-<section class="bx dark">
+<section class="bx dark magazine-section dark">
 <div class="section-inner">
 <h2 class="d2" style="margin-bottom:24px">Human strategy. <span style="font-weight:600;color:var(--accent)">Accelerated by AI.</span></h2>
 <p class="prose" style="margin-bottom:40px;max-width:36em">An agency built around the messy middle and agentic commerce from day one — not retrofitted onto an old media model. Beauty-fluent, data-backed and built to move at the speed the journey now demands.</p>
@@ -334,7 +466,7 @@ Brand memory → Prompt → AI recommendation → Human validation → Purchase 
 <div class="divider"></div>
 
 <!-- CTA -->
-<section style="background:#fff">
+<section class="magazine-section light" style="padding:80px 0">
 <div class="section-inner">
 <div class="cta-inner">
 <div>
@@ -384,8 +516,30 @@ function rfd(ctx,x,y,w,h){ctx.strokeStyle='rgba(250,250,249,.15)';ctx.lineWidth=
 // CHART 4: Validation Funnel (Grouped Bar)
 (function(){var c=document.getElementById('validation-chart');if(!c)return;var ctx=c.getContext('2d');var W=c.width,H=c.height,p={t:40,b:60,l:50,r:30},pw=W-p.l-p.r,ph=H-p.t-p.b;ctx.clearRect(0,0,W,H);rfd(ctx,p.l,p.t,pw,ph);var data=[{l:'Check reviews',t:65,c:52},{l:'Watch creator content',t:48,c:38},{l:'Visit retailer page',t:42,c:45},{l:'Check brand site',t:35,c:28},{l:'Ask social/community',t:28,c:22}];var colors=[ACCENT,ACCENT2,GREEN,AMBER,MUTED];var gap=12,barGap=4,barW=(pw-(data.length-1)*gap)/data.length,subW=(barW-barGap)/2;data.forEach(function(d,i){var x=p.l+i*(barW+gap);var col=colors[i];var h1=(d.t/70)*ph;ctx.fillStyle=col;ctx.globalAlpha=0.25;ctx.fillRect(x,p.t+ph-h1,subW,h1);ctx.globalAlpha=1;ctx.fillRect(x,p.t+ph-h1,subW,h1);ctx.fillStyle=WHITE;ctx.font='9px "IBM Plex Mono",monospace';ctx.textAlign='center';ctx.fillText(d.t+'%',x+subW/2,p.t+ph-h1-6);var h2=(d.c/70)*ph;ctx.fillStyle=col;ctx.globalAlpha=0.55;ctx.fillRect(x+subW+barGap,p.t+ph-h2,subW,h2);ctx.globalAlpha=1;ctx.fillRect(x+subW+barGap,p.t+ph-h2,subW,h2);ctx.fillStyle=WHITE;ctx.fillText(d.c+'%',x+subW*1.5+barGap,p.t+ph-h2-6);ctx.fillStyle='rgba(250,250,249,.6)';ctx.font='8px Montserrat,sans-serif';ctx.textAlign='center';ctx.fillText(d.l,x+barW/2,p.t+ph+20)});ctx.fillStyle=WHITE;ctx.globalAlpha=0.25;ctx.fillRect(p.l,p.t+ph+40,10,10);ctx.globalAlpha=1;ctx.fillStyle='rgba(250,250,249,.6)';ctx.font='8px Montserrat,sans-serif';ctx.textAlign='left';ctx.fillText('Trust impact',p.l+16,p.t+ph+48);ctx.fillStyle=WHITE;ctx.globalAlpha=0.55;ctx.fillRect(p.l+100,p.t+ph+40,10,10);ctx.globalAlpha=1;ctx.fillStyle='rgba(250,250,249,.6)';ctx.fillText('Conversion impact',p.l+116,p.t+ph+48)})();
 
-// GSAP
-(function(){if(typeof gsap==='undefined'||typeof ScrollTrigger==='undefined')return;gsap.registerPlugin(ScrollTrigger);gsap.timeline({delay:0.3}).from('.hero .sup',{y:30,opacity:0,duration:0.6,ease:'power3.out'}).from('.hero h1',{y:40,opacity:0,duration:0.8,ease:'power3.out'},'-=0.3').from('.hero .desc',{y:30,opacity:0,duration:0.6,ease:'power2.out'},'-=0.4').from('.hero .cta-row>*',{y:30,opacity:0,duration:0.6,stagger:0.1,ease:'power2.out'},'-=0.4');var sr={y:40,duration:0.9,ease:'power2.out',opacity:0};gsap.from('.shift-row',{...sr,stagger:0.15,scrollTrigger:{trigger:'.shift-row',start:'top 80%'}});gsap.from('.stat-card',{...sr,stagger:0.1,scrollTrigger:{trigger:'.stat-row',start:'top 80%'}});gsap.from('.feat-card',{...sr,stagger:0.08,scrollTrigger:{trigger:'.feat-grid',start:'top 80%'}});gsap.from('.why-row',{...sr,stagger:0.1,scrollTrigger:{trigger:'.why-row',start:'top 80%'}});gsap.from('.cta-inner>*',{...sr,stagger:0.15,scrollTrigger:{trigger:'.cta-inner',start:'top 85%'}});gsap.from('.pull-quote-narrow',{...sr,scrollTrigger:{trigger:'.pull-quote-narrow',start:'top 85%'}});if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){gsap.globalTimeline.clear();ScrollTrigger.getAll().forEach(function(t){t.kill()})}setTimeout(function(){document.querySelectorAll('.stat-card,.feat-card,.why-row,.cta-inner>*').forEach(function(el){if(window.getComputedStyle(el).opacity==='0'){el.style.opacity='1';el.style.transform='none'}})},800)})();
+// --- GSAP EDITORIAL ANIMATIONS ---
+(function(){if(typeof gsap==='undefined'||typeof ScrollTrigger==='undefined')return;gsap.registerPlugin(ScrollTrigger);
+
+// Hero
+gsap.timeline({delay:0.3}).from('.hero .sup',{y:30,opacity:0,duration:0.6,ease:'power3.out'}).from('.hero h1',{y:40,opacity:0,duration:0.8,ease:'power3.out'},'-=0.3').from('.hero .desc',{y:30,opacity:0,duration:0.6,ease:'power2.out'},'-=0.4').from('.hero .cta-row>*',{y:30,opacity:0,duration:0.6,stagger:0.1,ease:'power2.out'},'-=0.4');
+
+// Section reveal animations
+var sr={y:40,duration:1,ease:'power2.out',opacity:0};
+gsap.from('.section-intro',{y:20,opacity:0,duration:0.6,scrollTrigger:{trigger:'.section-intro',start:'top 85%'}});
+gsap.from('.shift-item',{...sr,stagger:0.15,scrollTrigger:{trigger:'.shift-comparison',start:'top 80%'}});
+gsap.from('.stat-card',{...sr,stagger:0.1,scrollTrigger:{trigger:'.stat-row',start:'top 80%'}});
+gsap.from('.feat-card',{...sr,stagger:0.08,scrollTrigger:{trigger:'.feat-grid',start:'top 80%'}});
+gsap.from('.why-row',{...sr,stagger:0.1,scrollTrigger:{trigger:'.why-row',start:'top 80%'}});
+gsap.from('.cta-inner>*',{...sr,stagger:0.15,scrollTrigger:{trigger:'.cta-inner',start:'top 85%'}});
+gsap.from('.pull-quote-narrow',{...sr,scrollTrigger:{trigger:'.pull-quote-narrow',start:'top 85%'}});
+gsap.from('.editorial-pull-quote',{...sr,scrollTrigger:{trigger:'.editorial-pull-quote',start:'top 85%'}});
+gsap.from('.big-stat',{...sr,scrollTrigger:{trigger:'.big-stat',start:'top 80%'}});
+gsap.from('.journey-diagram',{...sr,scrollTrigger:{trigger:'.journey-diagram',start:'top 80%'}});
+
+// Parallax image spreads
+gsap.utils.toArray('[data-parallax]').forEach(function(el){gsap.fromTo(el,{y:-40},{y:0,duration:1.2,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 95%',end:'top 20%',scrub:1}})})();
+
+if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){gsap.globalTimeline.clear();ScrollTrigger.getAll().forEach(function(t){t.kill()})}
+setTimeout(function(){document.querySelectorAll('.stat-card,.feat-card,.why-row,.cta-inner>*,.editorial-pull-quote,.section-intro,.big-stat,.journey-diagram').forEach(function(el){if(window.getComputedStyle(el).opacity==='0'){el.style.opacity='1';el.style.transform='none'}})},800)})();
 </script>
 </body>
 </html>
