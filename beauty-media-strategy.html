@@ -30,7 +30,8 @@ img{max-width:100%;height:auto;display:block}
 .sec:first-of-type{padding-top:0}
 .sec.chart{padding:60px 0}
 .sec.dark{background:var(--bg)}
-@media(max-width:768px){.sec{padding:48px 0}.sec.chart{padding:40px 0}}
+@media(max-width:768px){.sec{padding:48px 0}.sec.chart{padding:40px 0}
+.value-grid{grid-template-columns:1fr;gap:24px}}
 </style>
 </head>
 <body>
@@ -66,12 +67,12 @@ img{max-width:100%;height:auto;display:block}
 </header>
 
 <!-- HERO -->
-<section style="min-height:90vh;display:flex;align-items:center;overflow:hidden;position:relative;background:linear-gradient(135deg,#0A0A0B 0%,#1A0A14 40%,#0A0A0B 100%)">
+<section class="hero" style="min-height:90vh;display:flex;align-items:center;overflow:hidden;position:relative;background:linear-gradient(135deg,#0A0A0B 0%,#1A0A14 40%,#0A0A0B 100%)">
 <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(255,90,31,.08) 0%,transparent 50%),radial-gradient(ellipse at 70% 30%,rgba(36,56,218,.06) 0%,transparent 50%)"></div>
-<div class="w" style="position:relative;z-index:1">
+<div class="w" style="position:relative;z-index:1;color:#FAFAF9">
 <div class="sup">Inflexion ◆ For Beauty</div>
 <h1 style="max-width:85%">The beauty shelf and the search engine are the same algorithm now.</h1>
-<p class="desc">Search results and store shelves are both controlled by AI. Beauty brands that win before the prompt, and at every step after, own the category.</p>
+<p class="desc" style="color:rgba(250,250,249,.65)">Search results and store shelves are both controlled by AI. Beauty brands that win before the prompt, and at every step after, own the category.</p>
 <div class="cta-row">
 <a href="contact.html" class="btn">Start the beauty audit →</a>
 <a href="#shift" class="link">Read the strategy →</a>
