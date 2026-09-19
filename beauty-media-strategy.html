@@ -20,8 +20,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <link rel="stylesheet" href="assets/common.css">
 <style>
 .beauty-hero-bg{position:absolute;inset:0;z-index:0;background:linear-gradient(135deg,#0A0A0B 0%,#1A0A14 40%,#0A0A0B 100%)}
@@ -512,7 +510,6 @@ That pause is a media moment.
 (function(){var h=document.querySelector('.hamburger');var n=document.querySelector('header nav');if(h){h.addEventListener('click',function(){n.classList.toggle('open');h.classList.toggle('open')})}n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');h.classList.remove('open')})});document.querySelectorAll('.dropdown-toggle').forEach(function(t){t.addEventListener('click',function(e){e.preventDefault();var m=this.nextElementSibling;m.style.display=m.style.display==='block'?'none':'block'})});document.addEventListener('click',function(e){if(!e.target.closest('.dropdown')){document.querySelectorAll('.dropdown-menu').forEach(function(m){m.style.display='none'})}});document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
 // Three.js
 (function(){var c=document.getElementById('data-field-canvas');if(!c||typeof THREE==='undefined')return;var s=new THREE.Scene();s.background=null;var cam=new THREE.PerspectiveCamera(55,window.innerWidth/window.innerHeight,0.1,100);cam.position.set(0,-2,9);var r=new THREE.WebGLRenderer({canvas:c,alpha:true,antialias:true});r.setClearColor(0,0);r.setSize(window.innerWidth,window.innerHeight);r.setPixelRatio(Math.min(window.devicePixelRatio,2));var g=new THREE.Group();s.add(g);var numLines=48,pts=80;for(var i=0;i<numLines;i++){var points=[];var xPos=(i-numLines/2)*0.22;for(var j=0;j<pts;j++)points.push(new THREE.Vector3(xPos,(j-pts/2)*0.2,0));var color=new THREE.Color().setHSL(0.08,0.7,0.45);var mat=new THREE.LineBasicMaterial({color:color,transparent:true,opacity:0.15,blending:THREE.AdditiveBlending});g.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(points),mat))}g.rotation.x=Math.PI/3;g.rotation.z=-Math.PI/8;function animate(){requestAnimationFrame(animate);var t=performance.now()*0.0003;g.children.forEach(function(l){var p=l.geometry.attributes.position.array;for(var j=0;j<pts;j++){var idx=j*3;p[idx+2]=Math.sin(p[idx+1]*1.2+t+p[idx]*0.8)*0.6+Math.cos(p[idx]*1.5-t*0.8+p[idx+1]*0.5)*0.4}l.geometry.attributes.position.needsUpdate=true});r.render(s,cam)}animate();window.addEventListener('resize',function(){cam.aspect=window.innerWidth/window.innerHeight;cam.updateProjectionMatrix();r.setSize(window.innerWidth,window.innerHeight)})})();
-})();
 
 // --- CHART HELPERS ---
 var ACCENT='#FF5A1F',ACCENT2='#2438DA',MUTED='#71717A',MUTED2='#A1A1AA',WHITE='#FAFAF9',GREEN='#10B981',AMBER='#F59E0B',RED='#EF4444';
@@ -530,29 +527,6 @@ function rfd(ctx,x,y,w,h){ctx.strokeStyle='rgba(250,250,249,.15)';ctx.lineWidth=
 
 // CHART 4: Validation Funnel (Grouped Bar)
 (function(){var c=document.getElementById('validation-chart');if(!c)return;var ctx=c.getContext('2d');var W=c.width,H=c.height,p={t:40,b:60,l:50,r:30},pw=W-p.l-p.r,ph=H-p.t-p.b;ctx.clearRect(0,0,W,H);rfd(ctx,p.l,p.t,pw,ph);var data=[{l:'Check reviews',t:65,c:52},{l:'Watch creator content',t:48,c:38},{l:'Visit retailer page',t:42,c:45},{l:'Check brand site',t:35,c:28},{l:'Ask social/community',t:28,c:22}];var colors=[ACCENT,ACCENT2,GREEN,AMBER,MUTED];var gap=12,barGap=4,barW=(pw-(data.length-1)*gap)/data.length,subW=(barW-barGap)/2;data.forEach(function(d,i){var x=p.l+i*(barW+gap);var col=colors[i];var h1=(d.t/70)*ph;ctx.fillStyle=col;ctx.globalAlpha=0.25;ctx.fillRect(x,p.t+ph-h1,subW,h1);ctx.globalAlpha=1;ctx.fillRect(x,p.t+ph-h1,subW,h1);ctx.fillStyle=WHITE;ctx.font='9px "IBM Plex Mono",monospace';ctx.textAlign='center';ctx.fillText(d.t+'%',x+subW/2,p.t+ph-h1-6);var h2=(d.c/70)*ph;ctx.fillStyle=col;ctx.globalAlpha=0.55;ctx.fillRect(x+subW+barGap,p.t+ph-h2,subW,h2);ctx.globalAlpha=1;ctx.fillRect(x+subW+barGap,p.t+ph-h2,subW,h2);ctx.fillStyle=WHITE;ctx.fillText(d.c+'%',x+subW*1.5+barGap,p.t+ph-h2-6);ctx.fillStyle='rgba(250,250,249,.6)';ctx.font='8px Montserrat,sans-serif';ctx.textAlign='center';ctx.fillText(d.l,x+barW/2,p.t+ph+20)});ctx.fillStyle=WHITE;ctx.globalAlpha=0.25;ctx.fillRect(p.l,p.t+ph+40,10,10);ctx.globalAlpha=1;ctx.fillStyle='rgba(250,250,249,.6)';ctx.font='8px Montserrat,sans-serif';ctx.textAlign='left';ctx.fillText('Trust impact',p.l+16,p.t+ph+48);ctx.fillStyle=WHITE;ctx.globalAlpha=0.55;ctx.fillRect(p.l+100,p.t+ph+40,10,10);ctx.globalAlpha=1;ctx.fillStyle='rgba(250,250,249,.6)';ctx.fillText('Conversion impact',p.l+116,p.t+ph+48)})();
-
-// --- GSAP EDITORIAL ANIMATIONS ---
-(function(){if(typeof gsap==='undefined'||typeof ScrollTrigger==='undefined')return;gsap.registerPlugin(ScrollTrigger);
-
-// Hero
-gsap.timeline({delay:0.3}).from('.hero .sup',{y:30,opacity:0,duration:0.6,ease:'power3.out'}).from('.hero h1',{y:40,opacity:0,duration:0.8,ease:'power3.out'},'-=0.3').from('.hero .desc',{y:30,opacity:0,duration:0.6,ease:'power2.out'},'-=0.4').from('.hero .cta-row>*',{y:30,opacity:0,duration:0.6,stagger:0.1,ease:'power2.out'},'-=0.4');
-
-// Section reveal animations
-var sr={y:40,duration:1,ease:'power2.out',opacity:0};
-gsap.from('.shift-item',{...sr,stagger:0.15,scrollTrigger:{trigger:'.shift-comparison',start:'top 80%'}});
-gsap.from('.stat-card',{...sr,stagger:0.1,scrollTrigger:{trigger:'.stat-row',start:'top 80%'}});
-gsap.from('.feat-card',{...sr,stagger:0.08,scrollTrigger:{trigger:'.feat-grid',start:'top 80%'}});
-gsap.from('.why-row',{...sr,stagger:0.1,scrollTrigger:{trigger:'.why-row',start:'top 80%'}});
-gsap.from('.cta-inner>*',{...sr,stagger:0.15,scrollTrigger:{trigger:'.cta-inner',start:'top 85%'}});
-gsap.from('.pull-quote-narrow',{...sr,scrollTrigger:{trigger:'.pull-quote-narrow',start:'top 85%'}});
-gsap.from('.big-stat',{...sr,scrollTrigger:{trigger:'.big-stat',start:'top 80%'}});
-gsap.from('.journey-diagram',{...sr,scrollTrigger:{trigger:'.journey-diagram',start:'top 80%'}});
-
-// Parallax image spreads
-gsap.utils.toArray('[data-parallax]').forEach(function(el){gsap.fromTo(el,{y:-40},{y:0,duration:1.2,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 95%',end:'top 20%',scrub:1}})});
-
-if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){gsap.globalTimeline.clear();ScrollTrigger.getAll().forEach(function(t){t.kill()})}
-setTimeout(function(){document.querySelectorAll('.stat-card,.feat-card,.why-row,.cta-inner>*,.big-stat,.journey-diagram').forEach(function(el){if(window.getComputedStyle(el).opacity==='0'){el.style.opacity='1';el.style.transform='none'}})},800)})();
 </script>
 </body>
 </html>
