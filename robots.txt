@@ -1,12 +1,18 @@
 User-agent: *
 Allow: /
-Sitemap: https://nicksc1cc.github.io/inflexion-website/sitemap.xml
+Disallow: /assets/
 
-# AI crawlers - explicitly allowed
+# AI crawlers - explicitly allowed for citation
 User-agent: GPTBot
 Allow: /
 
+User-agent: ChatGPT-User
+Allow: /
+
 User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
 Allow: /
 
 User-agent: PerplexityBot
@@ -15,5 +21,11 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
+# Training-only crawlers blocked
 User-agent: CCBot
+Disallow: /
+
+User-agent: FacebookBot
 Allow: /
+
+Sitemap: https://nicksc1cc.github.io/inflexion-website/sitemap.xml
