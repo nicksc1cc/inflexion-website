@@ -33,7 +33,17 @@ img{max-width:100%;height:auto;display:block}
 .sec.dark p.prose,.sec.dark .feat-card .bd,.sec.dark .why-row .bd{color:var(--h-text)}
 .sec.dark .feat-card .hd{color:var(--h-text)}
 @media(max-width:768px){.sec{padding:48px 0}.sec.chart{padding:40px 0}
-.value-grid{grid-template-columns:1fr;gap:24px}}
+.value-grid{grid-template-columns:1fr;gap:24px}
+.hero .w{max-width:100%;padding:0 24px}
+.hero .sup{font-size:9px;margin-bottom:8px}
+.hero h1{font-size:clamp(32px,10vw,48px);margin-bottom:12px;line-height:1.15}
+.hero .desc{font-size:14px;max-width:90%;margin-bottom:16px}
+.hero{height:auto;min-height:auto;padding:60px 0}
+}
+@media(max-width:480px){
+.hero h1{font-size:28px;line-height:1.2}
+.hero .desc{font-size:13px}
+}
 </style>
 </head>
 <body>
