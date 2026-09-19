@@ -75,10 +75,28 @@
 .journey-diagram .step .s{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
 .journey-diagram .step .l{font-size:13px;font-weight:400;color:var(--fg);white-space:nowrap}
 .journey-diagram .arrow{color:var(--muted);font-size:18px;padding:0 4px}
-@media(max-width:768px){.journey-diagram{padding:24px 16px;flex-direction:column;gap:4px}.journey-diagram .arrow{transform:rotate(90deg);padding:4px 0}}
-
-@media(max-width:900px){.chart-grid{grid-template-columns:1fr}}
-@media(max-width:600px){.image-spread{height:clamp(240px,70vw,400px)}}
+@media(max-width:768px){
+  .journey-diagram{padding:24px 16px;flex-direction:column;gap:4px}
+  .journey-diagram .arrow{transform:rotate(90deg);padding:4px 0}
+  .image-spread{width:100%;left:auto;right:auto;margin:0;margin-left:0;margin-right:0;height:auto;min-height:280px}
+  .image-spread img{height:auto;min-height:280px}
+  .section-intro{border-top:none;padding-top:0}
+  .editorial-pull-quote{padding:32px 16px;margin:24px 0}
+  .magazine-section{padding:48px 0}
+  .magazine-section:first-of-type{padding-top:0}
+}
+@media(max-width:480px){
+  .editorial-pull-quote{font-size:24px;padding:24px 12px}
+  .journey-diagram{padding:16px 12px}
+  .image-spread{min-height:220px}
+  .image-spread img{min-height:220px}
+  h2.d2{font-size:clamp(24px,6vw,32px)}
+  .shift-item{padding-top:16px}
+}
+@media(max-width:600px){
+  .shift-item{padding-top:12px}
+  .editorial-pull-quote::before{font-size:48px;top:-6px}
+}
 </style>
 </head>
 <body>
