@@ -176,7 +176,7 @@
 
 <!-- EDITORIAL PULL QUOTE -->
 <div class="image-spread" data-parallax>
-<img src="https://images.unsplash.com/photo-1581061092442-50f47a7e68b4?w=1600&q=80" alt="Cosmetic powder and brush" loading="lazy">
+<img src="https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?w=1600&q=80" alt="Cosmetic powder and brush" loading="lazy">
 <div class="overlay">
 <div class="overlay-text">
 <div class="label">The evidence</div>
@@ -324,7 +324,7 @@ An AI agent can only recommend what it already knows.
 
 <!-- IMAGE SPREAD WITH OVERLAY -->
 <div class="image-spread" data-parallax>
-<img src="https://images.unsplash.com/photo-1487412912498-0447578fcca8?w=1600&q=80" alt="Perfume and skincare" loading="lazy">
+<img src="https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?w=1600&q=80" alt="Perfume and skincare" loading="lazy">
 <div class="overlay">
 <div class="overlay-text">
 <div class="label">The insight</div>
@@ -406,7 +406,7 @@ That pause is a media moment.
 
 <!-- IMAGE SPREAD -->
 <div class="image-spread" data-parallax>
-<img src="https://images.unsplash.com/photo-1583248832489-579e3f812a5f?w=1600&q=80" alt="Luxury skincare products" loading="lazy">
+<img src="https://images.pexels.com/photos/3762879/pexels-photo-3762879.jpeg?w=1600&q=80" alt="Luxury skincare products" loading="lazy">
 <div class="overlay">
 <div class="overlay-text">
 <div class="label">The opportunity</div>
@@ -521,14 +521,14 @@ gsap.timeline({delay:0.3}).from('.hero .sup',{y:30,opacity:0,duration:0.6,ease:'
 
 // Section reveal animations
 var sr={y:40,duration:1,ease:'power2.out',opacity:0};
-gsap.from('.section-intro',{y:20,opacity:0,duration:0.6,scrollTrigger:{trigger:'.section-intro',start:'top 85%'}});
+gsap.from('.section-intro',{y:20,opacity:0,duration:0.6,scrollTrigger:{trigger:'.section-intro',start:'top 85%',once:true}});
 gsap.from('.shift-item',{...sr,stagger:0.15,scrollTrigger:{trigger:'.shift-comparison',start:'top 80%'}});
 gsap.from('.stat-card',{...sr,stagger:0.1,scrollTrigger:{trigger:'.stat-row',start:'top 80%'}});
 gsap.from('.feat-card',{...sr,stagger:0.08,scrollTrigger:{trigger:'.feat-grid',start:'top 80%'}});
 gsap.from('.why-row',{...sr,stagger:0.1,scrollTrigger:{trigger:'.why-row',start:'top 80%'}});
 gsap.from('.cta-inner>*',{...sr,stagger:0.15,scrollTrigger:{trigger:'.cta-inner',start:'top 85%'}});
 gsap.from('.pull-quote-narrow',{...sr,scrollTrigger:{trigger:'.pull-quote-narrow',start:'top 85%'}});
-gsap.from('.editorial-pull-quote',{...sr,scrollTrigger:{trigger:'.editorial-pull-quote',start:'top 85%'}});
+gsap.from('.editorial-pull-quote',{...sr,scrollTrigger:{trigger:'.editorial-pull-quote',start:'top 85%',once:true}});
 gsap.from('.big-stat',{...sr,scrollTrigger:{trigger:'.big-stat',start:'top 80%'}});
 gsap.from('.journey-diagram',{...sr,scrollTrigger:{trigger:'.journey-diagram',start:'top 80%'}});
 
