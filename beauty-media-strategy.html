@@ -196,6 +196,26 @@ footer{background:var(--ivory)!important;border-top:1px solid var(--hairline)!im
   .bar-row{grid-template-columns:1fr 48px;gap:6px 12px}
   .bar-l{grid-column:1 / -1}
 }
+
+/* Validation funnel (HTML) */
+.pairs{display:grid;gap:24px;margin:8px 0}
+.pair-key{display:flex;flex-wrap:wrap;gap:24px;font-size:13px;color:rgba(248,245,240,.75)}
+.pair-key>span{display:inline-flex;align-items:center;gap:8px}
+.sw{display:inline-block;width:14px;height:14px}
+.sw.trust,.pair-f.trust{background:var(--accent)}
+.sw.conv,.pair-f.conv{background:#F8F5F0}
+.pair{display:grid;grid-template-columns:200px 1fr;column-gap:20px;align-items:center}
+.pair-l{font-size:14px;color:#F8F5F0}
+.pair-bars{display:grid;gap:6px}
+.pair-r{display:grid;grid-template-columns:1fr 52px;align-items:center;gap:12px}
+.pair-t{display:block;height:14px}
+.pair-f{display:block;height:100%}
+.pair-v{font-family:var(--serif);font-size:18px;font-weight:500;line-height:1;color:#F8F5F0;
+  font-optical-sizing:none;font-variation-settings:"opsz" 11}
+.pair-v.trust{color:var(--accent)}
+@media(max-width:700px){
+  .pair{grid-template-columns:1fr;row-gap:8px}
+}
 </style>
 </head>
 <body>
@@ -542,7 +562,29 @@ Brand memory &rarr; Prompt &rarr; AI recommendation &rarr; Human validation &rar
 <div class="section-inner chart-section">
 <h3 class="chart-title">The Validation Funnel: Trust vs. Conversion</h3>
 <p class="chart-caption">Shoppers who receive an AI recommendation take additional validation actions before purchasing. Each surface either reinforces or undercuts the recommendation.</p>
-<div class="chart-wrapper"><canvas id="validation-chart" width="700" height="360" style="width:100%;max-width:700px;display:block;margin:0 auto"></canvas></div>
+<div class="pairs" role="img" aria-label="Trust and conversion impact by validation action. Check reviews: trust 65%, conversion 52%. Watch creator content: 48%, 38%. Visit retailer page: 42%, 45%. Check brand site: 35%, 28%. Ask social or community: 28%, 22%.">
+<div class="pair-key"><span><span class="sw trust"></span>Trust impact</span><span><span class="sw conv"></span>Conversion impact</span></div>
+<div class="pair"><div class="pair-l">Check reviews</div><div class="pair-bars">
+<div class="pair-r"><span class="pair-t"><span class="pair-f trust" style="width:92.9%"></span></span><span class="pair-v trust">65%</span></div>
+<div class="pair-r"><span class="pair-t"><span class="pair-f conv" style="width:74.3%"></span></span><span class="pair-v">52%</span></div>
+</div></div>
+<div class="pair"><div class="pair-l">Watch creator content</div><div class="pair-bars">
+<div class="pair-r"><span class="pair-t"><span class="pair-f trust" style="width:68.6%"></span></span><span class="pair-v trust">48%</span></div>
+<div class="pair-r"><span class="pair-t"><span class="pair-f conv" style="width:54.3%"></span></span><span class="pair-v">38%</span></div>
+</div></div>
+<div class="pair"><div class="pair-l">Visit retailer page</div><div class="pair-bars">
+<div class="pair-r"><span class="pair-t"><span class="pair-f trust" style="width:60%"></span></span><span class="pair-v trust">42%</span></div>
+<div class="pair-r"><span class="pair-t"><span class="pair-f conv" style="width:64.3%"></span></span><span class="pair-v">45%</span></div>
+</div></div>
+<div class="pair"><div class="pair-l">Check brand site</div><div class="pair-bars">
+<div class="pair-r"><span class="pair-t"><span class="pair-f trust" style="width:50%"></span></span><span class="pair-v trust">35%</span></div>
+<div class="pair-r"><span class="pair-t"><span class="pair-f conv" style="width:40%"></span></span><span class="pair-v">28%</span></div>
+</div></div>
+<div class="pair"><div class="pair-l">Ask social / community</div><div class="pair-bars">
+<div class="pair-r"><span class="pair-t"><span class="pair-f trust" style="width:40%"></span></span><span class="pair-v trust">28%</span></div>
+<div class="pair-r"><span class="pair-t"><span class="pair-f conv" style="width:31.4%"></span></span><span class="pair-v">22%</span></div>
+</div></div>
+</div>
 <p class="chart-note">Source: IAB · Northwestern Spiegel Research Center · Inflexion analysis</p>
 </div>
 </section>
@@ -642,9 +684,6 @@ document.fonts.ready.then(function(){
 
 /* Chart 2: Forgetting Curve (dark) */
 (function(){var c=document.getElementById('forgetting-curve');if(!c)return;var ctx=hiDPI(c);var W=c._w,H=c._h,p={t:40,b:60,l:70,r:100},pw=W-p.l-p.r,ph=H-p.t-p.b;var t=DARK;ctx.fillStyle=t.bg;ctx.fillRect(0,0,W,H);grid(ctx,p,ph,pw,t);var days=30;function curve(base,fade,reinfDays){var d=[];for(var day=0;day<days;day++){var b=base*Math.pow(fade,day/14);reinfDays.forEach(function(r){if(day===r.d){b+=r.v*Math.exp(-((day-r.d)%7)/3)}});d.push(Math.min(b,95))}return d}var single=curve(100,0.7,[{d:0,v:0}]);var spaced=curve(100,0.75,[{d:7,v:40},{d:14,v:35},{d:21,v:30}]);function draw(data,color){ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=data===spaced?2.5:1.5;ctx.lineCap='round';for(var d=0;d<days;d++){var x=p.l+(d/days)*pw;var y=p.t+ph-(data[d]/100)*ph;if(d===0)ctx.moveTo(x,y);else ctx.lineTo(x,y)}ctx.stroke();[0,days-1].forEach(function(idx){var x=p.l+(idx/days)*pw;var y=p.t+ph-(data[idx]/100)*ph;ctx.beginPath();ctx.arc(x,y,4,0,Math.PI*2);ctx.fillStyle=color;ctx.fill()})}draw(single,t.grey);draw(spaced,ACCENT);F(ctx,'500 12px Montserrat,sans-serif');ctx.textAlign='left';ctx.textBaseline='bottom';ctx.fillText('Spaced campaign',p.l+pw-8,p.t+ph-(spaced[spaced.length-1]/100)*ph-6);F(ctx,'500 12px Montserrat,sans-serif');ctx.textBaseline='top';ctx.fillText('Single burst',p.l+pw-8,p.t+ph-(single[single.length-1]/100)*ph+6);F(ctx,'500 12px Montserrat,sans-serif');ctx.textAlign='right';ctx.textBaseline='middle';ctx.fillText('100%',p.l-10,p.t+8);ctx.fillText('50%',p.l-10,p.t+ph/2+3);ctx.fillText('0%',p.l-10,p.t+ph-4);F(ctx,'500 12px Montserrat,sans-serif');ctx.textAlign='center';ctx.textBaseline='top';ctx.fillText('Day 0',p.l,p.t+ph+16);ctx.fillText('Day 7',p.l+pw*7/days,p.t+ph+16);ctx.fillText('Day 14',p.l+pw*14/days,p.t+ph+16);ctx.fillText('Day 21',p.l+pw*21/days,p.t+ph+16);ctx.fillText('Day 30',p.l+pw,p.t+ph+16);[7,14,21].forEach(function(d){ctx.strokeStyle=t.rule;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(p.l+pw*d/days,p.t);ctx.lineTo(p.l+pw*d/days,p.t+ph);ctx.stroke();F(ctx,'500 10px Montserrat,sans-serif');ctx.textAlign='center';ctx.textBaseline='bottom';ctx.fillText('reinforcement',p.l+pw*d/days,p.t-6)})})();
-
-/* Chart 4: Validation Funnel (dark) */
-(function(){var c=document.getElementById('validation-chart');if(!c)return;var ctx=hiDPI(c);var W=c._w,H=c._h,p={t:40,b:80,l:60,r:50},pw=W-p.l-p.r,ph=H-p.t-p.b;var t=DARK;ctx.fillStyle=t.bg;ctx.fillRect(0,0,W,H);grid(ctx,p,ph,pw,t);var data=[{l:'Check reviews',t:65,c:52},{l:'Watch creator content',t:48,c:38},{l:'Visit retailer page',t:42,c:45},{l:'Check brand site',t:35,c:28},{l:'Ask social/community',t:28,c:22}];var gap=12,barW=(pw-(data.length-1)*gap)/data.length;data.forEach(function(d,i){var x=p.l+i*(barW+gap);var th=(d.t/70)*ph;ctx.fillStyle=ACCENT;ctx.globalAlpha=0.2;ctx.fillRect(x,p.t+ph-th,barW,th);ctx.globalAlpha=1;ctx.fillRect(x,p.t+ph-th,barW/2-2,th);ctx.fillStyle=t.ink;ctx.globalAlpha=0.85;ctx.fillRect(x+barW/2+2,p.t+ph-(d.c/70)*ph,barW/2-2,(d.c/70)*ph);ctx.globalAlpha=1;F(ctx,'500 12px Montserrat,sans-serif');ctx.textAlign='center';ctx.textBaseline='bottom';ctx.fillText(d.t+'%',x+barW/4-1,p.t+ph-th-4);F(ctx,'400 16px "Bodoni Moda",Georgia,serif');ctx.fillText(d.c+'%',x+barW*3/4+1,p.t+ph-(d.c/70)*ph-4);F(ctx,'500 11px Montserrat,sans-serif');ctx.textAlign='center';ctx.textBaseline='top';ctx.fillText(d.l,x+barW/2,p.t+ph+10)});F(ctx,'500 11px Montserrat,sans-serif');ctx.textAlign='left';ctx.textBaseline='top';ctx.fillRect(6,p.t+ph+36,10,10);ctx.fillStyle=ACCENT;ctx.fillRect(18,p.t+ph+36,10,10);F(ctx,'500 11px Montserrat,sans-serif');ctx.fillText('Conversion impact    Trust impact',48,p.t+ph+37)})();
 
 });
 </script>
