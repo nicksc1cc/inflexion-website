@@ -88,9 +88,9 @@ for cluster_name, page_ids in clusters.items():
     # Shared concepts
     concept_pages = defaultdict(list)
     for node in kg_nodes:
-        if node.get('node_type') == 'CONCEPT':
+        if node.get('node_type') == 'concept':
             for edge in kg_edges:
-                if edge.get('target') == node.get('node_id') and edge.get('relationship') == 'USES':
+                if edge.get('target') == node.get('node_id') and edge.get('relationship') == 'uses':
                     src = edge.get('source', '').replace('page:', '')
                     if src in valid:
                         concept_pages[node.get('label')].append(src)
@@ -105,16 +105,29 @@ for cluster_name, page_ids in clusters.items():
     sorted_pages = sorted(valid, key=lambda p: qv.get(p, {}).get('overall', 0), reverse=True)
     print(f"  Leaders: {sorted_pages[:2]}, Laggards: {sorted_pages[-2:]}")
 
+# Check USES edges targets
+edges = run['knowledge_graph']['edges']
+uses = [e for e in edges if e.get('relationship') == 'uses']
+targets = set(e.get('target', '') for e in uses)
+print('USES target types:', list(targets)[:20])
+
+# Find what nodes have those target IDs
+kg_nodes = run['knowledge_graph']['nodes']
+for t in list(targets)[:5]:
+    node = next((n for n in kg_nodes if n.get('node_id') == t), None)
+    if node:
+        print(f'  Target {t}: type={node.get("node_type")}, label={node.get("label")}')
+
 # ===== CONCEPT CENTRALITY =====
 print("\n=== CONCEPT CENTRALITY (Top 15) ===")
 concept_centrality = []
 for node in kg_nodes:
-    if node.get('node_type') != 'CONCEPT':
+    if node.get('node_type') != 'concept':
         continue
     label = node.get('label', '')
     owning_pages = []
     for edge in kg_edges:
-        if edge.get('target') == node.get('node_id') and edge.get('relationship') == 'USES':
+        if edge.get('target') == node.get('node_id') and edge.get('relationship') == 'uses':
             src = edge.get('source', '').replace('page:', '')
             if src in pages:
                 owning_pages.append(src)
@@ -250,7 +263,7 @@ for page_id in pages:
 print("\n=== OVERLAP NETWORK (top 20) ===")
 overlaps = []
 for edge in kg_edges:
-    if edge.get('relationship') == 'OVERLAPS':
+    if edge.get('relationship') == 'overlaps':
         src = edge.get('source', '').replace('page:', '')
         tgt = edge.get('target', '').replace('page:', '')
         weight = edge.get('weight', 0)
@@ -260,7 +273,7 @@ overlaps.sort(key=lambda x: x[2], reverse=True)
 for src, tgt, w in overlaps[:20]:
     q1 = qv.get(src, {}).get('overall', 0)
     q2 = qv.get(tgt, {}).get('overall', 0)
-    print(f"  {src:30s} ↔ {tgt:30s}  overlap={w:.2f}  q1={q1:.2f} q2={q2:.2f}")
+    print(f"  {src:30s} \u2194 {tgt:30s}  overlap={w:.2f}  q1={q1:.2f} q2={q2:.2f}")
 
 print("\n" + "=" * 60)
 print("ANALYSIS COMPLETE")
