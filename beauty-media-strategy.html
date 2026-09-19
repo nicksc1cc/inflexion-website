@@ -32,21 +32,18 @@
 .pull-quote-narrow .attr{display:block;font-size:11px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:12px;font-style:normal}
 .dark .pull-quote-narrow{color:var(--h-text)}
 .dark .pull-quote-narrow .attr{color:rgba(250,250,249,.5)}
-.chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin:48px 0}
-@font-face{font-family:'GT-Super';src:local('Georgia'),local('Times New Roman');font-weight:400;font-style:normal}
 
-/* --- Magazine editorial additions --- */
+/* Magazine editorial design system */
 .magazine-hero{position:relative;min-height:90vh;display:flex;align-items:center;overflow:hidden}
-.magazine-hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1600&q=80') center/cover no-repeat;opacity:.15;z-index:0}
 .magazine-hero .w{position:relative;z-index:2}
 
-.editorial-pull-quote{font-family:'Playfair Display',Georgia,serif;font-size:clamp(28px,3.5vw,48px);font-style:italic;font-weight:400;line-height:1.2;text-align:center;padding:64px 0;margin:48px 0;position:relative;letter-spacing:-.02em;color:var(--accent)}
+.editorial-pull-quote{font-family:'Playfair Display',Georgia,serif;font-size:clamp(28px,3.5vw,48px);font-style:italic;font-weight:400;line-height:1.2;text-align:center;padding:48px 0;margin:32px 0;position:relative;letter-spacing:-.02em;color:var(--accent)}
 .editorial-pull-quote::before{content:'\\201C';font-size:clamp(60px,6vw,96px);position:absolute;top:-8px;left:50%;transform:translateX(-50%);color:var(--accent);opacity:.25;font-family:'Playfair Display',Georgia,serif}
 .editorial-pull-quote .attr{display:block;font-size:11px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:16px;font-style:normal;font-family:Montserrat,sans-serif}
 .dark .editorial-pull-quote{color:var(--h-text)}
 .dark .editorial-pull-quote::before{color:var(--h-text);opacity:.15}
 
-.image-spread{position:relative;width:100vw;left:50%;right:50%;margin:64px 0;margin-left:-50vw;margin-right:-50vw;height:clamp(300px,50vw,600px);overflow:hidden}
+.image-spread{position:relative;width:100vw;left:50%;right:50%;margin:0;margin-left:-50vw;margin-right:-50vw;height:clamp(300px,50vw,600px);overflow:hidden}
 .image-spread img{width:100%;height:100%;object-fit:cover;display:block}
 .image-spread .overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,10,11,.7) 0%,rgba(10,10,11,.2) 100%);display:flex;align-items:center;justify-content:center;padding:48px}
 .image-spread .overlay-text{max-width:700px;text-align:center;color:#FAFAF9}
@@ -179,7 +176,7 @@
 
 <!-- EDITORIAL PULL QUOTE -->
 <div class="image-spread" data-parallax>
-<img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=1600&q=80" alt="Lipstick application" loading="lazy">
+<img src="https://images.unsplash.com/photo-1581061092442-50f47a7e68b4?w=1600&q=80" alt="Cosmetic powder and brush" loading="lazy">
 <div class="overlay">
 <div class="overlay-text">
 <div class="label">The evidence</div>
@@ -536,7 +533,7 @@ gsap.from('.big-stat',{...sr,scrollTrigger:{trigger:'.big-stat',start:'top 80%'}
 gsap.from('.journey-diagram',{...sr,scrollTrigger:{trigger:'.journey-diagram',start:'top 80%'}});
 
 // Parallax image spreads
-gsap.utils.toArray('[data-parallax]').forEach(function(el){gsap.fromTo(el,{y:-40},{y:0,duration:1.2,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 95%',end:'top 20%',scrub:1}})})();
+gsap.utils.toArray('[data-parallax]').forEach(function(el){gsap.fromTo(el,{y:-40},{y:0,duration:1.2,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 95%',end:'top 20%',scrub:1}})});
 
 if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){gsap.globalTimeline.clear();ScrollTrigger.getAll().forEach(function(t){t.kill()})}
 setTimeout(function(){document.querySelectorAll('.stat-card,.feat-card,.why-row,.cta-inner>*,.editorial-pull-quote,.section-intro,.big-stat,.journey-diagram').forEach(function(el){if(window.getComputedStyle(el).opacity==='0'){el.style.opacity='1';el.style.transform='none'}})},800)})();
