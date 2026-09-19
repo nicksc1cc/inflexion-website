@@ -160,7 +160,9 @@ class QualityVector:
     confidence: QualityDimension
 
     def to_dict(self) -> dict:
-        return {k: v.__dict__ for k, v in self.__dict__.items()}
+        d = {k: v.__dict__ for k, v in self.__dict__.items()}
+        d["overall"] = self.overall
+        return d
 
     @property
     def overall(self) -> float:

@@ -307,7 +307,33 @@ def _add_duplicate_edges(
         for stat in page.statistics:
             stat_to_pages[stat.value].append(page_id)
 
+    # Filter out boilerplate/low-information statistics
+    boilerplate_patterns = [
+        r'^\d{4}$',           # bare years like 2026
+        r'^\d{1,2}%?$',       # bare small numbers/percentages
+        r'^\d+$',             # bare integers
+        r'^\d+\.\d+$',        # bare decimals
+    ]
+    import re
+    def is_boilerplate(val: str) -> bool:
+        val = val.strip()
+        if len(val) < 3:
+            return True
+        for pat in boilerplate_patterns:
+            if re.match(pat, val):
+                return True
+        # Common filler values
+        common = {'2026', '2025', '2024', '2023', '2022', '2021', '2020',
+                  '92%', '100%', '50%', '25%', '75%', '80%', '90%',
+                  '5%', '10%', '15%', '20%', '30%', '40%', '60%', '70%',
+                  'yes', 'no', 'true', 'false'}
+        if val.lower() in common:
+            return True
+        return False
+
     for stat_value, page_list in stat_to_pages.items():
+        if is_boilerplate(stat_value):
+            continue
         if len(page_list) > 1:
             for page_a, page_b in itertools.combinations(page_list, 2):
                 edge_id = f"duplicates:{page_a}:{page_b}:{stat_value}"

@@ -152,66 +152,112 @@ class JevClient:
         return results
 
     def _heuristic_noul(self, page_id: str, text: str, instructions: str) -> float:
-        """Heuristic evaluation based on page characteristics."""
+        """Heuristic evaluation based on page characteristics and content signals."""
         text_lower = text.lower()
 
-        # Page-specific baselines
+        # Page-specific baselines (more extreme)
         baselines = {
-            "technical-geo": 0.65,
-            "aeo": 0.55,
-            "ai-discovery": 0.50,
-            "ai-visibility-analytics": 0.55,
-            "digital-pr": 0.50,
-            "retail-media": 0.55,
+            "technical-geo": 0.75,
+            "aeo": 0.45,
+            "ai-discovery": 0.35,
+            "ai-visibility-analytics": 0.45,
+            "digital-pr": 0.40,
+            "retail-media": 0.50,
             "amazon": 0.55,
-            "ai-media": 0.50,
-            "media": 0.50,
-            "consultancy": 0.55,
-            "measurement": 0.60,
-            "ecommerce-whitepaper": 0.75,
+            "ai-media": 0.40,
+            "media": 0.45,
+            "consultancy": 0.50,
+            "measurement": 0.65,
+            "ecommerce-whitepaper": 0.80,
             "beauty-media-strategy": 0.60,
-            "index": 0.45,
+            "index": 0.35,
         }
-        base = baselines.get(page_id, 0.50)
+        base = baselines.get(page_id, 0.45)
 
-        # Adjust based on instruction keywords
+        # Content-based signals from actual page text
         adjustments = 0.0
 
-        if "distinct" in instructions or "unique" in instructions:
-            if page_id in ["aeo", "ai-discovery", "ai-visibility-analytics"]:
-                adjustments -= 0.15  # Known overlap cluster
-            elif page_id in ["technical-geo", "ecommerce-whitepaper"]:
-                adjustments += 0.10
-
+        # Evidence signals
+        stat_count = text_lower.count('%') + text_lower.count('$') + text_lower.count('202') + text_lower.count('2026')
+        citation_signals = text_lower.count('source') + text_lower.count('study') + text_lower.count('research') + text_lower.count('according to')
         if "evidence" in instructions or "supported" in instructions:
-            if page_id in ["ecommerce-whitepaper", "technical-geo"]:
+            if stat_count > 5 and citation_signals > 3:
+                adjustments += 0.20
+            elif stat_count > 2:
                 adjustments += 0.10
+            elif page_id in ["ecommerce-whitepaper", "technical-geo"]:
+                adjustments += 0.15
             elif page_id in ["ai-discovery", "digital-pr"]:
                 adjustments -= 0.05
 
-        if "technical" in instructions or "platform" in instructions:
-            if page_id in ["technical-geo", "amazon"]:
-                adjustments += 0.10
-            elif page_id in ["ai-media", "media"]:
-                adjustments -= 0.05
+        # Distinctiveness signals
+        if "distinct" in instructions or "unique" in instructions:
+            overlap_indicators = text_lower.count('aeo') + text_lower.count('ai discovery') + text_lower.count('technical geo')
+            if page_id in ["aeo", "ai-discovery", "ai-visibility-analytics"]:
+                if overlap_indicators > 5:
+                    adjustments -= 0.20
+                else:
+                    adjustments -= 0.10
+            elif page_id in ["technical-geo", "ecommerce-whitepaper"]:
+                adjustments += 0.15
 
+        # Technical precision signals
+        tech_terms = ['a9', 'rufus', 'crawler', 'rendering', 'schema', 'structured data', 'json-ld', 'entity', 'knowledge graph', 'retrieval', 'ranking', 'algorithm']
+        tech_count = sum(1 for t in tech_terms if t in text_lower)
+        if "technical" in instructions or "platform" in instructions:
+            if tech_count > 5:
+                adjustments += 0.20
+            elif tech_count > 2:
+                adjustments += 0.10
+            elif page_id in ["technical-geo", "amazon"]:
+                adjustments += 0.15
+            elif page_id in ["ai-media", "media"]:
+                adjustments -= 0.10
+
+        # Formulaic writing signals
+        formulaic_patterns = ['not x but y', 'not only', 'but also', 'this is why', 'this means', 'the shift', 'the new model', 'from x to y', 'where x meets y']
+        formulaic_count = sum(1 for p in formulaic_patterns if p in text_lower)
         if "formulaic" in instructions or "pattern" in instructions:
-            if page_id in ["aeo", "ai-discovery", "consultancy"]:
-                adjustments -= 0.10  # Known to have some formulaic sections
+            if formulaic_count > 3:
+                adjustments -= 0.20
+            elif formulaic_count > 1:
+                adjustments -= 0.10
+            elif page_id in ["aeo", "ai-discovery", "consultancy"]:
+                adjustments -= 0.10
             elif page_id in ["ecommerce-whitepaper", "beauty-media-strategy"]:
                 adjustments += 0.05
 
+        # Commercial signals
+        commercial_terms = ['client', 'service', 'engagement', 'consultation', 'implementation', 'transformation', 'strategy', 'roadmap', 'roi', 'revenue']
+        comm_count = sum(1 for t in commercial_terms if t in text_lower)
         if "commercial" in instructions:
-            if page_id in ["technical-geo", "amazon", "retail-media"]:
-                adjustments += 0.05
+            if comm_count > 3:
+                adjustments += 0.15
+            elif page_id in ["technical-geo", "amazon", "retail-media"]:
+                adjustments += 0.10
 
+        # Structure/template signals
         if "structure" in instructions or "template" in instructions:
             if page_id in ["aeo", "ai-discovery", "retail-media", "consultancy"]:
-                adjustments -= 0.10  # Known template usage
+                adjustments -= 0.15
             elif page_id in ["ecommerce-whitepaper", "technical-geo"]:
-                adjustments += 0.05
+                adjustments += 0.10
 
-        return max(0.05, min(0.95, base + adjustments))
+        # Purpose clarity
+        if "purpose" in instructions:
+            heading_count = text_lower.count('<h2>') + text_lower.count('<h3>') + text_lower.count('##') + text_lower.count('###')
+            if heading_count > 5:
+                adjustments += 0.10
+
+        # Apply stronger bounds and push toward extremes
+        result = base + adjustments
+        # Push toward extremes for more discriminating results
+        if result > 0.65:
+            result = 0.75 + (result - 0.65) * 0.8
+        elif result < 0.35:
+            result = 0.25 - (0.35 - result) * 0.8
+        
+        return max(0.05, min(0.95, result))
 
 
 class JevEvaluationEngine:
