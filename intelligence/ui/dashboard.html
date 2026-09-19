@@ -8,7 +8,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap');
 :root{--bg:#0A0A0B;--surface:#121214;--surface2:#1A1A1E;--ink:#F5F5F4;--muted:#8A8A8A;--dim:#505050;--border:rgba(245,245,244,.08);--thin:rgba(245,245,244,.04);--accent:#FF5A1F;--blue:#3B82F6;--violet:#8B5CF6;--cyan:#06B6D4;--green:#10B981;--sans:'Inter',system-ui,sans-serif;--mono:'IBM Plex Mono',monospace}
 body{background:var(--bg);color:var(--ink);margin:0;font-family:var(--sans);font-size:13px;line-height:1.5}
-.app{max-width:1600px;margin:0 auto;padding:20px 24px 80px}
+.app{max-width:1800px;margin:0 auto;padding:20px 24px 80px}
 .hdr{display:flex;justify-content:space-between;align-items:center;padding:0 0 12px;border-bottom:1px solid var(--border);margin-bottom:28px}
 .hdr h1{font-size:15px;font-weight:500;letter-spacing:-.01em}.hdr h1 span{color:var(--muted)}
 .hdr .meta{font-family:var(--mono);font-size:10px;color:var(--dim)}
@@ -24,11 +24,14 @@ body{background:var(--bg);color:var(--ink);margin:0;font-family:var(--sans);font
 .matrix .row .c .bar{height:8px;border-radius:1px;position:relative;margin:2px 0;background:var(--surface2)}
 .matrix .row .c .bar .fill{height:100%;border-radius:1px}
 .matrix .row .c .bar .val{position:absolute;right:2px;top:-1px;font-size:7px;font-family:var(--mono)}
-.heatmap{overflow-x:auto}.heatmap table{border-collapse:collapse;font-size:7px;font-family:var(--mono)}
+.heatmap{overflow-x:auto}
+.heatmap table{border-collapse:collapse;font-size:7px;font-family:var(--mono)}
 .heatmap td{border:1px solid var(--surface2);padding:2px 3px;text-align:center;min-width:18px;white-space:nowrap}
-.heatmap td.label{text-align:left;color:var(--muted);font-size:7px;max-width:100px;overflow:hidden;text-overflow:ellipsis;border-left:none;padding-left:0}
+.heatmap td.label{text-align:left;color:var(--muted);font-size:7px;max-width:280px;overflow:hidden;text-overflow:ellipsis;border-left:none;padding-left:0;min-width:280px}
 .heatmap th{font-size:6px;color:var(--dim);font-weight:400;letter-spacing:.04em;text-transform:uppercase;padding:2px 3px;border-bottom:1px solid var(--border);white-space:nowrap}
 .heatmap .th{font-size:7px;color:var(--dim);font-weight:500;padding:2px 3px;border-bottom:1px solid var(--border);text-align:left}
+.heatmap .theme-header{background:var(--surface);font-weight:600;color:var(--accent);font-size:8px;letter-spacing:.05em;text-transform:uppercase}
+.heatmap .theme-header td{padding:8px 3px 4px;border-top:1px solid var(--border);border-bottom:1px solid var(--thin)}
 .clusters{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
 .cluster{border:1px solid var(--border);border-radius:2px;padding:10px}
 .cluster .h{font-size:8px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--border)}
@@ -48,6 +51,7 @@ body{background:var(--bg);color:var(--ink);margin:0;font-family:var(--sans);font
 .stat-strip span{font-family:var(--mono);font-size:9px;color:var(--dim)}
 .stat-strip strong{color:var(--ink);font-family:var(--sans)}
 .btm{margin-top:32px;padding-top:12px;border-top:1px solid var(--border);display:flex;justify-content:space-between;font-size:9px;color:var(--dim)}
+.tooltip{position:relative}.tooltip .tip{visibility:hidden;position:absolute;bottom:120%;left:50%;transform:translateX(-50%);background:var(--surface2);border:1px solid var(--border);padding:8px 10px;font-size:10px;line-height:1.4;white-space:normal;width:max-content;max-width:320px;z-index:10;border-radius:2px;opacity:0;transition:opacity .15s}.tooltip:hover .tip{visibility:visible;opacity:1}
 </style></head><body>
 <div class="app">
 <div class="hdr"><h1>INFLEXION <span>SITE INTELLIGENCE</span></h1><button class="meta" style="background:none;border:1px solid var(--border);border-radius:2px;padding:6px 14px;cursor:pointer;color:var(--muted);font-size:10px" onclick="loadData()">LOAD LATEST RUN</button></div>
@@ -55,7 +59,7 @@ body{background:var(--bg);color:var(--ink);margin:0;font-family:var(--sans);font
 <div class="stat-strip" id="stat-strip"><span><strong>Pages</strong> <span id="s-pages">—</span></span><span><strong>Nodes</strong> <span id="s-nodes">—</span></span><span><strong>Edges</strong> <span id="s-edges">—</span></span><span><strong>Issues</strong> <span id="s-issues">—</span></span><span><strong>Commit</strong> <span id="s-commit">—</span></span></div>
 <div class="cols">
 <div class="panel"><div class="ph">Quality Vectors / Small Multiples</div><div class="pb"><div class="matrix" id="quality-matrix"><div style="padding:20px;text-align:center;color:var(--dim);font-size:10px">Load a run.</div></div></div></div>
-<div class="panel"><div class="ph">Atomic Questions × Pages / Heatmap</div><div class="pb"><div class="heatmap" id="heatmap-container"><div style="padding:20px;text-align:center;color:var(--dim);font-size:10px">Load a run.</div></div></div></div>
+<div class="panel"><div class="ph">Atomic Questions × Pages / Heatmap (Grouped by Theme)</div><div class="pb"><div class="heatmap" id="heatmap-container"><div style="padding:20px;text-align:center;color:var(--dim);font-size:10px">Load a run.</div></div></div></div>
 </div>
 <div class="cols">
 <div class="panel"><div class="ph">Topic Clusters</div><div class="pb"><div class="clusters" id="cluster-map"><div style="padding:10px;text-align:center;color:var(--dim);font-size:10px">Load a run.</div></div></div></div>
@@ -66,6 +70,31 @@ body{background:var(--bg);color:var(--ink);margin:0;font-family:var(--sans);font
 <div class="btm"><span>Inflexion Site Intelligence · Manual run only · No autonomous edits</span><span id="run-info">No run loaded</span></div>
 <script>
 let data=null;
+const THEME_GROUPS={
+  "Page Purpose & Distinctiveness":["page_has_purpose","could_be_any_consultancy","has_specific_observation","uses_specific_mechanics","uses_not_x_but_y"],
+  "Human Writing & Writer's Eye":["uses_rhetorical_questions","excessive_explanation","contains_slogans","uses_this_is_why","writer_noticed_something","has_concrete_detail"],
+  "Evidence & Citation Quality":["claims_supported","duplicates_argument","names_technology_correctly"],
+  "Technical Precision & Differentiation":["distinguishes_platforms","avoids_overgeneralizing"],
+  "Site Differentiation & Commercial":["duplicates_argument","names_technology_correctly","distinguishes_platforms"]
+};
+const QUESTION_LABELS={
+  "page_has_purpose":"Page clearly communicates its primary purpose in opening sections",
+  "could_be_any_consultancy":"Page purpose is generic / could apply to any consultancy",
+  "has_specific_observation":"Page contains specific observations from direct experience",
+  "uses_specific_mechanics":"Page uses specific mechanisms/technical details (not generic)",
+  "uses_not_x_but_y":"Uses 'not X but Y' contrast framing",
+  "uses_rhetorical_questions":"Uses manufactured rhetorical questions",
+  "excessive_explanation":"Over-explains concepts the audience already knows",
+  "contains_slogans":"Contains consultancy packaging slogans",
+  "uses_this_is_why":"Uses 'this is why / this means' explanation chains",
+  "writer_noticed_something":"Writing shows writer's selective attention / judgement",
+  "has_concrete_detail":"Contains concrete, named details (restaurants, params, measured values)",
+  "claims_supported":"Central claims supported by specific, traceable evidence",
+  "duplicates_argument":"Repeats arguments from other Inflexion pages without new value",
+  "names_technology_correctly":"Correctly names/distinguishes platforms (Google Search vs AI Overviews vs Gemini, etc.)",
+  "distinguishes_platforms":"Distinguishes distinct systems rather than conflating them",
+  "avoids_overgeneralizing":"Claims appropriately scoped (not universal rules from limited evidence)"
+};
 async function loadData(){const p=['../data/run_20260919_215859.json','data/run_20260919_215859.json','../intelligence/data/run_20260919_215859.json'];for(const q of p){try{const r=await fetch(q);if(r.ok){data=await r.json();render();return}}catch(e){}}renderDemo()}
 function renderDemo(){data=generateDemoData();render()}
 function generateDemoData(){
@@ -79,7 +108,32 @@ return{run_id:'demo_run',timestamp:new Date().toISOString(),git_commit:'demo',pa
 }
 function render(){if(!data)return;document.getElementById('s-pages').textContent=data.pages_analyzed.length;document.getElementById('s-nodes').textContent=(data.knowledge_nodes||[]).length;document.getElementById('s-edges').textContent=(data.knowledge_edges||[]).length;document.getElementById('s-issues').textContent=(data.issues||[]).length;document.getElementById('s-commit').textContent=(data.git_commit||'—').substring(0,7);document.getElementById('run-info').textContent=data.run_id+' · '+((data.timestamp||'').substring(0,10));renderQM();renderHM();renderCl();renderOl();renderSl()}
 function renderQM(){const dims=[{key:'intellectual_distinctiveness',label:'Distinct'},{key:'evidence_quality',label:'Evidence'},{key:'human_writing',label:'Writing'},{key:'technical_accuracy',label:'Technical'},{key:'site_differentiation',label:'Diff'},{key:'editorial_quality',label:'Editorial'},{key:'commercial_usefulness',label:'Comm'}];const qv=data.quality_vectors||{};const ps=Object.keys(qv);let h='<div class="row h"><span class="c name">PAGE</span>';dims.forEach(d=>h+=`<span class="c">${d.label}</span>`);h+='<span class="c">Overall</span></div>';ps.forEach(p=>{const pqv=qv[p];if(!pqv)return;let ot=0,ct=0;const sc=dims.map(d=>{const s=Math.round(pqv[d.key]?.score||50);ot+=s;ct++;return s});ot=ct>0?Math.round(ot/ct):50;h+=`<div class="row"><span class="c name cluster-${gc(p)}">${p.substring(0,18)}</span>`;sc.concat([ot]).forEach(s=>{const c=s<40?'#FF5A1F':(s<55?'#F59E0B':'#06B6D4');h+=`<span class="c"><div class="bar"><div class="fill" style="width:${Math.max(4,s)}%;background:${c}"></div><span class="val" style="color:${c}">${s}</span></div></span>`});h+='</div>'});document.getElementById('quality-matrix').innerHTML=h}
-function renderHM(){const jr=data.jev_results||{};const ps=Object.keys(jr);const qs={};ps.forEach(p=>(jr[p]||[]).forEach(r=>qs[r.question_id]=1));const ql=Object.keys(qs);if(!ql.length){document.getElementById('heatmap-container').innerHTML='<div style="padding:10px;color:var(--dim);font-size:10px">No results.</div>';return}let h='<table><tr><th class="th">Question</th>';ps.forEach(p=>h+=`<th>${p.substring(0,6)}</th>`);h+='</tr>';ql.slice(0,25).forEach(q=>{h+=`<tr><td class="label">${q.replace(/_/g,' ').substring(0,18)}</td>`;ps.forEach(p=>{const r=(jr[p]||[]).find(x=>x.question_id===q);let v='—',bg='';if(r){if(r.result==='YES'){v='Y';bg='rgba(255,90,31,.25)'}else if(r.result==='NO'){v='N';bg='rgba(6,182,212,.12)'}else{v='?';bg='rgba(245,158,11,.1)'}}h+=`<td style="background:${bg}">${v}</td>`});h+='</tr>'});h+='</table>';document.getElementById('heatmap-container').innerHTML=h}
+function renderHM(){const jr=data.jev_results||{};const ps=Object.keys(jr);const qs={};ps.forEach(p=>(jr[p]||[]).forEach(r=>qs[r.question_id]=1));const ql=Object.keys(qs);if(!ql.length){document.getElementById('heatmap-container').innerHTML='<div style="padding:10px;color:var(--dim);font-size:10px">No results.</div>';return}
+let h='<table>';
+ps.forEach(p=>h+=`<th>${p.substring(0,8)}</th>`);
+h='<tr><th class="th">Question</th>'+h+'</tr>';
+Object.entries(THEME_GROUPS).forEach(([theme, qids])=>{
+  const themeQuestions = qids.filter(q => ql.includes(q));
+  if(!themeQuestions.length) return;
+  h+=`<tr class="theme-header"><td colspan="${ps.length+1}">${theme}</td></tr>`;
+  themeQuestions.forEach(q=>{
+    h+=`<tr><td class="label tooltip">${QUESTION_LABELS[q]||q.replace(/_/g,' ')}<span class="tip">${q}</span></td>`;
+    ps.forEach(p=>{
+      const r=(jr[p]||[]).find(x=>x.question_id===q);
+      let v='—',bg='',conf='';
+      if(r){
+        conf=` confidence: ${(r.confidence*100).toFixed(0)}%`;
+        if(r.result==='YES'){v='YES';bg='rgba(255,90,31,.25)'}
+        else if(r.result==='NO'){v='NO';bg='rgba(6,182,212,.12)'}
+        else{v='UNCLEAR';bg='rgba(245,158,11,.1)'}
+      }
+      h+=`<td style="background:${bg}" title="${p}: ${v}${conf}">${v}</td>`;
+    });
+    h+='</tr>';
+  });
+});
+h+='</table>';
+document.getElementById('heatmap-container').innerHTML=h}
 function renderCl(){const cs={'AI/DISCOVERY':['aeo','ai-discovery','ai-visibility-analytics','technical-geo','digital-pr'],'RETAIL':['retail-media','amazon','beauty-media-strategy'],'MEDIA':['ai-media','media'],'STRATEGY':['consultancy','measurement'],'RESEARCH':['ecommerce-whitepaper']};const cl={'AI/DISCOVERY':'var(--violet)','RETAIL':'var(--accent)','MEDIA':'var(--blue)','STRATEGY':'var(--green)','RESEARCH':'#EC4899'};const qv=data.quality_vectors||{};let h='';Object.keys(cs).forEach(k=>{const ps=cs[k].filter(p=>data.page_states[p]);if(!ps.length)return;h+=`<div class="cluster"><div class="h" style="color:${cl[k]||'var(--muted)'}">${k}</div><ul class="cl-list">`;ps.forEach(p=>{const q=qv[p];const sc=q?Math.round(((q.intellectual_distinctiveness?.score||50)+(q.evidence_quality?.score||50))/2):null;const is=(data.issues||[]).some(i=>i.page===p);h+=`<li><span class="dot" style="background:${cl[k]||'var(--muted)'}"></span>${p}${is?' <span class="note">⚠</span>':''}${sc!==null?' <span class="sc">'+sc+'</span>':''}</li>`});h+='</ul></div>'});document.getElementById('cluster-map').innerHTML=h||'No data.'}
 function renderOl(){const ovs=[{a:'aeo',b:'ai-discovery',ov:23},{a:'aeo',b:'ai-visibility-analytics',ov:18},{a:'ai-discovery',b:'ai-visibility-analytics',ov:17},{a:'ai-media',b:'media',ov:15},{a:'retail-media',b:'amazon',ov:14},{a:'technical-geo',b:'aeo',ov:15},{a:'measurement',b:'ai-visibility-analytics',ov:14},{a:'digital-pr',b:'aeo',ov:12},{a:'beauty-media-strategy',b:'ecommerce-whitepaper',ov:11},{a:'consultancy',b:'measurement',ov:10}];let h='<div class="overlap-grid">';ovs.sort((x,y)=>y.ov-x.ov).slice(0,15).forEach(p=>{const c=p.ov>20?'#FF5A1F':(p.ov>13?'#F59E0B':'#06B6D4');h+=`<div class="overlap-item"><span class="bar" style="width:${Math.max(3,p.ov*2.5)}px;background:${c}"></span><span class="pages">${p.a} ↔ ${p.b}</span><span class="val" style="color:${c}">${p.ov}%</span></div>`});h+='</div>';document.getElementById('overlap-content').innerHTML=h}
 function renderSl(){const qv=data.quality_vectors||{};const ps=['aeo','ai-discovery','ai-visibility-analytics','technical-geo','digital-pr','retail-media','amazon','ai-media','media','consultancy','measurement','ecommerce-whitepaper','beauty-media-strategy'].filter(p=>qv[p]);if(!ps.length){document.getElementById('slope-container').innerHTML='No data.';return}const is=ps.map(p=>({label:p,a:Math.round(qv[p].intellectual_distinctiveness?.score||0),b:Math.round(qv[p].technical_accuracy?.score||0)}));const W=700,H=Math.max(200,is.length*30+50);let s=`<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">`;s+=`<text x="${W/2}" y="14" text-anchor="middle" font-family="var(--sans)" font-size="8" fill="var(--muted)">Distinctiveness (left) → Technical (right)</text>`;const c1=120,c2=W-100;is.forEach((d,i)=>{const y1=30+(1-d.a/100)*140,y2=30+(1-d.b/100)*140;const c=d.a>55||d.b>55?'var(--cyan)':'var(--accent)';s+=`<line x1="${c1}" y1="${y1}" x2="${c2}" y2="${y2}" stroke="${c}" stroke-width="1.2" opacity=".5"/>`;s+=`<circle cx="${c1}" cy="${y1}" r="2.5" fill="${d.a>55?'var(--cyan)':'var(--accent)'}"/><circle cx="${c2}" cy="${y2}" r="2.5" fill="${d.b>55?'var(--cyan)':'var(--accent)'}"/>`;s+=`<text x="${c1-8}" y="${y1}" text-anchor="end" dominant-baseline="middle" font-family="var(--mono)" font-size="7" fill="var(--muted)">${d.label}</text>`;s+=`<text x="${c1+8}" y="${y1}" font-family="var(--mono)" font-size="6" fill="var(--dim)">${d.a}</text><text x="${c2+8}" y="${y2}" font-family="var(--mono)" font-size="6" fill="var(--dim)">${d.b}</text>`});s+='</svg>';document.getElementById('slope-container').innerHTML=s}
