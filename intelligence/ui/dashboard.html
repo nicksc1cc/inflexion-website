@@ -1,142 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Inflexion Site Intelligence</title>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Inflexion Intelligence Dashboard</title>
 <style>
 *,*::before,*::after{transition:none!important;animation:none!important}html{scroll-behavior:auto}
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap');
 :root{--bg:#0A0A0B;--surface:#121214;--surface2:#1A1A1E;--ink:#F5F5F4;--muted:#8A8A8A;--dim:#505050;--border:rgba(245,245,244,.08);--thin:rgba(245,245,244,.04);--accent:#FF5A1F;--blue:#3B82F6;--violet:#8B5CF6;--cyan:#06B6D4;--green:#10B981;--sans:'Inter',system-ui,sans-serif;--mono:'IBM Plex Mono',monospace}
-body{background:var(--bg);color:var(--ink);margin:0;font-family:var(--sans);font-size:13px;line-height:1.5}
+body{background:var(--bg);color:var(--ink);margin:0;font-family:var(--sans);font-size:12px;line-height:1.5}
 .app{max-width:1800px;margin:0 auto;padding:20px 24px 80px}
-.hdr{display:flex;justify-content:space-between;align-items:center;padding:0 0 12px;border-bottom:1px solid var(--border);margin-bottom:28px}
-.hdr h1{font-size:15px;font-weight:500;letter-spacing:-.01em}.hdr h1 span{color:var(--muted)}
-.hdr .meta{font-family:var(--mono);font-size:10px;color:var(--dim)}
-.cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:28px}@media(max-width:1000px){.cols{grid-template-columns:1fr}}
+.hdr{display:flex;justify-content:space-between;align-items:center;padding:0 0 12px;border-bottom:1px solid var(--border);margin-bottom:16px}
+.hdr h1{font-size:14px;font-weight:500;letter-spacing:-.01em}.hdr h1 span{color:var(--muted)}
+.hdr .meta{font-family:var(--mono);font-size:9px;color:var(--dim)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+@media(max-width:1000px){.cols{grid-template-columns:1fr}}
 .panel{border:1px solid var(--border);border-radius:2px;overflow:hidden}
-.panel .ph{font-size:8px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);padding:8px 10px;background:var(--surface);border-bottom:1px solid var(--border)}
-.panel .pb{padding:10px}
-.matrix{display:grid;gap:0}
-.matrix .row{display:grid;grid-template-columns:85px repeat(7,1fr) 1fr;gap:0;border-top:1px solid var(--thin);align-items:center}
-.matrix .row.h{font-size:7px;color:var(--dim);letter-spacing:.06em;text-transform:uppercase}
-.matrix .row .c{padding:4px 3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:10px}
-.matrix .row .c.name{font-family:var(--mono);font-size:8px;color:var(--muted)}
-.matrix .row .c .bar{height:8px;border-radius:1px;position:relative;margin:2px 0;background:var(--surface2)}
-.matrix .row .c .bar .fill{height:100%;border-radius:1px}
-.matrix .row .c .bar .val{position:absolute;right:2px;top:-1px;font-size:7px;font-family:var(--mono)}
-.heatmap{overflow-x:auto}
-.heatmap table{border-collapse:collapse;font-size:7px;font-family:var(--mono)}
-.heatmap td{border:1px solid var(--surface2);padding:2px 3px;text-align:center;min-width:18px;white-space:nowrap}
-.heatmap td.label{text-align:left;color:var(--muted);font-size:7px;max-width:280px;overflow:hidden;text-overflow:ellipsis;border-left:none;padding-left:0;min-width:280px}
-.heatmap th{font-size:6px;color:var(--dim);font-weight:400;letter-spacing:.04em;text-transform:uppercase;padding:2px 3px;border-bottom:1px solid var(--border);white-space:nowrap}
-.heatmap .th{font-size:7px;color:var(--dim);font-weight:500;padding:2px 3px;border-bottom:1px solid var(--border);text-align:left}
-.heatmap .theme-header{background:var(--surface);font-weight:600;color:var(--accent);font-size:8px;letter-spacing:.05em;text-transform:uppercase}
-.heatmap .theme-header td{padding:8px 3px 4px;border-top:1px solid var(--border);border-bottom:1px solid var(--thin)}
-.clusters{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
-.cluster{border:1px solid var(--border);border-radius:2px;padding:10px}
-.cluster .h{font-size:8px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--border)}
-.cl-list{list-style:none;margin:0;padding:0}
-.cl-list li{display:flex;align-items:center;gap:6px;padding:3px 0;font-size:10px}
-.cl-list li .dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
-.cl-list li .sc{font-family:var(--mono);font-size:8px;color:var(--dim);margin-left:auto}
-.cl-list li .note{font-size:8px;color:var(--accent);margin-left:4px}
-.overlap-grid{display:grid;gap:3px}
-.overlap-item{display:flex;align-items:center;gap:6px;font-size:9px;padding:2px 0}
-.overlap-item .bar{height:10px;border-radius:1px;min-width:2px;flex-shrink:0}
-.overlap-item .pages{font-family:var(--mono);font-size:8px;color:var(--muted);min-width:160px}
-.overlap-item .val{font-family:var(--mono);font-size:8px;color:var(--dim)}
-.slope-container{width:100%;overflow:hidden;margin:8px 0}
-.slope-container svg{width:100%;height:auto;display:block}
-.stat-strip{display:flex;gap:20px;padding:8px 0;border-top:1px solid var(--thin);margin:12px 0}
-.stat-strip span{font-family:var(--mono);font-size:9px;color:var(--dim)}
-.stat-strip strong{color:var(--ink);font-family:var(--sans)}
-.btm{margin-top:32px;padding-top:12px;border-top:1px solid var(--border);display:flex;justify-content:space-between;font-size:9px;color:var(--dim)}
-.tooltip{position:relative}.tooltip .tip{visibility:hidden;position:absolute;bottom:120%;left:50%;transform:translateX(-50%);background:var(--surface2);border:1px solid var(--border);padding:8px 10px;font-size:10px;line-height:1.4;white-space:normal;width:max-content;max-width:320px;z-index:10;border-radius:2px;opacity:0;transition:opacity .15s}.tooltip:hover .tip{visibility:visible;opacity:1}
+.ph{font-size:8px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);padding:6px 10px;background:var(--surface);border-bottom:1px solid var(--border)}
+.pb{padding:8px}
+.stat-strip{display:flex;gap:16px;padding:8px 0;border-bottom:1px solid var(--thin);margin-bottom:16px;font-size:9px}
+.stat-strip span{font-family:var(--mono);color:var(--dim)}.stat-strip strong{color:var(--ink);font-family:var(--sans)}
+.btm{margin-top:24px;padding-top:12px;border-top:1px solid var(--border);display:flex;justify-content:space-between;font-size:9px;color:var(--dim)}
+.tbl{border-collapse:collapse;font-size:8px;font-family:var(--mono);width:100%}
+.tbl th,.tbl td{border:1px solid var(--surface2);padding:2px 4px;text-align:center;white-space:nowrap}
+.tbl th{font-size:7px;color:var(--dim);font-weight:400;text-transform:uppercase;border-bottom:1px solid var(--border)}
+.tbl .lb{text-align:left;color:var(--muted);max-width:200px;overflow:hidden;text-overflow:ellipsis;border-left:none;padding-left:2px}
+.tbl .thdr{background:var(--surface);font-weight:600;color:var(--accent);font-size:7px;padding:6px 4px;border-top:1px solid var(--border)}
+.tooltip{position:relative}.tooltip .tip{visibility:hidden;position:absolute;bottom:120%;left:50%;transform:translateX(-50%);background:var(--surface2);border:1px solid var(--border);padding:4px 8px;font-size:9px;line-height:1.3;white-space:normal;width:max-content;max-width:300px;z-index:10;border-radius:2px;opacity:0}.tooltip:hover .tip{visibility:visible;opacity:1}
+.ol{display:grid;gap:2px}.ol-i{display:flex;align-items:center;gap:4px;font-size:8px}.ol-b{height:8px;border-radius:1px;min-width:2px;flex-shrink:0}.ol-l{font-family:var(--mono);color:var(--muted);min-width:150px;font-size:7px}.ol-v{font-family:var(--mono);font-size:7px;min-width:24px}
+.concept-list{font-size:8px}.concept-list .c{display:flex;align-items:center;gap:4px;padding:2px 0}.bg{color:var(--cyan)}.ac{color:var(--accent)}.am{color:#F59E0B}.ct{color:var(--muted)}
+.issues-bars{display:grid;gap:2px}.ib{display:flex;align-items:center;gap:4px;font-size:8px}.ib-l{font-family:var(--mono);color:var(--dim);min-width:140px}.ib-c{height:10px;border-radius:1px;min-width:2px}
+th,.lb,.tbl td{cursor:default}
 </style></head><body>
 <div class="app">
-<div class="hdr"><h1>INFLEXION <span>SITE INTELLIGENCE</span></h1><button class="meta" style="background:none;border:1px solid var(--border);border-radius:2px;padding:6px 14px;cursor:pointer;color:var(--muted);font-size:10px" onclick="loadData()">LOAD LATEST RUN</button></div>
-<div id="main-content">
-<div class="stat-strip" id="stat-strip"><span><strong>Pages</strong> <span id="s-pages">—</span></span><span><strong>Nodes</strong> <span id="s-nodes">—</span></span><span><strong>Edges</strong> <span id="s-edges">—</span></span><span><strong>Issues</strong> <span id="s-issues">—</span></span><span><strong>Commit</strong> <span id="s-commit">—</span></span></div>
+<div class="hdr"><h1>INFLEXION <span>INTELLIGENCE DASHBOARD</span></h1><span class="meta" id="run-info">No run loaded</span></div>
+<div id="content">
+<div class="stat-strip" id="strip"><span><strong>Pages</strong> <span id="s-p">—</span></span><span><strong>Q's</strong> <span id="s-q">—</span></span><strong>Quality Vector</strong>&nbsp;<span id="s-qv">—</span><span><strong>Issues</strong> <span id="s-i">—</span></span><span><strong>Commit</strong> <span id="s-c">—</span></span></div>
 <div class="cols">
-<div class="panel"><div class="ph">Quality Vectors / Small Multiples</div><div class="pb"><div class="matrix" id="quality-matrix"><div style="padding:20px;text-align:center;color:var(--dim);font-size:10px">Load a run.</div></div></div></div>
-<div class="panel"><div class="ph">Atomic Questions × Pages / Heatmap (Grouped by Theme)</div><div class="pb"><div class="heatmap" id="heatmap-container"><div style="padding:20px;text-align:center;color:var(--dim);font-size:10px">Load a run.</div></div></div></div>
+  <div class="panel"><div class="ph">Quality Vectors — Small Multiples</div><div class="pb"><div id="qv"><div style="padding:12px;text-align:center;color:var(--dim);font-size:9px">Load a run.</div></div></div></div>
+  <div class="panel"><div class="ph">Jev × Pages — Heatmap (NOUL probability, grouped by theme)</div><div class="pb"><div id="hm"><div style="padding:12px;text-align:center;color:var(--dim);font-size:9px">Load a run.</div></div></div></div>
 </div>
 <div class="cols">
-<div class="panel"><div class="ph">Topic Clusters</div><div class="pb"><div class="clusters" id="cluster-map"><div style="padding:10px;text-align:center;color:var(--dim);font-size:10px">Load a run.</div></div></div></div>
-<div class="panel"><div class="ph">Lexical Overlap / Duplicate Detection</div><div class="pb"><div id="overlap-content"><div style="padding:10px;text-align:center;color:var(--dim);font-size:10px">Load a run.</div></div></div></div>
+  <div class="panel"><div class="ph">Concept Centrality — Bridge Concepts</div><div class="pb"><div class="concept-list" id="cc"><div style="padding:12px;text-align:center;color:var(--dim);font-size:9px">Load a run.</div></div></div></div>
+  <div class="panel"><div class="ph">Issues by Page</div><div class="pb"><div id="iss"><div style="padding:12px;text-align:center;color:var(--dim);font-size:9px">Load a run.</div></div></div></div>
 </div>
-<div class="panel"><div class="ph">Quality Slopegraph / Distinctive vs Technical</div><div class="pb"><div class="slope-container" id="slope-container"><div style="padding:10px;text-align:center;color:var(--dim);font-size:10px">Load a run.</div></div></div></div>
+<div class="cols">
+  <div class="panel"><div class="ph">Lexical Overlap — Top Page Pairs</div><div class="pb"><div class="ol" id="ol"><div style="padding:12px;text-align:center;color:var(--dim);font-size:9px">Load a run.</div></div></div></div>
+  <div class="panel"><div class="ph">Slopegraph — Distinctiveness vs Technical Accuracy</div><div class="pb"><div id="sl"><div style="padding:12px;text-align:center;color:var(--dim);font-size:9px">Load a run.</div></div></div></div>
 </div>
-<div class="btm"><span>Inflexion Site Intelligence · Manual run only · No autonomous edits</span><span id="run-info">No run loaded</span></div>
+</div>
+<div class="btm"><span>Inflexion · Manual run · No auto edits</span><span id="live-info">No run</span></div>
 <script>
 let data=null;
-const THEME_GROUPS={
-  "Page Purpose & Distinctiveness":["page_has_purpose","could_be_any_consultancy","has_specific_observation","uses_specific_mechanics","uses_not_x_but_y"],
-  "Human Writing & Writer's Eye":["uses_rhetorical_questions","excessive_explanation","contains_slogans","uses_this_is_why","writer_noticed_something","has_concrete_detail"],
-  "Evidence & Citation Quality":["claims_supported","duplicates_argument","names_technology_correctly"],
-  "Technical Precision & Differentiation":["distinguishes_platforms","avoids_overgeneralizing"],
-  "Site Differentiation & Commercial":["duplicates_argument","names_technology_correctly","distinguishes_platforms"]
-};
-const QUESTION_LABELS={
-  "page_has_purpose":"Page clearly communicates its primary purpose in opening sections",
-  "could_be_any_consultancy":"Page purpose is generic / could apply to any consultancy",
-  "has_specific_observation":"Page contains specific observations from direct experience",
-  "uses_specific_mechanics":"Page uses specific mechanisms/technical details (not generic)",
-  "uses_not_x_but_y":"Uses 'not X but Y' contrast framing",
-  "uses_rhetorical_questions":"Uses manufactured rhetorical questions",
-  "excessive_explanation":"Over-explains concepts the audience already knows",
-  "contains_slogans":"Contains consultancy packaging slogans",
-  "uses_this_is_why":"Uses 'this is why / this means' explanation chains",
-  "writer_noticed_something":"Writing shows writer's selective attention / judgement",
-  "has_concrete_detail":"Contains concrete, named details (restaurants, params, measured values)",
-  "claims_supported":"Central claims supported by specific, traceable evidence",
-  "duplicates_argument":"Repeats arguments from other Inflexion pages without new value",
-  "names_technology_correctly":"Correctly names/distinguishes platforms (Google Search vs AI Overviews vs Gemini, etc.)",
-  "distinguishes_platforms":"Distinguishes distinct systems rather than conflating them",
-  "avoids_overgeneralizing":"Claims appropriately scoped (not universal rules from limited evidence)"
-};
-async function loadData(){const p=['../data/run_20260919_215859.json','data/run_20260919_215859.json','../intelligence/data/run_20260919_215859.json'];for(const q of p){try{const r=await fetch(q);if(r.ok){data=await r.json();render();return}}catch(e){}}renderDemo()}
-function renderDemo(){data=generateDemoData();render()}
-function generateDemoData(){
-const pages=[{id:'aeo',cluster:'ai'},{id:'ai-discovery',cluster:'ai'},{id:'ai-visibility-analytics',cluster:'ai'},{id:'technical-geo',cluster:'tech'},{id:'digital-pr',cluster:'ai'},{id:'retail-media',cluster:'retail'},{id:'amazon',cluster:'amazon'},{id:'ai-media',cluster:'media'},{id:'media',cluster:'media'},{id:'consultancy',cluster:'strategy'},{id:'measurement',cluster:'strategy'},{id:'beauty-media-strategy',cluster:'retail'},{id:'ecommerce-whitepaper',cluster:'research'},{id:'index',cluster:'core'}];
-const dims=['intellectual_distinctiveness','evidence_quality','human_writing','technical_accuracy','site_differentiation','editorial_quality','commercial_usefulness'];
-const bs={ai:[40,55,42,50,45,45,55],tech:[68,58,52,78,65,55,55],retail:[55,58,48,60,52,50,58],amazon:[52,52,48,65,55,48,58],media:[50,52,46,60,50,48,55],strategy:[58,55,50,55,55,50,55],research:[72,65,62,65,75,60,60],core:[45,50,45,45,40,45,55]};
-const qids=['page_has_purpose','could_be_any_consultancy','has_specific_observation','uses_specific_mechanics','uses_not_x_but_y','uses_rhetorical_questions','excessive_explanation','contains_slogans','uses_this_is_why','writer_noticed_something','has_concrete_detail','claims_supported','duplicates_argument','names_technology_correctly','distinguishes_platforms','avoids_overgeneralizing'];
-const ps={},qv={},jr={};
-pages.forEach(p=>{const b=bs[p.cluster]||[50,50,50,50,50,50,50];qv[p.id]={};dims.forEach((d,i)=>{qv[p.id][d]={score:Math.min(100,Math.max(0,b[i]+Math.round((Math.random()-0.5)*14))),confidence:0.4+Math.random()*0.4}});ps[p.id]={page_id:p.id,title:p.id,page_type:'service',body_text:p.id+' content'};jr[p.id]=qids.map(q=>({question_id:q,result:Math.random()>0.5?'YES':'NO',confidence:0.3+Math.random()*0.5,theme:'mixed'}))});
-return{run_id:'demo_run',timestamp:new Date().toISOString(),git_commit:'demo',pages_analyzed:pages.map(p=>p.id),page_states:ps,quality_vectors:qv,jev_results:jr,knowledge_nodes:pages.map(p=>({id:'page:'+p.id,type:'PAGE',label:p.id})),knowledge_edges:[],issues:pages.map(p=>({page:p.id,severity:p.cluster==='ai'?'high':'medium',dimension:'distinctiveness',description:p.id+' in '+p.cluster})),tickets:[],recommendations:[]}
+async function loadData(){
+  const paths=[
+    '../intelligence/data/runs/run_run_20260920_000359.json','../intelligence/data/runs/run_run_20260920_001249.json',
+    'intelligence/data/runs/run_run_20260920_000359.json','data/run_run_20260920_000359.json',
+    '../data/runs/run_run_20260920_000359.json','../data/runs/run_run_20260919_233513.json',
+  ];
+  for(const p of paths){try{const r=await fetch(p);if(r.ok){data=await r.json();render();return}}catch(e){}}
+  renderDemo()
 }
-function render(){if(!data)return;document.getElementById('s-pages').textContent=data.pages_analyzed.length;document.getElementById('s-nodes').textContent=(data.knowledge_nodes||[]).length;document.getElementById('s-edges').textContent=(data.knowledge_edges||[]).length;document.getElementById('s-issues').textContent=(data.issues||[]).length;document.getElementById('s-commit').textContent=(data.git_commit||'—').substring(0,7);document.getElementById('run-info').textContent=data.run_id+' · '+((data.timestamp||'').substring(0,10));renderQM();renderHM();renderCl();renderOl();renderSl()}
-function renderQM(){const dims=[{key:'intellectual_distinctiveness',label:'Distinct'},{key:'evidence_quality',label:'Evidence'},{key:'human_writing',label:'Writing'},{key:'technical_accuracy',label:'Technical'},{key:'site_differentiation',label:'Diff'},{key:'editorial_quality',label:'Editorial'},{key:'commercial_usefulness',label:'Comm'}];const qv=data.quality_vectors||{};const ps=Object.keys(qv);let h='<div class="row h"><span class="c name">PAGE</span>';dims.forEach(d=>h+=`<span class="c">${d.label}</span>`);h+='<span class="c">Overall</span></div>';ps.forEach(p=>{const pqv=qv[p];if(!pqv)return;let ot=0,ct=0;const sc=dims.map(d=>{const s=Math.round(pqv[d.key]?.score||50);ot+=s;ct++;return s});ot=ct>0?Math.round(ot/ct):50;h+=`<div class="row"><span class="c name cluster-${gc(p)}">${p.substring(0,18)}</span>`;sc.concat([ot]).forEach(s=>{const c=s<40?'#FF5A1F':(s<55?'#F59E0B':'#06B6D4');h+=`<span class="c"><div class="bar"><div class="fill" style="width:${Math.max(4,s)}%;background:${c}"></div><span class="val" style="color:${c}">${s}</span></div></span>`});h+='</div>'});document.getElementById('quality-matrix').innerHTML=h}
-function renderHM(){const jr=data.jev_results||{};const ps=Object.keys(jr);const qs={};ps.forEach(p=>(jr[p]||[]).forEach(r=>qs[r.question_id]=1));const ql=Object.keys(qs);if(!ql.length){document.getElementById('heatmap-container').innerHTML='<div style="padding:10px;color:var(--dim);font-size:10px">No results.</div>';return}
-let h='<table>';
-ps.forEach(p=>h+=`<th>${p.substring(0,8)}</th>`);
-h='<tr><th class="th">Question</th>'+h+'</tr>';
-Object.entries(THEME_GROUPS).forEach(([theme, qids])=>{
-  const themeQuestions = qids.filter(q => ql.includes(q));
-  if(!themeQuestions.length) return;
-  h+=`<tr class="theme-header"><td colspan="${ps.length+1}">${theme}</td></tr>`;
-  themeQuestions.forEach(q=>{
-    h+=`<tr><td class="label tooltip">${QUESTION_LABELS[q]||q.replace(/_/g,' ')}<span class="tip">${q}</span></td>`;
-    ps.forEach(p=>{
-      const r=(jr[p]||[]).find(x=>x.question_id===q);
-      let v='—',bg='',conf='';
-      if(r){
-        conf=` confidence: ${(r.confidence*100).toFixed(0)}%`;
-        if(r.result==='YES'){v='YES';bg='rgba(255,90,31,.25)'}
-        else if(r.result==='NO'){v='NO';bg='rgba(6,182,212,.12)'}
-        else{v='UNCLEAR';bg='rgba(245,158,11,.1)'}
-      }
-      h+=`<td style="background:${bg}" title="${p}: ${v}${conf}">${v}</td>`;
+function renderDemo(){
+  const pages=['aeo','ai-discovery','ai-visibility-analytics','technical-geo','digital-pr','retail-media','amazon','ai-media','media','consultancy','measurement','ecommerce-whitepaper','beauty-media-strategy','index'];
+  const dims=['intellectual_distinctiveness','evidence_quality','human_writing','technical_accuracy','site_differentiation','editorial_quality','commercial_usefulness'];
+  const qids=['purpose_clear','purpose_unique','distinct_argument','evidence_central','writing_formulaic','writing_concrete','tech_precision','commercial_pathway','structure_template','repetition_argument','knowledge_contribution','authority_depth'];
+  data={run_id:'demo',timestamp:new Date().toISOString(),git_commit:'demo',pages_analyzed:pages};
+  data.quality_vectors={};data.jev_results={};data.knowledge_graph={nodes:[],edges:[]};data.issues=[];
+  data.page_states={};
+  const base={'ai':[40,55,42,50,45,45,55],'tech':[68,58,52,78,65,55,55],'retail':[55,58,48,60,52,50,58],'amazon':[52,52,48,65,55,48,58],'media':[50,52,46,60,50,48,55],'strategy':[58,55,50,55,55,50,55],'research':[72,65,62,65,75,60,60],'core':[45,50,45,45,40,45,55]};
+  const clusterMap={'aeo':'ai','ai-discovery':'ai','ai-visibility-analytics':'ai','technical-geo':'tech','digital-pr':'ai','retail-media':'retail','amazon':'amazon','beauty-media-strategy':'retail','ai-media':'media','media':'media','consultancy':'strategy','measurement':'strategy','ecommerce-whitepaper':'research','index':'core'};
+  pages.forEach(p=>{
+    const b=base[clusterMap[p]||'core'];
+    data.quality_vectors[p]={overall:0};
+    dims.forEach((d,i)=>{data.quality_vectors[p][d]={score:Math.min(100,Math.max(0,b[i]+Math.round((Math.random()-0.5)*14))),confidence:0.4+Math.random()*0.4};data.quality_vectors[p].overall+=data.quality_vectors[p][d].score});
+    data.quality_vectors[p].overall=Math.round(data.quality_vectors[p].overall/dims.length);
+    data.jev_results[p]=qids.map(q=>({question_id:p+'_'+q,question_type:'noul',result:0.3+Math.random()*0.5,confidence:0.3+Math.random()*0.5}));
+    data.page_states[p]={page_id:p,page_type:'service'};
+  });
+  data.issues=pages.map(p=>({category:'content',severity:'medium',affected_pages:[p],description:p+' issue',confidence:0.7}));
+  data.knowledge_graph.edges=pages.flatMap((a,i)=>pages.slice(i+1).map(b=>({source:'page:'+a,target:'page:'+b,relationship:'overlaps',weight:0.15+Math.random()*0.2})));
+  data.knowledge_graph.nodes=pages.map(p=>({node_id:'page:'+p,node_type:'page',label:p}));
+  ['aeo','ai','search','retail','amazon','media','technical','discovery','citation','measurement'].forEach(c=>{
+    data.knowledge_graph.nodes.push({node_id:'concept:'+c,node_type:'concept',label:c});
+    pages.forEach(p=>{data.knowledge_graph.edges.push({source:'page:'+p,target:'concept:'+c,relationship:'uses'});});
+  });
+  render()
+}
+function render(){
+  if(!data)return;
+  const pages=data.pages_analyzed||Object.keys(data.quality_vectors||{});
+  document.getElementById('s-p').textContent=pages.length;
+  document.getElementById('s-q').textContent=Object.values(data.jev_results||{}).reduce((a,b)=>a+(b||[]).length,0);
+  document.getElementById('s-i').textContent=(data.issues||[]).length;
+  document.getElementById('s-c').textContent=(data.git_commit||'demo').substring(0,7);
+  const ts=data.timestamp||'';document.getElementById('run-info').textContent=(data.run_id||'?')+' · '+(ts.substring(0,10));
+  document.getElementById('live-info').textContent=data.run_id;
+  renderQV();renderHM();renderCC();renderIss();renderOl();renderSl()
+}
+function renderQV(){
+  const dims=[{k:'intellectual_distinctiveness',l:'Dist'},{k:'evidence_quality',l:'Evid'},{k:'human_writing',l:'Write'},{k:'technical_accuracy',l:'Tech'},{k:'site_differentiation',l:'Diff'},{k:'editorial_quality',l:'Edit'},{k:'commercial_usefulness',l:'Comm'}];
+  const qv=data.quality_vectors||{};
+  const pages=data.pages_analyzed||Object.keys(qv);
+  let h='<table class="tbl"><tr><th><span class="ct">Page</span></th>';
+  dims.forEach(d=>h+='<th>'+d.l+'</th>');
+  h+='<th>Overall</th></tr>';
+  pages.forEach(p=>{
+    const v=qv[p];if(!v)return;
+    const sc=dims.map(d=>Math.round(v[d.k]?.score*1||0));
+    const ov=v.overall!==undefined?Math.round(v.overall*1):Math.round(sc.reduce((a,b)=>a+b,0)/sc.length);
+    h+='<tr><td class="lb">'+p.substring(0,18)+'</td>';
+    sc.concat(ov).forEach(s=>{
+      const c=s<35?'var(--accent)':(s<55?'#F59E0B':'var(--cyan)');
+      h+='<td style="color:'+c+'">'+(s>0?s:'—')+'</td>';
     });
     h+='</tr>';
   });
-});
-h+='</table>';
-document.getElementById('heatmap-container').innerHTML=h}
-function renderCl(){const cs={'AI/DISCOVERY':['aeo','ai-discovery','ai-visibility-analytics','technical-geo','digital-pr'],'RETAIL':['retail-media','amazon','beauty-media-strategy'],'MEDIA':['ai-media','media'],'STRATEGY':['consultancy','measurement'],'RESEARCH':['ecommerce-whitepaper']};const cl={'AI/DISCOVERY':'var(--violet)','RETAIL':'var(--accent)','MEDIA':'var(--blue)','STRATEGY':'var(--green)','RESEARCH':'#EC4899'};const qv=data.quality_vectors||{};let h='';Object.keys(cs).forEach(k=>{const ps=cs[k].filter(p=>data.page_states[p]);if(!ps.length)return;h+=`<div class="cluster"><div class="h" style="color:${cl[k]||'var(--muted)'}">${k}</div><ul class="cl-list">`;ps.forEach(p=>{const q=qv[p];const sc=q?Math.round(((q.intellectual_distinctiveness?.score||50)+(q.evidence_quality?.score||50))/2):null;const is=(data.issues||[]).some(i=>i.page===p);h+=`<li><span class="dot" style="background:${cl[k]||'var(--muted)'}"></span>${p}${is?' <span class="note">⚠</span>':''}${sc!==null?' <span class="sc">'+sc+'</span>':''}</li>`});h+='</ul></div>'});document.getElementById('cluster-map').innerHTML=h||'No data.'}
-function renderOl(){const ovs=[{a:'aeo',b:'ai-discovery',ov:23},{a:'aeo',b:'ai-visibility-analytics',ov:18},{a:'ai-discovery',b:'ai-visibility-analytics',ov:17},{a:'ai-media',b:'media',ov:15},{a:'retail-media',b:'amazon',ov:14},{a:'technical-geo',b:'aeo',ov:15},{a:'measurement',b:'ai-visibility-analytics',ov:14},{a:'digital-pr',b:'aeo',ov:12},{a:'beauty-media-strategy',b:'ecommerce-whitepaper',ov:11},{a:'consultancy',b:'measurement',ov:10}];let h='<div class="overlap-grid">';ovs.sort((x,y)=>y.ov-x.ov).slice(0,15).forEach(p=>{const c=p.ov>20?'#FF5A1F':(p.ov>13?'#F59E0B':'#06B6D4');h+=`<div class="overlap-item"><span class="bar" style="width:${Math.max(3,p.ov*2.5)}px;background:${c}"></span><span class="pages">${p.a} ↔ ${p.b}</span><span class="val" style="color:${c}">${p.ov}%</span></div>`});h+='</div>';document.getElementById('overlap-content').innerHTML=h}
-function renderSl(){const qv=data.quality_vectors||{};const ps=['aeo','ai-discovery','ai-visibility-analytics','technical-geo','digital-pr','retail-media','amazon','ai-media','media','consultancy','measurement','ecommerce-whitepaper','beauty-media-strategy'].filter(p=>qv[p]);if(!ps.length){document.getElementById('slope-container').innerHTML='No data.';return}const is=ps.map(p=>({label:p,a:Math.round(qv[p].intellectual_distinctiveness?.score||0),b:Math.round(qv[p].technical_accuracy?.score||0)}));const W=700,H=Math.max(200,is.length*30+50);let s=`<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">`;s+=`<text x="${W/2}" y="14" text-anchor="middle" font-family="var(--sans)" font-size="8" fill="var(--muted)">Distinctiveness (left) → Technical (right)</text>`;const c1=120,c2=W-100;is.forEach((d,i)=>{const y1=30+(1-d.a/100)*140,y2=30+(1-d.b/100)*140;const c=d.a>55||d.b>55?'var(--cyan)':'var(--accent)';s+=`<line x1="${c1}" y1="${y1}" x2="${c2}" y2="${y2}" stroke="${c}" stroke-width="1.2" opacity=".5"/>`;s+=`<circle cx="${c1}" cy="${y1}" r="2.5" fill="${d.a>55?'var(--cyan)':'var(--accent)'}"/><circle cx="${c2}" cy="${y2}" r="2.5" fill="${d.b>55?'var(--cyan)':'var(--accent)'}"/>`;s+=`<text x="${c1-8}" y="${y1}" text-anchor="end" dominant-baseline="middle" font-family="var(--mono)" font-size="7" fill="var(--muted)">${d.label}</text>`;s+=`<text x="${c1+8}" y="${y1}" font-family="var(--mono)" font-size="6" fill="var(--dim)">${d.a}</text><text x="${c2+8}" y="${y2}" font-family="var(--mono)" font-size="6" fill="var(--dim)">${d.b}</text>`});s+='</svg>';document.getElementById('slope-container').innerHTML=s}
-function gc(p){const c={'aeo':'ai','ai-discovery':'ai','ai-visibility-analytics':'ai','technical-geo':'tech','digital-pr':'ai','retail-media':'retail','amazon':'amazon','beauty-media-strategy':'retail','ai-media':'media','media':'media','consultancy':'strategy','measurement':'strategy','ecommerce-whitepaper':'research','index':'core'};return c[p]||'core'}
+  h+='</table>';
+  document.getElementById('qv').innerHTML=h;
+}
+function renderHM(){
+  const jr=data.jev_results||{};
+  const ps=data.pages_analyzed||Object.keys(jr);
+  const allQ={};
+  Object.entries(jr).forEach(([p,rs])=>(rs||[]).forEach(r=>allQ[r.question_id]=1));
+  const qids=Object.keys(allQ);
+  if(!qids.length){document.getElementById('hm').innerHTML='<div class="ct" style="padding:8px">No results.</div>';return}
+  // Group by inferred theme
+  const themes={};
+  const themeLabels={
+    'PURPOSE':'Page Purpose & Distinctiveness','DISTINCT':'Distinctiveness','DISTINCTIVENESS':'Distinctiveness',
+    'EVIDENCE':'Evidence & Citation','SPECIFICITY':'Specificity','DIFF':'Site Differentiation',
+    'TECH_PRECISION':'Technical Precision','COMMERCIAL':'Commercial Relevance','WRITING':'Human Writing',
+    'STRUCTURE':'Structural Coherence','ARGUMENT':'Argument Quality','CITATION':'Evidence & Citation',
+    'REPETITION':'Repetition & Duplication','KNOWLEDGE':'Knowledge Contribution','INTERNAL':'Internal Relations',
+    'AUTHORITY':'Topical Authority','AI_DISCOVERY':'AI Discovery','TECH_GEO':'Technical GEO','OUTCOME':'Outcome'
+  };
+  qids.forEach(q=>{
+    let t='Other';
+    for(const[k,v]of Object.entries(themeLabels)){if(q.toUpperCase().includes(k)){t=v;break}}
+    if(!themes[t])themes[t]=[];
+    themes[t].push(q);
+  });
+  let h='<table class="tbl"><tr><th class="lb">Question</th>';
+  ps.forEach(p=>h+='<th>'+p.substring(0,7)+'</th>');
+  h+='</tr>';
+  Object.entries(themes).forEach(([theme,qs])=>{
+    if(!qs.length)return;
+    h+='<tr><td class="thdr" colspan="'+(ps.length+1)+'">'+theme+'</td></tr>';
+    qs.forEach(q=>{
+      h+='<tr><td class="lb tooltip">'+q.replace(/_/g,' ').substring(0,45)+'<span class="tip">'+q+'</span></td>';
+      ps.forEach(p=>{
+        const r=(jr[p]||[]).find(x=>x.question_id===q);
+        let v='—',st='';
+        if(r){
+          if(r.question_type==='noul'&&typeof r.result==='number'){
+            const pv=r.result;
+            if(pv>0.65){v='Y';st='color:'+('var(--accent)')}
+            else if(pv<0.35){v='N';st='color:'+('var(--cyan)')}
+            else{v='~';st='color:#F59E0B'}
+          }else{
+            v=r.result||'—';
+          }
+        }
+        h+='<td style="'+st+'">'+v+'</td>';
+      });
+      h+='</tr>';
+    });
+  });
+  h+='</table>';
+  document.getElementById('hm').innerHTML=h;
+}
+function renderCC(){
+  const nodes=data.knowledge_graph?.nodes||[];
+  const edges=data.knowledge_graph?.edges||[];
+  const concepts=nodes.filter(n=>n.node_type==='concept'||n.node_type==='CONCEPT');
+  if(!concepts.length){document.getElementById('cc').innerHTML='<div class="ct" style="padding:8px">No concept nodes.</div>';return}
+  const pages=data.pages_analyzed||[];
+  const qv=data.quality_vectors||{};
+  const clusters={'AI_DISCOVERY':['aeo','ai-discovery','ai-visibility-analytics','technical-geo','digital-pr'],'RETAIL_MEDIA':['retail-media','amazon','beauty-media-strategy','ai-in-retail-media'],'MEDIA':['ai-media','media','agentic-media-buying','shoppable-ai-search'],'STRATEGY':['consultancy','measurement'],'RESEARCH':['ecommerce-whitepaper']};
+  const results=[];
+  concepts.forEach(n=>{
+    const label=n.label||n.node_id;
+    const owning=[];
+    edges.forEach(e=>{
+      if((e.relationship==='uses'||e.relationship==='USES')&&e.target===n.node_id){
+        const src=(e.source||'').replace('page:','');
+        if(pages.includes(src))owning.push(src);
+      }
+    });
+    if(!owning.length)return;
+    const quals=owning.map(p=>qv[p]?.overall||0);
+    const avgQ=quals.reduce((a,b)=>a+b,0)/quals.length;
+    let cls=0;
+    Object.values(clusters).forEach(c=>{if(owning.some(p=>c.includes(p)))cls++});
+    results.push({label,degree:owning.length,avgQ:avgQ,bridges:cls,pages:owning});
+  });
+  results.sort((a,b)=>b.degree-a.degree||b.bridges-a.bridges);
+  let h='';
+  results.slice(0,15).forEach(r=>{
+    const br=r.bridges>=2?'<span class="ac"> [BRIDGE]</span>':'';
+    h+='<div class="c"><span class="ct">'+r.label+'</span> <span class="'+(r.avgQ>0.5?'bg':'ct')+'">deg='+r.degree+'</span> <span>'+(r.bridges>=2?'cls='+r.bridges:'')+'</span> <span class="'+(r.avgQ>0.5?'bg':'ct')+'">q='+r.avgQ.toFixed(2)+'</span>'+br+'</div>';
+  });
+  document.getElementById('cc').innerHTML=h||'<div class="ct" style="padding:8px">No ownership data.</div>';
+}
+function renderIss(){
+  const issues=data.issues||[];
+  if(!issues.length){document.getElementById('iss').innerHTML='<div class="ct" style="padding:8px">No issues.</div>';return}
+  const pageIssues={};
+  issues.forEach(i=>{(i.affected_pages||[i.page||'']).forEach(p=>{pageIssues[p]=(pageIssues[p]||0)+1})});
+  const sorted=Object.entries(pageIssues).sort((a,b)=>b[1]-a[1]);
+  const maxV=sorted.length?sorted[0][1]:1;
+  let h='<div class="issues-bars">';
+  sorted.slice(0,20).forEach(([p,c])=>{
+    const w=Math.max(2,Math.round(c/maxV*100));
+    h+='<div class="ib"><span class="ib-l">'+p+'</span><span class="ib-c" style="width:'+w+'px;background:'+(c/maxV>0.5?'var(--accent)':'var(--cyan)')+'"></span><span class="ct">'+c+'</span></div>';
+  });
+  h+='</div>';
+  document.getElementById('iss').innerHTML=h;
+}
+function renderOl(){
+  const edges=data.knowledge_graph?.edges||[];
+  const pairs=[];
+  edges.forEach(e=>{
+    if(e.relationship==='overlaps'||e.relationship==='OVERLAPS'){
+      const src=(e.source||'').replace('page:','');
+      const tgt=(e.target||'').replace('page:','');
+      const w=e.weight||0;
+      if(src&&tgt&&src!==tgt)pairs.push({a:src,b:tgt,w});
+    }
+  });
+  if(!pairs.length){
+    // Fall back to demo overlap data
+    const demos=[['aeo','ai-discovery',23],['aeo','ai-visibility-analytics',18],['ai-discovery','ai-visibility-analytics',17],['ai-media','media',15],['retail-media','amazon',14],['technical-geo','aeo',15],['measurement','ai-visibility-analytics',14],['digital-pr','aeo',12],['beauty-media-strategy','ecommerce-whitepaper',11],['consultancy','measurement',10]];
+    demos.forEach(([a,b,w])=>pairs.push({a,b,w:w/100}));
+  }
+  pairs.sort((x,y)=>y.w-x.w);
+  const maxW=pairs.length?pairs[0].w:1;
+  let h='';
+  pairs.slice(0,15).forEach(p=>{
+    const w=Math.max(2,Math.round(p.w/maxW*100));
+    const c=p.w>0.3?'var(--accent)':(p.w>0.2?'#F59E0B':'var(--cyan)');
+    h+='<div class="ol-i"><span class="ol-b" style="width:'+w+'px;background:'+c+'"></span><span class="ol-l">'+p.a+' ↔ '+p.b+'</span><span class="ol-v" style="color:'+c+'">'+(p.w*100).toFixed(0)+'%</span></div>';
+  });
+  document.getElementById('ol').innerHTML=h;
+}
+function renderSl(){
+  const qv=data.quality_vectors||{};
+  const ps=(data.pages_analyzed||Object.keys(qv)).filter(p=>qv[p]);
+  if(!ps.length){document.getElementById('sl').innerHTML='No data.';return}
+  const items=ps.map(p=>({
+    label:p,
+    a:qv[p]['intellectual_distinctiveness']?.score!==undefined?Math.round(qv[p]['intellectual_distinctiveness'].score*1):0,
+    b:qv[p]['technical_accuracy']?.score!==undefined?Math.round(qv[p]['technical_accuracy'].score*1):0,
+    c:qv[p]['commercial_usefulness']?.score!==undefined?Math.round(qv[p]['commercial_usefulness'].score*1):0
+  }));
+  const W=700,H=Math.max(160,items.length*24+40);
+  let s='<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">';
+  s+='<text x="'+(W/2)+'" y="12" text-anchor="middle" font-family="var(--sans)" font-size="7" fill="var(--muted)">Distinct (left) → Technical (right)</text>';
+  const c1=120,c2=W-90,top=24,range=H-top-16;
+  items.forEach((d,i)=>{
+    const y1=top+(1-d.a/100)*range,y2=top+(1-d.b/100)*range;
+    const c=d.a>50||d.b>50?'var(--cyan)':'var(--accent)';
+    s+='<line x1="'+c1+'" y1="'+y1+'" x2="'+c2+'" y2="'+y2+'" stroke="'+c+'" stroke-width="1" opacity=".4"/>';
+    s+='<circle cx="'+c1+'" cy="'+y1+'" r="2" fill="'+(d.a>55?'var(--cyan)':'var(--accent)')+'"/>';
+    s+='<circle cx="'+c2+'" cy="'+y2+'" r="2" fill="'+(d.b>55?'var(--cyan)':'var(--accent)')+'"/>';
+    s+='<text x="'+(c1-6)+'" y="'+y1+'" text-anchor="end" dominant-baseline="middle" font-family="var(--mono)" font-size="6" fill="var(--muted)">'+d.label+'</text>';
+    s+='<text x="'+(c1+5)+'" y="'+y1+'" font-family="var(--mono)" font-size="5" fill="var(--dim)">'+d.a+'</text>';
+    s+='<text x="'+(c2+5)+'" y="'+y2+'" font-family="var(--mono)" font-size="5" fill="var(--dim)">'+d.b+'</text>';
+  });
+  s+='</svg>';
+  document.getElementById('sl').innerHTML=s;
+}
 loadData();
 </script></body></html>
