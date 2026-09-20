@@ -23,8 +23,8 @@
   "description": "AI crawlers cannot read structured data injected via JavaScript. Server-side rendering, robots.txt for AI crawlers, and llms.txt are the foundation.",
   "author": {"@type": "Organization", "name": "Inflexion"},
   "publisher": {"@type": "Organization", "name": "Inflexion"},
-  "datePublished": "2026-09-20",
-  "dateModified": "2026-09-20",
+  "datePublished": "2026-09-19",
+  "dateModified": "2026-09-19",
   "mainEntityOfPage": "https://nicksc1cc.github.io/inflexion-website/technical-geo-ai-crawlers.html"
 }]
 </script>
@@ -43,7 +43,7 @@
 .article-content{max-width:42em}
 .article-content h2{font-size:clamp(28px,3.5vw,44px);font-weight:300;line-height:1.1;letter-spacing:-.015em;margin:56px 0 20px}
 .article-content h3{font-size:18px;font-weight:500;margin:32px 0 12px;color:var(--fg)}
-.article-content p{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:20px}
+.article-content p{font-size:17px;line-height:1.8;font-weight:300;color:#303036;margin-bottom:24px}.article-content .lead{font-size:clamp(22px,2.7vw,32px);line-height:1.4;color:var(--fg);font-weight:300}.article-content .rule{border-left:2px solid var(--accent);padding:4px 0 4px 24px;margin:36px 0;font-size:21px;line-height:1.45}.article-cta{background:var(--h);color:var(--h-text);padding:80px 0}
 .article-content .callout{border-left:3px solid var(--accent);padding-left:24px;margin:32px 0;font-style:italic;color:var(--muted)}
 .article-content .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:40px 0}
 .article-content .stat{padding:24px;background:var(--bg);border:1px solid var(--border)}
@@ -69,7 +69,7 @@
 <a href="consultancy.html">Consultancy</a><a href="blog.html" style="color:var(--fg)">Blog</a><a href="contact.html" class="cta-btn">Contact us</a>
 </nav></div></header>
 <main>
-<section class="article-hero"><div class="section-inner"><div class="tag">Technical GEO / AI Crawlability</div><h1>AI crawlers miss <em>JavaScript-injected structured data</em></h1><div class="meta">20 SEPTEMBER 2026 · 9 MIN READ · INFLEXION JOURNAL</div></div></section>
+<section class="article-hero"><div class="section-inner"><div class="tag">Technical GEO / AI Crawlability</div><h1>AI crawlers miss <em>JavaScript-injected structured data</em></h1><div class="meta">19 SEPTEMBER 2026 · 9 MIN READ · INFLEXION JOURNAL</div></div></section>
 <section class="article-body"><div class="section-inner"><div class="article-grid">
 <aside class="article-toc"><div class="tag">On this page</div><nav>
 <a href="#the-barrier">01 / The barrier</a>
@@ -81,10 +81,13 @@
 </nav></aside>
 <article class="article-content">
 <section id="the-barrier">
+<p class="lead">A page can be perfectly readable in Chrome and almost empty to the crawler that supplies an AI answer engine.</p>
 <h2>The barrier is not content. It is access.</h2>
 <p>Most brands assume that publishing structured data is enough. They add JSON-LD to their pages, validate it in Google's Rich Results Test, and move on. The test passes. The markup appears in the rendered DOM. The problem is that AI crawlers do not execute JavaScript the way Googlebot does.</p>
+<p>Our research found that 69 percent of 23 major AI crawlers could not execute JavaScript. The figure is directional rather than permanent because crawler capabilities change, but the architectural risk is clear: a client-rendered page cannot assume that every retrieval system will wait for the browser.</p>
 <p>GPTBot, PerplexityBot, ClaudeBot, and the other major AI crawlers fetch raw HTML. They do not render. They do not wait for hydration. They do not execute your React components. If your structured data lives in a client-side script tag added after hydration, or if your product schema is injected by a tag manager, or if your FAQ markup loads via a third-party widget, the crawler sees nothing.</p>
 <p>An investigation shared by Search Engine Journal in early 2025 confirmed the gap: AI crawlers miss JavaScript-injected structured data entirely. The only reliable path is server-side rendering or static HTML.</p>
+<div class="rule">The schema that passes Google's rendered test may still be absent from the HTML an AI crawler receives.</div>
 </section>
 
 <section id="what-crawlers-see">
@@ -97,6 +100,8 @@
 <section id="the-foundation">
 <h2>The foundation: access, rendering, structure</h2>
 <p>Technical GEO has three layers. Skip one and the others lose force.</p>
+<h3>Test the difference, not just the page</h3>
+<p>Run the same template twice: once with JavaScript disabled and once with a rendered browser. Compare word count, headings, product attributes, canonical tags and JSON-LD. A large difference tells you what a raw crawler cannot access. The test belongs in the deployment process, not only in an annual audit.</p>
 
 <h3>Layer 1: Crawler access</h3>
 <p>The first check is robots.txt. Many enterprise sites block unknown bots by default. That now includes the bots that feed the answer engines your buyers use. We routinely find four to seven major AI crawlers blocked per site.</p>
@@ -201,14 +206,11 @@ Allow: /</code></pre>
 
 <div class="sources">
 <div class="tag">Sources</div>
-<p>Aggarwal et al., "GEO: Generative Engine Optimization," KDD 2024, arxiv:2311.09735.</p>
-<p>Search Engine Journal, "AI crawlers miss JavaScript-injected structured data," February 2025.</p>
-<p>SearchScore.io, "Technical GEO: How to Optimise Your Website for AI Search," 2025 guide.</p>
-<p>Gravton Labs, "Technical GEO For AI Crawlability," 2025.</p>
-<p>llms.txt community specification, GitHub, 2024.</p>
+<p>Aggarwal et al., <a href="https://arxiv.org/abs/2311.09735">GEO: Generative Engine Optimization</a>, KDD 2024.</p><p>Search Engine Journal, <a href="https://www.searchenginejournal.com/ai-search-optimization-make-your-structured-data-accessible/537843/">AI Search Optimization: Make Your Structured Data Accessible</a>, 2025.</p><p>SearchVIU, <a href="https://www.searchviu.com/en/ai-crawlers-javascript-rendering/">AI Crawlers and JavaScript Rendering</a>, 2025.</p><p>Reyes-Lillo, Rovira and Morales-Vargas, research on server-side rendering for AI-driven indexing, 2025.</p><p>SearchScore, <a href="https://searchscore.io/guides/technical-geo/">Technical GEO: How to Optimise Your Website for AI Search</a>, 2025.</p>
 </div>
 </article>
 </div></div></section>
+<section class="article-cta"><div class="section-inner"><div class="cta-inner"><div><h2>Find the rendering gap <em>before it costs you citations.</em></h2><p>We compare what a browser sees with what AI crawlers receive, then give your team a remediation sequence.</p></div><a href="contact.html" class="btn">Run the technical audit</a></div></div></section>
 </main>
 <footer><div style="max-width:1280px;margin:0 auto;padding:0 48px"><div class="ftr"><div><a href="index.html"><img src="assets/images/inflexion-media-logo.png" alt="Inflexion" height="36" style="height:55px;width:auto;display:block;margin-bottom:16px"></a><p>Built for the AI era.</p></div><div><div class="fh">Services</div><a href="aeo.html">AEO: Answer Engine Optimisation</a><a href="ai-visibility-analytics.html">AI Visibility Analytics</a><a href="technical-geo.html">Technical GEO</a><a href="digital-pr.html">Digital PR for AEO</a><a href="retail-media.html">Retail Media</a><a href="amazon.html">Amazon</a><a href="ai-media.html">AI-Powered Media</a><a href="consultancy.html">AI Consultancy</a></div><div><div class="fh">Company</div><a href="measurement.html">Measurement</a><a href="blog.html">Blog</a></div><div><div class="fh">Contact</div><a href="contact.html">Start the audit</a><a href="mailto:hello@inflexion.co">hello@inflexion.co</a></div><a href="beauty-media-strategy.html" style="color:var(--accent)">Beauty Report</a></div><div class="btm"><span>© 2026 Inflexion</span><span>Privacy · Terms</span></div></div></footer>
 <script>(function(){var h=document.querySelector('.hamburger'),n=document.querySelector('header nav');if(h)h.addEventListener('click',function(){n.classList.toggle('open');h.classList.toggle('open')});n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');h.classList.remove('open')})});document.querySelectorAll('.dropdown-toggle').forEach(function(t){t.addEventListener('click',function(e){e.preventDefault();var m=this.nextElementSibling;m.style.display=m.style.display==='block'?'none':'block'})})})();</script>
