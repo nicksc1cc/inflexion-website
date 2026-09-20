@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Technical GEO: AI crawlers miss JavaScript-injected structured data | Inflexion</title>
+<meta name="description" content="AI crawlers cannot read structured data injected via JavaScript. Server-side rendering, robots.txt for AI crawlers, and llms.txt are the foundation. Without them, your best content is invisible.">
+<link rel="canonical" href="https://nicksc1cc.github.io/inflexion-website/technical-geo-ai-crawlers.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Technical GEO: AI crawlers miss JavaScript-injected structured data | Inflexion">
+<meta property="og:description" content="AI crawlers cannot read structured data injected via JavaScript. Server-side rendering, robots.txt for AI crawlers, and llms.txt are the foundation. Without them, your best content is invisible.">
+<meta property="og:url" content="https://nicksc1cc.github.io/inflexion-website/technical-geo-ai-crawlers.html">
+<meta property="og:image" content="https://nicksc1cc.github.io/inflexion-website/assets/og-technical-geo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Technical GEO: AI crawlers miss JavaScript-injected structured data | Inflexion">
+<meta name="twitter:description" content="AI crawlers cannot read structured data injected via JavaScript. Server-side rendering, robots.txt for AI crawlers, and llms.txt are the foundation. Without them, your best content is invisible.">
+<meta name="twitter:image" content="https://nicksc1cc.github.io/inflexion-website/assets/og-technical-geo.png">
+<script type="application/ld+json">
+[{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Technical GEO: AI crawlers miss JavaScript-injected structured data",
+  "description": "AI crawlers cannot read structured data injected via JavaScript. Server-side rendering, robots.txt for AI crawlers, and llms.txt are the foundation.",
+  "author": {"@type": "Organization", "name": "Inflexion"},
+  "publisher": {"@type": "Organization", "name": "Inflexion"},
+  "datePublished": "2026-09-20",
+  "dateModified": "2026-09-20",
+  "mainEntityOfPage": "https://nicksc1cc.github.io/inflexion-website/technical-geo-ai-crawlers.html"
+}]
+</script>
+<link rel="stylesheet" href="assets/common.css">
+<style>
+.article-hero{background:var(--h);color:var(--h-text);padding:160px 0 100px}
+.article-hero .tag{color:rgba(250,250,249,.5);margin-bottom:28px}
+.article-hero h1{font-size:clamp(46px,7.5vw,96px);font-weight:200;line-height:.96;letter-spacing:-.02em}
+.article-hero .meta{font-family:'IBM Plex Mono',monospace;color:var(--accent);font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-top:24px}
+.article-body{padding:80px 0 120px}
+.article-grid{display:grid;grid-template-columns:280px 1fr;gap:64px}
+.article-toc{position:sticky;top:120px}
+.article-toc .tag{font-family:'IBM Plex Mono',monospace;color:var(--accent);font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px}
+.article-toc nav a{display:block;color:var(--fg);text-decoration:none;font-size:14px;line-height:1.8;padding:4px 0;border-bottom:1px solid transparent}
+.article-toc nav a:hover{color:var(--accent);border-color:var(--accent)}
+.article-content{max-width:42em}
+.article-content h2{font-size:clamp(28px,3.5vw,44px);font-weight:300;line-height:1.1;letter-spacing:-.015em;margin:56px 0 20px}
+.article-content h3{font-size:18px;font-weight:500;margin:32px 0 12px;color:var(--fg)}
+.article-content p{font-size:16px;line-height:1.75;color:var(--muted);margin-bottom:20px}
+.article-content .callout{border-left:3px solid var(--accent);padding-left:24px;margin:32px 0;font-style:italic;color:var(--muted)}
+.article-content .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:40px 0}
+.article-content .stat{padding:24px;background:var(--bg);border:1px solid var(--border)}
+.article-content .stat .v{font-family:'IBM Plex Mono',monospace;font-size:32px;font-weight:600;color:var(--accent);line-height:1}
+.article-content .stat .l{font-size:13px;color:var(--muted);margin-top:8px;text-transform:uppercase;letter-spacing:.08em}
+.article-content .stat .s{font-size:11px;color:var(--muted2);margin-top:4px}
+.article-content ul{margin:16px 0 24px 24px}
+.article-content li{margin-bottom:10px;color:var(--muted);line-height:1.7}
+.article-content code{background:var(--bg);padding:2px 6px;border-radius:3px;font-family:'IBM Plex Mono',monospace;font-size:.9em}
+.article-content pre{background:#0a0a0a;padding:24px;border-radius:8px;overflow-x:auto;margin:24px 0}
+.article-content pre code{background:none;padding:0;font-size:13px;line-height:1.6}
+.article-content .sources{margin-top:64px;padding-top:32px;border-top:1px solid var(--border)}
+.article-content .sources .tag{font-family:'IBM Plex Mono',monospace;color:var(--accent);font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+.article-content .sources p{font-size:13px;color:var(--muted);line-height:1.8}
+@media(max-width:900px){.article-grid{grid-template-columns:1fr}.article-toc{position:static;margin-bottom:40px}.article-toc nav{display:flex;flex-wrap:wrap;gap:16px}.article-toc nav a{border:none;padding:0}.article-hero{padding:120px 0 80px}}
+</style>
+</head>
+<body>
+<header><div class="header-inner"><a href="index.html" class="logo"><img src="assets/images/inflexion-media-logo.png" alt="Inflexion Media" height="55"></a><button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button><nav>
+<a href="index.html">Home</a>
+<div class="dropdown"><span class="dropdown-toggle">AI Discovery</span><div class="dropdown-menu"><div class="dropdown-menu-inner"><a href="aeo.html">AEO: Answer Engine Optimisation</a><a href="ai-visibility-analytics.html">AI Visibility Analytics</a><a href="technical-geo.html">Technical GEO</a><a href="digital-pr.html">Digital PR for AEO</a></div></div></div>
+<div class="dropdown"><span class="dropdown-toggle">Media</span><div class="dropdown-menu"><div class="dropdown-menu-inner"><a href="retail-media.html">Retail Media & the Algorithmic Shelf</a><a href="amazon.html">Amazon</a><a href="ai-media.html">AI-Powered Traditional Media</a></div></div></div>
+<a href="consultancy.html">Consultancy</a><a href="blog.html" style="color:var(--fg)">Blog</a><a href="contact.html" class="cta-btn">Contact us</a>
+</nav></div></header>
+<main>
+<section class="article-hero"><div class="section-inner"><div class="tag">Technical GEO / AI Crawlability</div><h1>AI crawlers miss <em>JavaScript-injected structured data</em></h1><div class="meta">20 SEPTEMBER 2026 · 9 MIN READ · INFLEXION JOURNAL</div></div></section>
+<section class="article-body"><div class="section-inner"><div class="article-grid">
+<aside class="article-toc"><div class="tag">On this page</div><nav>
+<a href="#the-barrier">01 / The barrier</a>
+<a href="#what-crawlers-see">02 / What crawlers see</a>
+<a href="#the-foundation">03 / The foundation: access, rendering, structure</a>
+<a href="#schema-that-works">04 / Schema that works</a>
+<a href="#llms-txt">05 / llms.txt: the new robots.txt</a>
+<a href="#what-this-means">06 / What this means for your strategy</a>
+</nav></aside>
+<article class="article-content">
+<section id="the-barrier">
+<h2>The barrier is not content. It is access.</h2>
+<p>Most brands assume that publishing structured data is enough. They add JSON-LD to their pages, validate it in Google's Rich Results Test, and move on. The test passes. The markup appears in the rendered DOM. The problem is that AI crawlers do not execute JavaScript the way Googlebot does.</p>
+<p>GPTBot, PerplexityBot, ClaudeBot, and the other major AI crawlers fetch raw HTML. They do not render. They do not wait for hydration. They do not execute your React components. If your structured data lives in a client-side script tag added after hydration, or if your product schema is injected by a tag manager, or if your FAQ markup loads via a third-party widget, the crawler sees nothing.</p>
+<p>An investigation shared by Search Engine Journal in early 2025 confirmed the gap: AI crawlers miss JavaScript-injected structured data entirely. The only reliable path is server-side rendering or static HTML.</p>
+</section>
+
+<section id="what-crawlers-see">
+<h2>What crawlers see</h2>
+<p>When GPTBot requests a page, it receives the initial HTML response. That is the entire document it will ever parse. No second pass. No rendering budget. No JavaScript engine.</p>
+<p>The practical result: a product page with perfect schema in the browser DevTools may return zero structured data to an AI crawler. The same page validates in Google's tool because Googlebot renders. The AI crawler does not.</p>
+<p>This is not a bug. It is a design choice. AI crawlers operate at massive scale across millions of domains. Rendering every page would multiply compute cost by orders of magnitude. They trade completeness for throughput.</p>
+</section>
+
+<section id="the-foundation">
+<h2>The foundation: access, rendering, structure</h2>
+<p>Technical GEO has three layers. Skip one and the others lose force.</p>
+
+<h3>Layer 1: Crawler access</h3>
+<p>The first check is robots.txt. Many enterprise sites block unknown bots by default. That now includes the bots that feed the answer engines your buyers use. We routinely find four to seven major AI crawlers blocked per site.</p>
+<p>The fix is explicit allow rules for each crawler user-agent. A minimal working set:</p>
+<pre><code>User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Allow: /</code></pre>
+<p>This is a ten-minute change for anyone with file access. It is the highest-impact action in technical GEO.</p>
+
+<h3>Layer 2: Server-side rendering</h3>
+<p>Structured data must exist in the initial HTML. That means either server-side rendering (Next.js getServerSideProps, Remix loaders, Astro static generation) or static HTML with the markup baked in. Client-side hydration frameworks (Create React App, vanilla SPA) cannot serve AI crawlers without a rendering layer.</p>
+<p>If a replatform is not on the roadmap, a middleware that serves pre-rendered HTML to known AI crawler user-agents is a pragmatic bridge.</p>
+
+<h3>Layer 3: Schema completeness</h3>
+<p>Once crawlers can reach and read the page, the schema must be complete enough to be useful. The minimum viable set for a commercial page:</p>
+<ul>
+<li>Product or Service schema with name, description, price, availability, brand, SKU</li>
+<li>Organization schema with logo, sameAs social profiles, contactPoint</li>
+<li>BreadcrumbList for site hierarchy</li>
+<li>Article or BlogPosting for content pages with author, datePublished, dateModified</li>
+<li>FAQPage or HowTo where applicable</li>
+</ul>
+<p>JSON-LD in the head is preferred. It is easier to maintain than inline microdata and is the format both Google and AI crawlers expect.</p>
+</section>
+
+<section id="schema-that-works">
+<h2>Schema that works</h2>
+<p>Schema.org vocabulary is broad. AI crawlers use a subset. The schemas that consistently appear in citations:</p>
+
+<div class="stat-row">
+<div class="stat"><div class="v">Product</div><div class="l">Ecommerce and software products</div><div class="s">Required: name, description, offers, brand, sku</div></div>
+<div class="stat"><div class="v">Organization</div><div class="l">Entity identity and authority signals</div><div class="s">Required: name, url, logo, sameAs</div></div>
+<div class="stat"><div class="v">Article</div><div class="l">Content pages and thought leadership</div><div class="s">Required: headline, author, datePublished</div></div>
+</div>
+
+<p>A 2024 study by Aggarwal et al. (KDD 2024, arxiv:2311.09735) found that applying GEO techniques including structured data increased visibility in generative engines by an average of 40 percent. The gain came from pages that were already crawlable but lacked machine-readable context.</p>
+
+<p>The inverse is also true: pages with perfect schema that AI crawlers cannot reach see zero gain. The layers are sequential, not independent.</p>
+</section>
+
+<section id="llms-txt">
+<h2>llms.txt: the new robots.txt</h2>
+<p>In late 2024, a proposed standard emerged: llms.txt. A plain-text file at the domain root that tells AI systems what content exists, where it lives, and how to interpret it. Think of it as a sitemap for reasoning engines.</p>
+<p>A minimal llms.txt:</p>
+<pre><code># Inflexion AI Discovery Guide
+# https://nicksc1cc.github.io/inflexion-website/llms.txt
+
+## Core Pages
+- https://nicksc1cc.github.io/inflexion-website/ : Homepage
+- https://nicksc1cc.github.io/inflexion-website/aeo.html : AEO services
+- https://nicksc1cc.github.io/inflexion-website/technical-geo.html : Technical GEO
+- https://nicksc1cc.github.io/inflexion-website/ai-visibility-analytics.html : AI Visibility Analytics
+
+## Resources
+- https://nicksc1cc.github.io/inflexion-website/sitemap.xml : Full sitemap
+- https://nicksc1cc.github.io/inflexion-website/robots.txt : Crawler permissions
+
+## Optional: Structured Data Context
+- Organization: Inflexion, marketing consultancy, AI discovery and retail media
+- Key topics: AEO, GEO, retail media, Amazon, AI-powered media, measurement</code></pre>
+<p>The file is not yet a formal standard. Adoption is voluntary. But early adopters gain a structural advantage: when a model retrieves your domain, it reads the guide first. That shapes how it interprets everything else.</p>
+</section>
+
+<section id="what-this-means">
+<h2>What this means for your strategy</h2>
+<p>Technical GEO does not replace content strategy. It is the foundation. Without it, the best content written is content the model literally cannot read.</p>
+
+<p>The audit sequence we run:</p>
+<ol>
+<li>Crawler access check: robots.txt, server headers, IP allowlists</li>
+<li>Rendering audit: browser vs. raw HTML diff for every template type</li>
+<li>Schema coverage: page-level validation across the crawlable site</li>
+<li>llms.txt presence and accuracy</li>
+<li>Crawler log analysis: which bots visited, what they fetched, what they missed</li>
+</ol>
+
+<p>The output is a prioritised remediation plan. The highest-value fixes are usually access and rendering. Schema completes the picture.</p>
+
+<div class="callout">If your product catalogue loads via JavaScript, AI crawlers see an empty page. Every SKU, every description, every spec is unavailable to the systems making buying recommendations.</div>
+
+<h3>The honest limitations</h3>
+<p>Technical GEO cannot fix weak positioning. If the underlying product or service is poorly defined, making it readable does not rescue the narrative. It only ensures the model sees what is there.</p>
+<p>Models change. Retrieval systems update. The baseline should be re-run quarterly as a minimum.</p>
+</section>
+
+<div class="sources">
+<div class="tag">Sources</div>
+<p>Aggarwal et al., "GEO: Generative Engine Optimization," KDD 2024, arxiv:2311.09735.</p>
+<p>Search Engine Journal, "AI crawlers miss JavaScript-injected structured data," February 2025.</p>
+<p>SearchScore.io, "Technical GEO: How to Optimise Your Website for AI Search," 2025 guide.</p>
+<p>Gravton Labs, "Technical GEO For AI Crawlability," 2025.</p>
+<p>llms.txt community specification, GitHub, 2024.</p>
+</div>
+</article>
+</div></div></section>
+</main>
+<footer><div style="max-width:1280px;margin:0 auto;padding:0 48px"><div class="ftr"><div><a href="index.html"><img src="assets/images/inflexion-media-logo.png" alt="Inflexion" height="36" style="height:55px;width:auto;display:block;margin-bottom:16px"></a><p>Built for the AI era.</p></div><div><div class="fh">Services</div><a href="aeo.html">AEO: Answer Engine Optimisation</a><a href="ai-visibility-analytics.html">AI Visibility Analytics</a><a href="technical-geo.html">Technical GEO</a><a href="digital-pr.html">Digital PR for AEO</a><a href="retail-media.html">Retail Media</a><a href="amazon.html">Amazon</a><a href="ai-media.html">AI-Powered Media</a><a href="consultancy.html">AI Consultancy</a></div><div><div class="fh">Company</div><a href="measurement.html">Measurement</a><a href="blog.html">Blog</a></div><div><div class="fh">Contact</div><a href="contact.html">Start the audit</a><a href="mailto:hello@inflexion.co">hello@inflexion.co</a></div><a href="beauty-media-strategy.html" style="color:var(--accent)">Beauty Report</a></div><div class="btm"><span>© 2026 Inflexion</span><span>Privacy · Terms</span></div></div></footer>
+<script>(function(){var h=document.querySelector('.hamburger'),n=document.querySelector('header nav');if(h)h.addEventListener('click',function(){n.classList.toggle('open');h.classList.toggle('open')});n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');h.classList.remove('open')})});document.querySelectorAll('.dropdown-toggle').forEach(function(t){t.addEventListener('click',function(e){e.preventDefault();var m=this.nextElementSibling;m.style.display=m.style.display==='block'?'none':'block'})})})();</script>
+</body></html>

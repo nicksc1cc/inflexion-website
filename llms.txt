@@ -1,15 +1,15 @@
-# Inflexion — Marketing for the AI inflection
+# Inflexion : Marketing for the AI era
 
 Inflexion helps brands win visibility across AI answer engines (ChatGPT, Gemini, Perplexity, Claude), the algorithmic retail shelf (Amazon, Instacart, Walmart Connect), and AI-improved media buying.
 
 ## Services
 
-- **AEO / Answer Engine improvement**: Get cited in AI answers. Prompt set audits, source authority mapping, citation tracking across ChatGPT, Gemini, Perplexity and Claude.
+- **AEO / Answer Engine Optimisation**: Get cited in AI answers. Prompt set audits, source authority mapping, citation tracking across ChatGPT, Gemini, Perplexity and Claude.
 - **AI Visibility Analytics**: Cross-model citation testing, share of answer tracking, competitor citation benchmarking.
-- **Technical GEO**: Schema, entity signals, structured data and crawler optimisation for AI system comprehension.
-- **Digital PR for AEO**: Earn citations in outlets, forums and data sets that AI models trust.
-- **Retail Media improvement**: Algorithmic shelf position tracking, paid/organic separation, multi-retailer strategy.
-- **Amazon improvement**: Sponsored Products, Brands, Display and DSP as one system, with product data and review optimisation.
+- **Technical GEO**: Schema, entity signals, structured data and crawler access for AI system comprehension.
+- **Digital PR for AEO**: Earn citations in outlets, forums and data sets that AI models may cite.
+- **Retail Media**: Algorithmic shelf position tracking, paid/organic separation, multi-retailer strategy.
+- **Amazon**: Sponsored Products, Brands, Display and DSP as one system, with product data and review improvements.
 - **Beauty Media Strategy**: Strategy for beauty brands navigating AI-assisted shopping, agentic commerce and retail media.
 - **AI-Powered Traditional Media**: Algorithmic buying and budget reallocation across display, video and CTV.
 - **AI Consultancy**: Operating model redesign, team restructuring for AI-augmented workflows.
@@ -17,28 +17,33 @@ Inflexion helps brands win visibility across AI answer engines (ChatGPT, Gemini,
 
 ## Key pages
 
-- https://nicksc1cc.github.io/inflexion-website/ — Home
-- https://nicksc1cc.github.io/inflexion-website/aeo.html — AEO / Answer Engine improvement
-- https://nicksc1cc.github.io/inflexion-website/ai-visibility-analytics.html — AI Visibility Analytics
-- https://nicksc1cc.github.io/inflexion-website/technical-geo.html — Technical GEO
-- https://nicksc1cc.github.io/inflexion-website/digital-pr.html — Digital PR for AEO
-- https://nicksc1cc.github.io/inflexion-website/retail-media.html — Retail Media
-- https://nicksc1cc.github.io/inflexion-website/beauty-media-strategy.html — Beauty Media Strategy
-- https://nicksc1cc.github.io/inflexion-website/amazon.html — Amazon improvement
-- https://nicksc1cc.github.io/inflexion-website/ai-media.html — AI-Powered Media
-- https://nicksc1cc.github.io/inflexion-website/consultancy.html — AI Consultancy
-- https://nicksc1cc.github.io/inflexion-website/measurement.html — Data & Measurement
-- https://nicksc1cc.github.io/inflexion-website/contact.html — Contact / AI Visibility Audit
-- https://nicksc1cc.github.io/inflexion-website/blog.html — Journal & articles
-- https://nicksc1cc.github.io/inflexion-website/ai-discovery.html — AI Discovery overview
-- https://nicksc1cc.github.io/inflexion-website/media.html — Media overview
-- https://nicksc1cc.github.io/inflexion-website/aeo-rankings-to-citations.html — AEO: rankings to citations
-- https://nicksc1cc.github.io/inflexion-website/agentic-media-buying.html — Agentic media buying
-- https://nicksc1cc.github.io/inflexion-website/ai-in-retail-media.html — AI in retail media
-- https://nicksc1cc.github.io/inflexion-website/amazon-ai-creative-studio.html — Amazon AI Creative Studio
-- https://nicksc1cc.github.io/inflexion-website/amazon-rufus-sponsored-prompts.html — Amazon Rufus sponsored prompts
-- https://nicksc1cc.github.io/inflexion-website/shoppable-ai-search.html — Shoppable AI search
+- https://nicksc1cc.github.io/inflexion-website/ : Home
+- https://nicksc1cc.github.io/inflexion-website/aeo.html : AEO / Answer Engine improvement
+- https://nicksc1cc.github.io/inflexion-website/ai-visibility-analytics.html : AI Visibility Analytics
+- https://nicksc1cc.github.io/inflexion-website/technical-geo.html : Technical GEO
+- https://nicksc1cc.github.io/inflexion-website/digital-pr.html : Digital PR for AEO
+- https://nicksc1cc.github.io/inflexion-website/retail-media.html : Retail Media
+- https://nicksc1cc.github.io/inflexion-website/beauty-media-strategy.html : Beauty Media Strategy
+- https://nicksc1cc.github.io/inflexion-website/amazon.html : Amazon improvement
+- https://nicksc1cc.github.io/inflexion-website/ai-media.html : AI-Powered Media
+- https://nicksc1cc.github.io/inflexion-website/consultancy.html : AI Consultancy
+- https://nicksc1cc.github.io/inflexion-website/measurement.html : Data & Measurement
+- https://nicksc1cc.github.io/inflexion-website/contact.html : Contact / AI Visibility Audit
+- https://nicksc1cc.github.io/inflexion-website/blog.html : Journal & articles
+- https://nicksc1cc.github.io/inflexion-website/ai-discovery.html : AI Discovery overview
+- https://nicksc1cc.github.io/inflexion-website/media.html : Media overview
+- https://nicksc1cc.github.io/inflexion-website/aeo-rankings-to-citations.html : AEO: rankings to citations
+- https://nicksc1cc.github.io/inflexion-website/agentic-media-buying.html : Agentic media buying
+- https://nicksc1cc.github.io/inflexion-website/ai-in-retail-media.html : AI in retail media
+- https://nicksc1cc.github.io/inflexion-website/amazon-ai-creative-studio.html : Amazon AI Creative Studio
+- https://nicksc1cc.github.io/inflexion-website/amazon-rufus-sponsored-prompts.html : Amazon Rufus sponsored prompts
+- https://nicksc1cc.github.io/inflexion-website/shoppable-ai-search.html : Shoppable AI search
+- https://nicksc1cc.github.io/inflexion-website/technical-geo-ai-crawlers.html : Technical GEO and AI crawler access
+- https://nicksc1cc.github.io/inflexion-website/ai-citations-source-map.html : AI citation source mapping
+- https://nicksc1cc.github.io/inflexion-website/ai-visibility-uncertainty.html : Uncertainty in AI visibility measurement
+- https://nicksc1cc.github.io/inflexion-website/offsite-retail-media-measurement.html : Offsite retail media measurement
+- https://nicksc1cc.github.io/inflexion-website/amazon-marketing-cloud-sql.html : Amazon Marketing Cloud SQL generator
 
 ## Pricing
 
-Pricing is project-based. Contact hello@inflexion.co for a quote. Baseline audits start from a fixed prompt set run across ChatGPT, Gemini, Perplexity and Claude — you keep the data either way.
+Pricing is project-based. Contact hello@inflexion.co for a quote. Baseline audits start from a fixed prompt set run across ChatGPT, Gemini, Perplexity and Claude : you keep the data either way.

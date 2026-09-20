@@ -105,4 +105,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url><loc>https://nicksc1cc.github.io/inflexion-website/technical-geo-ai-crawlers.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nicksc1cc.github.io/inflexion-website/ai-citations-source-map.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nicksc1cc.github.io/inflexion-website/ai-visibility-uncertainty.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nicksc1cc.github.io/inflexion-website/offsite-retail-media-measurement.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nicksc1cc.github.io/inflexion-website/amazon-marketing-cloud-sql.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>
