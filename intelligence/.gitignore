@@ -1,9 +1,0 @@
-# Intelligence suite ignore
-__pycache__/
-*.pyc
-*.pyo
-.pytest_cache/
-data/*.json
-!data/.gitkeep
-.env
-*.log
