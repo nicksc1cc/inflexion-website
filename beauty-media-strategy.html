@@ -260,14 +260,19 @@ footer{background:var(--ivory)!important;border-top:1px solid var(--hairline)!im
 {% include nav.html %}
 
 <!-- HERO -->
-<section class="hero" style="min-height:90vh;display:flex;align-items:center;overflow:hidden;position:relative;padding:0">
-<div style="position:absolute;inset:0;background:url('assets/images/img_bd6177960ac1.jpg') center/cover no-repeat;opacity:.75"></div>
-<div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,11,.92) 0%,rgba(10,10,11,.7) 45%,rgba(10,10,11,.1) 100%)"></div>
-<div class="w" style="position:relative;z-index:1;color:#F8F5F0">
-<div class="sup" style="margin-bottom:16px;opacity:.7">Inflexion ◆ For Beauty</div>
-<h1 style="margin-bottom:20px;line-height:1.05">The beauty shelf and the search engine are the same algorithm now.</h1>
-<p class="desc" style="color:rgba(248,245,240,.8);max-width:520px;font-size:17px">Search results and store shelves are both controlled by AI. Beauty brands that win before the prompt, and at every step after, own the category.</p>
-</div>
+<section class="hero" id="hero">
+  <div class="hero-bg" style="background-image:url('assets/images/img_bd6177960ac1.jpg')"></div>
+  <div class="hero-overlay"></div>
+  <canvas id="data-field-canvas" aria-hidden="true"></canvas>
+  <div class="w">
+    <div class="sup">Inflexion ◆ For Beauty</div>
+    <h1>The beauty shelf and the search engine are the same algorithm now.</h1>
+    <p class="desc">How AI is rewriting the rules of beauty discovery, consideration and purchase — and why the brands that adapt first will win.</p>
+    <div class="cta-row">
+      <a href="contact.html" class="btn">Run the beauty audit →</a>
+      <a href="#problem" class="link">Why beauty needs a new model</a>
+    </div>
+  </div>
 </section>
 
 <div class="divider"></div>
