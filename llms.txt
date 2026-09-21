@@ -9,7 +9,7 @@ Inflexion helps brands win visibility across AI answer engines (ChatGPT, Gemini,
 - **Technical GEO**: Schema, entity signals, structured data and crawler access for AI system comprehension.
 - **Digital PR for AEO**: Earn citations in outlets, forums and data sets that AI models may cite.
 - **Retail Media**: Algorithmic shelf position tracking, paid/organic separation, multi-retailer strategy.
-- **Amazon**: Sponsored Products, Brands, Display and DSP as one system, with product data and review improvements.
+- **Amazon within Retail Media**: Sponsored Products, Brands, Display and DSP as one system, with product data and review improvements.
 - **Beauty Media Strategy**: Strategy for beauty brands navigating AI-assisted shopping, agentic commerce and retail media.
 - **AI-Powered Traditional Media**: Algorithmic buying and budget reallocation across display, video and CTV.
 - **AI Consultancy**: Operating model redesign, team restructuring for AI-augmented workflows.
@@ -24,7 +24,6 @@ Inflexion helps brands win visibility across AI answer engines (ChatGPT, Gemini,
 - https://nicksc1cc.github.io/inflexion-website/digital-pr.html : Digital PR for AEO
 - https://nicksc1cc.github.io/inflexion-website/retail-media.html : Retail Media
 - https://nicksc1cc.github.io/inflexion-website/beauty-media-strategy.html : Beauty Media Strategy
-- https://nicksc1cc.github.io/inflexion-website/amazon.html : Amazon improvement
 - https://nicksc1cc.github.io/inflexion-website/ai-media.html : AI-Powered Media
 - https://nicksc1cc.github.io/inflexion-website/consultancy.html : AI Consultancy
 - https://nicksc1cc.github.io/inflexion-website/measurement.html : Data & Measurement
