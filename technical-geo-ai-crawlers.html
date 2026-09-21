@@ -87,7 +87,6 @@
 <p>Our research found that 69 percent of 23 major AI crawlers could not execute JavaScript. The figure is directional rather than permanent because crawler capabilities change, but the architectural risk is clear: a client-rendered page cannot assume that every retrieval system will wait for the browser.</p>
 <p>GPTBot, PerplexityBot, ClaudeBot, and the other major AI crawlers fetch raw HTML. They do not render. They do not wait for hydration. They do not execute your React components. If your structured data lives in a client-side script tag added after hydration, or if your product schema is injected by a tag manager, or if your FAQ markup loads via a third-party widget, the crawler sees nothing.</p>
 <p>An investigation shared by Search Engine Journal in early 2025 confirmed the gap: AI crawlers miss JavaScript-injected structured data entirely. The only reliable path is server-side rendering or static HTML.</p>
-<div class="rule">The schema that passes Google's rendered test may still be absent from the HTML an AI crawler receives.</div>
 </section>
 
 <section id="what-crawlers-see">
@@ -196,8 +195,6 @@ Allow: /</code></pre>
 </ol>
 
 <p>The output is a prioritised remediation plan. The highest-value fixes are usually access and rendering. Schema completes the picture.</p>
-
-<div class="callout">If your product catalogue loads via JavaScript, AI crawlers see an empty page. Every SKU, every description, every spec is unavailable to the systems making buying recommendations.</div>
 
 <h3>The honest limitations</h3>
 <p>Technical GEO cannot fix weak positioning. If the underlying product or service is poorly defined, making it readable does not rescue the narrative. It only ensures the model sees what is there.</p>
