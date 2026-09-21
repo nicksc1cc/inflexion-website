@@ -4,10 +4,9 @@ Inflexion helps brands win visibility across AI answer engines (ChatGPT, Gemini,
 
 ## Services
 
-- **AEO / Answer Engine Optimisation**: Get cited in AI answers. Prompt set audits, source authority mapping, citation tracking across ChatGPT, Gemini, Perplexity and Claude.
-- **AI Visibility Analytics**: Cross-model citation testing, share of answer tracking, competitor citation benchmarking.
-- **Technical GEO**: Schema, entity signals, structured data and crawler access for AI system comprehension.
-- **Digital PR for AEO**: Earn citations in outlets, forums and data sets that AI models may cite.
+- **Organic & AI Search**: Organic search foundations, AI citation, prompt set audits, source authority mapping and technical access across ChatGPT, Gemini, Perplexity and Claude.
+- **Search Intelligence**: Cross-model citation testing, share of answer tracking, competitor citation benchmarking.
+- **Digital PR & Content**: Earn citations in outlets, forums and data sets that AI models may cite.
 - **Retail Media**: Algorithmic shelf position tracking, paid/organic separation, multi-retailer strategy.
 - **Amazon within Retail Media**: Sponsored Products, Brands, Display and DSP as one system, with product data and review improvements.
 - **Beauty Media Strategy**: Strategy for beauty brands navigating AI-assisted shopping, agentic commerce and retail media.
@@ -18,10 +17,10 @@ Inflexion helps brands win visibility across AI answer engines (ChatGPT, Gemini,
 ## Key pages
 
 - https://nicksc1cc.github.io/inflexion-website/ : Home
-- https://nicksc1cc.github.io/inflexion-website/aeo.html : AEO / Answer Engine improvement
-- https://nicksc1cc.github.io/inflexion-website/ai-visibility-analytics.html : AI Visibility Analytics
+- https://nicksc1cc.github.io/inflexion-website/aeo.html : Organic & AI Search
+- https://nicksc1cc.github.io/inflexion-website/ai-visibility-analytics.html : Search Intelligence
 - https://nicksc1cc.github.io/inflexion-website/technical-geo.html : Technical GEO
-- https://nicksc1cc.github.io/inflexion-website/digital-pr.html : Digital PR for AEO
+- https://nicksc1cc.github.io/inflexion-website/digital-pr.html : Digital PR & Content
 - https://nicksc1cc.github.io/inflexion-website/retail-media.html : Retail Media
 - https://nicksc1cc.github.io/inflexion-website/beauty-media-strategy.html : Beauty Media Strategy
 - https://nicksc1cc.github.io/inflexion-website/ai-media.html : AI-Powered Media
@@ -29,7 +28,7 @@ Inflexion helps brands win visibility across AI answer engines (ChatGPT, Gemini,
 - https://nicksc1cc.github.io/inflexion-website/measurement.html : Data & Measurement
 - https://nicksc1cc.github.io/inflexion-website/contact.html : Contact / AI Visibility Audit
 - https://nicksc1cc.github.io/inflexion-website/blog.html : Journal & articles
-- https://nicksc1cc.github.io/inflexion-website/ai-discovery.html : AI Discovery overview
+- https://nicksc1cc.github.io/inflexion-website/ai-discovery.html : Search & AI Discovery overview
 - https://nicksc1cc.github.io/inflexion-website/media.html : Media overview
 - https://nicksc1cc.github.io/inflexion-website/aeo-rankings-to-citations.html : AEO: rankings to citations
 - https://nicksc1cc.github.io/inflexion-website/agentic-media-buying.html : Agentic media buying

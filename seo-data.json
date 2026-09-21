@@ -200,15 +200,15 @@
     }
   },
   "digital-pr.html": {
-    "title": "Digital PR for AEO \u2014 Earn the Citations AI Trusts Most | Inflexion",
-    "description": "Digital PR for AEO: earn citations in sources AI models trust. Outreach to high-authority outlets, papers, forums. Measured by citation lift.",
+    "title": "Digital PR & Content \u2014 Earn the Citations AI Trusts Most | Inflexion",
+    "description": "Digital PR & Content: earn citations in sources AI models trust. Outreach to high-authority outlets, papers, forums. Measured by citation lift.",
     "og_type": "website",
     "og_image": "/assets/og-digital-pr.png",
     "schema_type": "Service",
     "schema_data": {
       "@context": "https://schema.org",
       "@type": "Service",
-      "name": "Digital PR for AEO",
+      "name": "Digital PR & Content",
       "description": "Earn citations in sources AI models trust. Outreach to high-authority outlets, papers, forums. Measured by citation lift.",
       "provider": {
         "@type": "Organization",
@@ -218,7 +218,7 @@
     }
   },
   "ai-visibility-analytics.html": {
-    "title": "AI Visibility Analytics \u2014 Track Brand Performance in LLMs | Inflexion",
+    "title": "Search Intelligence \u2014 Track Brand Performance in LLMs | Inflexion",
     "description": "AI visibility analytics: share of answer tracking, citation position, competitor benchmarking, monthly re-runs. Fixed prompt set, cross-model.",
     "og_type": "website",
     "og_image": "/assets/og-analytics.png",
@@ -226,7 +226,7 @@
     "schema_data": {
       "@context": "https://schema.org",
       "@type": "Service",
-      "name": "AI Visibility Analytics",
+      "name": "Search Intelligence",
       "description": "Track brand performance in LLMs: share of answer, citation position, competitor benchmarking. Monthly re-runs, fixed prompt set.",
       "provider": {
         "@type": "Organization",
