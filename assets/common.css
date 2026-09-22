@@ -130,7 +130,8 @@ header nav a:hover{color:var(--fg)}
 .hero{
   min-height:100vh;display:flex;align-items:center;
   padding:120px 0 80px;background:var(--h);color:var(--h-text);
-  overflow:hidden;position:relative
+  overflow:hidden;position:relative;
+  scroll-margin-top:var(--header-h)
 }
 .hero #data-field-canvas{
   position:absolute;inset:0;width:100%;height:100%;
