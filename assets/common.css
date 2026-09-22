@@ -579,20 +579,20 @@ section{padding:var(--section-pad) 0}
   .ftr{grid-template-columns:1fr;gap:24px}
 }
 @media(max-width:480px){
-  .hero{padding:60px 0 40px}
-  .hero .data-banner{grid-template-columns:1fr;gap:8px}
-  .hero .index-banner{grid-template-columns:1fr;gap:8px}
-  .data-banner .v{font-size:clamp(18px,6vw,24px)}
-  .hero h1{font-size:clamp(24px,9vw,32px);letter-spacing:-.02em}
-  .hero .desc{font-size:clamp(13px,4vw,15px);max-width:100%}
-  .section-inner{padding:0 16px}
-  .header-inner{padding:0 16px}
-  .svc{padding:24px 16px}
-  .stat-card{padding:24px 16px}
-  .stat-card .v{font-size:clamp(24px,7vw,32px)}
-  .cta-inner .btn{padding:14px 24px;font-size:10px}
-  .cta-inner h2{font-size:clamp(22px,7vw,30px)}
-  .ftr a{font-size:13px}
+  .hero{padding:70px 0 50px}
+  .hero .data-banner{grid-template-columns:1fr;gap:12px}
+  .hero .index-banner{grid-template-columns:1fr;gap:12px}
+  .data-banner .v{font-size:clamp(20px,6vw,28px)}
+  .hero h1{font-size:clamp(28px,8vw,36px);letter-spacing:-.02em}
+  .hero .desc{font-size:clamp(15px,3.5vw,17px);max-width:100%}
+  .section-inner{padding:0 20px}
+  .header-inner{padding:0 20px}
+  .svc{padding:28px 20px}
+  .stat-card{padding:28px 20px}
+  .stat-card .v{font-size:clamp(28px,7vw,36px)}
+  .cta-inner .btn{padding:16px 28px;font-size:11px}
+  .cta-inner h2{font-size:clamp(26px,6vw,34px)}
+  .ftr a{font-size:14px}
   .btm{flex-direction:column;gap:8px;text-align:center}
 }
 /* --- Hero Backgrounds (for custom hero pages) --- */
