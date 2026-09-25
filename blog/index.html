@@ -1,0 +1,91 @@
+---
+nav_active: "blog.html"
+nav_dropdown_text: "Search & AI Discovery"
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Blog | Inflexion</title>
+<meta name="description" content="Practical writing on AI, retail media, answer engines and the changing customer journey from Inflexion.">
+<link rel="canonical" href="https://nicksc1cc.github.io/inflexion-website/blog.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Blog | Inflexion">
+<meta property="og:description" content="Practical writing on AI, retail media, answer engines and the changing customer journey from Inflexion.">
+<meta property="og:url" content="https://nicksc1cc.github.io/inflexion-website/blog.html">
+<link rel="stylesheet" href="assets/common.css">
+<style>
+.blog-hero{background:var(--h);color:var(--h-text);padding:170px 0 110px}
+.blog-hero h1{font-size:clamp(56px,10vw,132px);font-weight:200;line-height:.9;letter-spacing:-.05em;max-width:900px}
+.blog-hero h1 em{color:var(--accent);font-style:normal;font-weight:400}
+.blog-hero p{max-width:480px;color:rgba(250,250,249,.65);font-size:16px;line-height:1.7;margin-top:32px}
+.blog-list{display:grid;grid-template-columns:1.3fr 1fr;gap:0;border-top:1px solid var(--border)}
+.blog-card{padding:56px 48px 64px 0;border-bottom:1px solid var(--border)}
+.blog-card:nth-child(2n){padding-left:48px;border-left:1px solid var(--border)}
+.blog-card .meta{font-family:'IBM Plex Mono',monospace;color:var(--accent);font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:28px}
+.blog-card h2{font-size:clamp(28px,3.8vw,52px);font-weight:300;line-height:1.02;letter-spacing:-.025em;margin-bottom:20px}
+.blog-card p{font-size:15px;line-height:1.7;color:var(--muted);max-width:38em;margin-bottom:28px}
+.blog-card a{color:var(--fg);text-decoration:none;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid var(--fg);padding-bottom:4px}
+.blog-card a:hover{color:var(--accent);border-color:var(--accent)}
+@media(max-width:900px){.blog-hero{padding:140px 0 80px}.blog-list{grid-template-columns:1fr}.blog-card,.blog-card:nth-child(2n){padding:40px 0;border-left:none}.blog-card:last-child{border-bottom:none}}
+</style>
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blog | Inflexion">
+<meta name="twitter:description" content="Practical writing on AI, retail media, answer engines and the changing customer journey from Inflexion.">
+<meta name="twitter:image" content="https://nicksc1cc.github.io/inflexion-website/assets/og-blog.svg">
+
+<script type="application/ld+json">
+[{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Inflexion Blog",
+  "description": "Practical writing on AI, retail media, answer engines and the changing customer journey from Inflexion.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Inflexion",
+    "url": "https://nicksc1cc.github.io/inflexion-website/"
+  }
+},
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://nicksc1cc.github.io/inflexion-website/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Blog",
+    "item": "https://nicksc1cc.github.io/inflexion-website/blog.html"
+  }]
+}]
+</script>
+</head>
+<body>
+{% include nav.html %}
+<main>
+<section class="blog-hero"><div class="section-inner"><div class="tag" style="color:rgba(250,250,249,.5);margin-bottom:24px">Inflexion / Journal</div><h1>Notes on <em>AI, discovery and retail media.</em></h1><p>Notes on the systems changing discovery, media and commerce. Written for teams making decisions about discovery, media and commerce.</p></div></section>
+<section><div class="section-inner"><div class="tag" style="margin-bottom:40px">01. Latest writing</div><div class="blog-list">
+<article class="blog-card"><div class="meta">AEO · 10 min read</div><h2>AEO: the shift from keyword rankings to citation tracking</h2><p>Search is no longer about ranking for keywords. It is about being cited in AI answers. Here is how the measurement model is changing.</p><a href="aeo-rankings-to-citations/">Read the argument →</a></article>
+<article class="blog-card"><div class="meta">Retail Media · 9 min read</div><h2>Amazon Rufus and the sponsored prompt evolution</h2><p>Amazon Rufus reached 250 million monthly users. Then came sponsored prompts. Here is what the shift from search to conversational commerce means for retail media.</p><a href="amazon-rufus-sponsored-prompts/">Read the argument →</a></article>
+<article class="blog-card"><div class="meta">Amazon · 8 min read</div><h2>Amazon AI Creative Studio and the collapse of production timelines</h2><p>Nova foundation models convert a single hero image into dozens of video variations in minutes. What used to cost five figures and six weeks now runs on autopilot.</p><a href="amazon-ai-creative-studio/">Read the argument →</a></article>
+<article class="blog-card"><div class="meta">Media · 9 min read</div><h2>Agentic media buying: from dashboards to autonomous execution</h2><p>AI agents are replacing channel-by-channel media buying with portfolio-based coordination. The shift from dashboard-driven management to continuous execution.</p><a href="agentic-media-buying/">Read the argument →</a></article>
+<article class="blog-card"><div class="meta">AI Discovery · 8 min read</div><h2>Shoppable AI search: the battle for share of generated sentence</h2><p>Dunnhumby identifies the birth of shoppable AI search where brands battle for share of generated sentence. The focus is on summarising content for AI ingestion.</p><a href="shoppable-ai-search/">Read the argument →</a></article>
+<article class="blog-card"><div class="meta">Retail media · 12 min read</div><h2>AI in retail media: the shelf is becoming a decision system</h2><p>Retail media started as sponsored placement. AI is making product data, reviews, price, inventory and conversion more important to what gets seen.</p><a href="ai-in-retail-media/">Read the argument →</a></article>
+<article class="blog-card"><div class="meta">AI Discovery · 9 min read</div><h2>Technical GEO: AI crawlers miss JavaScript-injected structured data</h2><p>Your schema can pass Google's test and still be absent from the raw HTML an AI crawler receives. The technical foundation of AI discoverability is access, rendering and structure.</p><a href="technical-geo-ai-crawlers/">Read the argument →</a></article>
+<article class="blog-card"><div class="meta">AI Discovery · 8 min read</div><h2>AI citations come from places your media plan does not control</h2><p>Reddit, Wikipedia and YouTube appear prominently in citation data. A source map is more useful than another generic content calendar.</p><a href="ai-citations-source-map/">Read the argument →</a></article>
+<article class="blog-card"><div class="meta">Measurement · 8 min read</div><h2>Your AI visibility score is probably too precise</h2><p>AI answers vary between runs. A single citation score can give a false sense of certainty. Measurement needs repeated sampling, trends and visible limits.</p><a href="ai-visibility-uncertainty/">Read the argument →</a></article>
+<article class="blog-card"><div class="meta">Retail Media · 8 min read</div><h2>Retail media is moving offsite. The measurement has not caught up</h2><p>Retail networks are extending into CTV, audio and open-web programmatic. The economics and evidence are different from onsite sponsored placement.</p><a href="offsite-retail-media-measurement/">Read the argument →</a></article>
+<article class="blog-card"><div class="meta">Amazon · 8 min read</div><h2>Amazon's AI SQL generator changes who can use retail data</h2><p>Amazon Marketing Cloud added natural-language audience building and a five-year purchase lookback. The important change is access to questions, not faster queries.</p><a href="amazon-marketing-cloud-sql/">Read the argument →</a></article>
+</div></div></section>
+<section class="dark"><div class="section-inner"><div class="cta-inner"><div><h2>Want the next note on <em>AI, discovery and retail media?</em></h2><p>Start with the baseline. We will show you where your brand appears in AI systems and retail algorithms.</p></div><a href="contact/" class="btn">Run the baseline →</a></div></div></section>
+</main>
+<footer><div style="max-width:1280px;margin:0 auto;padding:0 48px"><div class="ftr"><div><a href="/"><img src="assets/images/inflexion-media-logo.png" alt="Inflexion" height="36" style="height:55px;width:auto;display:block;margin-bottom:16px"></a><p>Inflexion journal.</p></div><div><div class="fh">Services</div><a href="aeo/">Organic & AI Search</a><a href="ecommerce-whitepaper/" style="color:var(--accent)">Whitepaper</a>
+            <a href="retail-media/">Retail Media</a><a href="retail-media/">Amazon</a><a href="consultancy/">AI Consultancy</a></div><div><div class="fh">Company</div><a href="measurement/">Measurement</a><a href="blog/">Blog</a></div><div><div class="fh">Contact</div><a href="contact/">Start the audit</a><a href="mailto:hello@inflexion.co">hello@inflexion.co</a></div></div><div class="btm"><span>© 2026 Inflexion</span><span>Privacy · Terms</span></div></div></footer>
+  <a href="beauty-media-strategy/" style="color:var(--accent)">Beauty Report</a><a href="ecommerce-whitepaper/" style="color:var(--accent)">Whitepaper</a>
+<script>(function(){var h=document.querySelector('.hamburger'),n=document.querySelector('header nav');if(h)h.addEventListener('click',function(){n.classList.toggle('open');h.classList.toggle('open')});n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');h.classList.remove('open')})});document.querySelectorAll('.dropdown-toggle').forEach(function(t){t.addEventListener('click',function(e){e.preventDefault();var m=this.nextElementSibling;m.style.display=m.style.display==='block'?'none':'block'})})})();</script>
+</body></html>

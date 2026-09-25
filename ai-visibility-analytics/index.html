@@ -1,0 +1,845 @@
+---
+nav_active: "ai-visibility-analytics.html"
+nav_dropdown_text: "Search & AI Discovery"
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Search Intelligence | Track Brand Performance in LLMs | Inflexion</title>
+<meta name="description" content="AI visibility analytics: share of answer tracking, citation position, competitor benchmarking, monthly re-runs. Fixed prompt set, cross-model.">
+<link rel="canonical" href="https://nicksc1cc.github.io/inflexion-website/ai-visibility-analytics.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Search Intelligence | Track Brand Performance in LLMs | Inflexion">
+<meta property="og:description" content="AI visibility analytics: share of answer tracking, citation position, competitor benchmarking, monthly re-runs. Fixed prompt set, cross-model.">
+<meta property="og:url" content="https://nicksc1cc.github.io/inflexion-website/ai-visibility-analytics.html">
+<meta property="og:image" content="https://nicksc1cc.github.io/inflexion-website/assets/og-analytics.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Search Intelligence | Track Brand Performance in LLMs | Inflexion">
+<meta name="twitter:description" content="AI visibility analytics: share of answer tracking, citation position, competitor benchmarking, monthly re-runs. Fixed prompt set, cross-model.">
+<meta name="twitter:image" content="https://nicksc1cc.github.io/inflexion-website/assets/og-analytics.svg">
+<script type="application/ld+json">
+[{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+    "@type": "ListItem",
+    "position": 1,
+    "name": "Home",
+    "item": "https://nicksc1cc.github.io/inflexion-website/"
+  },{
+    "@type": "ListItem",
+    "position": 2,
+    "name": "Search Intelligence",
+    "item": "https://nicksc1cc.github.io/inflexion-website/ai-visibility-analytics.html"
+  }]
+},
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Search Intelligence",
+  "provider": {
+    "@type": "Organization",
+    "name": "Inflexion",
+    "url": "https://nicksc1cc.github.io/inflexion-website/"
+  },
+  "areaServed": "Global",
+  "serviceType": "AI Marketing Service",
+  "audience": {
+    "@type": "BusinessAudience"
+  }
+}]
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="assets/common.css">
+</head>
+<body>
+
+{% include nav.html %}
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <canvas id="data-field-canvas" aria-hidden="true"></canvas>
+  <div class="w">
+    <div class="sup">Search Intelligence</div>
+    <h1>Measure your brand's <em>AI search performance.</em></h1>
+    <p class="desc">Track how your brand appears across ChatGPT, Gemini, Perplexity, Claude, Amazon Rufus and more. Share of voice, citation sources, competitor positioning: everything you need to act.</p>
+    <div class="cta-row">
+      <a href="#measure" class="btn">See how we measure →</a>
+    </div>
+    <div class="data-banner">
+      <div class="d"><div class="v">11%</div><div class="l">Domain overlap between GPT &amp; Perplexity</div><div class="s">Source: Similarweb, 2026 AI Brand Visibility Index</div></div>
+      <div class="d"><div class="v">30%</div><div class="l">Brand visibility consistency</div><div class="s">Source: AirOps, 2026 State of AI Search</div></div>
+      <div class="d"><div class="v">5x</div><div class="l">AI referral conversion vs organic</div><div class="s">Source: Seer Interactive, 2025</div></div>
+      <div class="d"><div class="v">42.8%</div><div class="l">AI search traffic growth YoY</div><div class="s">Source: Similarweb, 2026</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 01. THE PROBLEM -->
+<section id="problem" style="background:#fff">
+  <div class="section-inner" style="max-width:900px">
+    <div class="tag" style="margin-bottom:16px">The problem</div>
+    <h2 class="d2" style="margin-bottom:16px">You cannot improve what <span style="font-weight:600;color:var(--accent)">you do not measure.</span></h2>
+    <p class="prose" style="margin-bottom:24px;max-width:36em">Most brands have no baseline for their AI visibility. They know what their Google rankings look like. They know their Amazon share of voice. But they have no picture of how often they appear in AI-generated answers, across which models, in response to which buyer questions, and against which competitors.</p>
+    <div class="big-stat" style="padding-top:0;padding-bottom:0">
+      <div class="v">30%</div>
+      <div class="c">of brands stay visible across consecutive AI sessions. The other 70% are not consistently visible across sessions. <strong>A baseline is the only way to tell if you are gaining or losing ground.</strong> <span style="font-size:10px;color:var(--muted2);display:block;margin-top:8px">Source: AirOps, 2026 State of AI Search</span></div>
+    </div>
+    <p class="prose" style="margin-top:32px;max-width:36em">The gap between search and answer is real: brands ranking first on Google are entirely absent from the AI answer to the same query. We have measured it. Without measurement, the work is guesswork. The analytics provide the baseline for the work that follows.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 02. WHAT WE TRACK -->
+<section id="measure" style="background:var(--h);color:var(--h-text);padding:100px 0">
+  <div class="section-inner">
+    <div class="tag" style="color:rgba(250,250,249,.5);margin-bottom:16px">What we track</div>
+    <h2 class="d2" style="margin-bottom:16px">Multi-model, <span style="font-weight:600;color:var(--accent)">multi-dimension.</span></h2>
+    <p class="prose" style="font-size:15px;line-height:1.7;color:rgba(250,250,249,.6);font-weight:300;margin-bottom:24px;max-width:36em">We run targeted prompts daily across the models your buyers actually use. The result is a dataset that tells you where you stand, who you are competing against, and what is driving the answers, with visibility into the prompts, responses and citation sources included in the dataset.</p>
+
+    <div class="stat-row dark">
+      <div class="stat-card"><div class="v">8+</div><div class="l">AI models tracked daily</div><div class="s">ChatGPT, Perplexity, Gemini, Claude, Rufus & more</div></div>
+      <div class="stat-card"><div class="v">1000s</div><div class="l">Targeted prompts per day</div><div class="s">Buyer-intent query sets across categories</div></div>
+      <div class="stat-card"><div class="v">5</div><div class="l">Citation source categories</div><div class="s">Earned, owned, review, social, forum</div></div>
+      <div class="stat-card"><div class="v">100%</div><div class="l">Transparent methodology</div><div class="s">Every prompt, response & citation logged</div></div>
+    </div>
+
+    <!-- VISUAL: Multi-Model Radar / Spider Chart -->
+    <div class="chart-section" style="margin-top:64px">
+      <h3 class="chart-title" style="font-size:18px;font-weight:500;margin-bottom:8px;color:var(--h-text)">Brand Visibility Profile Across Models</h3>
+      <p class="chart-caption" style="font-size:13px;color:rgba(250,250,249,.5);margin-bottom:24px;max-width:36em">Radar chart comparing your brand's citation rate, mention rate, sentiment, position, and consistency across 6 major AI platforms. Each axis = one metric; larger area = stronger overall presence.</p>
+      <div class="chart-wrapper" style="position:relative;max-width:500px;margin:0 auto">
+        <canvas id="radar-chart" width="500" height="500" style="display:block;width:100%;height:auto"></canvas>
+      </div>
+      <p class="chart-note" style="font-size:11px;color:rgba(250,250,249,.4);margin-top:12px;text-align:center">Mock data, replace with live API data. Axes: Citation Rate, Mention Rate, Sentiment Score, Avg. Position, Consistency, Prominence.</p>
+    </div>
+
+    <!-- VISUAL: Small Multiples - Per-Model Trend Sparklines -->
+    <div class="chart-section" style="margin-top:64px">
+      <h3 class="chart-title" style="font-size:18px;font-weight:500;margin-bottom:8px;color:var(--h-text)">Weekly Visibility Trend by Model</h3>
+      <p class="chart-caption" style="font-size:13px;color:rgba(250,250,249,.5);margin-bottom:24px;max-width:36em">Sparklines show 12-week share-of-voice trend per model. Identical y-axis scale enables direct comparison. Min/max markers flag volatility.</p>
+      <div class="sparkline-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:0 auto;max-width:900px">
+        <div class="sparkline-card" style="background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08);border-radius:4px;padding:16px">
+          <div class="sparkline-label" style="font-size:11px;font-weight:500;letter-spacing:.08em;text-change:uppercase;color:var(--accent);margin-bottom:8px">ChatGPT</div>
+          <canvas id="spark-chatgpt" width="180" height="60" style="display:block;width:100%;height:auto"></canvas>
+          <div class="sparkline-meta" style="display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:rgba(250,250,249,.4)"><span>Min: 12%</span><span>Max: 28%</span></div>
+        </div>
+        <div class="sparkline-card" style="background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08);border-radius:4px;padding:16px">
+          <div class="sparkline-label" style="font-size:11px;font-weight:500;letter-spacing:.08em;text-change:uppercase;color:var(--accent);margin-bottom:8px">Perplexity</div>
+          <canvas id="spark-perplexity" width="180" height="60" style="display:block;width:100%;height:auto"></canvas>
+          <div class="sparkline-meta" style="display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:rgba(250,250,249,.4)"><span>Min: 8%</span><span>Max: 22%</span></div>
+        </div>
+        <div class="sparkline-card" style="background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08);border-radius:4px;padding:16px">
+          <div class="sparkline-label" style="font-size:11px;font-weight:500;letter-spacing:.08em;text-change:uppercase;color:var(--accent);margin-bottom:8px">Gemini</div>
+          <canvas id="spark-gemini" width="180" height="60" style="display:block;width:100%;height:auto"></canvas>
+          <div class="sparkline-meta" style="display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:rgba(250,250,249,.4)"><span>Min: 5%</span><span>Max: 18%</span></div>
+        </div>
+        <div class="sparkline-card" style="background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08);border-radius:4px;padding:16px">
+          <div class="sparkline-label" style="font-size:11px;font-weight:500;letter-spacing:.08em;text-change:uppercase;color:var(--accent);margin-bottom:8px">Claude</div>
+          <canvas id="spark-claude" width="180" height="60" style="display:block;width:100%;height:auto"></canvas>
+          <div class="sparkline-meta" style="display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:rgba(250,250,249,.4)"><span>Min: 3%</span><span>Max: 15%</span></div>
+        </div>
+        <div class="sparkline-card" style="background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08);border-radius:4px;padding:16px">
+          <div class="sparkline-label" style="font-size:11px;font-weight:500;letter-spacing:.08em;text-change:uppercase;color:var(--accent);margin-bottom:8px">Amazon Rufus</div>
+          <canvas id="spark-rufus" width="180" height="60" style="display:block;width:100%;height:auto"></canvas>
+          <div class="sparkline-meta" style="display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:rgba(250,250,249,.4)"><span>Min: 1%</span><span>Max: 9%</span></div>
+        </div>
+        <div class="sparkline-card" style="background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08);border-radius:4px;padding:16px">
+          <div class="sparkline-label" style="font-size:11px;font-weight:500;letter-spacing:.08em;text-change:uppercase;color:var(--accent);margin-bottom:8px">Copilot</div>
+          <canvas id="spark-copilot" width="180" height="60" style="display:block;width:100%;height:auto"></canvas>
+          <div class="sparkline-meta" style="display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:rgba(250,250,249,.4)"><span>Min: 2%</span><span>Max: 11%</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feat-grid">
+      <div class="feat-card">
+              <div class="t">Multi-model tracking</div>
+              <div class="hd">Monitor brand presence across every major AI platform.</div>
+              <div class="bd">ChatGPT, Perplexity, Google Gemini, Claude, Amazon Rufus, Walmart Sparky, Grok, and more. Models disagree more than expected; a brand well-cited in Claude can be entirely absent from GPT. The reported 11% domain overlap illustrates the difference. We track multiple platforms to show how results vary between them.</div>
+            </div>
+      <div class="feat-card">
+        <div class="t">Prompt-level analysis</div>
+        <div class="hd">See the exact prompts and responses behind every mention.</div>
+        <div class="bd">Understand not just how often you appear, but how you are positioned versus competitors across different buyer scenarios: from broad awareness queries like "best [category]" to comparison queries like "[brand] vs [brand]" and purchase-intent questions. Every response is captured and categorised.</div>
+      </div>
+      <div class="feat-card">
+        <div class="t">Citation intelligence</div>
+        <div class="hd">Discover which sources influence AI recommendations in your category.</div>
+        <div class="bd">Reddit, Wikipedia, Quora, YouTube, analyst reports, niche forums: the source map shows where competitors earn citations that you do not, informing your content and PR strategies. One cited study reports that 82% of AI citations came from earned media, not owned content. We map where yours land.</div>
+      </div>
+      <div class="feat-card">
+        <div class="t">Sentiment analysis</div>
+        <div class="hd">Monitor how AI platforms position your brand versus competitors.</div>
+        <div class="bd">Track sentiment patterns across different models and topics. Are you recommended positively? Mentioned neutrally? Absent? The sentiment picture tells you whether your brand narrative is landing where it matters, and which competitors are more positively positioned in AI answers.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 03. COMPETITIVE INTELLIGENCE -->
+<section id="competitive" style="background:#fff">
+  <div class="section-inner">
+    <div class="tag" style="margin-bottom:16px">Competitive intelligence</div>
+    <h2 class="d2" style="margin-bottom:48px">Know where you stand <span style="font-weight:600;color:var(--accent)">against every competitor.</span></h2>
+
+    <!-- VISUAL: Slopegraph - Competitive Share of Voice Shift -->
+    <div class="chart-section" style="margin-bottom:48px">
+      <h3 class="chart-title" style="font-size:18px;font-weight:500;margin-bottom:8px">Competitive Share of Voice: 3-Month Shift</h3>
+      <p class="chart-caption" style="font-size:13px;color:var(--muted);margin-bottom:24px;max-width:36em">Slopegraph comparing your brand's AI SoV vs top 4 competitors across 6 models. Lines slope up = gaining ground; down = losing. Direct labels replace legend.</p>
+      <div class="chart-wrapper" style="position:relative;max-width:900px;margin:0 auto">
+        <canvas id="slopegraph-chart" width="900" height="400" style="display:block;width:100%;height:auto"></canvas>
+      </div>
+      <p class="chart-note" style="font-size:11px;color:var(--muted2);margin-top:12px;text-align:center">Mock data, replace with live API data. Each line = one brand. Dots = current month; labels show 3-month delta.</p>
+    </div>
+
+    <div class="why-row">
+      <div class="n">SOV</div>
+      <div class="hd">Share of voice across every model.</div>
+      <div class="bd">See how frequently you appear versus competitors across different AI platforms and product categories. Track which specific models and topics your competitors dominate. A brand with 40% share on ChatGPT may have 0% on Perplexity. The 11% domain overlap between the two makes SOV per-model the only meaningful metric.</div>
+    </div>
+    <div class="why-row">
+      <div class="n">Gap</div>
+      <div class="hd">Competitive citation gap analysis.</div>
+      <div class="bd">Identify exactly where you are missing citations compared to each competitor. See every source they draw from that you do not, and the ones that neither of you owns yet. These gaps can help prioritise content and PR opportunities, ranked by citation frequency across models.</div>
+    </div>
+    <div class="why-row">
+      <div class="n">Benchmark</div>
+      <div class="hd">Category performance benchmarking.</div>
+      <div class="bd">Compare your AI visibility against industry benchmarks. Understand whether your category is under-improved (most are) and where the quick wins sit. <strong>Only 30% of brands maintain consistent visibility</strong> across sessions. That may provide an advantage. If not, the gap can still be tracked over time.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 04. THE RESEARCH -->
+<section id="research" style="background:#fff">
+  <div class="section-inner">
+    <div class="tag" style="margin-bottom:16px">The evidence</div>
+    <h2 class="d2" style="margin-bottom:16px">What the data <span style="font-weight:600;color:var(--accent)">actually says.</span></h2>
+    <p class="prose" style="font-size:15px;line-height:1.7;color:var(--muted);font-weight:300;margin-bottom:32px;max-width:36em">Research from Princeton, Similarweb, Ahrefs and Muck Rack is cited below, with sources and dates shown for each figure.</p>
+
+    <!-- VISUAL: Citation Source Breakdown - Radial / Donut with annotations -->
+    <div class="chart-section" style="margin-bottom:48px">
+      <h3 class="chart-title" style="font-size:18px;font-weight:500;margin-bottom:8px">Where AI Citations Come From: Source Type Distribution</h3>
+      <p class="chart-caption" style="font-size:13px;color:var(--muted);margin-bottom:24px;max-width:36em">Radial area chart showing citation source composition across 75,000 brands. Earned media dominates at 82%; owned content only 12%. Segment angles = share; radius = trust score (citation velocity × authority).</p>
+      <div class="chart-wrapper" style="position:relative;max-width:500px;margin:0 auto">
+        <canvas id="radial-chart" width="500" height="500" style="display:block;width:100%;height:auto"></canvas>
+      </div>
+      <p class="chart-note" style="font-size:11px;color:var(--muted2);margin-top:12px;text-align:center">Mock data, replace with live API data. Source: Ahrefs 75K-brand study 2025; Muck Rack 2025.</p>
+    </div>
+
+    <div class="research-grid">
+      <div class="research-item"><div class="q">"How consistent is AI brand visibility?"</div><div class="a">Only 30% of brands stay visible across consecutive AI sessions</div><div class="src">AirOps, 2026 State of AI Search</div></div>
+      <div class="research-item"><div class="q">"Do ChatGPT and Perplexity cite the same sources?"</div><div class="a">Only 11% domain overlap; they draw from fundamentally different content</div><div class="src">Similarweb, 2026 Generative AI Brand Visibility Index</div></div>
+      <div class="research-item"><div class="q">"How do AI visitors convert?"</div><div class="a">AI-referred visitors convert at 15.9%; 5x higher than the 3% organic average</div><div class="src">Seer Interactive, June 2025</div></div>
+      <div class="research-item"><div class="q">"What drives AI visibility?"</div><div class="a">Brand mentions correlate 3x stronger than backlinks for AI citations</div><div class="src">Ahrefs, 75,000-brand study, 2025</div></div>
+      <div class="research-item"><div class="q">"Where do AI citations come from?"</div><div class="a">82% of AI citations are earned media, not owned content</div><div class="src">Muck Rack, December 2025</div></div>
+      <div class="research-item"><div class="q">"Does SEO position matter for AI?"</div><div class="a">83% of AI citations come from outside the organic top 10</div><div class="src">ConvertMate, 2026</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 05. THE DIFFERENCE BETWEEN VISIBILITY AND ATTRIBUTION -->
+<section id="applied" style="background:#fff">
+  <div class="section-inner" style="max-width:900px">
+    <div class="tag" style="margin-bottom:16px">Visibility vs attribution</div>
+    <h2 class="d2" style="margin-bottom:24px">Share of answer tells you what AI says. It does not tell you what sold.</h2>
+    <p class="prose" style="font-size:15px;line-height:1.7;color:var(--muted);font-weight:300;margin-bottom:24px;max-width:36em">Share of answer is a leading indicator. It measures whether your brand appears in AI-generated answers, at what position, and in what context. It does not measure whether that appearance drove revenue. Those are two different measurement problems.</p>
+    <p class="prose" style="font-size:15px;line-height:1.7;color:var(--muted);font-weight:300;margin-bottom:24px;max-width:36em">We track both. Search Intelligence gives you the share-of-answer baseline, run monthly against a fixed prompt set. Measurement ties those signals to commercial outcomes where the data allows. The methodologies are separate, transparent and published. <a href="measurement/" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);white-space:nowrap">See the measurement methodology →</a></p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 06. CTA -->
+<section id="cta" style="background:#fff">
+  <div class="section-inner">
+    <div class="cta-inner">
+      <div>
+        <h2>See what AI <em>actually says</em> about your brand.</h2>
+        <p>A structured analytics baseline across the AI platforms that matter. You keep the data; we help you act on it.</p>
+      </div>
+      <a href="contact/" class="btn">Get your baseline →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:var(--bg);border-top:1px solid var(--border)">
+  <div style="max-width:1280px;margin:0 auto;padding:0 48px">
+    <div class="ftr">
+      <div>
+        <a href="/"><img src="assets/images/inflexion-media-logo.png" alt="Inflexion" height="36" style="height:55px;width:auto;display:block;margin-bottom:16px"></a>
+        <p>AI visibility measured, not assumed.</p>
+      </div>
+      <div><div class="fh">Services</div><a href="aeo/">Organic & AI Search</a><a href="ai-visibility-analytics/">Search Intelligence</a><a href="digital-pr/">Digital PR & Content</a><a href="ecommerce-whitepaper/" style="color:var(--accent)">Whitepaper</a>
+            <a href="retail-media/">Retail Media</a><a href="retail-media/">Amazon</a><a href="ai-media/">AI-Powered Media</a><a href="consultancy/">AI Consultancy</a></div>
+      <div><div class="fh">Company</div><a href="measurement/">Measurement</a><a href="https://nicksc1cc.github.io/inflexion-perspectives/">Perspectives</a></div>
+      <div><div class="fh">Contact</div><a href="contact/">Start the audit</a><a href="contact/">hello@inflexion.co</a></div>
+  <a href="beauty-media-strategy/" style="color:var(--accent)">Beauty Report</a><a href="ecommerce-whitepaper/" style="color:var(--accent)">Whitepaper</a>
+    </div>
+    <div class="btm"><span>© 2026 Inflexion</span><span>Privacy · Terms</span></div>
+  </div>
+</footer>
+
+<script>
+  // --- Immediate: Navigation, smooth scroll, dropdown, Three.js (independent of GSAP) ---
+  (function(){
+    // Mobile menu toggle
+    var h = document.querySelector('.hamburger');
+    var n = document.querySelector('header nav');
+    if(h){h.addEventListener('click',function(){n.classList.toggle('open');h.classList.toggle('open')})}
+    n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');h.classList.remove('open')})});
+
+    // Dropdown menu (click for mobile, hover for desktop via CSS)
+    document.querySelectorAll('.dropdown-toggle').forEach(function(toggle){
+      toggle.addEventListener('click',function(e){
+        e.preventDefault();
+        var menu = this.nextElementSibling;
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+    document.addEventListener('click',function(e){
+      if(!e.target.closest('.dropdown')){document.querySelectorAll('.dropdown-menu').forEach(function(m){m.style.display='none'})}
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})
+    });
+
+    // Three.js Data Field animation
+    (function(){
+      var canvas = document.getElementById('data-field-canvas');
+      if (!canvas || typeof THREE === 'undefined') return;
+      var scene = new THREE.Scene();
+      scene.background = null;
+      var camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 100);
+      camera.position.set(0, -2, 9);
+      var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+      renderer.setClearColor(0x000000, 0);
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      var group = new THREE.Group();
+      scene.add(group);
+      var numLines = 60, pts = 100;
+      for (var i = 0; i < numLines; i++) {
+        var points = [];
+        var xPos = (i - numLines / 2) * 0.22;
+        for (var j = 0; j < pts; j++) {
+          points.push(new THREE.Vector3(xPos, (j - pts / 2) * 0.2, 0));
+        }
+        var t = i / numLines;
+        var color = new THREE.Color().setHSL(0.08 - t * 0.12, 0.8, 0.6 + t * 0.3);
+        var mat = new THREE.LineBasicMaterial({ color: color, transparent: true, opacity: 0.2 + Math.random() * 0.3, blending: THREE.AdditiveBlending });
+        var line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), mat);
+        group.add(line);
+      }
+      group.rotation.x = Math.PI / 3;
+      group.rotation.z = -Math.PI / 8;
+      function animate() {
+        requestAnimationFrame(animate);
+        var time = performance.now() * 0.0004;
+        group.children.forEach(function(line){
+          var pos = line.geometry.attributes.position.array;
+          for (var j = 0; j < pts; j++) {
+            var idx = j * 3;
+            var x = pos[idx], y = pos[idx + 1];
+            pos[idx + 2] = Math.sin(y * 1.2 + time + x * 0.8) * 0.8 + Math.cos(x * 1.5 - time * 0.8 + y * 0.5) * 0.6;
+          }
+          line.geometry.attributes.position.needsUpdate = true;
+        });
+        renderer.render(scene, camera);
+      }
+      animate();
+      window.addEventListener('resize', function(){
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      });
+    })();
+  })();
+
+  // --- Tufte-style Chart Rendering (Canvas 2D) ---
+  (function() {
+    var ACCENT = '#FF5A1F';
+    var ACCENT2 = '#2438DA';
+    var MUTED = '#71717A';
+    var MUTED2 = '#A1A1AA';
+    var FG = '#0A0A0B';
+    var BG = '#FAFAF9';
+    var DARK = '#0A0A0B';
+
+    // Helper: draw a Tufte-style range frame (top + right axes only)
+    function rangeFrame(ctx, x, y, w, h) {
+      ctx.strokeStyle = 'rgba(10,10,11,.15)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(x, y + h); ctx.lineTo(x, y); ctx.lineTo(x + w, y);
+      ctx.stroke();
+    }
+
+    // Helper: direct label with small font
+    function label(ctx, text, x, y, color, align) {
+      ctx.fillStyle = color || MUTED;
+      ctx.font = '10px "IBM Plex Mono",monospace';
+      ctx.textAlign = align || 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(text, x, y);
+    }
+
+    // 1. RADAR CHART
+    (function() {
+      var c = document.getElementById('radar-chart');
+      if (!c) return;
+      var ctx = c.getContext('2d');
+      var W = c.width, H = c.height;
+      var cx = W/2, cy = H/2, R = 190;
+      var levels = 5;
+      var metrics = ['Citation Rate','Mention Rate','Sentiment','Position','Consistency','Prominence'];
+      var N = metrics.length;
+      var angleStep = (2 * Math.PI) / N;
+
+      // Data: [Your Brand, Competitor A, Competitor B]
+      var brands = [
+        { label: 'Your Brand', color: ACCENT, values: [0.82, 0.65, 0.75, 0.70, 0.55, 0.80] },
+        { label: 'Competitor A', color: ACCENT2, values: [0.60, 0.55, 0.50, 0.65, 0.45, 0.58] },
+        { label: 'Competitor B', color: MUTED2, values: [0.45, 0.50, 0.60, 0.40, 0.35, 0.42] }
+      ];
+
+      ctx.clearRect(0, 0, W, H);
+
+      // Grid circles
+      for (var l = 1; l <= levels; l++) {
+        var r = (R / levels) * l;
+        ctx.beginPath();
+        for (var i = 0; i <= N; i++) {
+          var a = -Math.PI/2 + i * angleStep;
+          var x = cx + r * Math.cos(a);
+          var y = cy + r * Math.sin(a);
+          i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+        }
+        ctx.strokeStyle = 'rgba(10,10,11,.08)';
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+      }
+
+      // Axis lines + labels
+      for (var i = 0; i < N; i++) {
+        var a = -Math.PI/2 + i * angleStep;
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(cx + R * Math.cos(a), cy + R * Math.sin(a));
+        ctx.strokeStyle = 'rgba(10,10,11,.12)';
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+        var lx = cx + (R + 32) * Math.cos(a);
+        var ly = cy + (R + 32) * Math.sin(a);
+        ctx.fillStyle = MUTED;
+        ctx.font = '10px "IBM Plex Mono",monospace';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(metrics[i], lx, ly);
+      }
+
+      // Brand polygons
+      brands.forEach(function(b) {
+        ctx.beginPath();
+        b.values.forEach(function(v, i) {
+          var a = -Math.PI/2 + i * angleStep;
+          var r = R * v;
+          var x = cx + r * Math.cos(a);
+          var y = cy + r * Math.sin(a);
+          i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+        });
+        ctx.closePath();
+        // No fill - just clean lines per Tufte
+        ctx.strokeStyle = b.color;
+        ctx.lineWidth = b.label === 'Your Brand' ? 2.5 : 1.5;
+        ctx.setLineDash(b.label === 'Your Brand' ? [] : [6, 4]);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      });
+
+      // Direct labels
+      brands.forEach(function(b) {
+        var lastVal = b.values[b.values.length - 1];
+        var lastAngle = -Math.PI/2 + (N - 1) * angleStep;
+        var lx = cx + (R * lastVal + 12) * Math.cos(lastAngle);
+        var ly = cy + (R * lastVal + 12) * Math.sin(lastAngle);
+        ctx.fillStyle = b.color;
+        ctx.font = '10px "IBM Plex Mono",monospace';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(b.label, lx + 8, ly);
+      });
+    })();
+
+    // 2. SPARKLINES
+    function drawSparkline(id, data, color) {
+      var c = document.getElementById(id);
+      if (!c) return;
+      var ctx = c.getContext('2d');
+      var W = c.width, H = c.height;
+      var pad = { t: 4, b: 4, l: 4, r: 4 };
+      var pw = W - pad.l - pad.r;
+      var ph = H - pad.t - pad.b;
+      var min = Math.min.apply(null, data);
+      var max = Math.max.apply(null, data);
+      var range = max - min || 1;
+
+      ctx.clearRect(0, 0, W, H);
+
+      // Data line
+      ctx.beginPath();
+      data.forEach(function(v, i) {
+        var x = pad.l + (i / (data.length - 1)) * pw;
+        var y = pad.t + ph - ((v - min) / range) * ph;
+        i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      });
+      ctx.strokeStyle = color || ACCENT;
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+
+      // Min marker
+      var minIdx = data.indexOf(min);
+      var minX = pad.l + (minIdx / (data.length - 1)) * pw;
+      var minY = pad.t + ph - 0;
+      ctx.beginPath();
+      ctx.arc(minX, minY, 2, 0, 2*Math.PI);
+      ctx.fillStyle = MUTED2;
+      ctx.fill();
+
+      // Max marker
+      var maxIdx = data.indexOf(max);
+      var maxX = pad.l + (maxIdx / (data.length - 1)) * pw;
+      var maxY = pad.t + ph - ph;
+      ctx.beginPath();
+      ctx.arc(maxX, maxY, 2, 0, 2*Math.PI);
+      ctx.fillStyle = color || ACCENT;
+      ctx.fill();
+    }
+
+    var weeks = [1,2,3,4,5,6,7,8,9,10,11,12];
+    drawSparkline('spark-chatgpt', [12,15,14,18,22,20,24,26,25,28,27,28], ACCENT);
+    drawSparkline('spark-perplexity', [8,10,12,11,14,16,18,17,20,22,21,22], ACCENT2);
+    drawSparkline('spark-gemini', [5,6,7,8,10,12,11,14,15,17,18,16], '#71717A');
+    drawSparkline('spark-claude', [3,4,5,6,7,9,10,12,11,13,14,15], '#A1A1AA');
+    drawSparkline('spark-rufus', [1,2,2,3,4,5,4,6,7,8,8,9], '#FF5A1F');
+    drawSparkline('spark-copilot', [2,3,3,4,5,6,7,8,8,9,10,11], '#2438DA');
+
+    // 3. SLOPEGRAPH
+    (function() {
+      var c = document.getElementById('slopegraph-chart');
+      if (!c) return;
+      var ctx = c.getContext('2d');
+      var W = c.width, H = c.height;
+      var pad = { t: 40, b: 40, l: 80, r: 80 };
+      var col1 = pad.l + 20;
+      var col2 = W - pad.r - 20;
+      var yPad = 60;
+
+      ctx.clearRect(0, 0, W, H);
+
+      // Tufte range frame
+      rangeFrame(ctx, pad.l, pad.t, W - pad.l - pad.r, H - pad.t - pad.b);
+
+      // Column labels
+      ctx.fillStyle = MUTED;
+      ctx.font = '10px "IBM Plex Mono",monospace';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'bottom';
+      ctx.fillText('3 months ago', col1, pad.t - 8);
+      ctx.fillText('Current', col2, pad.t - 8);
+
+      // Data: [brand, oldVal, newVal, color]
+      var data = [
+        ['Your Brand', 18, 28, ACCENT],
+        ['Competitor A', 22, 20, ACCENT2],
+        ['Competitor B', 15, 18, '#71717A'],
+        ['Competitor C', 12, 11, '#A1A1AA'],
+        ['Competitor D', 8, 12, '#D4D4D8']
+      ];
+
+      // Normalize positions
+      var allOld = data.map(function(d) { return d[1]; });
+      var allNew = data.map(function(d) { return d[2]; });
+      var minAll = Math.min.apply(null, allOld.concat(allNew));
+      var maxAll = Math.max.apply(null, allOld.concat(allNew));
+      var rangeAll = maxAll - minAll || 1;
+      var plotH = H - pad.t - pad.b - yPad;
+
+      data.forEach(function(d, i) {
+        var y = pad.t + yPad/2 + (i / (data.length - 1)) * plotH;
+        var oldY = pad.t + yPad/2 + plotH - ((d[1] - minAll) / rangeAll) * plotH;
+        var newY = pad.t + yPad/2 + plotH - ((d[2] - minAll) / rangeAll) * plotH;
+
+        ctx.beginPath();
+        ctx.moveTo(col1, oldY);
+        ctx.lineTo(col2, newY);
+        ctx.strokeStyle = d[3];
+        ctx.lineWidth = d[0] === 'Your Brand' ? 2.5 : 1.2;
+        ctx.stroke();
+
+        // Dot at start
+        ctx.beginPath();
+        ctx.arc(col1, oldY, d[0] === 'Your Brand' ? 4 : 3, 0, 2*Math.PI);
+        ctx.fillStyle = d[3];
+        ctx.fill();
+
+        // Dot at end
+        ctx.beginPath();
+        ctx.arc(col2, newY, d[0] === 'Your Brand' ? 4 : 3, 0, 2*Math.PI);
+        ctx.fillStyle = d[3];
+        ctx.fill();
+
+        // Direct label at start
+        ctx.fillStyle = d[3];
+        ctx.font = d[0] === 'Your Brand' ? 'bold 11px Montserrat,sans-serif' : '10px Montserrat,sans-serif';
+        ctx.textAlign = 'right';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(d[0] + ' ' + d[1] + '%', col1 - 10, oldY);
+
+        // Value at end
+        ctx.fillStyle = d[3];
+        ctx.font = '10px "IBM Plex Mono",monospace';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'middle';
+        var delta = d[2] - d[1];
+        var sign = delta > 0 ? '+' : '';
+        ctx.fillText(d[2] + '% (' + sign + delta + 'pp)', col2 + 10, newY);
+      });
+    })();
+
+    // 4. RADIAL AREA CHART (Citation Source Breakdown)
+    (function() {
+      var c = document.getElementById('radial-chart');
+      if (!c) return;
+      var ctx = c.getContext('2d');
+      var W = c.width, H = c.height;
+      var cx = W/2, cy = H/2, R = 180;
+
+      ctx.clearRect(0, 0, W, H);
+
+      // Tufte range frame
+      rangeFrame(ctx, 20, 20, W - 40, H - 40);
+
+      var segments = [
+        { label: 'Earned Media', share: 0.82, color: '#FF5A1F', trust: 0.85 },
+        { label: 'Owned Content', share: 0.12, color: '#2438DA', trust: 0.60 },
+        { label: 'Review Sites', share: 0.03, color: '#71717A', trust: 0.45 },
+        { label: 'Social', share: 0.02, color: '#A1A1AA', trust: 0.30 },
+        { label: 'Forums', share: 0.01, color: '#D4D4D8', trust: 0.25 }
+      ];
+
+      var totalAngle = 2 * Math.PI;
+      var startAngle = -Math.PI/2;
+
+      segments.forEach(function(seg) {
+        var sweepAngle = seg.share * totalAngle;
+        var endAngle = startAngle + sweepAngle;
+        var midAngle = startAngle + sweepAngle / 2;
+        var radius = R * (0.3 + 0.7 * seg.trust);
+
+        // Wedge
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.arc(cx, cy, radius, startAngle, endAngle);
+        ctx.closePath();
+        ctx.fillStyle = seg.color.replace(')', ',.12)').replace('rgb', 'rgba');
+        ctx.fill();
+        ctx.strokeStyle = seg.color;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        // Radius line
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(cx + radius * Math.cos(endAngle), cy + radius * Math.sin(endAngle));
+        ctx.strokeStyle = 'rgba(10,10,11,.06)';
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+
+        // Direct label
+        var lr = radius + 28;
+        var lx = cx + lr * Math.cos(midAngle);
+        var ly = cy + lr * Math.sin(midAngle);
+        ctx.fillStyle = seg.color;
+        ctx.font = 'bold 10px Montserrat,sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(seg.label, lx, ly);
+        // Percentage
+        var pct = Math.round(seg.share * 100) + '%';
+        ctx.fillStyle = MUTED;
+        ctx.font = '9px "IBM Plex Mono",monospace';
+        ctx.fillText(pct, lx, ly + 14);
+
+        // Inner radius annotation
+        ctx.fillStyle = MUTED2;
+        ctx.font = '8px "IBM Plex Mono",monospace';
+        ctx.fillText('trust: ' + Math.round(seg.trust * 100) + '%', lx, ly + 28);
+
+        startAngle = endAngle;
+      });
+
+      // Center label
+      ctx.fillStyle = FG;
+      ctx.font = 'bold 12px Montserrat,sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('75K', cx, cy - 8);
+      ctx.fillStyle = MUTED;
+      ctx.font = '8px Montserrat,sans-serif';
+      ctx.fillText('brands', cx, cy + 8);
+    })();
+
+  })();
+
+  // GSAP animations (wrapped in error boundary, runs after DOM ready)
+  (function(){
+    if(typeof gsap==='undefined'||typeof ScrollTrigger==='undefined'){return}
+    gsap.registerPlugin(ScrollTrigger);
+
+    // --- Hero entrance ---
+    gsap.timeline({delay:0.3})
+      .from('.hero .sup', { y: 30, opacity: 0, duration: 0.6, ease: 'power3.out' })
+      .from('.hero h1', { y: 40, opacity: 0, duration: 0.8, ease: 'power3.out' }, '-=0.3')
+      .from('.hero .desc', { y: 30, opacity: 0, duration: 0.6, ease: 'power2.out' }, '-=0.4')
+      .from('.hero .cta-row > *', { y: 30, opacity: 0, duration: 0.6, stagger: 0.1, ease: 'power2.out' }, '-=0.4')
+      .from('.hero .data-banner > *', { y: 20, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power2.out' }, '-=0.3');
+
+    // --- Scroll-triggered reveals ---
+    const srDefaults = { y: 40, duration: 0.9, ease: 'power2.out', opacity: 0 };
+
+    gsap.from('.proc-step', {
+      ...srDefaults,
+      stagger: 0.1,
+      scrollTrigger: { trigger: '.process-grid', start: 'top 80%', toggleActions: 'play none none none' }
+    });
+
+    gsap.from('.svc', {
+      ...srDefaults,
+      stagger: 0.1,
+      scrollTrigger: { trigger: '.svc-grid', start: 'top 80%', toggleActions: 'play none none none' }
+    });
+
+    gsap.from('.feat-card', {
+      ...srDefaults,
+      stagger: 0.1,
+      scrollTrigger: { trigger: '.feat-grid', start: 'top 80%', toggleActions: 'play none none none' }
+    });
+
+    gsap.from('.three-card', {
+      ...srDefaults,
+      stagger: 0.1,
+      scrollTrigger: { trigger: '.three-grid', start: 'top 80%', toggleActions: 'play none none none' }
+    });
+
+    gsap.from('.dark-stat', {
+      ...srDefaults,
+      stagger: 0.1,
+      scrollTrigger: { trigger: '.dark-stats', start: 'top 80%', toggleActions: 'play none none none' }
+    });
+
+    gsap.from('.why-row', {
+      ...srDefaults,
+      stagger: 0.1,
+      scrollTrigger: { trigger: '.why-row:first-of-type', start: 'top 80%', toggleActions: 'play none none none' }
+    });
+
+    gsap.from('.lim-row', {
+      ...srDefaults,
+      stagger: 0.1,
+      scrollTrigger: { trigger: '.lim-row:first-of-type', start: 'top 80%', toggleActions: 'play none none none' }
+    });
+
+    gsap.from('.stat-card', {
+      ...srDefaults,
+      stagger: 0.1,
+      scrollTrigger: { trigger: '.stat-row', start: 'top 80%', toggleActions: 'play none none none' }
+    });
+
+    gsap.from('.research-item', {
+      ...srDefaults,
+      stagger: 0.1,
+      scrollTrigger: { trigger: '.research-grid', start: 'top 80%', toggleActions: 'play none none none' }
+    });
+
+    gsap.from('.cta-inner > *', {
+      ...srDefaults,
+      stagger: 0.15,
+      scrollTrigger: { trigger: '.cta-inner', start: 'top 85%', toggleActions: 'play none none none' }
+    });
+
+    // Shift rows (old/new pairs)
+    gsap.utils.toArray('.shift-row').forEach((el) => {
+      gsap.from(el.querySelector('.old'), {
+        ...srDefaults,
+        x: -30,
+        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+      });
+      gsap.from(el.querySelector('.new'), {
+        ...srDefaults,
+        x: 30, delay: 0.1,
+        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+      });
+    });
+
+    gsap.utils.toArray('.econ-shift').forEach((el) => {
+      gsap.from(el.querySelector('.econ-old'), {
+        ...srDefaults,
+        x: -30,
+        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+      });
+      gsap.from(el.querySelector('.econ-new'), {
+        ...srDefaults,
+        x: 30, delay: 0.1,
+        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+      });
+    });
+
+    // --- Reduced-motion ---
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      gsap.globalTimeline.clear();
+      ScrollTrigger.getAll().forEach(t => t.kill());
+    }
+
+    // --- Fallback ---
+    setTimeout(() => {
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        document.querySelectorAll('.econ-col, .econ-shift > *, .shift-row > *, .proc-step, .svc, .feat-card, .why-row, .lim-row, .stat-card, .cta-inner > *').forEach(el => {
+          el.style.opacity = '1';
+          el.style.change = 'none';
+        });
+      }
+    }, 3000);
+
+    // Safety: ensure animated elements become visible even if ScrollTrigger misses
+    setTimeout(() => {
+      document.querySelectorAll('.proc-step, .svc, .feat-card, .why-row, .lim-row, .stat-card, .cta-inner > *').forEach(el => {
+        if (window.getComputedStyle(el).opacity === '0') {
+          el.style.opacity = '1';
+          el.style.change = 'none';
+        }
+      });
+    }, 800);
+
+  })();
+</script>
+</body>
+</html>
