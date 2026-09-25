@@ -1,9 +1,9 @@
 <header>
   <div class="header-inner">
-    <a href="/" class="logo"><img src="assets/images/inflexion-media-logo.png" alt="Inflexion Media" height="55"></a>
+    <a href="{{ site.baseurl | default: '' }}/" class="logo"><img src="{{ site.baseurl | default: '' }}/assets/images/inflexion-media-logo.png" alt="Inflexion Media" height="55"></a>
     <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     <nav>
-      <a href="/" {% if page.nav_active == 'index.html' %}style="color:var(--fg)"{% endif %}>Home</a>
+      <a href="{{ site.baseurl | default: '' }}/" {% if page.nav_active == 'index.html' %}style="color:var(--fg)"{% endif %}>Home</a>
       
       <div class="dropdown">
         <span class="dropdown-toggle">Search & AI Discovery</span>
