@@ -22,27 +22,31 @@
 </script>
 
 <link rel="stylesheet" href="../assets/common.css">
-<style>
-.blog-hero{background:var(--h);color:var(--h-text);padding:170px 0 110px}
+<style>/* ===== Perspectives styles ===== */
+.blog-hero{background:var(--h);color:var(--h-text);padding:170px 0 100px;border-bottom:1px solid var(--border)}
+.blog-hero .section-tag{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:32px}
 .blog-hero h1{font-size:clamp(56px,10vw,108px);font-weight:200;line-height:.9;letter-spacing:-.05em;max-width:900px;margin-bottom:0}
-.blog-hero h1 em{color:var(--accent);font-style:normal;font-weight:400}
 .blog-hero .subtitle{max-width:520px;color:rgba(250,250,249,.65);font-size:16px;line-height:1.7;margin-top:24px}
-.cat-nav{margin-top:40px;display:flex;gap:24px;flex-wrap:wrap}
-.cat-nav a{color:rgba(250,250,249,.5);text-decoration:none;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid transparent;padding-bottom:4px;transition:all .2s}
-.cat-nav a:hover,.cat-nav a.active{color:var(--fg);border-color:var(--accent)}
-.blog-list{display:grid;grid-template-columns:1.3fr 1fr;gap:0;border-top:1px solid var(--border)}
-.blog-card{padding:56px 48px 64px 0;border-bottom:1px solid var(--border)}
-.blog-card:nth-child(2n){padding-left:48px;border-left:1px solid var(--border)}
-.blog-card .meta{font-family:'IBM Plex Mono',monospace;color:var(--accent);font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:28px}
-.blog-card .meta .cat-link{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--muted);font-size:11px}
-.blog-card .meta .cat-link:hover{color:var(--accent);border-color:var(--accent)}
-.blog-card h2{font-size:clamp(28px,3.8vw,52px);font-weight:300;line-height:1.02;letter-spacing:-.025em;margin-bottom:20px}
-.blog-card .tags{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
-.blog-card .tag{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--border);padding:3px 10px;border-radius:2px}
-.blog-card > a{color:var(--fg);text-decoration:none;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid var(--fg);padding-bottom:4px}
-.blog-card > a:hover{color:var(--accent);border-color:var(--accent)}
-@media(max-width:768px){.blog-list{grid-template-columns:1fr}.blog-card:nth-child(2n){padding-left:0;border-left:none}.blog-card{padding:40px 0 48px}}
-</style>
+.cat-nav{margin-top:48px;display:flex;gap:8px;flex-wrap:wrap}
+.cat-nav a{padding:8px 20px;border:1px solid rgba(250,250,249,.15);border-radius:3px;color:rgba(250,250,249,.55);text-decoration:none;font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;transition:all .2s}
+.cat-nav a:hover{border-color:var(--accent);color:var(--fg)}
+.cat-nav a.active{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.blog-list{padding:48px 0;border-top:1px solid var(--border)}
+.blog-list .section-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
+.blog-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.blog-card{padding:56px 0 56px 0;border-bottom:1px solid var(--border);border-right:1px solid var(--border);padding-right:48px;padding-left:48px}
+.blog-card:nth-child(-n+2){border-top:none}
+.blog-card .meta{font-family:'IBM Plex Mono',monospace;color:var(--accent);font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;display:flex;gap:8px;align-items:center}
+.blog-card .meta .cat-badge{background:rgba(212,175,55,.12);color:var(--accent);padding:2px 10px;border-radius:2px;font-size:9px;letter-spacing:.08em;text-decoration:none;transition:background .2s}
+.blog-card .meta .cat-badge:hover{background:rgba(212,175,55,.2)}
+.blog-card h2{font-size:clamp(24px,3.2vw,44px);font-weight:300;line-height:1.05;letter-spacing:-.02em;margin-bottom:16px}
+.blog-card .excerpt{font-size:14px;line-height:1.6;color:var(--muted);max-width:42em;margin-bottom:28px}
+.blog-card .tags{display:flex;gap:6px;margin-bottom:28px;flex-wrap:wrap}
+.blog-card .tag{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);padding:2px 10px;border-radius:2px}
+.blog-card .read-link{color:var(--fg);text-decoration:none;font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid var(--fg);padding-bottom:3px;transition:all .2s}
+.blog-card .read-link:hover{color:var(--accent);border-color:var(--accent)}
+@media(max-width:768px){.blog-hero{padding:140px 0 64px}.blog-grid{grid-template-columns:1fr}.blog-card{padding:40px 0;border-right:none;padding-right:0;padding-left:0}.blog-card:nth-child(2n){padding-left:0}}
+/* ===== End Perspectives ===== */</style>
 </head>
 <body>
 <header>
@@ -51,7 +55,6 @@
     <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     <nav>
       <a href="/inflexion-website/">Home</a>
-      
       <div class="dropdown">
         <span class="dropdown-toggle">Search & AI Discovery</span>
         <div class="dropdown-menu">
@@ -62,7 +65,6 @@
           </div>
         </div>
       </div>
-      
       <div class="dropdown">
         <span class="dropdown-toggle">Media</span>
         <div class="dropdown-menu">
@@ -73,7 +75,6 @@
           </div>
         </div>
       </div>
-      
       <a href="/inflexion-website/consultancy/">Consultancy</a>
       <div class="dropdown">
         <span class="dropdown-toggle">Perspectives</span>
@@ -93,6 +94,7 @@
 <main>
 <section class="blog-hero">
   <div class="cn">
+    <div class="section-tag">Inflexion / Perspectives</div>
     <h1>Perspectives</h1>
     <p class="subtitle">Notes on AI, discovery and retail media — organised into Resources, Industry Focus and News.</p>
     <div class="cat-nav">
@@ -103,78 +105,99 @@
     </div>
   </div>
 </section>
-<section class="cn" style="padding:0">
-  <div class="blog-list">
-<article class="blog-card">
-  <div class="meta">AEO · 10 min read · <a href="resources/" class="cat-link">Resources</a></div>
+<section class="blog-list">
+  <div class="cn">
+    <div class="section-label">Latest</div>
+    <div class="blog-grid">
+      <article class="blog-card">
+  <div class="meta"><span>AEO · 10 min read</span><a href="resources/" class="cat-badge">Resources</a></div>
   <h2>AEO: the shift from keyword rankings to citation tracking</h2>
-  <div class="tags"><span class="tag">aeo</span><span class="tag">ai-discovery</span><span class="tag">measurement</span></div>
-  <a href="../aeo-rankings-to-citations/">Read the argument →</a>
+  <p class="excerpt">Search is no longer about ranking for keywords. It is about being cited in AI answers. Here is how the measurement model is changing.</p>
+  <div class="tags"><span class="tag">AEO</span><span class="tag">AI Discovery</span><span class="tag">Measurement</span></div>
+  <a href="../aeo-rankings-to-citations/" class="read-link">Read the argument →</a>
 </article>
-<article class="blog-card">
-  <div class="meta">AI Discovery · 9 min read · <a href="resources/" class="cat-link">Resources</a></div>
+      <article class="blog-card">
+  <div class="meta"><span>AI Discovery · 9 min read</span><a href="resources/" class="cat-badge">Resources</a></div>
   <h2>Technical GEO: AI crawlers miss JavaScript-injected structured data</h2>
-  <div class="tags"><span class="tag">technical-seo</span><span class="tag">ai-crawlers</span><span class="tag">structured-data</span></div>
-  <a href="../technical-geo-ai-crawlers/">Read the argument →</a>
+  <p class="excerpt">Your schema can pass Google's test and still be absent from the raw HTML an AI crawler receives.</p>
+  <div class="tags"><span class="tag">Technical SEO</span><span class="tag">AI Crawlers</span></div>
+  <a href="../technical-geo-ai-crawlers/" class="read-link">Read the argument →</a>
 </article>
-<article class="blog-card">
-  <div class="meta">Measurement · 8 min read · <a href="resources/" class="cat-link">Resources</a></div>
+      <article class="blog-card">
+  <div class="meta"><span>Measurement · 8 min read</span><a href="resources/" class="cat-badge">Resources</a></div>
   <h2>Your AI visibility score is probably too precise</h2>
-  <div class="tags"><span class="tag">measurement</span><span class="tag">ai-visibility</span><span class="tag">confidence</span></div>
-  <a href="../ai-visibility-uncertainty/">Read the argument →</a>
+  <p class="excerpt">AI answers vary between runs. A single citation score can give a false sense of certainty.</p>
+  <div class="tags"><span class="tag">Measurement</span><span class="tag">AI Visibility</span></div>
+  <a href="../ai-visibility-uncertainty/" class="read-link">Read the argument →</a>
 </article>
-<article class="blog-card">
-  <div class="meta">Retail Media · 9 min read · <a href="industry-focus/" class="cat-link">Industry Focus</a></div>
-  <h2>Amazon Rufus and the sponsored prompt evolution</h2>
-  <div class="tags"><span class="tag">amazon</span><span class="tag">retail-media</span><span class="tag">conversational-commerce</span></div>
-  <a href="../amazon-rufus-sponsored-prompts/">Read the argument →</a>
-</article>
-<article class="blog-card">
-  <div class="meta">Amazon · 8 min read · <a href="industry-focus/" class="cat-link">Industry Focus</a></div>
-  <h2>Amazon AI Creative Studio and the collapse of production timelines</h2>
-  <div class="tags"><span class="tag">amazon</span><span class="tag">creative-production</span><span class="tag">ai-video</span></div>
-  <a href="../amazon-ai-creative-studio/">Read the argument →</a>
-</article>
-<article class="blog-card">
-  <div class="meta">Amazon · 8 min read · <a href="industry-focus/" class="cat-link">Industry Focus</a></div>
-  <h2>Amazon’s AI SQL generator changes who can use retail data</h2>
-  <div class="tags"><span class="tag">amazon</span><span class="tag">data-analytics</span><span class="tag">amc</span></div>
-  <a href="../amazon-marketing-cloud-sql/">Read the argument →</a>
-</article>
-<article class="blog-card">
-  <div class="meta">Retail Media · 8 min read · <a href="industry-focus/" class="cat-link">Industry Focus</a></div>
-  <h2>Retail media is moving offsite. The measurement has not caught up</h2>
-  <div class="tags"><span class="tag">retail-media</span><span class="tag">measurement</span><span class="tag">programmatic</span></div>
-  <a href="../offsite-retail-media-measurement/">Read the argument →</a>
-</article>
-<article class="blog-card">
-  <div class="meta">Retail Media · 12 min read · <a href="industry-focus/" class="cat-link">Industry Focus</a></div>
-  <h2>AI in retail media: the shelf is becoming a decision system</h2>
-  <div class="tags"><span class="tag">retail-media</span><span class="tag">ai</span><span class="tag">product-discovery</span></div>
-  <a href="../ai-in-retail-media/">Read the argument →</a>
-</article>
-<article class="blog-card">
-  <div class="meta">Media · 9 min read · <a href="industry-focus/" class="cat-link">Industry Focus</a></div>
-  <h2>Agentic media buying: from dashboards to autonomous execution</h2>
-  <div class="tags"><span class="tag">programmatic</span><span class="tag">ai-agents</span><span class="tag">media-buying</span></div>
-  <a href="../agentic-media-buying/">Read the argument →</a>
-</article>
-<article class="blog-card">
-  <div class="meta">AI Discovery · 8 min read · <a href="news/" class="cat-link">News</a></div>
+      <article class="blog-card">
+  <div class="meta"><span>AI Discovery · 8 min read</span><a href="resources/" class="cat-badge">Resources</a></div>
   <h2>AI citations come from places your media plan does not control</h2>
-  <div class="tags"><span class="tag">ai-citations</span><span class="tag">source-attribution</span><span class="tag">media-planning</span></div>
-  <a href="../ai-citations-source-map/">Read the argument →</a>
+  <p class="excerpt">Reddit, Wikipedia and YouTube appear prominently in citation data. A source map is more useful than another generic content calendar.</p>
+  <div class="tags"><span class="tag">AI Citations</span><span class="tag">Source Attribution</span></div>
+  <a href="../ai-citations-source-map/" class="read-link">Read the argument →</a>
 </article>
-<article class="blog-card">
-  <div class="meta">AI Discovery · 8 min read · <a href="news/" class="cat-link">News</a></div>
+      <article class="blog-card">
+  <div class="meta"><span>Retail Media · 9 min read</span><a href="industry-focus/" class="cat-badge">Industry Focus</a></div>
+  <h2>Amazon Rufus and the sponsored prompt evolution</h2>
+  <p class="excerpt">Amazon Rufus reached 250 million monthly users. Then came sponsored prompts.</p>
+  <div class="tags"><span class="tag">Amazon</span><span class="tag">Retail Media</span></div>
+  <a href="../amazon-rufus-sponsored-prompts/" class="read-link">Read the argument →</a>
+</article>
+      <article class="blog-card">
+  <div class="meta"><span>Amazon · 8 min read</span><a href="industry-focus/" class="cat-badge">Industry Focus</a></div>
+  <h2>Amazon AI Creative Studio and the collapse of production timelines</h2>
+  <p class="excerpt">Nova foundation models convert a single hero image into dozens of video variations in minutes.</p>
+  <div class="tags"><span class="tag">Amazon</span><span class="tag">Creative Production</span></div>
+  <a href="../amazon-ai-creative-studio/" class="read-link">Read the argument →</a>
+</article>
+      <article class="blog-card">
+  <div class="meta"><span>Amazon · 8 min read</span><a href="industry-focus/" class="cat-badge">Industry Focus</a></div>
+  <h2>Amazon’s AI SQL generator changes who can use retail data</h2>
+  <p class="excerpt">Amazon Marketing Cloud added natural-language audience building and a five-year purchase lookback.</p>
+  <div class="tags"><span class="tag">Amazon</span><span class="tag">Data Analytics</span></div>
+  <a href="../amazon-marketing-cloud-sql/" class="read-link">Read the argument →</a>
+</article>
+      <article class="blog-card">
+  <div class="meta"><span>Retail Media · 8 min read</span><a href="industry-focus/" class="cat-badge">Industry Focus</a></div>
+  <h2>Retail media is moving offsite. The measurement has not caught up</h2>
+  <p class="excerpt">Retail networks are extending into CTV, audio and open-web programmatic.</p>
+  <div class="tags"><span class="tag">Retail Media</span><span class="tag">Measurement</span></div>
+  <a href="../offsite-retail-media-measurement/" class="read-link">Read the argument →</a>
+</article>
+      <article class="blog-card">
+  <div class="meta"><span>Retail Media · 12 min read</span><a href="industry-focus/" class="cat-badge">Industry Focus</a></div>
+  <h2>AI in retail media: the shelf is becoming a decision system</h2>
+  <p class="excerpt">Retail media started as sponsored placement. AI is making product data, reviews and price more important.</p>
+  <div class="tags"><span class="tag">Retail Media</span><span class="tag">AI</span></div>
+  <a href="../ai-in-retail-media/" class="read-link">Read the argument →</a>
+</article>
+      <article class="blog-card">
+  <div class="meta"><span>Media · 9 min read</span><a href="news/" class="cat-badge">News</a></div>
+  <h2>Agentic media buying: from dashboards to autonomous execution</h2>
+  <p class="excerpt">AI agents are replacing channel-by-channel media buying with portfolio-based coordination.</p>
+  <div class="tags"><span class="tag">Programmatic</span><span class="tag">AI Agents</span></div>
+  <a href="../agentic-media-buying/" class="read-link">Read the argument →</a>
+</article>
+      <article class="blog-card">
+  <div class="meta"><span>AI Discovery · 8 min read</span><a href="news/" class="cat-badge">News</a></div>
   <h2>Shoppable AI search: the battle for share of generated sentence</h2>
-  <div class="tags"><span class="tag">conversational-commerce</span><span class="tag">ai-search</span><span class="tag">shopping</span></div>
-  <a href="../shoppable-ai-search/">Read the argument →</a>
+  <p class="excerpt">Dunnhumby identifies the birth of shoppable AI search where brands battle for share of generated sentence.</p>
+  <div class="tags"><span class="tag">AI Search</span><span class="tag">Commerce</span></div>
+  <a href="../shoppable-ai-search/" class="read-link">Read the argument →</a>
 </article>
+    </div>
+  </div>
+</section>
+<section style="background:var(--h);color:var(--h-text);padding:80px 0;border-top:1px solid var(--border);text-align:center">
+  <div class="cn">
+    <h2 style="font-size:clamp(32px,5vw,64px);font-weight:200;line-height:1.05;letter-spacing:-.02em;max-width:600px;margin:0 auto 32px">Want the next note on <em style="color:var(--accent);font-style:normal">AI, discovery and retail media?</em></h2>
+    <p style="color:rgba(250,250,249,.65);font-size:16px;max-width:440px;margin:0 auto 40px">Start with the baseline. We will show you where your brand appears in AI systems and retail algorithms.</p>
+    <a href="/inflexion-website/contact/" class="btn" style="display:inline-block">Run the baseline →</a>
   </div>
 </section>
 </main>
 <footer><div style="max-width:1280px;margin:0 auto;padding:0 48px"><div class="ftr"><div><a href="/inflexion-website/"><img src="/inflexion-website/assets/images/inflexion-media-logo.png" alt="Inflexion" height="36" style="height:55px;width:auto;display:block;margin-bottom:16px"></a><p>Inflexion journal.</p></div><div><div class="fh">Services</div><a href="/inflexion-website/aeo/">Organic & AI Search</a><a href="/inflexion-website/ecommerce-whitepaper/" style="color:var(--accent)">Whitepaper</a>
-            <a href="/inflexion-website/retail-media/">Retail Media</a><a href="/inflexion-website/retail-media/">Amazon</a><a href="/inflexion-website/consultancy/">AI Consultancy</a></div><div><div class="fh">Company</div><a href="/inflexion-website/measurement/">Measurement</a><a href="/inflexion-website/perspectives/">Perspectives</a></div><div><div class="fh">Contact</div><a href="/inflexion-website/contact/">Start the audit</a><a href="mailto:hello@inflexion.co">hello@inflexion.co</a></div></div><div class="btm"><span>© 2026 Inflexion</span><span>Privacy · Terms</span></div></div></footer>
+            <a href="/inflexion-website/retail-media/">Retail Media</a><a href="/inflexion-website/retail-media/">Amazon</a><a href="/inflexion-website/consultancy/">AI Consultancy</a></div><div><div class="fh">Company</div><a href="/inflexion-website/measurement/">Measurement</a><a href="/inflexion-website/perspectives/">Perspectives</a></div><div><div class="fh">Contact</div><a href="/inflexion-website/contact/">Start the audit</a><a href="mailto:hello@inflexion.co">hello@inflexion.co</a></div></div><div class="btm"><span>© 2026 Inflexion</span><span>Privacy · Terms</span></div></div></footer><script>(function(){var h=document.querySelector('.hamburger'),n=document.querySelector('header nav');if(h)h.addEventListener('click',function(){n.classList.toggle('open');h.classList.toggle('open')});n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');h.classList.remove('open')})});document.querySelectorAll('.dropdown-toggle').forEach(function(t){t.addEventListener('click',function(e){e.preventDefault();var m=this.nextElementSibling;m.style.display=m.style.display==='block'?'none':'block'})})})();</script>
 </body>
 </html>
