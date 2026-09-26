@@ -129,7 +129,7 @@ header nav a:hover{color:var(--fg)}
 /* --- Hero (shared base) --- */
 .hero{
   min-height:100vh;display:flex;align-items:center;
-  padding:120px 0 80px;background:var(--h);color:var(--h-text);
+  padding:200px 0 80px;background:var(--h);color:var(--h-text);
   overflow:hidden;position:relative;
   scroll-margin-top:var(--header-h)
 }
@@ -556,7 +556,7 @@ section{padding:var(--section-pad) 0}
   .feat-card{padding:24px 20px}
   .value-grid{display:grid;grid-template-columns:1fr;gap:24px}
   .chart-wrapper canvas{max-width:100%}
-  .hero{padding:80px 0 60px}
+  .hero{padding:140px 0 60px}
   .hero .sup{font-size:9px;margin-bottom:16px}
   .hero h1{font-size:clamp(28px,8vw,40px);margin-bottom:24px}
   .hero .desc{font-size:clamp(14px,3.5vw,16px);margin-bottom:32px}
