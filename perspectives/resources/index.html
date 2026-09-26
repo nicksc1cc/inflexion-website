@@ -1,0 +1,88 @@
+---
+nav_active: "perspectives/"
+nav_dropdown_text: "Search & AI Discovery"
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Resources | Inflexion</title>
+<meta name="description" content="Guides, frameworks and fundamentals on AI discovery, search and retail media measurement.">
+<link rel="canonical" href="https://nicksc1cc.github.io/inflexion-website/perspectives/resources/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Resources | Inflexion">
+<meta property="og:description" content="Guides, frameworks and fundamentals on AI discovery, search and retail media measurement.">
+<meta property="og:url" content="https://nicksc1cc.github.io/inflexion-website/perspectives/resources/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Resources | Inflexion">
+<meta name="twitter:description" content="Guides, frameworks and fundamentals on AI discovery, search and retail media measurement.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"Home","item":"https://nicksc1cc.github.io/inflexion-website/"},
+{"@type":"ListItem","position":2,"name":"Perspectives","item":"https://nicksc1cc.github.io/inflexion-website/perspectives/"},
+{"@type":"ListItem","position":3,"name":"Resources","item":"https://nicksc1cc.github.io/inflexion-website/perspectives/resources/"}
+]}
+</script>
+
+<link rel="stylesheet" href="../../assets/common.css">
+<style>
+.blog-hero{background:var(--h);color:var(--h-text);padding:170px 0 110px}
+.blog-hero h1{font-size:clamp(56px,10vw,108px);font-weight:200;line-height:.9;letter-spacing:-.05em;max-width:900px;margin-bottom:0}
+.blog-hero .subtitle{max-width:520px;color:rgba(250,250,249,.65);font-size:16px;line-height:1.7;margin-top:24px}
+.cat-nav{margin-top:40px;display:flex;gap:24px;flex-wrap:wrap}
+.cat-nav a{color:rgba(250,250,249,.5);text-decoration:none;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid transparent;padding-bottom:4px;transition:all .2s}
+.cat-nav a:hover,.cat-nav a.active{color:var(--fg);border-color:var(--accent)}
+.blog-list{display:grid;grid-template-columns:1.3fr 1fr;gap:0;border-top:1px solid var(--border)}
+.blog-card{padding:56px 48px 64px 0;border-bottom:1px solid var(--border)}
+.blog-card:nth-child(2n){padding-left:48px;border-left:1px solid var(--border)}
+.blog-card .meta{font-family:'IBM Plex Mono',monospace;color:var(--accent);font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:28px}
+.blog-card h2{font-size:clamp(28px,3.8vw,52px);font-weight:300;line-height:1.02;letter-spacing:-.025em;margin-bottom:20px}
+.blog-card .tags{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
+.blog-card .tag{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--border);padding:3px 10px;border-radius:2px}
+.blog-card > a{color:var(--fg);text-decoration:none;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid var(--fg);padding-bottom:4px}
+.blog-card > a:hover{color:var(--accent);border-color:var(--accent)}
+@media(max-width:768px){.blog-list{grid-template-columns:1fr}.blog-card:nth-child(2n){padding-left:0;border-left:none}.blog-card{padding:40px 0 48px}}
+</style>
+</head>
+<body>
+{% include nav.html %}
+<main>
+<section class="blog-hero">
+  <div class="cn">
+    <h1>Resources</h1>
+    <p class="subtitle">Guides, frameworks and fundamentals on AI discovery, search and retail media measurement.</p>
+    <div class="cat-nav">
+      <a href="../">All</a>
+      <a href="../resources/" class="active">Resources</a>
+      <a href="../industry-focus/">Industry Focus</a>
+      <a href="../news/">News</a>
+    </div>
+  </div>
+</section>
+<section class="cn" style="padding:0">
+  <div class="blog-list">
+<article class="blog-card">
+  <div class="meta">AEO · 10 min read</div>
+  <h2>AEO: the shift from keyword rankings to citation tracking</h2>
+  <div class="tags"><span class="tag">aeo</span><span class="tag">ai-discovery</span><span class="tag">measurement</span></div>
+  <a href="../../aeo-rankings-to-citations/">Read the argument →</a>
+</article>
+<article class="blog-card">
+  <div class="meta">AI Discovery · 9 min read</div>
+  <h2>Technical GEO: AI crawlers miss JavaScript-injected structured data</h2>
+  <div class="tags"><span class="tag">technical-seo</span><span class="tag">ai-crawlers</span><span class="tag">structured-data</span></div>
+  <a href="../../technical-geo-ai-crawlers/">Read the argument →</a>
+</article>
+<article class="blog-card">
+  <div class="meta">Measurement · 8 min read</div>
+  <h2>Your AI visibility score is probably too precise</h2>
+  <div class="tags"><span class="tag">measurement</span><span class="tag">ai-visibility</span><span class="tag">confidence</span></div>
+  <a href="../../ai-visibility-uncertainty/">Read the argument →</a>
+</article>
+  </div>
+</section>
+</main>
+{% include footer.html %}
+</body>
+</html>

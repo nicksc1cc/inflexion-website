@@ -28,7 +28,17 @@
       </div>
       
       <a href="{{ site.baseurl | default: '' }}/consultancy/" {% if page.nav_active == 'consultancy.html' %}style="color:var(--fg)"{% endif %}>Consultancy</a>
-      <a href="{{ site.baseurl | default: '' }}/blog/" {% if page.nav_active == 'blog.html' %}style="color:var(--fg)"{% endif %}>Blog</a>
+      <div class="dropdown">
+        <span class="dropdown-toggle">Perspectives</span>
+        <div class="dropdown-menu">
+          <div class="dropdown-menu-inner">
+            <a href="{{ site.baseurl | default: '' }}/perspectives/" {% if page.nav_active == 'perspectives/' %}style="color:var(--fg)"{% endif %}>All</a>
+            <a href="{{ site.baseurl | default: '' }}/perspectives/resources/" {% if page.nav_active == 'perspectives/' %}style="color:var(--fg)"{% endif %}>Resources</a>
+            <a href="{{ site.baseurl | default: '' }}/perspectives/industry-focus/" {% if page.nav_active == 'perspectives/' %}style="color:var(--fg)"{% endif %}>Industry Focus</a>
+            <a href="{{ site.baseurl | default: '' }}/perspectives/news/" {% if page.nav_active == 'perspectives/' %}style="color:var(--fg)"{% endif %}>News</a>
+          </div>
+        </div>
+      </div>
       <a href="{{ site.baseurl | default: '' }}/contact/" class="cta-btn" {% if page.nav_active == 'contact.html' %}style="background:var(--fg);color:var(--bg)"{% endif %}>Contact us</a>
     </nav>
   </div>
