@@ -82,12 +82,12 @@ nav_dropdown_text: "Search & AI Discovery"
   </div>
 </section>
 
-<!-- 01. THE PROBLEM -->
+<!-- 01. THE PROBLEM: NO BASELINE EXISTS -->
 <section id="problem" style="background:#fff">
   <div class="section-inner" style="max-width:900px">
     <div class="tag" style="margin-bottom:16px">The problem</div>
     <h2 class="d2" style="margin-bottom:16px">You cannot improve what <span style="font-weight:600;color:var(--accent)">you do not measure.</span></h2>
-    <p class="prose" style="margin-bottom:24px;max-width:36em">Most brands have no baseline for their AI visibility. They know what their Google rankings look like. They know their Amazon share of voice. But they have no picture of how often they appear in AI-generated answers, across which models, in response to which buyer questions, and against which competitors.</p>
+    <p class="prose" style="margin-bottom:24px;max-width:36em">Most brands have no baseline for their AI visibility. They know their Google rankings. They know their Amazon share of voice. But they have no picture of how often they appear in AI-generated answers, across which models, in response to which buyer questions, and against which competitors.</p>
     <div class="big-stat" style="padding-top:0;padding-bottom:0">
       <div class="v">30%</div>
       <div class="c">of brands stay visible across consecutive AI sessions. The other 70% are not consistently visible across sessions. <strong>A baseline is the only way to tell if you are gaining or losing ground.</strong> <span style="font-size:10px;color:var(--muted2);display:block;margin-top:8px">AirOps, 2026 State of AI Search</span></div>
@@ -98,12 +98,12 @@ nav_dropdown_text: "Search & AI Discovery"
 
 <div class="divider"></div>
 
-<!-- 02. WHAT WE TRACK -->
+<!-- 02. WHAT WE ACTUALLY TRACK -->
 <section id="measure" style="background:var(--h);color:var(--h-text);padding:100px 0">
   <div class="section-inner">
     <div class="tag" style="color:rgba(250,250,249,.5);margin-bottom:16px">What we track</div>
-    <h2 class="d2" style="margin-bottom:16px">Multi-model, <span style="font-weight:600;color:var(--accent)">multi-dimension.</span></h2>
-    <p class="prose" style="font-size:15px;line-height:1.7;color:rgba(250,250,249,.6);font-weight:300;margin-bottom:24px;max-width:36em">We run targeted prompts daily across the models your buyers actually use. The result is a dataset that tells you where you stand, who you are competing against, and what is driving the answers, with visibility into the prompts, responses and citation sources included in the dataset.</p>
+    <h2 class="d2" style="margin-bottom:16px">Daily prompts across the models your buyers use.</h2>
+    <p class="prose" style="font-size:15px;line-height:1.7;color:rgba(250,250,249,.6);font-weight:300;margin-bottom:24px;max-width:36em">We run targeted prompts daily across the models your buyers actually use. The result is a dataset that tells you where you stand, who you are competing against, and what is driving the answers.</p>
 
     <div class="stat-row dark">
       <div class="stat-card"><div class="v">8+</div><div class="l">AI models tracked daily</div><div class="s">ChatGPT, Perplexity, Gemini, Claude, Rufus & more</div></div>
@@ -112,76 +112,6 @@ nav_dropdown_text: "Search & AI Discovery"
       <div class="stat-card"><div class="v">100%</div><div class="l">Transparent methodology</div><div class="s">Every prompt, response & citation logged</div></div>
     </div>
 
-    <!-- VISUAL: Multi-Model Radar / Spider Chart -->
-    <div class="chart-section" style="margin-top:64px">
-      <h3 class="chart-title" style="font-size:18px;font-weight:500;margin-bottom:8px;color:var(--h-text)">Brand Visibility Profile Across Models</h3>
-      <p class="chart-caption" style="font-size:13px;color:rgba(250,250,249,.5);margin-bottom:24px;max-width:36em">Radar chart comparing your brand's citation rate, mention rate, sentiment, position, and consistency across 6 major AI platforms. Each axis = one metric; larger area = stronger overall presence.</p>
-      <div class="chart-wrapper" style="position:relative;max-width:500px;margin:0 auto">
-        <canvas id="radar-chart" width="500" height="500" style="display:block;width:100%;height:auto"></canvas>
-      </div>
-      <p class="chart-note" style="font-size:11px;color:rgba(250,250,249,.4);margin-top:12px;text-align:center">Mock data, replace with live API data. Axes: Citation Rate, Mention Rate, Sentiment Score, Avg. Position, Consistency, Prominence.</p>
-    </div>
-
-    <!-- VISUAL: Small Multiples - Per-Model Trend Sparklines -->
-    <div class="chart-section" style="margin-top:64px">
-      <h3 class="chart-title" style="font-size:18px;font-weight:500;margin-bottom:8px;color:var(--h-text)">Weekly Visibility Trend by Model</h3>
-      <p class="chart-caption" style="font-size:13px;color:rgba(250,250,249,.5);margin-bottom:24px;max-width:36em">Sparklines show 12-week share-of-voice trend per model. Identical y-axis scale enables direct comparison. Min/max markers flag volatility.</p>
-      <div class="sparkline-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:0 auto;max-width:900px">
-        <div class="sparkline-card" style="background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08);border-radius:4px;padding:16px">
-          <div class="sparkline-label" style="font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px">ChatGPT</div>
-          <canvas id="spark-chatgpt" width="180" height="60" style="display:block;width:100%;height:auto"></canvas>
-          <div class="sparkline-meta" style="display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:rgba(250,250,249,.4)"><span>Min: 12%</span><span>Max: 28%</span></div>
-        </div>
-        <div class="sparkline-card" style="background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08);border-radius:4px;padding:16px">
-          <div class="sparkline-label" style="font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px">Perplexity</div>
-          <canvas id="spark-perplexity" width="180" height="60" style="display:block;width:100%;height:auto"></canvas>
-          <div class="sparkline-meta" style="display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:rgba(250,250,249,.4)"><span>Min: 8%</span><span>Max: 22%</span></div>
-        </div>
-        <div class="sparkline-card" style="background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08);border-radius:4px;padding:16px">
-          <div class="sparkline-label" style="font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px">Gemini</div>
-          <canvas id="spark-gemini" width="180" height="60" style="display:block;width:100%;height:auto"></canvas>
-          <div class="sparkline-meta" style="display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:rgba(250,250,249,.4)"><span>Min: 5%</span><span>Max: 18%</span></div>
-        </div>
-        <div class="sparkline-card" style="background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08);border-radius:4px;padding:16px">
-          <div class="sparkline-label" style="font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px">Claude</div>
-          <canvas id="spark-claude" width="180" height="60" style="display:block;width:100%;height:auto"></canvas>
-          <div class="sparkline-meta" style="display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:rgba(250,250,249,.4)"><span>Min: 3%</span><span>Max: 15%</span></div>
-        </div>
-        <div class="sparkline-card" style="background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08);border-radius:4px;padding:16px">
-          <div class="sparkline-label" style="font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px">Amazon Rufus</div>
-          <canvas id="spark-rufus" width="180" height="60" style="display:block;width:100%;height:auto"></canvas>
-          <div class="sparkline-meta" style="display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:rgba(250,250,249,.4)"><span>Min: 1%</span><span>Max: 9%</span></div>
-        </div>
-        <div class="sparkline-card" style="background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08);border-radius:4px;padding:16px">
-          <div class="sparkline-label" style="font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px">Copilot</div>
-          <canvas id="spark-copilot" width="180" height="60" style="display:block;width:100%;height:auto"></canvas>
-          <div class="sparkline-meta" style="display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:rgba(250,250,249,.4)"><span>Min: 2%</span><span>Max: 11%</span></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="feat-grid">
-      <div class="feat-card">
-              <div class="t">Multi-model tracking</div>
-              <div class="hd">Monitor brand presence across every major AI platform.</div>
-              <div class="bd">ChatGPT, Perplexity, Google Gemini, Claude, Amazon Rufus, Walmart Sparky, Grok, and more. Models disagree more than expected; a brand well-cited in Claude can be entirely absent from GPT. The reported 11% domain overlap illustrates the difference. We track multiple platforms to show how results vary between them.</div>
-            </div>
-      <div class="feat-card">
-        <div class="t">Prompt-level analysis</div>
-        <div class="hd">See the exact prompts and responses behind every mention.</div>
-        <div class="bd">Understand not just how often you appear, but how you are positioned versus competitors across different buyer scenarios: from broad awareness queries like "best [category]" to comparison queries like "[brand] vs [brand]" and purchase-intent questions. Every response is captured and categorised.</div>
-      </div>
-      <div class="feat-card">
-        <div class="t">Citation intelligence</div>
-        <div class="hd">Discover which sources influence AI recommendations in your category.</div>
-        <div class="bd">Reddit, Wikipedia, Quora, YouTube, analyst reports, niche forums: the source map shows where competitors earn citations that you do not, informing your content and PR strategies. One cited study reports that 82% of AI citations came from earned media, not owned content. We map where yours land.</div>
-      </div>
-      <div class="feat-card">
-        <div class="t">Sentiment analysis</div>
-        <div class="hd">Monitor how AI platforms position your brand versus competitors.</div>
-        <div class="bd">Track sentiment patterns across different models and topics. Are you recommended positively? Mentioned neutrally? Absent? The sentiment picture tells you whether your brand narrative is landing where it matters, and which competitors are more positively positioned in AI answers.</div>
-      </div>
-    </div>
     <p class="prose" style="margin-top:24px;color:rgba(250,250,249,.5);font-size:14px">Limitation: model outputs vary between runs. We run repeated sampling and report variance, not point estimates. The baseline is a distribution, not a single number.</p>
   </div>
 </section>
@@ -194,7 +124,6 @@ nav_dropdown_text: "Search & AI Discovery"
     <div class="tag" style="margin-bottom:16px">Competitive intelligence</div>
     <h2 class="d2" style="margin-bottom:48px">Know where you stand <span style="font-weight:600;color:var(--accent)">against every competitor.</span></h2>
 
-    <!-- VISUAL: Slopegraph - Competitive Share of Voice Shift -->
     <div class="chart-section" style="margin-bottom:48px">
       <h3 class="chart-title" style="font-size:18px;font-weight:500;margin-bottom:8px">Competitive Share of Voice: 3-Month Shift</h3>
       <p class="chart-caption" style="font-size:13px;color:var(--muted);margin-bottom:24px;max-width:36em">Slopegraph comparing your brand's AI SoV vs top 4 competitors across 6 models. Lines slope up = gaining ground; down = losing. Direct labels replace legend.</p>
@@ -231,7 +160,6 @@ nav_dropdown_text: "Search & AI Discovery"
     <h2 class="d2" style="margin-bottom:16px">What the data <span style="font-weight:600;color:var(--accent)">actually says.</span></h2>
     <p class="prose" style="font-size:15px;line-height:1.7;color:var(--muted);font-weight:300;margin-bottom:32px;max-width:36em">Research from Princeton, Similarweb, Ahrefs and Muck Rack is cited below, with sources and dates shown for each figure.</p>
 
-    <!-- VISUAL: Citation Source Breakdown - Radial / Donut with annotations -->
     <div class="chart-section" style="margin-bottom:48px">
       <h3 class="chart-title" style="font-size:18px;font-weight:500;margin-bottom:8px">Where AI Citations Come From: Source Type Distribution</h3>
       <p class="chart-caption" style="font-size:13px;color:var(--muted);margin-bottom:24px;max-width:36em">Radial area chart showing citation source composition across 75,000 brands. Earned media dominates at 82%; owned content only 12%. Segment angles = share; radius = trust score (citation velocity × authority).</p>
@@ -254,7 +182,7 @@ nav_dropdown_text: "Search & AI Discovery"
 
 <div class="divider"></div>
 
-<!-- 05. THE DIFFERENCE BETWEEN VISIBILITY AND ATTRIBUTION -->
+<!-- 05. VISIBILITY VS ATTRIBUTION -->
 <section id="applied" style="background:#fff">
   <div class="section-inner" style="max-width:900px">
     <div class="tag" style="margin-bottom:16px">Visibility vs attribution</div>
