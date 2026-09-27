@@ -41,6 +41,9 @@ Inflexion helps brands win visibility across AI answer engines (ChatGPT, Gemini,
 - https://nicksc1cc.github.io/inflexion-website/ai-visibility-uncertainty.html : Uncertainty in AI visibility measurement
 - https://nicksc1cc.github.io/inflexion-website/offsite-retail-media-measurement.html : Offsite retail media measurement
 - https://nicksc1cc.github.io/inflexion-website/amazon-marketing-cloud-sql.html : Amazon Marketing Cloud SQL generator
+- https://nicksc1cc.github.io/inflexion-website/ai-impact-digital-advertising/ : AI impact on digital advertising
+- https://nicksc1cc.github.io/inflexion-website/perspectives/ : Inflexion Perspectives
+- https://nicksc1cc.github.io/inflexion-website/perspectives/news/ : News analysis
 
 ## Pricing
 
