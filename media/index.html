@@ -16,43 +16,31 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/common.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <style>
-.masthead{position:relative;overflow:hidden;background:var(--bg);padding:140px 0 100px}
-.masthead h1{font-size:clamp(32px,4vw,56px);font-weight:500;letter-spacing:-1.2px;line-height:1.08;max-width:780px;margin:0 0 16px}
-.masthead .c{font-size:14px;color:var(--muted);max-width:600px;line-height:1.7;margin:0 0 32px}
-.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:20px;margin:48px 0 0;padding:0}
-.stat{background:var(--panel);border:1px solid var(--border);border-radius:4px;padding:20px}
-.stat .v{font:500 clamp(28px,3.5vw,42px)/1 var(--ff);letter-spacing:-1px;color:var(--accent);margin:0 0 4px}
-.stat .l{font-size:11px;color:var(--muted);margin:0 0 8px;line-height:1.4}
-.stat .s{font-size:10px;color:var(--mute);font-family:var(--fm)}
-.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
-.svc{border:1px solid var(--border);border-radius:4px;padding:32px;background:var(--panel)}
-.svc h3{font-size:20px;font-weight:600;margin:0 0 12px}
-.svc p{font-size:14px;color:var(--muted);line-height:1.7;margin:0 0 16px}
-.svc .tag{display:inline-block;font-size:9px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 12px}
-.proc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin:48px 0}
-.proc-step{border:1px solid var(--border);border-radius:4px;padding:28px;background:var(--panel);position:relative}
-.proc-step .n{font-size:9px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin:0 0 8px}
-.proc-step h4{font-size:16px;font-weight:600;margin:0 0 8px}
-.proc-step p{font-size:13px;color:var(--muted);line-height:1.6;margin:0}
-.eff-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
-.eff-card{border:1px solid var(--border);border-radius:4px;padding:24px;background:var(--panel)}
-.eff-card .n{font:500 28px/1 var(--ff);color:var(--accent);margin:0 0 8px}
-.eff-card h4{font-size:15px;font-weight:600;margin:0 0 6px}
-.eff-card p{font-size:13px;color:var(--muted);line-height:1.5;margin:0}
-.stk{display:flex;gap:32px;flex-wrap:wrap;margin:48px 0;padding:40px;background:var(--panel);border:1px solid var(--border);border-radius:4px}
-.stk-d{flex:1;min-width:220px}
-.stk-d .l{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 8px}
-.stk-d h3{font-size:20px;font-weight:600;margin:0 0 12px}
-.stk-d p{font-size:14px;color:var(--muted);line-height:1.7;margin:0 0 16px}
-.stk-d .tag{display:inline-block;font-size:10px;font-weight:500;padding:3px 10px;border-radius:2px;background:rgba(21,94,94,.08);color:var(--accent);margin:0 6px 6px 0}
-.cta-n{display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:48px;background:var(--panel);border:1px solid var(--border);border-radius:4px;margin:48px 0}
-.cta-n div{display:flex;flex-direction:column;justify-content:center}
-.cta-n h3{font-size:22px;font-weight:600;margin:0 0 12px}
-.cta-n p{font-size:14px;color:var(--muted);line-height:1.6;margin:0}
-@media(max-width:768px){.stk{flex-direction:column;padding:24px}.cta-n{grid-template-columns:1fr;padding:24px}.masthead{padding:100px 0 60px}}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.svc-grid>div{border-right:1px solid var(--border)}
+.svc-grid>div:last-child{border-right:none}
+.svc-grid .tag{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.svc-grid h3{font-size:22px;font-weight:600;line-height:1.2;margin-bottom:16px;color:var(--fg)}
+.svc-grid p{font-size:15px;line-height:1.7;color:var(--muted)}
+.proc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin:48px 0}
+.proc-step{border:1px solid var(--border);border-radius:4px;padding:32px;background:#fff}
+.proc-step .n{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.proc-step h4{font-size:16px;font-weight:600;margin-bottom:8px}
+.proc-step p{font-size:15px;line-height:1.7;color:var(--muted)}
+.eff-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.stk{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.stk-d{border:1px solid var(--border);border-radius:4px;padding:32px;background:#fff}
+.stk-d .l{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.stk-d h3{font-size:18px;font-weight:600;margin-bottom:12px}
+.stk-d p{font-size:14px;line-height:1.7;color:var(--muted)}
+@media(max-width:768px){.svc-grid{grid-template-columns:1fr}.svc-grid>div{border-right:none!important}}
 </style>
+<link rel="stylesheet" href="../assets/common.css">
+
 </head>
 <body>
 
@@ -99,19 +87,20 @@
 </header>
 
 <!-- ===== MASTHEAD ===== -->
-<section class="masthead" id="top">
+<section class="hero" id="hero">
+  <canvas id="data-field-canvas" aria-hidden="true"></canvas>
   <div class="w">
     <div class="sup">Media & Retail</div>
     <h1>Retail media, Amazon and programmatic — one measurement framework that shows what actually moved.</h1>
-    <p class="c">Retail media is the fastest-growing channel in advertising, but most brands cannot tell whether their investment is building shelf position or just reporting back a number that looks good. Paid and organic live in separate dashboards. Attribution is fragmented across networks. The algorithmic shelf — Amazon, Walmart, Instacart, AI-generated answers — works better when you connect the pieces. We put paid position, organic rank, product signals and market data in one view, then measure what changed.</p>
+    <p class="desc">Retail media is the fastest-growing channel in advertising, but most brands cannot tell whether their investment is building shelf position or just reporting back a number that looks good. Paid and organic live in separate dashboards. Attribution is fragmented across 200+ networks. The algorithmic shelf — Amazon, Walmart, Instacart, AI-generated answers — works better when you connect the pieces. We put paid position, organic rank, product signals and market data in one view, then measure what changed.</p>
     <div class="cta-row">
       <a href="../contact/" class="btn">Audit your media →</a>
     </div>
-    <div class="stat-row">
-      <div class="stat"><div class="v">$575B</div><div class="l">Global third-party GMV (2025)</div><div class="s">Marketplace Pulse</div></div>
-      <div class="stat"><div class="v">+89%</div><div class="l">Organic sales lift from top 5 rank</div><div class="s">Profitero, 2024</div></div>
-      <div class="stat"><div class="v">3×</div><div class="l">Organic vs paid value at top 10</div><div class="s">Profitero, 2024</div></div>
-      <div class="stat"><div class="v">200+</div><div class="l">Retail media networks globally</div><div class="s">IAB Europe, 2025</div></div>
+    <div class="data-banner">
+      <div class="d"><div class="v">$575B</div><div class="l">Global third-party GMV (2025)</div><div class="s">Marketplace Pulse</div></div>
+      <div class="d"><div class="v">+89%</div><div class="l">Organic sales lift from top 5 rank</div><div class="s">Profitero, 2024</div></div>
+      <div class="d"><div class="v">3×</div><div class="l">Organic vs paid value at top 10</div><div class="s">Profitero, 2024</div></div>
+      <div class="d"><div class="v">200+</div><div class="l">Retail media networks globally</div><div class="s">IAB Europe, 2025</div></div>
     </div>
   </div>
 </section>
@@ -125,17 +114,17 @@
     <h2 class="d2" style="margin-bottom:48px">Three buying environments. <span style="font-weight:600;color:var(--accent)">One commercial picture.</span></h2>
     <p class="prose" style="margin-bottom:48px;max-width:40em">A programmatic impression sends a shopper to a retailer. Product data and reviews determine whether the visit converts. The resulting sales signals affect organic shelf position. Reporting each environment separately hides that chain. We connect them — not by flattening the measures, but by putting them in the same decision cycle.</p>
     <div class="svc-grid">
-      <div class="svc">
+      <div style="padding:32px;border-right:1px solid var(--border)">
         <div class="tag">Retail Media</div>
         <h3>The algorithmic shelf</h3>
         <p>Amazon, Walmart, Instacart, Target, Roundel, Criteo — every network has its own auction mechanics, placement hierarchy and reporting language. We run paid campaigns and track organic position separately, then measure share of shelf as one number. When paid share rises and organic share falls, that is a signal worth investigating, not a reporting win.</p>
       </div>
-      <div class="svc">
+      <div style="padding:32px;border-right:1px solid var(--border)">
         <div class="tag">Amazon</div>
         <h3>60% of the market, its own physics</h3>
         <p>Amazon is the largest retail media surface and the most complex. Sponsored Products, Brands, Display and DSP each affect shelf position differently. Product data, reviews, conversion rate and inventory depth are improved alongside bids — not after the campaign is already running. We separate organic rank from paid placement, then decide where each budget dollar creates the most visible difference.</p>
       </div>
-      <div class="svc">
+      <div style="padding:32px">
         <div class="tag">Programmatic & AI Media</div>
         <h3>Demand creation that lands on a shelf</h3>
         <p>CTV, display, social and audio — programmatic buying should feed the retail shelf, not report in isolation. We build audiences from clean first-party data and retail signals, then measure assisted conversions through to shelf position. When a CTV impression produces a branded search on Amazon two hours later, that connection should appear in the same dashboard as the click-through rate.</p>
@@ -147,13 +136,13 @@
 <div class="divider"></div>
 
 <!-- ===== 02. THE PROBLEM ===== -->
-<section class="dark" id="problem" style="padding:100px 0">
+<section class="bx dark" id="problem" style="padding:100px 0">
   <div class="section-inner" style="max-width:900px">
     <div class="tag" style="color:rgba(250,250,249,.5);margin-bottom:16px">Why most retail media investment is flying blind</div>
     <h2 class="d2" style="margin-bottom:16px">Your ROAS numbers are probably lying to you.</h2>
-    <p class="prose" style="margin-bottom:24px;color:rgba(250,250,249,.6)">If your retail media dashboard shows a blended ROAS of 6× but you cannot tell whether that includes organic sales the platform credited to itself, you have a measurement problem — not a performance problem. Platform-reported ROAS typically includes view-through attribution that credits organic purchases to the ad platform. The incremental-adjusted figure is closer to 2.4–4.3×. The gap is not small, and it matters when you are deciding whether to increase investment or redirect budget.</p>
-    <p class="prose" style="margin-bottom:24px;color:rgba(250,250,249,.6)">The same gap applies across most of retail media. More than 200 networks globally, each with its own attribution window, its own definition of a viewable impression, and its own methodology for crediting sales. The IAB Europe Attitudes to Retail Media Report (July 2025) found that 78% of buyers cite measurement as their top challenge, and 69% say attribution across networks is unresolved.</p>
-    <p class="prose" style="margin-bottom:24px;color:rgba(250,250,249,.6)">We do not claim to solve every measurement problem. We do insist on separating paid from organic share of shelf before any optimisation decision is made. A brand that sees 25% total share of voice but learns that 20% of it is paid and only 5% is organic is in a different position than one where the split is 12 / 13. Most dashboards do not show that distinction. Ours does.</p>
+    <p class="prose" style="margin-bottom:24px">If your retail media dashboard shows a blended ROAS of 6× but you cannot tell whether that includes organic sales the platform credited to itself, you have a measurement problem — not a performance problem. Platform-reported ROAS typically includes view-through attribution that credits organic purchases to the ad platform. The incremental-adjusted figure is closer to 2.4–4.3×. The gap is not small, and it matters when you are deciding whether to increase investment or redirect budget.</p>
+    <p class="prose" style="margin-bottom:24px">The same gap applies across most of retail media. More than 200 networks globally, each with its own attribution window, its own definition of a viewable impression, and its own methodology for crediting sales. The IAB Europe Attitudes to Retail Media Report (July 2025) found that 78% of buyers cite measurement as their top challenge, and 69% say attribution across networks is unresolved.</p>
+    <p class="prose" style="margin-bottom:24px">We do not claim to solve every measurement problem. We do insist on separating paid from organic share of shelf before any optimisation decision is made. A brand that sees 25% total share of voice but learns that 20% of it is paid and only 5% is organic is in a different position than one where the split is 12 / 13. Most dashboards do not show that distinction. Ours does.</p>
   </div>
 </section>
 
@@ -194,11 +183,11 @@
 <div class="divider"></div>
 
 <!-- ===== 04. AI EFFICIENCIES ===== -->
-<section class="dark" id="ai-efficiencies" style="padding:100px 0">
+<section class="bx dark" id="ai-efficiencies" style="padding:100px 0">
   <div class="section-inner" style="max-width:900px">
     <div class="tag" style="color:rgba(250,250,249,.5);margin-bottom:16px">AI efficiencies, not AI theatre</div>
     <h2 class="d2" style="margin-bottom:16px">What AI actually changes in retail media.</h2>
-    <p class="prose" style="margin-bottom:40px;color:rgba(250,250,249,.6);max-width:600px">Every agency now claims to be AI-powered. Most mean they have access to ChatGPT. Below is what we actually build, and the difference it makes to media performance.</p>
+    <p class="prose" style="margin-bottom:40px;max-width:600px">Every agency now claims to be AI-powered. Most mean they have access to ChatGPT. Below is what we actually build, and the difference it makes to media performance.</p>
     <div class="eff-grid">
       <div class="eff-card" style="background:rgba(250,250,249,.04);border-color:rgba(250,250,249,.08)">
         <h4>Automated bid management across networks</h4>
@@ -264,13 +253,13 @@
 <div class="divider"></div>
 
 <!-- ===== 06. EVIDENCE LAYER ===== -->
-<section class="dark" id="evidence" style="padding:100px 0">
+<section class="bx dark" id="evidence" style="padding:100px 0">
   <div class="section-inner" style="max-width:900px">
     <div class="tag" style="color:rgba(250,250,249,.5);margin-bottom:16px">For brand leaders who need to know</div>
     <h2 class="d2" style="margin-bottom:16px">Did our media spend actually move the shelf? That should be answerable at any point — not just at the quarterly review.</h2>
-    <p class="prose" style="margin-bottom:24px;color:rgba(250,250,249,.6)">The question a VP of Media should be able to answer at any point is not "what is our blended retail media ROAS?" It is: "Did our organic shelf position improve, and can we connect that improvement to specific media actions?"</p>
-    <p class="prose" style="margin-bottom:24px;color:rgba(250,250,249,.6)">We built the connection layer because the alternative — patching together platform reports, re-attributing sales and hoping the numbers tell a coherent story — is wasting time and budget. Every reporting cycle that produces a question instead of an answer is a cycle where you could have been improving position rather than auditing the data.</p>
-    <p class="prose" style="margin-bottom:0;color:rgba(250,250,249,.6)"><a href="../contact/" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent)">Talk to us about your media audit →</a></p>
+    <p class="prose" style="margin-bottom:24px">The question a VP of Media should be able to answer at any point is not "what is our blended retail media ROAS?" It is: "Did our organic shelf position improve, and can we connect that improvement to specific media actions?"</p>
+    <p class="prose" style="margin-bottom:24px">We built the connection layer because the alternative — patching together platform reports, re-attributing sales and hoping the numbers tell a coherent story — is wasting time and budget. Every reporting cycle that produces a question instead of an answer is a cycle where you could have been improving position rather than auditing the data.</p>
+    <p class="prose" style="margin-bottom:0"><a href="../contact/" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent)">Talk to us about your media audit →</a></p>
   </div>
 </section>
 
@@ -278,15 +267,13 @@
 
 <!-- ===== 07. CTA ===== -->
 <section id="cta" style="background:#fff">
-  <div class="section-inner">
-    <div class="cta-n">
+  <div class="section-inner narrow">
+    <div class="cta-inner">
       <div>
-        <h3>Know what moved the shelf.</h3>
+        <h2>Know what moved the shelf.</h2>
         <p>An integrated audit across retail media, Amazon and programmatic. You keep the baseline — including the measures that should not be blended into a single ROAS figure. The audit takes two weeks. You will know exactly where your media investment is creating visible position change, and where it is compensating for a signal problem that no amount of ad spend will fix.</p>
       </div>
-      <div style="align-items:flex-end">
-        <a href="../contact/" class="btn" style="white-space:nowrap">Audit your media →</a>
-      </div>
+      <a href="../contact/" class="btn">Audit your media →</a>
     </div>
   </div>
 </section>
@@ -346,14 +333,14 @@
     gsap.registerPlugin(ScrollTrigger);
     var sr = { y: 40, duration: 0.9, ease: 'power2.out', opacity: 0 };
     gsap.from('.proc-step', { ...sr, stagger: 0.1, scrollTrigger: { trigger: '.proc-grid', start: 'top 80%', toggleActions: 'play none none none' }});
-    gsap.from('.svc', { ...sr, stagger: 0.1, scrollTrigger: { trigger: '.svc-grid', start: 'top 80%', toggleActions: 'play none none none' }});
-    gsap.from('.cta-n > *', { ...sr, stagger: 0.15, scrollTrigger: { trigger: '.cta-n', start: 'top 85%', toggleActions: 'play none none none' }});
+    gsap.from('.svc-grid > *', { ...sr, stagger: 0.1, scrollTrigger: { trigger: '.svc-grid', start: 'top 80%', toggleActions: 'play none none none' }});
+    gsap.from('.cta-inner > *', { ...sr, stagger: 0.15, scrollTrigger: { trigger: '.cta-inner', start: 'top 85%', toggleActions: 'play none none none' }});
     gsap.from('.eff-card', { ...sr, stagger: 0.08, scrollTrigger: { trigger: '.eff-grid', start: 'top 80%', toggleActions: 'play none none none' }});
-    gsap.from('.masthead .sup', { y: 30, opacity: 0, duration: 0.6, ease: 'power3.out' });
-    gsap.from('.masthead h1', { y: 40, opacity: 0, duration: 0.8, ease: 'power3.out' }, '-=0.3');
-    gsap.from('.masthead .c', { y: 30, opacity: 0, duration: 0.6, ease: 'power2.out' }, '-=0.4');
-    gsap.from('.masthead .cta-row > *', { y: 30, opacity: 0, duration: 0.6, stagger: 0.1, ease: 'power2.out' }, '-=0.4');
-    gsap.from('.masthead .stat-row > *', { y: 20, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power2.out' }, '-=0.3');
+    gsap.from('.hero .sup', { y: 30, opacity: 0, duration: 0.6, ease: 'power3.out' });
+    gsap.from('.hero h1', { y: 40, opacity: 0, duration: 0.8, ease: 'power3.out' }, '-=0.3');
+    gsap.from('.hero .desc', { y: 30, opacity: 0, duration: 0.6, ease: 'power2.out' }, '-=0.4');
+    gsap.from('.hero .cta-row > *', { y: 30, opacity: 0, duration: 0.6, stagger: 0.1, ease: 'power2.out' }, '-=0.4');
+    gsap.from('.hero .data-banner > *', { y: 20, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power2.out' }, '-=0.3');
     gsap.from('.stk-d', { ...sr, stagger: 0.1, scrollTrigger: { trigger: '.stk', start: 'top 80%', toggleActions: 'play none none none' }});
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { gsap.globalTimeline.clear(); ScrollTrigger.getAll().forEach(function(t){t.kill()}); }
   }
