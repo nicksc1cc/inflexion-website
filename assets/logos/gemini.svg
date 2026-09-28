@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <circle cx="256" cy="256" r="256" fill="#8e44ad"/>
-  <path d="M192 256l48 48 96-96" fill="none" stroke="white" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="256" y="470" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="48" fill="#8e44ad" text-anchor="middle">Gemini</text>
-</svg>
