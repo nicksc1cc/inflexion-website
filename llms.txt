@@ -7,10 +7,8 @@ Inflexion helps brands win visibility across AI answer engines (ChatGPT, Gemini,
 - **Organic & AI Search**: Organic search foundations, AI citation, prompt set audits, source authority mapping and technical access across ChatGPT, Gemini, Perplexity and Claude.
 - **Search Intelligence**: Cross-model citation testing, share of answer tracking, competitor citation benchmarking.
 - **Digital PR & Content**: Earn citations in outlets, forums and data sets that AI models may cite.
-- **Retail Media**: Algorithmic shelf position tracking, paid/organic separation, multi-retailer strategy.
-- **Amazon within Retail Media**: Sponsored Products, Brands, Display and DSP as one system, with product data and review improvements.
 - **Beauty Media Strategy**: Strategy for beauty brands navigating AI-assisted shopping, agentic commerce and retail media.
-- **AI-Powered Traditional Media**: Algorithmic buying and budget reallocation across display, video and CTV.
+- **Media, retail and the algorithmic shelf**: Retail media, Amazon and programmatic buying connected through paid and organic position, product signals and shared measurement.
 - **AI Consultancy**: Operating model redesign, team restructuring for AI-augmented workflows.
 - **Data & Measurement**: Multi-surface attribution connecting AI citations, retail rank and campaign data.
 
@@ -21,9 +19,8 @@ Inflexion helps brands win visibility across AI answer engines (ChatGPT, Gemini,
 - https://nicksc1cc.github.io/inflexion-website/ai-visibility-analytics.html : Search Intelligence
 - https://nicksc1cc.github.io/inflexion-website/technical-geo.html : Technical GEO
 - https://nicksc1cc.github.io/inflexion-website/digital-pr.html : Digital PR & Content
-- https://nicksc1cc.github.io/inflexion-website/retail-media.html : Retail Media
-- https://nicksc1cc.github.io/inflexion-website/beauty-media-strategy.html : Beauty Media Strategy
-- https://nicksc1cc.github.io/inflexion-website/ai-media.html : AI-Powered Media
+- - https://nicksc1cc.github.io/inflexion-website/beauty-media-strategy.html : Beauty Media Strategy
+- - https://nicksc1cc.github.io/inflexion-website/media/ : Media, retail and the algorithmic shelf
 - https://nicksc1cc.github.io/inflexion-website/consultancy.html : AI Consultancy
 - https://nicksc1cc.github.io/inflexion-website/measurement.html : Data & Measurement
 - https://nicksc1cc.github.io/inflexion-website/contact.html : Contact / AI Visibility Audit
