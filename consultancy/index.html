@@ -18,9 +18,24 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/common.css">
+<style>
+.cons-hero{min-height:70vh;display:flex;align-items:center;padding:140px 0 60px;background:var(--h);color:var(--h-text);position:relative;overflow:hidden}
+.cons-hero .w{max-width:1280px;margin:0 auto;padding:0 48px;position:relative;z-index:2;width:100%}
+.cons-compare{display:grid;grid-template-columns:1fr;gap:2px;margin-top:40px;max-width:600px}
+.cons-compare>div{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;padding:12px 16px;border:1px solid rgba(250,250,249,.08)}
+.cons-compare .old{font-size:13px;color:rgba(250,250,249,.4);text-align:right;padding-right:8px}
+.cons-compare .arrow{color:var(--accent);font-size:12px;display:flex;align-items:center}
+.cons-compare .new{font-size:13px;font-weight:500;color:var(--h-text);padding-left:8px}
+.cons-compare .lbl{font-size:8px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:4px}
+.cons-closing{font-size:28px;font-weight:200;letter-spacing:-.03em;text-align:center;padding:80px 0}
+.cons-closing span{display:inline-block;margin:0 16px}
+.cons-closing .a{color:var(--accent);font-weight:300}
+.cons-closing .b{color:var(--fg);font-weight:500}
+@media(max-width:900px){.cons-hero{padding:100px 0 40px}.cons-closing{padding:40px 0;font-size:22px}}
+@media(max-width:600px){.cons-hero .w{padding:0 24px}.cons-compare>div{grid-template-columns:1fr;gap:4px}.cons-compare .old,.cons-compare .new{text-align:left}}
+</style>
 </head>
 <body>
-
 <header>
   <div class="header-inner">
     <a href="/inflexion-website/" class="logo"><img src="/inflexion-website/assets/images/inflexion-media-logo.png" alt="Inflexion Media" height="55"></a>
@@ -50,189 +65,147 @@
   </div>
 </header>
 
-<section class="hero" style="padding:140px 0 80px;min-height:auto">
+<section class="cons-hero">
 <div class="w">
 <div class="sup">Inflexion Consultancy</div>
-<h1>The economics have changed.</h1>
-<p class="desc" style="max-width:40%">Marketing needs a new operating model. AI is changing the economics — execution gets cheaper, data gets richer, decisions multiply. We help marketing organisations redesign the way they work around that reality.</p>
-<div class="cta-row">
+<h1 style="font-size:clamp(32px,5vw,64px);font-weight:200;line-height:1.0;letter-spacing:-.03em;max-width:70%;margin-bottom:20px">The economics have changed.</h1>
+<p style="font-size:clamp(15px,1.4vw,17px);line-height:1.7;color:rgba(250,250,249,.65);font-weight:300;max-width:45%;margin-bottom:32px">Marketing needs a new operating model. AI changes the cost structure of marketing. We help organisations redesign the way they work around that reality.</p>
+<div class="cta-row" style="margin-bottom:0">
 <a href="../contact/" class="btn" style="background:var(--bg);color:var(--fg)">Discuss your organisation →</a>
 <a href="#change" class="link">See how we work ↓</a>
 </div>
+<!-- Then→Now comparison built into hero -->
+<div class="cons-compare">
+<div><div><div class="lbl" style="color:rgba(250,250,249,.3);text-align:right">Then</div></div><div></div><div><div class="lbl" style="color:var(--accent)">Now</div></div></div>
+<div><span class="old">Separate channels</span><span class="arrow">→</span><span class="new">Connected intelligence</span></div>
+<div><span class="old">Manual analysis</span><span class="arrow">→</span><span class="new">AI-powered sensing</span></div>
+<div><span class="old">Campaign reporting</span><span class="arrow">→</span><span class="new">Continuous measurement</span></div>
+<div><span class="old">Execution teams</span><span class="arrow">→</span><span class="new">Judgement-led teams</span></div>
+</div>
 </div>
 </section>
-<section id="change" style="padding:var(--section-pad) 0">
-<div class="section-inner narrow">
-<div class="tag" style="margin-bottom:24px">01</div>
-<h2 class="d3" style="margin-bottom:48px">Marketing was built for a different economics.</h2>
-<div class="shift-row" style="grid-template-columns:80px 1fr 1fr;gap:32px;border-top:1px solid var(--border);padding:32px 0">
-<div></div>
-<div><div class="tag" style="margin-bottom:12px;color:var(--muted)">Then</div><p class="prose">Execution was expensive. Teams were built around channels, agencies, specialists, manual analysis, campaign cycles and reporting.</p></div>
-<div><div class="tag" style="margin-bottom:12px;color:var(--accent)">Now</div><p class="prose" style="color:var(--fg);font-weight:400">AI can analyse, monitor, create, test, model, report, recommend and execute. The organisation must reconsider its structure, not just add AI to it.</p></div>
-</div>
-<p class="prose" style="text-align:center;max-width:100%;margin-top:32px;font-size:14px">The organisation cannot simply add AI to the existing structure. It has to reconsider the structure itself.</p>
-</div>
-</section>
+<section id="change" style="padding:var(--section-pad) 0"><div class="section-inner narrow" style="max-width:800px"><div class="tag" style="margin-bottom:16px">The shift</div>
+<h2 style="font-size:clamp(24px,3vw,40px);font-weight:300;letter-spacing:-.02em;line-height:1.1;margin-bottom:24px">Marketing was built for a <span class="acc-light">different economics.</span></h2>
+<p class="prose" style="margin-bottom:32px;font-size:16px;max-width:100%">When execution was expensive, teams organised around channels, agencies, specialists and campaign cycles. Each part of the operation ran separately because coordination cost more than isolation.</p>
+<p class="prose" style="margin-bottom:8px;max-width:100%;font-size:16px">Now AI can analyse, monitor, create, test, model, report, recommend and execute. The economics inverted. The scarce resource is no longer execution capacity — it is judgement about what matters.</p>
+<div style="padding:24px 0;margin-top:32px;border-top:1px solid var(--border)"><p class="prose" style="max-width:100%;font-size:14px;font-style:italic;color:var(--muted2)">The organisation cannot simply add AI to the existing structure. It has to reconsider the structure itself.</p></div>
+</div></section>
 <div class="divider"></div>
-<section style="padding:var(--section-pad) 0">
-<div class="section-inner narrow">
-<div class="tag" style="margin-bottom:24px">02</div>
-<h2 class="d3" style="margin-bottom:16px">From channel organisation to intelligence organisation.</h2>
-<p class="prose" style="margin-bottom:48px">The old model organised marketing around channels. The new model organises it around signals, decisions and outcomes.</p>
+<section class="bx dark" style="padding:var(--section-pad) 0"><div class="section-inner narrow"><div class="tag" style="color:rgba(250,250,249,.5);margin-bottom:16px">The new model</div>
+<h2 class="d3" style="color:var(--h-text);margin-bottom:16px">From channel organisation to <span class="acc-light">intelligence organisation.</span></h2>
+<p class="prose" style="color:rgba(250,250,249,.7);margin-bottom:48px;max-width:100%">The old model organised marketing around channels. The new model organises it around signals, decisions and outcomes.</p>
 <div class="econ-grid" style="grid-template-columns:1fr 1fr;gap:32px;margin-bottom:0">
-<div class="econ-col"><div class="tag" style="color:var(--muted);margin-bottom:16px">Old model</div>
-<div style="display:flex;flex-direction:column;gap:4px">
-<div style="padding:8px 16px;border:1px solid var(--border);font-size:11px;color:var(--muted);background:var(--bg)">SEARCH</div>
-<div style="padding:8px 16px;border:1px solid var(--border);font-size:11px;color:var(--muted);background:var(--bg)">MEDIA</div>
-<div style="padding:8px 16px;border:1px solid var(--border);font-size:11px;color:var(--muted);background:var(--bg)">SOCIAL</div>
-<div style="padding:8px 16px;border:1px solid var(--border);font-size:11px;color:var(--muted);background:var(--bg)">ECOMMERCE</div>
-<div style="padding:8px 16px;border:1px solid var(--border);font-size:11px;color:var(--muted);background:var(--bg)">CRM</div>
-<div style="padding:8px 16px;border:1px solid var(--border);font-size:11px;color:var(--muted);background:var(--bg)">RETAIL MEDIA</div>
-<div style="padding:8px 16px;border:1px solid var(--border);font-size:11px;color:var(--muted);background:var(--bg)">ANALYTICS</div>
+<div><div class="tag" style="color:rgba(250,250,249,.4);margin-bottom:16px;font-size:9px">Old model: channel silos</div>
+<div style="display:flex;flex-direction:column;gap:3px">
+<div style="padding:10px 16px;background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08);font-size:12px;color:rgba(250,250,249,.5)">SEARCH</div>
+<div style="padding:10px 16px;background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08);font-size:12px;color:rgba(250,250,249,.5)">MEDIA</div>
+<div style="padding:10px 16px;background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08);font-size:12px;color:rgba(250,250,249,.5)">SOCIAL</div>
+<div style="padding:10px 16px;background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08);font-size:12px;color:rgba(250,250,249,.5)">ECOMMERCE</div>
+<div style="padding:10px 16px;background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08);font-size:12px;color:rgba(250,250,249,.5)">CRM</div>
+<div style="padding:10px 16px;background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08);font-size:12px;color:rgba(250,250,249,.5)">RETAIL MEDIA</div>
+<div style="padding:10px 16px;background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08);font-size:12px;color:rgba(250,250,249,.5)">ANALYTICS</div>
 </div>
 </div>
-<div class="econ-col"><div class="tag" style="color:var(--accent);margin-bottom:16px">New model</div>
-<div style="padding:24px;border:1px solid var(--accent);background:rgba(255,90,31,.04);text-align:center">
-<div style="font-size:14px;font-weight:500;color:var(--fg);margin-bottom:12px">MARKETING INTELLIGENCE</div>
+<div><div class="tag" style="color:var(--accent);margin-bottom:16px;font-size:9px">New model: intelligence hub</div>
+<div style="padding:32px;border:1px solid var(--accent);background:rgba(255,90,31,.04);text-align:center">
+<div style="font-size:16px;font-weight:500;color:var(--h-text);margin-bottom:16px;letter-spacing:-.01em">MARKETING INTELLIGENCE</div>
 <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:6px">
-<span style="padding:4px 10px;background:rgba(255,90,31,.08);font-size:10px;color:var(--fg)">CUSTOMER</span>
-<span style="padding:4px 10px;background:rgba(255,90,31,.08);font-size:10px;color:var(--fg)">MARKET</span>
-<span style="padding:4px 10px;background:rgba(255,90,31,.08);font-size:10px;color:var(--fg)">COMPETITOR</span>
-<span style="padding:4px 10px;background:rgba(255,90,31,.08);font-size:10px;color:var(--fg)">SEARCH</span>
-<span style="padding:4px 10px;background:rgba(255,90,31,.08);font-size:10px;color:var(--fg)">MEDIA</span>
-<span style="padding:4px 10px;background:rgba(255,90,31,.08);font-size:10px;color:var(--fg)">COMMERCE</span>
-<span style="padding:4px 10px;background:rgba(255,90,31,.08);font-size:10px;color:var(--fg)">CREATIVE</span>
-<span style="padding:4px 10px;background:rgba(255,90,31,.08);font-size:10px;color:var(--fg)">PERFORMANCE</span>
+<span style="padding:5px 12px;background:rgba(255,90,31,.1);font-size:11px;color:var(--h-text)">CUSTOMER</span>
+<span style="padding:5px 12px;background:rgba(255,90,31,.1);font-size:11px;color:var(--h-text)">MARKET</span>
+<span style="padding:5px 12px;background:rgba(255,90,31,.1);font-size:11px;color:var(--h-text)">COMPETITOR</span>
+<span style="padding:5px 12px;background:rgba(255,90,31,.1);font-size:11px;color:var(--h-text)">SEARCH</span>
+<span style="padding:5px 12px;background:rgba(255,90,31,.1);font-size:11px;color:var(--h-text)">MEDIA</span>
+<span style="padding:5px 12px;background:rgba(255,90,31,.1);font-size:11px;color:var(--h-text)">COMMERCE</span>
+<span style="padding:5px 12px;background:rgba(255,90,31,.1);font-size:11px;color:var(--h-text)">CREATIVE</span>
+<span style="padding:5px 12px;background:rgba(255,90,31,.1);font-size:11px;color:var(--h-text)">PERFORMANCE</span>
 </div>
 </div>
-<p class="prose" style="font-size:12px;text-align:center;max-width:100%;margin-top:12px"><span style="font-weight:500;color:var(--fg)">AI analyses. Automation executes. People decide.</span></p>
+<p style="font-size:12px;text-align:center;max-width:100%;color:rgba(250,250,249,.5);margin-top:16px">AI analyses. <span style="font-weight:500;color:var(--h-text)">Automation executes.</span> People decide.</p>
 </div>
 </div>
-</div>
-</section>
+</div></section>
 <div class="divider"></div>
-<section style="padding:var(--section-pad) 0">
-<div class="section-inner narrow">
-<div class="tag" style="margin-bottom:24px">03</div>
-<h2 class="d3" style="margin-bottom:48px">Four changes. One operating model.</h2>
-<div class="why-row"><div class="n">01</div><div class="hd">CONNECT</div><div class="bd">Bring the evidence together. Media, commerce, customer, search and market signals should not live in separate systems.</div></div>
-<div class="why-row"><div class="n">02</div><div class="hd">INTELLIGENT</div><div class="bd">Turn data into decisions. Build knowledge models and AI workflows that continuously analyse what is changing.</div></div>
-<div class="why-row"><div class="n">03</div><div class="hd">AUTOMATE</div><div class="bd">Remove unnecessary execution. Automate reporting, monitoring, analysis and repeatable campaign workflows.</div></div>
-<div class="why-row"><div class="n">04</div><div class="hd">REORGANISE</div><div class="bd">Put people where judgement matters. Redesign roles, governance and agency relationships around the new economics.</div></div>
-</div>
-</section>
+<section style="padding:var(--section-pad) 0"><div class="section-inner narrow"><div class="tag" style="margin-bottom:16px">The stack</div>
+<h2 class="d3" style="margin-bottom:48px">Four changes. <span class="acc-light">One operating model.</span></h2>
+<div class="why-row"><div class="n">01</div><div class="hd" style="font-size:18px">CONNECT</div><div class="bd">Bring the evidence together. Media, commerce, customer, search and market signals should not live in separate systems.</div></div>
+<div class="why-row"><div class="n">02</div><div class="hd" style="font-size:18px">INTELLIGENT</div><div class="bd">Turn data into decisions. Build knowledge models and AI workflows that continuously analyse what is changing.</div></div>
+<div class="why-row"><div class="n">03</div><div class="hd" style="font-size:18px">AUTOMATE</div><div class="bd">Remove unnecessary execution. Automate reporting, monitoring, analysis and repeatable campaign workflows.</div></div>
+<div class="why-row"><div class="n">04</div><div class="hd" style="font-size:18px">REORGANISE</div><div class="bd">Put people where judgement matters. Redesign roles, governance and agency relationships around the new economics.</div></div>
+</div></section>
 <div class="divider"></div>
-<section class="bx dark" style="padding:var(--section-pad) 0">
-<div class="section-inner narrow">
-<div class="tag" style="margin-bottom:16px">04</div>
-<h2 class="d3" style="color:var(--h-text);margin-bottom:16px">Fragmented. Connected. Intelligent.</h2>
-<p class="prose" style="margin-bottom:48px">Most marketing organisations are in the first stage. The goal is consistent progress that compounds.</p>
-<div class="value-grid">
-<div style="padding:24px;background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08)"><div class="mono" style="font-size:11px;color:var(--accent);margin-bottom:8px">01</div><div style="font-size:14px;font-weight:500;color:var(--h-text);margin-bottom:8px">Fragmented</div><p class="prose" style="font-size:12px;color:rgba(250,250,249,.5);margin:0">Separate teams, separate data, manual execution, channel-based decisions.</p></div>
-<div style="padding:24px;background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08)"><div class="mono" style="font-size:11px;color:var(--accent);margin-bottom:8px">02</div><div style="font-size:14px;font-weight:500;color:var(--h-text);margin-bottom:8px">Connected</div><p class="prose" style="font-size:12px;color:rgba(250,250,249,.5);margin:0">Shared data, common measurement, automation, cross-functional decisions.</p></div>
-<div style="padding:24px;background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08)"><div class="mono" style="font-size:11px;color:var(--accent);margin-bottom:8px">03</div><div style="font-size:14px;font-weight:500;color:var(--h-text);margin-bottom:8px">Intelligent</div><p class="prose" style="font-size:12px;color:rgba(250,250,249,.5);margin:0">Continuous sensing, AI-assisted analysis, automated execution, human judgement on high-value decisions.</p></div>
+<section class="bx dark" style="padding:var(--section-pad) 0"><div class="section-inner narrow"><div class="tag" style="color:rgba(250,250,249,.5);margin-bottom:16px">Maturity model</div>
+<h2 class="d3" style="color:var(--h-text);margin-bottom:16px">Fragmented. Connected. <span class="acc-light">Intelligent.</span></h2>
+<p class="prose" style="color:rgba(250,250,249,.6);margin-bottom:48px;max-width:100%">Most marketing organisations are in the first stage. The goal is consistent progress that compounds.</p>
+<div class="research-grid">
+<div class="research-item" style="background:rgba(250,250,249,.04);border-color:rgba(250,250,249,.08);padding:32px"><div class="mono" style="font-size:10px;color:var(--accent);margin-bottom:8px">01</div><div style="font-size:16px;font-weight:500;color:var(--h-text);margin-bottom:8px">Fragmented</div><p class="prose" style="font-size:13px;color:rgba(250,250,249,.5);margin:0">Separate teams, separate data, manual execution, channel-based decisions.</p></div>
+<div class="research-item" style="background:rgba(250,250,249,.04);border-color:rgba(250,250,249,.08);padding:32px"><div class="mono" style="font-size:10px;color:var(--accent);margin-bottom:8px">02</div><div style="font-size:16px;font-weight:500;color:var(--h-text);margin-bottom:8px">Connected</div><p class="prose" style="font-size:13px;color:rgba(250,250,249,.5);margin:0">Shared data, common measurement, automation, cross-functional decisions.</p></div>
+<div class="research-item" style="background:rgba(250,250,249,.04);border-color:rgba(250,250,249,.08);padding:32px"><div class="mono" style="font-size:10px;color:var(--accent);margin-bottom:8px">03</div><div style="font-size:16px;font-weight:500;color:var(--h-text);margin-bottom:8px">Intelligent</div><p class="prose" style="font-size:13px;color:rgba(250,250,249,.5);margin:0">Continuous sensing, AI-assisted analysis, automated execution, human judgement on high-value decisions.</p></div>
 </div>
-<div class="process-grid four" style="margin-top:32px;gap:8px">
-<div style="text-align:center;font-size:10px;letter-spacing:.1em"><span style="color:rgba(250,250,249,.4)">FRAGMENTED</span></div>
-<div style="text-align:center;font-size:14px;color:var(--accent)">→</div>
-<div style="text-align:center;font-size:10px;letter-spacing:.1em"><span style="color:rgba(250,250,249,.4)">CONNECTED</span></div>
-<div style="text-align:center;font-size:14px;color:var(--accent)">→</div>
-<div style="text-align:center;font-size:10px;letter-spacing:.1em"><span style="color:var(--accent);font-weight:500">INTELLIGENT</span></div>
-</div>
-</div>
-</section>
+</div></section>
 <div class="divider"></div>
-<section style="padding:var(--section-pad) 0">
-<div class="section-inner narrow">
-<div class="tag" style="margin-bottom:24px">05</div>
+<section style="padding:var(--section-pad) 0"><div class="section-inner narrow"><div class="tag" style="margin-bottom:16px">Time to value</div>
 <h2 class="d3" style="margin-bottom:8px">The first 90 days.</h2>
 <p class="prose" style="margin-bottom:48px">Strategy is only useful if something changes.</p>
 <div class="process-grid four">
-<div class="proc-step"><div class="num">DIAGNOSE</div><div class="mono" style="font-size:9px;color:var(--accent);margin-bottom:8px">Weeks 1-3</div><div class="t">01</div><div class="d">Map data, technology, workflows, agencies, people and decision processes. Output: current-state architecture.</div></div>
-<div class="proc-step"><div class="num">DESIGN</div><div class="mono" style="font-size:9px;color:var(--accent);margin-bottom:8px">Weeks 4-6</div><div class="t">02</div><div class="d">Define future operating model, AI opportunities, automation priorities, data architecture and governance. Output: future-state blueprint.</div></div>
-<div class="proc-step"><div class="num">BUILD</div><div class="mono" style="font-size:9px;color:var(--accent);margin-bottom:8px">Weeks 7-12</div><div class="t">03</div><div class="d">Put systems into production. Workflows, intelligence, automation, data connections, AI use cases.</div></div>
-<div class="proc-step"><div class="num">ADVISE</div><div class="mono" style="font-size:9px;color:var(--accent);margin-bottom:8px">Ongoing</div><div class="t">04</div><div class="d">The organisation runs it. Inflexion provides judgement, assurance, strategic direction and course correction.</div></div>
-</div>
-</div>
-</section>
+<div class="proc-step"><div class="num">DIAGNOSE</div><div class="mono" style="font-size:9px;color:var(--accent);margin-bottom:8px">Weeks 1-3</div><div class="t">01</div><div class="d">Map data, technology, workflows, agencies, people and decision processes.</div></div>
+<div class="proc-step"><div class="num">DESIGN</div><div class="mono" style="font-size:9px;color:var(--accent);margin-bottom:8px">Weeks 4-6</div><div class="t">02</div><div class="d">Define future operating model, AI opportunities, automation priorities and governance.</div></div>
+<div class="proc-step"><div class="num">BUILD</div><div class="mono" style="font-size:9px;color:var(--accent);margin-bottom:8px">Weeks 7-12</div><div class="t">03</div><div class="d">Put systems into production. Workflows, intelligence, automation, AI use cases.</div></div>
+<div class="proc-step"><div class="num">ADVISE</div><div class="mono" style="font-size:9px;color:var(--accent);margin-bottom:8px">Ongoing</div><div class="t">04</div><div class="d">The organisation runs it. Inflexion provides judgement, assurance and strategic direction.</div></div>
+</div></div></section>
 <div class="divider"></div>
-<section style="padding:var(--section-pad) 0">
-<div class="section-inner narrow">
-<div class="tag" style="margin-bottom:24px;color:var(--muted)">The change should be visible</div>
-<h2 class="d3" style="margin-bottom:48px">Today vs tomorrow.</h2>
-<div class="shift-row"><div class="l"></div><div class="old">Manual reporting</div><div class="new">Continuous intelligence</div></div>
-<div class="shift-row"><div class="l"></div><div class="old">Channel dashboards</div><div class="new">Connected evidence</div></div>
-<div class="shift-row"><div class="l"></div><div class="old">Campaign execution</div><div class="new">Automated workflows</div></div>
-<div class="shift-row"><div class="l"></div><div class="old">Separate agencies</div><div class="new">Integrated capability</div></div>
-<div class="shift-row"><div class="l"></div><div class="old">Historical analysis</div><div class="new">Continuous sensing</div></div>
-<div class="shift-row"><div class="l"></div><div class="old">AI experiments</div><div class="new">AI embedded in operations</div></div>
-<div class="shift-row"><div class="l"></div><div class="old">More people</div><div class="new">More leverage</div></div>
-<div class="shift-row"><div class="l"></div><div class="old">More execution</div><div class="new">More judgement</div></div>
-</div>
-</section>
+<section class="bx dark" style="padding:var(--section-pad) 0"><div class="section-inner narrow"><div class="tag" style="color:rgba(250,250,249,.5);margin-bottom:24px">The change should be visible</div>
+<h2 class="d3" style="color:var(--h-text);margin-bottom:48px">Today vs <span class="acc-light">tomorrow.</span></h2>
+<div class="shift-row" style="border-color:rgba(250,250,249,.08)"><div class="l"></div><div class="old" style="color:rgba(250,250,249,.5)">Manual reporting</div><div class="new" style="color:var(--h-text)">Continuous intelligence</div></div>
+<div class="shift-row" style="border-color:rgba(250,250,249,.08)"><div class="l"></div><div class="old" style="color:rgba(250,250,249,.5)">Channel dashboards</div><div class="new" style="color:var(--h-text)">Connected evidence</div></div>
+<div class="shift-row" style="border-color:rgba(250,250,249,.08)"><div class="l"></div><div class="old" style="color:rgba(250,250,249,.5)">Campaign execution</div><div class="new" style="color:var(--h-text)">Automated workflows</div></div>
+<div class="shift-row" style="border-color:rgba(250,250,249,.08)"><div class="l"></div><div class="old" style="color:rgba(250,250,249,.5)">Separate agencies</div><div class="new" style="color:var(--h-text)">Integrated capability</div></div>
+<div class="shift-row" style="border-color:rgba(250,250,249,.08)"><div class="l"></div><div class="old" style="color:rgba(250,250,249,.5)">Historical analysis</div><div class="new" style="color:var(--h-text)">Continuous sensing</div></div>
+<div class="shift-row" style="border-color:rgba(250,250,249,.08)"><div class="l"></div><div class="old" style="color:rgba(250,250,249,.5)">AI experiments</div><div class="new" style="color:var(--h-text)">AI embedded in operations</div></div>
+<div class="shift-row" style="border-color:rgba(250,250,249,.08)"><div class="l"></div><div class="old" style="color:rgba(250,250,249,.5)">More people</div><div class="new" style="color:var(--h-text)">More leverage</div></div>
+<div class="shift-row" style="border-color:rgba(250,250,249,.08)"><div class="l"></div><div class="old" style="color:rgba(250,250,249,.5)">More execution</div><div class="new" style="color:var(--h-text)">More judgement</div></div>
+</div></section>
 <div class="divider"></div>
-<section class="bx dark" style="padding:var(--section-pad) 0">
-<div class="section-inner narrow">
-<div class="tag" style="margin-bottom:16px;color:rgba(250,250,249,.5)">Where we help</div>
-<h2 class="d3" style="color:var(--h-text);margin-bottom:48px">Six areas. One integrated approach.</h2>
+<section style="padding:var(--section-pad) 0"><div class="section-inner narrow"><div class="tag" style="margin-bottom:16px">Capabilities</div>
+<h2 class="d3" style="margin-bottom:48px">Where we help.</h2>
 <div class="value-grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
-<div style="padding:24px;background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08)"><div class="tag" style="color:var(--accent);margin-bottom:8px">Marketing Intelligence</div><p class="prose" style="font-size:13px;color:rgba(250,250,249,.55);margin:0">Build the systems that connect market, customer, media, commerce and competitor signals into one view.</p></div>
-<div style="padding:24px;background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08)"><div class="tag" style="color:var(--accent);margin-bottom:8px">AI Operating Model</div><p class="prose" style="font-size:13px;color:rgba(250,250,249,.55);margin:0">Determine where AI belongs, what it should do and where human judgement remains essential.</p></div>
-<div style="padding:24px;background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08)"><div class="tag" style="color:var(--accent);margin-bottom:8px">Automation</div><p class="prose" style="font-size:13px;color:rgba(250,250,249,.55);margin:0">Identify and automate repetitive marketing workflows, from reporting to campaign operations.</p></div>
-<div style="padding:24px;background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08)"><div class="tag" style="color:var(--accent);margin-bottom:8px">Data Architecture</div><p class="prose" style="font-size:13px;color:rgba(250,250,249,.55);margin:0">Connect fragmented marketing and commercial data into a usable, governed foundation.</p></div>
-<div style="padding:24px;background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08)"><div class="tag" style="color:var(--accent);margin-bottom:8px">Media + Commerce</div><p class="prose" style="font-size:13px;color:rgba(250,250,249,.55);margin:0">Connect investment decisions with measurement and commercial outcomes across every surface.</p></div>
-<div style="padding:24px;background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08)"><div class="tag" style="color:var(--accent);margin-bottom:8px">Organisation Design</div><p class="prose" style="font-size:13px;color:rgba(250,250,249,.55);margin:0">Redesign roles, responsibilities, agencies and governance around the new model.</p></div>
-</div>
-</div>
-</section>
+<div style="padding:32px;border:1px solid var(--border)"><div class="tag" style="color:var(--accent);margin-bottom:8px;font-size:9px">Marketing Intelligence</div><p class="prose" style="font-size:13px;margin:0;max-width:100%">Build the systems that connect market, customer, media, commerce and competitor signals into one view.</p></div>
+<div style="padding:32px;border:1px solid var(--border)"><div class="tag" style="color:var(--accent);margin-bottom:8px;font-size:9px">AI Operating Model</div><p class="prose" style="font-size:13px;margin:0;max-width:100%">Determine where AI belongs, what it should do and where human judgement remains essential.</p></div>
+<div style="padding:32px;border:1px solid var(--border)"><div class="tag" style="color:var(--accent);margin-bottom:8px;font-size:9px">Automation</div><p class="prose" style="font-size:13px;margin:0;max-width:100%">Identify and automate repetitive marketing workflows, from reporting to campaign operations.</p></div>
+<div style="padding:32px;border:1px solid var(--border)"><div class="tag" style="color:var(--accent);margin-bottom:8px;font-size:9px">Data Architecture</div><p class="prose" style="font-size:13px;margin:0;max-width:100%">Connect fragmented marketing and commercial data into a usable, governed foundation.</p></div>
+<div style="padding:32px;border:1px solid var(--border)"><div class="tag" style="color:var(--accent);margin-bottom:8px;font-size:9px">Media + Commerce</div><p class="prose" style="font-size:13px;margin:0;max-width:100%">Connect investment decisions with measurement and commercial outcomes across every surface.</p></div>
+<div style="padding:32px;border:1px solid var(--border)"><div class="tag" style="color:var(--accent);margin-bottom:8px;font-size:9px">Organisation Design</div><p class="prose" style="font-size:13px;margin:0;max-width:100%">Redesign roles, responsibilities, agencies and governance around the new model.</p></div>
+</div></div></section>
 <div class="divider"></div>
-<section style="padding:var(--section-pad) 0">
-<div class="section-inner narrow">
-<div class="tag" style="margin-bottom:24px">Why now</div>
-<h2 class="d3" style="margin-bottom:48px">The organisation needs to catch up with the technology.</h2>
-<div class="stat-row" style="grid-template-columns:repeat(3,1fr)">
-<div class="stat-card" style="background:var(--stat-bg);border:1px solid var(--stat-border);padding:32px 24px;text-align:center"><div class="tag" style="color:var(--accent);margin-bottom:8px;font-size:9px">Execution</div><p class="prose" style="font-size:14px;margin:0;max-width:100%">AI is reducing the cost of doing things.</p></div>
-<div class="stat-card" style="background:var(--stat-bg);border:1px solid var(--stat-border);padding:32px 24px;text-align:center"><div class="tag" style="color:var(--accent);margin-bottom:8px;font-size:9px">Intelligence</div><p class="prose" style="font-size:14px;margin:0;max-width:100%">AI is increasing the volume of information organisations can process.</p></div>
-<div class="stat-card" style="background:var(--stat-bg);border:1px solid var(--stat-border);padding:32px 24px;text-align:center"><div class="tag" style="color:var(--accent);margin-bottom:8px;font-size:9px">Judgement</div><p class="prose" style="font-size:14px;margin:0;max-width:100%">The scarce resource becomes deciding what matters.</p></div>
+<section class="bx dark" style="padding:var(--section-pad) 0"><div class="section-inner narrow"><div class="tag" style="color:rgba(250,250,249,.5);margin-bottom:16px">Why now</div>
+<h2 class="d3" style="color:var(--h-text);margin-bottom:48px">The organisation needs to catch up with <span class="acc-light">the technology.</span></h2>
+<div class="value-grid" style="grid-template-columns:repeat(3,1fr);gap:20px">
+<div style="padding:24px;background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08)"><div class="tag" style="color:var(--accent);margin-bottom:8px;font-size:9px">Execution</div><p class="prose" style="font-size:13px;color:rgba(250,250,249,.6);margin:0;max-width:100%">AI is reducing the cost of doing things.</p></div>
+<div style="padding:24px;background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08)"><div class="tag" style="color:var(--accent);margin-bottom:8px;font-size:9px">Intelligence</div><p class="prose" style="font-size:13px;color:rgba(250,250,249,.6);margin:0;max-width:100%">AI is increasing the volume of information organisations can process.</p></div>
+<div style="padding:24px;background:rgba(250,250,249,.04);border:1px solid rgba(250,250,249,.08)"><div class="tag" style="color:var(--accent);margin-bottom:8px;font-size:9px">Judgement</div><p class="prose" style="font-size:13px;color:rgba(250,250,249,.6);margin:0;max-width:100%">The scarce resource becomes deciding what matters.</p></div>
 </div>
 
-<div style="padding:40px;border:1px solid var(--border);margin-top:48px;background:var(--bg)">
-<div class="tag" style="margin-bottom:8px;color:var(--muted)">From strategy to working system</div>
-<p class="prose" style="margin-bottom:24px;max-width:100%">Strategy should not end in a deck. We can design and build the intelligence, data and automation systems required to make the new operating model work.</p>
-<div class="process-grid" style="grid-template-columns:repeat(7,auto);justify-content:center;gap:4px 8px;margin-top:0">
-<div class="proc-step" style="padding:4px 12px;border:1px solid var(--border);font-size:10px;color:var(--muted)">DATA</div>
-<div class="proc-step" style="font-size:12px;color:var(--muted2);padding:4px">→</div>
-<div class="proc-step" style="padding:4px 12px;border:1px solid var(--border);font-size:10px;color:var(--muted)">KNOWLEDGE</div>
-<div class="proc-step" style="font-size:12px;color:var(--muted2);padding:4px">→</div>
-<div class="proc-step" style="padding:4px 12px;border:1px solid var(--border);font-size:10px;color:var(--muted)">QUESTIONS</div>
-<div class="proc-step" style="font-size:12px;color:var(--muted2);padding:4px">→</div>
-<div class="proc-step" style="padding:4px 12px;border:1px solid var(--border);font-size:10px;color:var(--muted)">ANALYSIS</div>
-<div class="proc-step" style="font-size:12px;color:var(--muted2);padding:4px">→</div>
-<div class="proc-step" style="padding:4px 12px;border:1px solid var(--border);font-size:10px;color:var(--muted)">DECISIONS</div>
-<div class="proc-step" style="font-size:12px;color:var(--muted2);padding:4px">→</div>
-<div class="proc-step" style="padding:4px 12px;border:1px solid var(--border);font-size:10px;color:var(--muted)">ACTION</div>
-<div class="proc-step" style="font-size:12px;color:var(--muted2);padding:4px">→</div>
-<div class="proc-step" style="padding:4px 12px;border:1px solid var(--accent);font-size:10px;color:var(--accent)">LEARNING</div>
+<div style="padding:40px;border:1px solid rgba(250,250,249,.08);margin-top:48px;background:rgba(250,250,249,.02)">
+<div class="tag" style="color:rgba(250,250,249,.4);margin-bottom:8px;font-size:8px">From strategy to working system</div>
+<p class="prose" style="color:rgba(250,250,249,.6);margin-bottom:24px;max-width:100%;font-size:14px">Strategy should not end in a deck. We design and build the intelligence, data and automation systems required to make the new operating model work.</p>
+<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:4px 8px">
+<span style="padding:4px 12px;border:1px solid rgba(250,250,249,.12);font-size:10px;color:rgba(250,250,249,.5)">DATA</span><span style="font-size:12px;color:rgba(250,250,249,.3)">→</span>
+<span style="padding:4px 12px;border:1px solid rgba(250,250,249,.12);font-size:10px;color:rgba(250,250,249,.5)">KNOWLEDGE</span><span style="font-size:12px;color:rgba(250,250,249,.3)">→</span>
+<span style="padding:4px 12px;border:1px solid rgba(250,250,249,.12);font-size:10px;color:rgba(250,250,249,.5)">QUESTIONS</span><span style="font-size:12px;color:rgba(250,250,249,.3)">→</span>
+<span style="padding:4px 12px;border:1px solid rgba(250,250,249,.12);font-size:10px;color:rgba(250,250,249,.5)">ANALYSIS</span><span style="font-size:12px;color:rgba(250,250,249,.3)">→</span>
+<span style="padding:4px 12px;border:1px solid rgba(250,250,249,.12);font-size:10px;color:rgba(250,250,249,.5)">DECISIONS</span><span style="font-size:12px;color:rgba(250,250,249,.3)">→</span>
+<span style="padding:4px 12px;border:1px solid rgba(250,250,249,.12);font-size:10px;color:rgba(250,250,249,.5)">ACTION</span><span style="font-size:12px;color:rgba(250,250,249,.3)">→</span>
+<span style="padding:4px 12px;border:1px solid var(--accent);font-size:10px;color:var(--accent)">LEARNING</span>
 </div>
 </div>
-
-<div style="margin-top:48px;text-align:center">
-<span class="acc-light" style="font-size:24px;letter-spacing:-.03em;margin-right:24px">Less execution.</span>
-<span style="font-size:24px;font-weight:500;letter-spacing:-.03em;color:var(--fg)">More judgement.</span>
-</div>
-</div>
-</section>
+</div></section>
+<div class="cons-closing"><span class="a">Less execution.</span><span class="b">More judgement.</span></div>
 <div class="divider"></div>
-<section style="padding:var(--section-pad) 0">
-<div class="section-inner narrow">
-<div class="cta-inner" style="grid-template-columns:1fr auto;gap:48px">
-<div><h2 style="font-size:clamp(24px,3vw,36px);font-weight:300;letter-spacing:-.025em;line-height:1.05;margin-bottom:12px;color:var(--fg)">What should your organisation look like in two years?</h2>
-<p style="font-size:15px;line-height:1.6;color:var(--muted);max-width:450px;font-weight:300;margin:0">Start with the current state. We will show you what should change, what can be automated, what needs to connect, and where human judgement matters most.</p></div>
+<section style="padding:var(--section-pad) 0"><div class="section-inner narrow"><div class="cta-inner" style="grid-template-columns:1fr auto;gap:48px">
+<div><h2 style="font-size:clamp(22px,3vw,32px);font-weight:300;letter-spacing:-.025em;line-height:1.05;margin-bottom:12px;color:var(--fg)">What should your organisation look like in <span class="acc-light">two years?</span></h2>
+<p style="font-size:15px;line-height:1.6;color:var(--muted);max-width:440px;font-weight:300;margin:0">Start with the current state. We will show you what should change, what can be automated, what needs to connect, and where human judgement matters most.</p></div>
 <div><a href="../contact/" class="btn" style="white-space:nowrap">Discuss your organisation →</a></div>
 </div>
-<p style="text-align:center;margin-top:24px;font-size:12px;color:var(--muted)"><a href="../contact/" class="acc">Start with an assessment →</a></p>
-</div>
-</section>
+</div></section>
 <footer style="background:var(--bg);border-top:1px solid var(--border)">
   <div style="max-width:1280px;margin:0 auto;padding:0 48px">
     <div class="ftr">
