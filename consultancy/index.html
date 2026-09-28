@@ -17,23 +17,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <link rel="stylesheet" href="../assets/common.css">
-<style>
-.cons-hero{min-height:auto;display:flex;align-items:center;padding:100px 0 50px;background:var(--h);color:var(--h-text);position:relative}
-.cons-hero .w{max-width:1280px;margin:0 auto;padding:0 48px;position:relative;z-index:2;width:100%}
-.cons-compare{display:grid;grid-template-columns:1fr;gap:2px;margin-top:40px;max-width:600px}
-.cons-compare>div{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;padding:12px 16px;border:1px solid rgba(250,250,249,.08)}
-.cons-compare .old{font-size:13px;color:rgba(250,250,249,.4);text-align:right;padding-right:8px}
-.cons-compare .arrow{color:var(--accent);font-size:12px;display:flex;align-items:center}
-.cons-compare .new{font-size:13px;font-weight:500;color:var(--h-text);padding-left:8px}
-.cons-compare .lbl{font-size:8px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:4px}
-.cons-closing{font-size:28px;font-weight:200;letter-spacing:-.03em;text-align:center;padding:60px 0}
-.cons-closing span{display:inline-block;margin:0 16px}
-.cons-closing .a{color:var(--accent);font-weight:300}
-.cons-closing .b{color:var(--fg);font-weight:500}
-@media(max-width:900px){.cons-hero{padding:90px 0 30px}.cons-closing{padding:40px 0;font-size:22px}}
-@media(max-width:600px){.cons-hero .w{padding:0 24px}.cons-compare>div{grid-template-columns:1fr;gap:4px}.cons-compare .old,.cons-compare .new{text-align:left}}
-</style>
 </head>
 <body>
 <header>
@@ -65,21 +52,24 @@
   </div>
 </header>
 
-<section class="cons-hero">
+<!-- HERO -->
+<section class="hero" id="hero">
+<canvas id="data-field-canvas" aria-hidden="true"></canvas>
 <div class="w">
 <div class="sup">Inflexion Consultancy</div>
-<h1 style="font-size:clamp(36px,5vw,72px);font-weight:200;text-wrap:pretty;line-height:1.0;letter-spacing:-.03em;max-width:70%;margin-bottom:16px">The economics have changed.</h1>
-<p style="font-size:clamp(15px,1.4vw,17px);line-height:1.7;color:rgba(250,250,249,.6);font-weight:300;max-width:60%;margin-bottom:32px">Marketing needs a new operating model. AI changes the cost structure of marketing. We help organisations redesign the way they work around that reality.</p>
-<div class="cta-row" style="margin-bottom:0">
-<a href="../contact/" class="btn" style="background:var(--bg);color:var(--fg)">Discuss your organisation →</a>
-<a href="#change" class="link">See how we work ↓</a>
+<h1>The economics have changed.<br><em style="color:var(--accent);font-style:normal;font-weight:400">Marketing needs a new operating model.</em></h1>
+<p class="desc">AI is changing the cost structure of marketing. We help organisations redesign the way they work around that reality.</p>
+<div class="cta-row">
+<a href="../contact/" class="btn">Discuss your organisation →</a>
+<a href="#change" style="font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,250,249,.8);text-decoration:none;border-bottom:1px solid rgba(250,250,249,.3);padding-bottom:3px;transition:color .2s,border-color .2s">See how we work ↓</a>
 </div>
-<div class="cons-compare">
-<div><div><div class="lbl" style="color:rgba(250,250,249,.3);text-align:right">Then</div></div><div></div><div><div class="lbl" style="color:var(--accent)">Now</div></div></div>
-<div><span class="old">Separate channels</span><span class="arrow">→</span><span class="new">Connected intelligence</span></div>
-<div><span class="old">Manual analysis</span><span class="arrow">→</span><span class="new">AI-powered sensing</span></div>
-<div><span class="old">Campaign reporting</span><span class="arrow">→</span><span class="new">Continuous measurement</span></div>
-<div><span class="old">Execution teams</span><span class="arrow">→</span><span class="new">Judgement-led teams</span></div>
+<div class="data-banner index-banner">
+<div class="d"><div class="v">4</div><div class="l">Operating model shifts</div><div class="s">Connect, Intelligent, Automate, Reorganise</div></div>
+<div class="d"><div class="v">90</div><div class="l">Days to first working system</div><div class="s">Diagnose to Build in 12 weeks</div></div>
+<div class="d"><div class="v">6</div><div class="l">Areas of capability</div><div class="s">End-to-end marketing transformation</div></div>
+<div class="d"><div class="v">03</div><div class="l">Maturity stages</div><div class="s">Fragmented → Connected → Intelligent</div></div>
+<div class="d"><div class="v">→</div><div class="l">Then to Now</div><div class="s">From channel silos to intelligence</div></div>
+<div class="d"><div class="v">1</div><div class="l">Integrated approach</div><div class="s">One operating model, six capabilities</div></div>
 </div>
 </div>
 </section>
@@ -197,7 +187,7 @@
 </div>
 </div>
 </div></section>
-<div class="cons-closing"><span class="a">Less execution.</span><span class="b">More judgement.</span></div>
+<div style="text-align:center;padding:60px 0;font-size:28px;letter-spacing:-.03em"><span style="color:var(--accent);font-weight:300;display:inline-block;margin:0 16px">Less execution.</span><span style="color:var(--fg);font-weight:500;display:inline-block;margin:0 16px">More judgement.</span></div>
 <div class="divider"></div>
 <section style="padding:var(--section-pad) 0"><div class="section-inner narrow"><div class="cta-inner" style="grid-template-columns:1fr auto;gap:48px">
 <div><h2 style="font-size:clamp(22px,3vw,32px);font-weight:300;letter-spacing:-.025em;line-height:1.05;margin-bottom:12px;color:var(--fg)">What should your organisation look like in <span class="acc-light">two years?</span></h2>
@@ -231,7 +221,100 @@
     </div>
     <div class="btm"><span>© 2026 Inflexion</span><span>Privacy · Terms</span></div>
   </div>
-</footer
+</footer>
+
+<script>
+  // Navigation & smooth scroll
+  (function(){
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})
+    });
+    var h = document.querySelector('.hamburger');
+    var n = document.querySelector('header nav');
+    if(h){h.addEventListener('click',function(){n.classList.toggle('open');h.classList.toggle('open')})}
+    n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');h.classList.remove('open')})});
+    document.querySelectorAll('.dropdown-toggle').forEach(function(toggle){
+      toggle.addEventListener('click',function(e){
+        e.preventDefault();
+        var menu = this.nextElementSibling;
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+    document.addEventListener('click',function(e){
+      if(!e.target.closest('.dropdown')){document.querySelectorAll('.dropdown-menu').forEach(function(m){m.style.display='none'})}
+    });
+  })();
+
+  // GSAP animations + Three.js
+  (function(){
+    if(typeof gsap==='undefined'||typeof ScrollTrigger==='undefined'){return}
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.timeline({delay:0.3})
+      .from('.hero .sup', { y: 30, opacity: 0, duration: 0.6, ease: 'power3.out' })
+      .from('.hero h1', { y: 40, opacity: 0, duration: 0.8, ease: 'power3.out' }, '-=0.3')
+      .from('.hero .desc', { y: 30, opacity: 0, duration: 0.6, ease: 'power2.out' }, '-=0.4')
+      .from('.hero .cta-row > *', { y: 30, opacity: 0, duration: 0.6, stagger: 0.1, ease: 'power2.out' }, '-=0.4')
+      .from('.hero .data-banner > *', { y: 20, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power2.out' }, '-=0.3');
+    const sr = { y: 40, duration: 0.9, ease: 'power2.out', opacity: 0 };
+    gsap.from('.why-row', { ...sr, stagger: 0.12, scrollTrigger: { trigger: '.why-row', start: 'top 80%' } });
+    gsap.from('.proc-step', { ...sr, stagger: 0.1, scrollTrigger: { trigger: '.process-grid', start: 'top 80%' } });
+    gsap.from('.shift-row', { ...sr, stagger: 0.08, scrollTrigger: { trigger: '.shift-row', start: 'top 85%' } });
+    gsap.from('.research-item', { ...sr, stagger: 0.1, scrollTrigger: { trigger: '.research-grid', start: 'top 80%' } });
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      gsap.globalTimeline.clear();
+      ScrollTrigger.getAll().forEach(t => t.kill());
+    }
+  })();
+
+  // Three.js Data Field
+  (function(){
+    var canvas = document.getElementById('data-field-canvas');
+    if (!canvas || typeof THREE === 'undefined') return;
+    var scene = new THREE.Scene();
+    scene.background = null;
+    var camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.set(0, -2, 9);
+    var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+    renderer.setClearColor(0x000000, 0);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    var group = new THREE.Group();
+    scene.add(group);
+    var numLines = 60, pts = 100;
+    for (var i = 0; i < numLines; i++) {
+      var points = [];
+      var xPos = (i - numLines / 2) * 0.22;
+      for (var j = 0; j < pts; j++) { points.push(new THREE.Vector3(xPos, (j - pts / 2) * 0.2, 0)); }
+      var t = i / numLines;
+      var color = new THREE.Color().setHSL(0.08 - t * 0.12, 0.8, 0.6 + t * 0.3);
+      var mat = new THREE.LineBasicMaterial({ color: color, transparent: true, opacity: 0.2 + Math.random() * 0.3, blending: THREE.AdditiveBlending });
+      var line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), mat);
+      group.add(line);
+    }
+    group.rotation.x = Math.PI / 3;
+    group.rotation.z = -Math.PI / 8;
+    function animate() {
+      requestAnimationFrame(animate);
+      var time = performance.now() * 0.0004;
+      group.children.forEach(function(line){
+        var pos = line.geometry.attributes.position.array;
+        for (var j = 0; j < pts; j++) {
+          var idx = j * 3;
+          var x = pos[idx], y = pos[idx + 1];
+          pos[idx + 2] = Math.sin(y * 1.2 + time + x * 0.8) * 0.8 + Math.cos(x * 1.5 - time * 0.8 + y * 0.5) * 0.6;
+        }
+        line.geometry.attributes.position.needsUpdate = true;
+      });
+      renderer.render(scene, camera);
+    }
+    animate();
+    window.addEventListener('resize', function(){
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  })();
+</script>
 
 </body>
 </html>
