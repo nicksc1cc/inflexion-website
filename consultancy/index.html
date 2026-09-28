@@ -245,8 +245,7 @@
       .from('.hero .sup', { y: 30, opacity: 0, duration: 0.6, ease: 'power3.out' })
       .from('.hero h1', { y: 40, opacity: 0, duration: 0.8, ease: 'power3.out' }, '-=0.3')
       .from('.hero .desc', { y: 30, opacity: 0, duration: 0.6, ease: 'power2.out' }, '-=0.4')
-      .from('.hero .cta-row > *', { y: 30, opacity: 0, duration: 0.6, stagger: 0.1, ease: 'power2.out' }, '-=0.4')
-      .from('.hero .data-banner > *', { y: 20, opacity: 0, duration: 0.5, stagger: 0.08, ease: 'power2.out' }, '-=0.3');
+      .from('.hero .cta-row > *', { y: 30, opacity: 0, duration: 0.6, stagger: 0.1, ease: 'power2.out' }, '-=0.4');
     const sr = { y: 40, duration: 0.9, ease: 'power2.out', opacity: 0 };
     gsap.from('.why-row', { ...sr, stagger: 0.12, scrollTrigger: { trigger: '.why-row', start: 'top 80%' } });
     gsap.from('.proc-step', { ...sr, stagger: 0.1, scrollTrigger: { trigger: '.process-grid', start: 'top 80%' } });
@@ -256,6 +255,15 @@
       gsap.globalTimeline.clear();
       ScrollTrigger.getAll().forEach(t => t.kill());
     }
+    // Fallback: ensure all animated elements are visible even if GSAP/ScrollTrigger fails
+    setTimeout(function() {
+      document.querySelectorAll('.why-row, .proc-step, .shift-row, .research-item').forEach(function(el) {
+        if (window.getComputedStyle(el).opacity === '0') {
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+        }
+      });
+    }, 1000);
   })();
 
   // Three.js Data Field
