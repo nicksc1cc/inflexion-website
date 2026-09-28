@@ -4,9 +4,7 @@ Inflexion helps brands win visibility across AI answer engines (ChatGPT, Gemini,
 
 ## Services
 
-- **Organic & AI Search**: Organic search foundations, AI citation, prompt set audits, source authority mapping and technical access across ChatGPT, Gemini, Perplexity and Claude.
-- **Search Intelligence**: Cross-model citation testing, share of answer tracking, competitor citation benchmarking.
-- **Digital PR & Content**: Earn citations in outlets, forums and data sets that AI models may cite.
+- **Organic & AI Search**: Search intelligence, organic search foundations, AI citation, prompt set audits, source authority mapping, technical access, entity optimisation and digital PR for citations across ChatGPT, Gemini, Perplexity and Claude.
 - **Beauty Media Strategy**: Strategy for beauty brands navigating AI-assisted shopping, agentic commerce and retail media.
 - **Media, retail and the algorithmic shelf**: Retail media, Amazon and programmatic buying connected through paid and organic position, product signals and shared measurement.
 - **AI Consultancy**: Operating model redesign, team restructuring for AI-augmented workflows.
@@ -15,11 +13,9 @@ Inflexion helps brands win visibility across AI answer engines (ChatGPT, Gemini,
 ## Key pages
 
 - https://nicksc1cc.github.io/inflexion-website/ : Home
-- https://nicksc1cc.github.io/inflexion-website/aeo.html : Organic & AI Search
-- https://nicksc1cc.github.io/inflexion-website/ai-visibility-analytics.html : Search Intelligence
-- https://nicksc1cc.github.io/inflexion-website/technical-geo.html : Technical GEO
-- https://nicksc1cc.github.io/inflexion-website/digital-pr.html : Digital PR & Content
-- - https://nicksc1cc.github.io/inflexion-website/beauty-media-strategy.html : Beauty Media Strategy
+- https://nicksc1cc.github.io/inflexion-website/aeo/ : Organic & AI Search
+- https://nicksc1cc.github.io/inflexion-website/technical-geo/ : Technical search foundation
+- https://nicksc1cc.github.io/inflexion-website/beauty-media-strategy/ : Beauty Media Strategy
 - - https://nicksc1cc.github.io/inflexion-website/media/ : Media, retail and the algorithmic shelf
 - https://nicksc1cc.github.io/inflexion-website/consultancy.html : AI Consultancy
 - https://nicksc1cc.github.io/inflexion-website/measurement.html : Data & Measurement

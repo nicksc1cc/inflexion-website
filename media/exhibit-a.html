@@ -1,0 +1,91 @@
+<figure class="exhibit" role="figure" aria-label="Sales contribution analysis showing platform-attributed versus estimated incremental impact">
+<div class="exhibit-title">What actually drove sales?</div>
+<div class="exhibit-question">Platform-attributed vs estimated incremental contribution, by month</div>
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;max-width:800px;font-family:Montserrat,sans-serif">
+  <defs>
+    <style>
+      .bg-line{stroke:rgba(10,10,11,.06);stroke-width:1}
+      .label{font-size:10px;fill:#71717A;font-weight:300}
+      .label-mono{font-size:10px;fill:#71717A;font-weight:500;font-family:IBM Plex Mono,monospace}
+      .data-line{stroke:#2438DA;stroke-width:2;fill:none}
+      .data-dot{fill:#2438DA;r:3.5}
+      .incremental-fill{fill:rgba(36,56,218,.08)}
+      .incremental-line{stroke:#2438DA;stroke-width:1.5;stroke-dasharray:4,3;fill:none}
+      .attribution-line{stroke:rgba(10,10,11,.3);stroke-width:1.5;fill:none}
+      .annotation-text{font-size:11px;fill:#0A0A0B;font-weight:400}
+      .annotation-text-bold{font-size:11px;fill:#FF5A1F;font-weight:600}
+      .finding-text{font-size:12px;fill:#2438DA;font-weight:500}
+    </style>
+  </defs>
+  <!-- Chart area -->
+  <rect x="0" y="0" width="800" height="400" fill="#FAFAF9"/>
+  <!-- Y-axis gridlines -->
+  <line x1="80" y1="60" x2="740" y2="60" class="bg-line"/>
+  <line x1="80" y1="120" x2="740" y2="120" class="bg-line"/>
+  <line x1="80" y1="180" x2="740" y2="180" class="bg-line"/>
+  <line x1="80" y1="240" x2="740" y2="240" class="bg-line"/>
+  <line x1="80" y1="300" x2="740" y2="300" class="bg-line"/>
+  <line x1="80" y1="360" x2="740" y2="360" class="bg-line"/>
+  <!-- Y-axis labels -->
+  <text x="70" y="64" class="label-mono" text-anchor="end">£2,000k</text>
+  <text x="70" y="124" class="label-mono" text-anchor="end">£1,600k</text>
+  <text x="70" y="184" class="label-mono" text-anchor="end">£1,200k</text>
+  <text x="70" y="244" class="label-mono" text-anchor="end">£800k</text>
+  <text x="70" y="304" class="label-mono" text-anchor="end">£400k</text>
+  <text x="70" y="364" class="label-mono" text-anchor="end">£0</text>
+  <!-- X-axis labels -->
+  <text x="110" y="390" class="label-mono" text-anchor="middle">Jan</text>
+  <text x="170" y="390" class="label-mono" text-anchor="middle">Feb</text>
+  <text x="230" y="390" class="label-mono" text-anchor="middle">Mar</text>
+  <text x="290" y="390" class="label-mono" text-anchor="middle">Apr</text>
+  <text x="350" y="390" class="label-mono" text-anchor="middle">May</text>
+  <text x="410" y="390" class="label-mono" text-anchor="middle">Jun</text>
+  <text x="470" y="390" class="label-mono" text-anchor="middle">Jul</text>
+  <text x="530" y="390" class="label-mono" text-anchor="middle">Aug</text>
+  <text x="590" y="390" class="label-mono" text-anchor="middle">Sep</text>
+  <text x="650" y="390" class="label-mono" text-anchor="middle">Oct</text>
+  <text x="710" y="390" class="label-mono" text-anchor="middle">Nov</text>
+  <text x="770" y="390" class="label-mono" text-anchor="middle">Dec</text>
+  <!-- Total Revenue line (platform-attributed) -->
+  <!-- Data points: Jan-Jun: 1200,1150,1300,1180,1350,1420 Jul-Dec: 1100,1050,1300,1450,1800,2100 -->
+  <!-- Scaled: 1200=310, 2100=60 -->
+  <!-- Polyline -->
+  <polyline points="110,310 170,318 230,290 290,304 350,270 410,258 470,330 530,340 590,290 650,258 710,210 770,180" class="attribution-line"/>
+  <!-- Incremental Sales line -->
+  <!-- Data: 380,350,420,340,460,490,310,280,400,510,680,820 -->
+  <!-- Scaled: 380=300, 820=164 -->
+  <polyline points="110,300 170,310 230,290 290,304 350,270 410,258 470,320 530,330 590,290 650,258 710,210 770,164" class="incremental-line"/>
+  <!-- Incremental fill area -->
+  <polygon points="110,310 170,318 230,290 290,304 350,270 410,258 470,330 530,340 590,290 650,258 710,210 770,180 770,164 710,210 650,258 590,290 530,330 470,320 410,258 350,270 290,304 230,290 170,310 110,300" class="incremental-fill"/>
+  <!-- Data dots on attribution line -->
+  <circle cx="110" cy="310" r="3" fill="rgba(10,10,11,.3)"/>
+  <circle cx="170" cy="318" r="3" fill="rgba(10,10,11,.3)"/>
+  <circle cx="230" cy="290" r="3" fill="rgba(10,10,11,.3)"/>
+  <circle cx="290" cy="304" r="3" fill="rgba(10,10,11,.3)"/>
+  <circle cx="350" cy="270" r="3" fill="rgba(10,10,11,.3)"/>
+  <circle cx="410" cy="258" r="3" fill="rgba(10,10,11,.3)"/>
+  <circle cx="470" cy="330" r="3" fill="rgba(10,10,11,.3)"/>
+  <circle cx="530" cy="340" r="3" fill="rgba(10,10,11,.3)"/>
+  <circle cx="590" cy="290" r="3" fill="rgba(10,10,11,.3)"/>
+  <circle cx="650" cy="258" r="3" fill="rgba(10,10,11,.3)"/>
+  <circle cx="710" cy="210" r="3" fill="rgba(10,10,11,.3)"/>
+  <circle cx="770" cy="180" r="3" fill="rgba(10,10,11,.3)"/>
+  <!-- Annotation: November peak -->
+  <line x1="710" y1="210" x2="710" y2="140" stroke="#FF5A1F" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="710" y="130" class="annotation-text-bold" text-anchor="middle">Platform reports £1.8M</text>
+  <text x="710" y="144" class="annotation-text" text-anchor="middle">but incremental may be £680k</text>
+  <!-- Annotation: gap explanation -->
+  <line x1="350" y1="270" x2="350" y2="120" stroke="#2438DA" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="350" y="110" class="annotation-text" text-anchor="middle">Gap: platform-reported sales</text>
+  <text x="350" y="124" class="annotation-text" text-anchor="middle">that would have happened anyway</text>
+  <!-- Legend -->
+  <line x1="100" y1="45" x2="145" y2="45" stroke="rgba(10,10,11,.3)" stroke-width="2"/>
+  <text x="152" y="49" class="annotation-text" font-size="10">Platform-attributed revenue</text>
+  <line x1="310" y1="45" x2="355" y2="45" stroke="#2438DA" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="362" y="49" class="annotation-text" font-size="10">Estimated incremental contribution</text>
+  <!-- Finding -->
+  <rect x="80" y="400" width="660" height="36" fill="none"/>
+</svg>
+<div class="exhibit-finding">Platform attribution overstates retail media contribution by an estimated 30–50% in this illustrative example. Separating attributed from incremental changes the investment conversation.</div>
+<div class="exhibit-footnote">Illustrative example using synthetic BellaHome data. Incremental contribution estimated via modelled counterfactual, not experimental measurement.</div>
+</figure>
