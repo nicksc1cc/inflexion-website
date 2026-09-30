@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Inflexion: Marketing for the AI era</title>
+<link rel="icon" href="assets/images/inflexion-media-logo.png">
 <meta name="description" content="Inflexion helps brands win AI visibility across answer engines and the algorithmic shelf. AEO, retail media, and AI consultancy.">
 <link rel="canonical" href="https://nicksc1cc.github.io/inflexion-website/">
 <meta property="og:type" content="website">
@@ -65,13 +66,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="assets/design-system/tokens-built.css">
 <link rel="stylesheet" href="assets/common.css">
 </head>
 <body>
 
 <header>
   <div class="header-inner">
-    <a href="/inflexion-website/" class="logo"><img src="/inflexion-website/assets/images/inflexion-media-logo.png" alt="Inflexion Media" height="55"></a>
+    <a href="./" class="logo"><img src="assets/images/inflexion-media-logo.png" alt="Inflexion Media" height="55"></a>
     <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     <nav>
       <a href="/inflexion-website/">Home</a>
@@ -341,16 +343,10 @@
   });
 
   // Centered narrative blocks
-  gsap.from('#means > div > div[style*="text-align:center"]:first-of-type > *', {
+  gsap.from('#means .section-inner > div[style*="text-align:center"] > *', {
     ...sr,
     stagger: 0.15,
-    scrollTrigger: { trigger: '#means > div > div[style*="text-align:center"]:first-of-type', start: 'top 80%', toggleActions: 'play none none none' }
-  });
-
-  gsap.from('#means > div > div[style*="text-align:center"]:last-of-type > *', {
-    ...sr,
-    stagger: 0.15,
-    scrollTrigger: { trigger: '#means > div > div[style*="text-align:center"]:last-of-type', start: 'top 80%', toggleActions: 'play none none none' }
+    scrollTrigger: { trigger: '#means .section-inner > div[style*="text-align:center"]', start: 'top 80%', toggleActions: 'play none none none' }
   });
 
   // Process grid steps (02)
