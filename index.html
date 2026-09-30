@@ -68,6 +68,51 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <link rel="stylesheet" href="assets/design-system/tokens-built.css">
 <link rel="stylesheet" href="assets/common.css?v=74b0a41">
+<style>
+/* Homepage rebuild: editorial narrative, customer decision as protagonist. */
+#means,#process,#services,#cta{display:none}
+.home-rebuild{background:var(--bg);color:var(--fg)}
+.home-chapter{border-top:1px solid var(--border);padding:clamp(5rem,10vw,9rem) 0}
+.home-chapter .section-inner{max-width:1180px}
+.home-chapter h2{max-width:15ch;font-size:clamp(2.7rem,5.8vw,5.6rem);font-weight:200;line-height:.96;letter-spacing:var(--typography-letter-spacing-tighter);margin:1rem 0 2rem}
+.home-chapter h2 em,.home-final h2 em{font-style:normal;color:var(--accent);font-weight:400}
+.home-chapter .chapter-lead{max-width:40rem;font-size:clamp(1.25rem,2vw,1.6rem);line-height:var(--typography-line-height-relaxed);font-weight:300}
+.home-chapter .chapter-copy{max-width:38rem;font-size:var(--typography-font-size-xl);line-height:var(--typography-line-height-prose);color:var(--muted);font-weight:300;margin-top:1.5rem}
+.home-chapter .chapter-note{max-width:38rem;color:var(--muted);line-height:var(--typography-line-height-prose);margin-top:2rem}
+.journey-visual{margin-top:clamp(3rem,7vw,6rem);border-top:1px solid rgba(250,250,249,.2);border-bottom:1px solid rgba(250,250,249,.2);padding:2rem 0;display:grid;grid-template-columns:1fr 11rem;gap:2rem;align-items:center}
+.journey-signals{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem}
+.journey-signals span{border:1px solid rgba(250,250,249,.22);padding:.8rem .55rem;text-align:center;color:rgba(250,250,249,.72);font:500 var(--typography-font-size-xs)/1.3 'IBM Plex Mono',monospace;letter-spacing:.08em}
+.journey-core{width:11rem;height:11rem;border:1px solid var(--accent);border-radius:50%;display:grid;place-content:center;text-align:center;color:var(--h-text);font:500 var(--typography-font-size-sm)/1.5 'IBM Plex Mono',monospace;letter-spacing:.12em}
+.journey-core em{font-style:normal;color:var(--accent)}
+.statement-stack{display:grid;gap:.4rem;margin-top:4rem;font:500 clamp(1.2rem,2vw,1.8rem)/1.2 'IBM Plex Mono',monospace;letter-spacing:.04em;color:var(--fg)}
+.statement-stack strong:nth-child(2){padding-left:clamp(1.5rem,8vw,8rem)}.statement-stack strong:nth-child(3){padding-left:clamp(3rem,16vw,16rem);color:var(--accent)}
+.home-implication{background:var(--h);color:var(--h-text)}
+.home-implication .tag,.home-economics .tag,.home-innovation .tag{color:rgba(250,250,249,.55)}
+.home-implication .chapter-lead,.home-economics .chapter-lead,.home-innovation .chapter-lead{color:rgba(250,250,249,.8)}
+.home-implication .chapter-copy,.home-economics .chapter-copy,.home-innovation .chapter-copy{color:rgba(250,250,249,.65)}
+.decision-ladder{margin-top:3rem;border-top:1px solid rgba(250,250,249,.2);border-bottom:1px solid rgba(250,250,249,.2);display:grid;grid-template-columns:repeat(9,1fr);align-items:center;padding:1.5rem 0;color:var(--accent);font:500 var(--typography-font-size-xs)/1.4 'IBM Plex Mono',monospace;letter-spacing:.08em;text-align:center}
+.decision-ladder b{font-size:1.2rem;font-weight:400;color:rgba(250,250,249,.5)}
+.connection-system{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;margin:3rem 0 2rem;font:500 clamp(.75rem,1.2vw,1rem)/1.4 'IBM Plex Mono',monospace;letter-spacing:.08em;color:var(--accent)}
+.connection-system i{font-style:normal;color:var(--muted)}
+.signature-line{max-width:44rem;margin-top:3rem;font-size:clamp(1.8rem,3vw,3rem);line-height:1.08;letter-spacing:-.025em;font-weight:300}
+.signature-line em{font-style:normal;color:var(--accent)}
+.home-disciplines{background:var(--bg)}
+.discipline-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--border);margin-top:3rem}
+.discipline-grid article{padding:2rem 2rem 2rem 0;border-right:1px solid var(--border)}
+.discipline-grid article:nth-child(n+2){padding-left:2rem}.discipline-grid article:last-child{border-right:0}
+.discipline-grid article>span{font:500 var(--typography-font-size-sm)/1.4 'IBM Plex Mono',monospace;letter-spacing:.12em;color:var(--accent)}
+.discipline-grid h3{font-size:clamp(1.5rem,2.5vw,2.3rem);line-height:1.05;font-weight:300;margin:2rem 0 1rem}
+.discipline-grid p{color:var(--muted);font-size:var(--typography-font-size-xl);line-height:var(--typography-line-height-prose);font-weight:300}
+.discipline-grid a{display:inline-block;margin-top:2rem;color:var(--fg);font-size:var(--typography-font-size-sm);font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid var(--fg);padding-bottom:.25rem}
+.under-line{font-family:'IBM Plex Mono',monospace;font-size:var(--typography-font-size-sm);letter-spacing:.08em;color:var(--muted);margin-top:2rem}
+.home-final{background:var(--h);color:var(--h-text);text-align:center}
+.home-final .section-inner{display:grid;justify-items:center}
+.home-final h2{max-width:14ch;font-size:clamp(2.8rem,6vw,5.8rem);font-weight:200;line-height:.96;letter-spacing:var(--typography-letter-spacing-tighter);margin:0}
+.home-final p{font-size:1.35rem;color:rgba(250,250,249,.7);margin:2rem 0}
+.home-final .link{color:rgba(250,250,249,.8)}
+@media(max-width:900px){.journey-visual{grid-template-columns:1fr}.journey-core{margin:0 auto}.decision-ladder{grid-template-columns:1fr;gap:.55rem}.decision-ladder b{transform:rotate(90deg)}.discipline-grid{grid-template-columns:1fr}.discipline-grid article,.discipline-grid article:nth-child(n+2){padding:1.5rem 0;border-right:0;border-bottom:1px solid var(--border)}.discipline-grid article:last-child{border-bottom:0}}
+@media(max-width:600px){.home-chapter{padding:4.5rem 0}.home-chapter h2{font-size:clamp(2.4rem,11vw,3.8rem)}.journey-signals{grid-template-columns:repeat(2,1fr)}.statement-stack{font-size:1rem}.statement-stack strong:nth-child(2),.statement-stack strong:nth-child(3){padding-left:1.25rem}.connection-system{gap:.5rem;line-height:1.8}.home-final h2{font-size:clamp(2.5rem,12vw,4rem)}}
+</style>
 </head>
 <body>
 
@@ -104,22 +149,94 @@
 <section class="hero" id="hero">
   <canvas id="data-field-canvas" aria-hidden="true"></canvas>
   <div class="w">
-    <div class="sup">Full-service marketing for the <span style="color:var(--accent);font-weight:500">AI era</span></div>
-    <h1>AI has fundamentally changed the customer journey.<br><em style="color:var(--accent);font-style:normal">Most brands are building for where it used to be.</em></h1>
-    <p class="desc">Full-service capability across discovery, media, retail and data, with AI in the operating model</p>
+    <div class="sup">Inflexion</div>
+    <h1>THE ECONOMICS OF GROWTH <em>HAVE CHANGED.</em></h1>
+    <p class="desc">Customers are changing how they discover, compare and buy. Media is fragmenting. Data is everywhere. Technology is changing what is possible.</p>
+    <p class="hero-intro">Inflexion brings strategy, data, technology, media and creativity together to help ambitious brands make better decisions and turn them into growth.</p>
     <div class="cta-row">
-      <a href="contact/" class="btn">Run the baseline →</a>
+      <a href="contact/" class="btn">Talk to us</a>
+      <a href="#home-process" class="link">How we work</a>
     </div>
-    <div class="data-banner index-banner">
-      <div class="d"><div class="v">900M</div><div class="l">Weekly ChatGPT users</div><div class="s">Source: OpenAI, Feb 2026</div></div>
-      <div class="d"><div class="v">69%</div><div class="l">Zero-click searches</div><div class="s">Source: Similarweb, 2025</div></div>
-      <div class="d"><div class="v">$1.1B</div><div class="l">GEO market (2026)</div><div class="s">Source: Dimension Market Research</div></div>
-      <div class="d"><div class="v">82%</div><div class="l">Citations from earned media</div><div class="s">Source: Muck Rack, 2025</div></div>
-      <div class="d"><div class="v">86.7%</div><div class="l">Business queries trigger AI</div><div class="s">Peec AI, April 2026</div></div>
-      <div class="d"><div class="v">$2.5B</div><div class="l">OpenAI's projected 2026 ad revenue</div><div class="s">eMarketer, 2026</div></div>
+    <div class="journey-visual" aria-label="Many signals converge around one customer decision">
+      <div class="journey-signals"><span>SEARCH</span><span>SOCIAL</span><span>AI</span><span>MARKETPLACES</span><span>RETAIL MEDIA</span><span>CREATIVE</span><span>COMMERCE</span><span>CUSTOMER DATA</span></div>
+      <div class="journey-core">CUSTOMER<br><em>DECISION</em></div>
     </div>
   </div>
 </section>
+
+<div class="home-rebuild">
+<section class="home-chapter home-transition" id="home-change">
+  <div class="section-inner">
+    <div class="tag">01 / The customer journey</div>
+    <h2>THE CUSTOMER JOURNEY IS BEING <em>REWRITTEN.</em></h2>
+    <p class="chapter-lead">Search used to mean keywords. Discovery meant scrolling. Comparison meant opening multiple tabs. Buying meant visiting a retailer. Increasingly, AI can help with all of it.</p>
+    <div class="journey-compare">
+      <div class="journey-track"><span class="track-label">OLD</span><span>SEARCH</span><i>→</i><span>WEBSITE</span><i>→</i><span>COMPARISON</span><i>→</i><span>RETAILER</span><i>→</i><span>PURCHASE</span></div>
+      <div class="journey-track emerging"><span class="track-label">EMERGING</span><span>QUESTION</span><i>→</i><span>AI</span><i>→</i><span>RECOMMENDATION</span><i>→</i><span>COMPARISON</span><i>→</i><span>DECISION</span><i>→</i><span>TRANSACTION</span></div>
+    </div>
+    <p class="chapter-note">The customer journey is expanding into new interfaces and becoming increasingly mediated by intelligent systems.</p>
+    <div class="statement-stack"><strong>THE INTERFACE IS CHANGING.</strong><strong>THE DECISION IS CHANGING.</strong><strong>THE ECONOMICS ARE CHANGING.</strong></div>
+  </div>
+</section>
+<section class="home-chapter home-implication" id="home-implication">
+  <div class="section-inner">
+    <div class="tag">02 / The commercial implication</div>
+    <h2>IT’S NO LONGER ENOUGH TO BE <em>FOUND.</em> YOU NEED TO BE CHOSEN.</h2>
+    <p class="chapter-lead">As discovery becomes more intelligent, brands need to do more than appear in a search result or an ad placement.</p>
+    <p class="chapter-copy">Their products need to be discoverable, understandable, credible, relevant and easy to choose.</p>
+    <p class="chapter-copy">Their data, content, proposition, media and commerce experience increasingly need to work together.</p>
+    <div class="decision-ladder"><span>DISCOVERABILITY</span><b>↓</b><span>UNDERSTANDING</span><b>↓</b><span>PREFERENCE</span><b>↓</b><span>CONVERSION</span><b>↓</b><span>LOYALTY</span></div>
+  </div>
+</section>
+<section class="home-chapter home-answer" id="home-answer">
+  <div class="section-inner">
+    <div class="tag">03 / The Inflexion answer</div>
+    <h2>CONNECT THE THINGS THAT INFLUENCE THE <em>DECISION.</em></h2>
+    <div class="connection-system"><span>STRATEGY</span><i>·</i><span>DATA</span><i>·</i><span>TECHNOLOGY</span><i>·</i><span>MEDIA</span><i>·</i><span>CREATIVE</span><i>·</i><span>COMMERCE</span><i>·</i><span>MEASUREMENT</span></div>
+    <p class="chapter-copy">Inflexion brings together disciplines that have traditionally been separated.</p>
+    <p class="chapter-copy">Strategy defines the problem. Data creates the evidence. Technology creates leverage. Media and creative turn decisions into action. Commerce connects the experience to the transaction. Measurement shows what happened.</p>
+    <p class="signature-line">The advantage is in the connection.</p>
+  </div>
+</section>
+<section class="home-chapter home-disciplines" id="home-disciplines">
+  <div class="section-inner">
+    <div class="tag">04 / What Inflexion actually does</div>
+    <h2>THREE DISCIPLINES. <em>ONE COMMERCIAL AGENDA.</em></h2>
+    <div class="discipline-grid">
+      <article><span>CONSULTANCY</span><h3>Find the opportunity.</h3><p>Strategy, growth and transformation for difficult commercial problems.</p><a href="consultancy/">Explore Consultancy →</a></article>
+      <article><span>MEDIA</span><h3>Put investment where it can work hardest.</h3><p>Strategy, activation, commerce and measurement across the modern media ecosystem.</p><a href="media/">Explore Media →</a></article>
+      <article><span>CREATIVE</span><h3>Turn understanding into action.</h3><p>Brand, content and experiences designed to change customer behaviour.</p><a href="contact/">Explore Creative →</a></article>
+    </div>
+    <p class="under-line">Data, technology and innovation run through all three.</p>
+  </div>
+</section>
+<section class="home-chapter home-economics" id="home-process">
+  <div class="section-inner">
+    <div class="tag">05 / The new economics of agency work</div>
+    <h2>LESS EXECUTION. <em>MORE JUDGEMENT.</em></h2>
+    <p class="chapter-lead">Technology is changing what an agency can do.</p>
+    <p class="chapter-copy">Automation removes manual work. AI can interrogate more data, explore more scenarios and make sophisticated analytical and measurement capabilities accessible at a scale that was previously difficult to achieve.</p>
+    <p class="signature-line">That doesn’t make judgement less important.<br><em>It makes it more valuable.</em></p>
+    <p class="chapter-copy">We use technology where it creates an advantage, so our people can spend more time understanding the business, challenging assumptions and deciding what matters.</p>
+  </div>
+</section>
+<section class="home-chapter home-innovation" id="home-innovation">
+  <div class="section-inner">
+    <div class="tag">06 / Innovation</div>
+    <h2>NEVER ACCEPT THAT THERE ISN’T A <em>BETTER WAY.</em></h2>
+    <p class="chapter-lead">New data. New technology. New media. New measurement. New ideas.</p>
+    <p class="chapter-copy">We continually explore what is changing, test what could work and adopt it when it creates a genuine advantage.</p>
+    <p class="signature-line">INNOVATION ONLY MATTERS WHEN IT CREATES AN ADVANTAGE.</p>
+  </div>
+</section>
+<section class="home-chapter home-final" id="home-final">
+  <div class="section-inner">
+    <h2>WHAT DOES THE NEXT CUSTOMER JOURNEY LOOK LIKE FOR <em>YOUR BRAND?</em></h2>
+    <p>Let’s work it out.</p>
+    <div class="cta-row"><a href="contact/" class="btn">Talk to us</a><a href="perspectives/" class="link">Explore our work</a></div>
+  </div>
+</section>
+</div>
 
 <div class="divider"></div>
 
