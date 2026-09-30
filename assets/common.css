@@ -546,11 +546,11 @@ a[href$="beauty-media-strategy/"]{color:var(--accent2)!important}
   .dropdown-menu-inner{box-shadow:none;border:none;background:transparent}
   .dropdown-menu a{padding:8px 0 8px 16px;font-size: var(--typography-font-size-base);border-bottom:none}
   .hero{min-height:auto;padding:calc(var(--header-h) + 2rem) 0 3rem}
-  .hero .w{padding-inline:var(--spacing-8)}
+  .hero .w{width:calc(100% - (2 * var(--spacing-8)));max-width:none;padding-inline:0}
   .hero .cta-row{flex-direction:column;align-items:flex-start}
   .hero .data-banner{grid-template-columns:repeat(3,1fr);gap:16px}
   .hero .index-banner{grid-template-columns:repeat(2,1fr);gap:16px}
-  .hero h1,.hero .desc{max-width:100%}
+  .hero h1,.hero .desc{width:100%;max-width:100%!important;overflow-wrap:anywhere;word-break:break-word}
   section{padding:var(--section-pad-mobile) 0}
   .section-inner{padding:0 24px}
   .shift-row{grid-template-columns:1fr;gap:8px;padding:20px 0}
@@ -598,7 +598,7 @@ a[href$="beauty-media-strategy/"]{color:var(--accent2)!important}
 }
 @media(max-width:480px){
   .hero{padding:calc(var(--header-h) + 1.5rem) 0 2.5rem}
-  .hero .w{padding-inline:var(--spacing-5)}
+  .hero .w{width:calc(100% - (2 * var(--spacing-5)));max-width:none;padding-inline:0}
   .hero .data-banner{grid-template-columns:1fr;gap:12px}
   .hero .index-banner{grid-template-columns:1fr;gap:12px}
   .data-banner .v{font-size:clamp(20px,6vw,28px)}
