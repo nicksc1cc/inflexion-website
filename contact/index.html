@@ -55,29 +55,29 @@
 <body>
 <header>
   <div class="header-inner">
-    <a href="/inflexion-website/" class="logo"><img src="/inflexion-website/assets/images/inflexion-media-logo.png" alt="Inflexion Media" height="55"></a>
-    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-    <nav>
-      <a href="/inflexion-website/">Home</a>
+    <a href="../" class="logo"><img src="../assets/images/inflexion-media-logo.png" alt="Inflexion Media" height="55"></a>
+    <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span></button>
+    <nav id="site-nav">
+      <a href="../">Home</a>
       
-      <a href="/inflexion-website/aeo/">Organic & AI Search</a>
+      <a href="../aeo/">Organic & AI Search</a>
       
-      <a href="/inflexion-website/media/">Media solutions</a>
+      <a href="../media/">Media solutions</a>
       
-      <a href="/inflexion-website/consultancy/">Consultancy</a>
+      <a href="../consultancy/">Consultancy</a>
       <div class="dropdown">
-        <span class="dropdown-toggle">Perspectives</span>
-        <div class="dropdown-menu">
+        <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="perspectives-menu">Perspectives</button>
+        <div class="dropdown-menu" id="perspectives-menu">
           <div class="dropdown-menu-inner">
-            <a href="/inflexion-website/perspectives/">All</a>
-            <a href="/inflexion-website/perspectives/resources/">Resources</a>
-            <a href="/inflexion-website/ecommerce-whitepaper/" style="color:var(--accent)">Whitepaper</a>
-            <a href="/inflexion-website/perspectives/industry-focus/">Industry Focus</a>
-            <a href="/inflexion-website/perspectives/news/">News</a>
+            <a href="../perspectives/">All</a>
+            <a href="../perspectives/resources/">Resources</a>
+            <a href="../ecommerce-whitepaper/" style="color:var(--accent)">Whitepaper</a>
+            <a href="../perspectives/industry-focus/">Industry Focus</a>
+            <a href="../perspectives/news/">News</a>
           </div>
         </div>
       </div>
-      <a href="/inflexion-website/contact/" class="cta-btn">Contact us</a>
+      <a href="../contact/" class="cta-btn">Contact us</a>
     </nav>
   </div>
 </header>
@@ -361,5 +361,6 @@
 
   })();
 </script>
+<script>(function(){var h=document.querySelector('.hamburger'),n=document.querySelector('#site-nav'),t=document.querySelector('.dropdown-toggle'),m=document.querySelector('#perspectives-menu');if(h&&n)h.addEventListener('click',function(){h.setAttribute('aria-expanded',String(n.classList.contains('open')))});if(t&&m)t.addEventListener('click',function(){t.setAttribute('aria-expanded',String(m.style.display==='block'))});if(n)n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){if(h){h.setAttribute('aria-expanded','false');h.classList.remove('open')}if(t){t.setAttribute('aria-expanded','false')}})});document.addEventListener('keydown',function(e){if(e.key==='Escape'){if(h){h.setAttribute('aria-expanded','false');h.classList.remove('open')}if(n)n.classList.remove('open');if(t){t.setAttribute('aria-expanded','false')}if(m)m.style.display='none'}})})();</script>
 </body>
 </html>

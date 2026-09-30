@@ -101,7 +101,7 @@ header nav a:hover{color:var(--fg)}
 
 /* Dropdown */
 .dropdown{position:relative;display:inline-block}
-.dropdown-toggle{cursor:pointer;display:inline-flex;align-items:center}
+.dropdown-toggle{cursor:pointer;display:inline-flex;align-items:center;font:inherit;letter-spacing:.04em;color:var(--muted);background:none;border:0;padding:0}
 .dropdown-toggle::after{
   content:'';display:inline-block;width:0;height:0;margin-left:4px;
   border-left:3px solid transparent;border-right:3px solid transparent;
@@ -112,7 +112,8 @@ header nav a:hover{color:var(--fg)}
   display:none;position:absolute;top:100%;left:50%;
   transform:translateX(-50%);padding-top:8px;min-width:240px;z-index:200
 }
-.dropdown:hover .dropdown-menu{display:block}
+.dropdown:hover .dropdown-menu,.dropdown:focus-within .dropdown-menu{display:block}
+.dropdown-toggle[aria-expanded="true"]::after{transform:rotate(180deg)}
 .dropdown-menu-inner{
   background:var(--bg);border:1px solid var(--border);border-radius: var(--radius-default);
   box-shadow:0 8px 24px rgba(0,0,0,.08);overflow:hidden
@@ -128,8 +129,8 @@ header nav a:hover{color:var(--fg)}
 
 /* --- Hero (shared base) --- */
 .hero{
-  min-height:100vh;display:flex;align-items:center;
-  padding:200px 0 80px;background:var(--h);color:var(--h-text);
+  min-height:clamp(44rem,82vh,54rem);display:flex;align-items:center;
+  padding:clamp(9rem,16vh,12rem) 0 5rem;background:var(--h);color:var(--h-text);
   overflow:hidden;position:relative;
   scroll-margin-top:var(--header-h)
 }
@@ -543,6 +544,7 @@ a[href$="beauty-media-strategy/"]{color:var(--accent2)!important}
   .dropdown-menu{position:static;transform:none;padding-top:0;min-width:auto}
   .dropdown-menu-inner{box-shadow:none;border:none;background:transparent}
   .dropdown-menu a{padding:8px 0 8px 16px;font-size: var(--typography-font-size-base);border-bottom:none}
+  .hero{min-height:auto}
   .hero .cta-row{flex-direction:column;align-items:flex-start}
   .hero .data-banner{grid-template-columns:repeat(3,1fr);gap:16px}
   .hero .index-banner{grid-template-columns:repeat(2,1fr);gap:16px}
