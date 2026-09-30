@@ -71,6 +71,53 @@
 .faq summary{display:flex;justify-content:space-between;gap:1rem;padding-right:1rem}
 @media(max-width:900px){.hero .data-banner{grid-template-columns:repeat(2,minmax(0,1fr))}.search-map{grid-template-columns:1fr}.surface-grid,.inspect-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.evidence-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.shift-grid{grid-template-columns:1fr}.hero h1{max-width:12ch}}
 @media(max-width:520px){.hero .data-banner{grid-template-columns:1fr}.surface-grid,.inspect-grid,.evidence-grid{grid-template-columns:1fr}.hero h1{font-size:clamp(2.6rem,13vw,3.7rem);max-width:100%}.search-map .map-card{min-height:0}.surface{min-height:0}.inspect{min-height:0}.shift-cell{min-height:0}}
+/* Rebuild pass: one editorial field guide, fewer component tells */
+.hero{background:var(--h);border-bottom:1px solid rgba(250,250,249,.12)}
+.hero .w{max-width:1180px}
+.hero h1{max-width:11ch;font-size:clamp(3.6rem,7vw,6.8rem);line-height:.9;letter-spacing:-.055em}
+.hero .desc{max-width:34rem}
+.hero .data-banner{margin-top:1rem;border-top:1px solid rgba(250,250,249,.18);background:none;gap:0}
+.hero .data-banner .d{background:transparent;border-right:1px solid rgba(250,250,249,.14);padding:1.25rem 1rem 0 0;min-height:0}
+.hero .data-banner .d:not(:first-child){padding-left:1rem}
+.hero .data-banner .d:last-child{border-right:0}
+.hero .data-banner .l{font-size:var(--typography-font-size-xs);line-height:1.4}
+main>section:not(.hero){border-top:1px solid var(--border)}
+#search-system{padding-top:clamp(6rem,11vw,10rem)!important;padding-bottom:clamp(6rem,11vw,10rem)!important}
+#search-system .section-inner{max-width:1180px}
+#search-system .tag{color:var(--accent)}
+#search-system .d2{max-width:15ch;font-size:clamp(2.6rem,5vw,4.8rem);line-height:.98}
+#search-system .prose{margin-top:2rem}
+#search-system .section-inner>img{border:0;background:var(--color-neutral-bg2);padding:clamp(1rem,4vw,3.5rem);margin-top:clamp(3rem,6vw,5rem)!important}
+.search-map{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;background:none;border-top:1px solid var(--border);margin-top:clamp(3rem,6vw,5rem)}
+.search-map .map-card{background:transparent;padding:2rem 2rem 2rem 0;min-height:0;border-right:1px solid var(--border)}
+.search-map .map-card:not(:first-child){padding-left:2rem}
+.search-map .map-card:last-child{border-right:0}
+.search-map .map-card.dark{background:var(--h);color:var(--h-text);margin-top:-1px;padding-top:2rem;padding-bottom:2rem}
+.search-map .map-card.dark p{color:rgba(250,250,249,.68)}
+.map-card .n{font-size:var(--typography-font-size-xs);letter-spacing:.14em;margin-bottom:3rem}
+.map-card h3{font-size:clamp(1.35rem,2vw,1.75rem);line-height:1.05;max-width:12ch}
+.map-card p{font-size:var(--typography-font-size-md);line-height:var(--typography-line-height-loose);margin-top:1rem}
+.surface-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:0;background:none;border-top:1px solid var(--border);margin-top:3rem}
+.surface{border:0;border-right:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.5rem 1.25rem 2rem 0;text-align:left;min-height:0}
+.surface:nth-child(4n){border-right:0;padding-left:1.25rem}
+.surface:nth-child(4n+2),.surface:nth-child(4n+3){padding-left:1.25rem}
+.surface .s-name{font-size:var(--typography-font-size-sm);letter-spacing:.12em;margin-bottom:1rem}
+.surface .s-copy{font-size:var(--typography-font-size-md);line-height:var(--typography-line-height-loose)}
+#shift,#foundations{padding-top:clamp(5rem,9vw,8rem)!important;padding-bottom:clamp(5rem,9vw,8rem)!important}
+.shift-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:0;background:none;border-top:1px solid rgba(250,250,249,.14)}
+.shift-cell{padding:2rem 2rem 2rem 0;background:transparent;border-bottom:1px solid rgba(250,250,249,.14)}
+.shift-cell:nth-child(even){padding-left:2rem;border-left:1px solid rgba(250,250,249,.14)}
+.shift-cell.new{background:transparent}
+.inspect-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:0;background:none;border-top:1px solid var(--border)}
+.inspect{background:transparent;border-top:0;border-right:1px solid var(--border);padding:2rem 2rem 2rem 0;min-height:0}
+.inspect:nth-child(n+2){padding-left:2rem}.inspect:last-child{border-right:0}
+.evidence-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:0;background:none;border-top:1px solid var(--border)}
+.evidence{background:transparent;border-right:1px solid var(--border);padding:2rem 1.5rem 2rem 0;min-height:0}.evidence:nth-child(n+2){padding-left:1.5rem}.evidence:last-child{border-right:0}
+.foundation-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:0;background:none;border-top:1px solid rgba(250,250,249,.14)}
+.foundation{background:transparent;border-bottom:1px solid rgba(250,250,249,.14);padding:2rem 2rem 2rem 0;min-height:0}.foundation:nth-child(even){padding-left:2rem;border-left:1px solid rgba(250,250,249,.14)}
+.tool{background:transparent}
+@media(max-width:900px){.search-map{grid-template-columns:1fr}.surface-grid,.inspect-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.surface:nth-child(4n),.surface:nth-child(4n+2),.surface:nth-child(4n+3){padding-left:1rem}.surface:nth-child(2n){border-right:0}.surface:nth-child(2n+1){padding-left:0}.shift-grid,.foundation-grid{grid-template-columns:1fr}.shift-cell:nth-child(even),.foundation:nth-child(even){padding-left:0;border-left:0}.inspect:nth-child(n+2),.evidence:nth-child(n+2){padding-left:1rem}.inspect:nth-child(2n){border-right:0}.inspect:nth-child(2n+1){padding-left:0}.evidence-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.evidence:nth-child(2n){border-right:0}.evidence:nth-child(2n+1){padding-left:0}}
+@media(max-width:520px){.hero .data-banner{grid-template-columns:1fr 1fr}.hero .data-banner .d{padding:.85rem .5rem 0 0}.hero .data-banner .d:not(:first-child){padding-left:.5rem}.surface-grid,.inspect-grid,.evidence-grid{grid-template-columns:1fr}.surface,.surface:nth-child(4n),.surface:nth-child(4n+2),.surface:nth-child(4n+3),.inspect,.evidence{padding-left:0;padding-right:0;border-right:0}.surface{padding-top:1.25rem}.search-map .map-card,.search-map .map-card:not(:first-child),.search-map .map-card.dark{padding:1.5rem 0;border-right:0;border-bottom:1px solid var(--border)}.search-map .map-card:last-child{border-bottom:0}.search-map .map-card.dark{margin:0}}
 </style>
 </head>
 <body>
