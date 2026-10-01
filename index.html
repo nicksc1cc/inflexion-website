@@ -503,7 +503,7 @@
   // GSAP animations (wrapped in error boundary)
   (function(){
     // Homepage content is intentionally static. Partial entrance reveals made the page feel inconsistent.
-    return;
+    if(false){
      gsap.registerPlugin(ScrollTrigger);
 
   // --- Hero entrance ---
@@ -572,6 +572,8 @@
     gsap.globalTimeline.clear();
     ScrollTrigger.getAll().forEach(t => t.kill());
   }
+
+    }
 
   // --- Fallback ---
   setTimeout(() => {
