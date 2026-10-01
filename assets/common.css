@@ -647,3 +647,9 @@ main a:not(.btn):not(.cta-btn):hover{color:var(--accent)}
 @media(max-width:600px){.hero h1,.article-hero h1,.blog-hero h1{font-size:clamp(2.25rem,10vw,3.5rem)!important;max-width:100%!important}.hero .desc,.article-hero .article-dek,.blog-hero .subtitle{font-size:var(--typography-font-size-lg)!important;max-width:100%!important}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero *{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}}
 .no-webgl .hero .sup,.no-webgl .hero h1,.no-webgl .hero .desc,.no-webgl .hero .hero-intro,.no-webgl .hero .cta-row,.no-webgl .hero .data-banner,.no-webgl .hero .index-banner{opacity:1!important;visibility:visible!important;transform:none!important}
+
+/* --- Body heading contract --- */
+main h2,.article-body h2,.article-content h2,.homepage-final-story h2{font-family:'Montserrat',-apple-system,sans-serif!important;font-size:clamp(2rem,3.5vw,3.5rem)!important;font-weight:200!important;line-height:1.05!important;letter-spacing:var(--typography-letter-spacing-tighter)!important}
+main h3,.article-body h3,.article-content h3,.homepage-final-story h3{font-family:'Montserrat',-apple-system,sans-serif!important;font-size:clamp(1.25rem,1.8vw,1.75rem)!important;font-weight:300!important;line-height:1.1!important;letter-spacing:-.015em!important}
+main h2 em,main h3 em,.article-body h2 em,.article-body h3 em,.article-content h2 em,.article-content h3 em{font-style:normal;color:var(--accent)!important;font-weight:inherit}
+@media(max-width:600px){main h2,.article-body h2,.article-content h2,.homepage-final-story h2{font-size:clamp(2rem,9vw,2.75rem)!important}main h3,.article-body h3,.article-content h3,.homepage-final-story h3{font-size:clamp(1.25rem,6vw,1.5rem)!important}}
