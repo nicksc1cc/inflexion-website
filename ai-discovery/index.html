@@ -36,6 +36,32 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <link rel="stylesheet" href="../assets/design-system/tokens-built.css">
 <link rel="stylesheet" href="../assets/common.css">
+<style>
+/* AI Discovery visual pass: one diagnostic rail, consistent dark-section geometry. */
+.content-area{background:var(--bg)}
+.content-area>.bx{max-width:1180px;margin:0 auto;padding:clamp(5rem,9vw,8rem) clamp(1.25rem,5vw,3rem);border-top:1px solid var(--border)}
+.content-area>.bx.dark{max-width:none;margin:0;padding-left:max(clamp(1.25rem,5vw,3rem),calc((100vw - 1180px) / 2));padding-right:max(clamp(1.25rem,5vw,3rem),calc((100vw - 1180px) / 2))}
+.content-area>.bx.dark>*{max-width:1180px;margin-left:auto;margin-right:auto}
+.content-area .sec-hdr{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem}
+.content-area .sec-hdr .n{font:500 var(--typography-font-size-sm)/1.4 'IBM Plex Mono',monospace;color:var(--accent);letter-spacing:.12em}
+.content-area .sec-hdr .l{font:500 var(--typography-font-size-sm)/1.4 'IBM Plex Mono',monospace;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+.content-area .d2{max-width:16ch;line-height:1;letter-spacing:var(--typography-letter-spacing-tight)}
+.content-area .why-row{grid-template-columns:3.5rem minmax(0,.7fr) minmax(0,1.3fr);gap:2rem;padding:2rem 0;align-items:start}
+.content-area .why-row .hd{font-size:clamp(1.1rem,2vw,1.45rem);line-height:1.25}
+.content-area .why-row .bd{font-size:var(--typography-font-size-md);line-height:var(--typography-line-height-prose)}
+.content-area .shift-row{grid-template-columns:8rem 1fr 1fr;gap:2rem;padding:1.5rem 0}
+.content-area .shift-row .old,.content-area .shift-row .new{font-size:var(--typography-font-size-md);line-height:var(--typography-line-height-prose);text-decoration:none}
+.ai-stack-visual{display:grid;gap:.5rem;margin-top:2rem}
+.ai-stack-visual>div{display:grid;grid-template-columns:3rem 11rem 1fr;align-items:center;gap:1rem;padding:1.25rem 1.5rem;background:var(--color-neutral-bg2);border-left:3px solid var(--muted2)}
+.ai-stack-visual>div span{font:500 var(--typography-font-size-sm)/1.4 'IBM Plex Mono',monospace;color:var(--muted2)}
+.ai-stack-visual>div strong{font:500 var(--typography-font-size-md)/1.4 'IBM Plex Mono',monospace;letter-spacing:.1em;color:var(--fg)}
+.ai-stack-visual>div em{font-size:var(--typography-font-size-md);line-height:1.5;color:var(--muted);font-style:normal}
+.ai-stack-visual>div.active{background:var(--h);border-left-color:var(--accent)}
+.ai-stack-visual>div.active span,.ai-stack-visual>div.active strong{color:var(--accent)}
+.ai-stack-visual>div.active em{color:rgba(250,250,249,.68)}
+@media(max-width:900px){.content-area>.bx{padding:4rem 1.5rem}.content-area>.bx.dark{padding-left:1.5rem;padding-right:1.5rem}.content-area .why-row{grid-template-columns:2.5rem 1fr;gap:1rem}.content-area .why-row .bd{grid-column:2}.content-area .shift-row{grid-template-columns:1fr;gap:.5rem}.ai-stack-visual>div{grid-template-columns:2.5rem 1fr;gap:.75rem}.ai-stack-visual>div em{grid-column:2}}
+@media(max-width:520px){.content-area>.bx{padding:3.5rem 1.25rem}.content-area>.bx.dark{padding-left:1.25rem;padding-right:1.25rem}.ai-stack-visual>div{padding:1rem}.ai-stack-visual>div strong{font-size:var(--typography-font-size-sm)}}
+</style>
 </head>
 <body>
 <div class="page">
@@ -87,7 +113,7 @@
 <section style="background:#fff;padding:80px 0">
   <div style="max-width:900px;margin:0 auto;padding:0 48px">
     <div class="tag" style="margin-bottom:12px;text-align:center">The AI visibility stack</div>
-    <img src="../assets/diagram-stack.svg" alt="AI visibility stack" style="display:block;width:100%;height:auto;margin:0 auto">
+    <div class="ai-stack-visual" role="img" aria-label="AI visibility stack: foundation, content, signals and execution"><div><span>01</span><strong>FOUNDATION</strong><em>Access, entities, structure</em></div><div><span>02</span><strong>CONTENT</strong><em>Answers, evidence, clarity</em></div><div><span>03</span><strong>SIGNALS</strong><em>Authority, sources, corroboration</em></div><div class="active"><span>04</span><strong>EXECUTION</strong><em>Prompt set, measurement, iteration</em></div></div>
   </div>
 </section>
 
