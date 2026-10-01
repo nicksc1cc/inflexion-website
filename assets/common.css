@@ -635,3 +635,15 @@ main h3{font-family:'Montserrat',sans-serif!important;font-size:clamp(1rem,1.5vw
 .hero .desc{font-size:var(--typography-font-size-xl);line-height:var(--typography-line-height-prose);max-width:36rem;margin-bottom:var(--spacing-8)}
 .hero h1 em{color:var(--accent)!important}
 @media(max-width:600px){.hero .sup{font-size:var(--typography-font-size-xs);margin-bottom:var(--spacing-4)}.hero h1{font-size:clamp(2.25rem,10vw,3.5rem)!important;max-width:100%}.hero .desc{font-size:var(--typography-font-size-lg);max-width:100%}}
+
+/* --- Final consistency layer ---
+   Page-level exceptions may change composition, not the basic reading grammar. */
+main p{font-family:'Montserrat',-apple-system,sans-serif;font-weight:300;line-height:var(--typography-line-height-prose)}
+main p em,main p strong{font:inherit;line-height:inherit;color:inherit}
+main a:not(.btn):not(.cta-btn){color:var(--fg)}
+main a:not(.btn):not(.cta-btn):hover{color:var(--accent)}
+.hero h1,.article-hero h1,.blog-hero h1{font-family:'Montserrat',-apple-system,sans-serif!important;font-size:clamp(3rem,5vw,5rem)!important;font-weight:200!important;line-height:.98!important;letter-spacing:var(--typography-letter-spacing-tighter)!important;max-width:14ch!important}
+.hero .desc,.article-hero .article-dek,.blog-hero .subtitle{font-family:'Montserrat',-apple-system,sans-serif!important;font-size:var(--typography-font-size-xl)!important;font-weight:300!important;line-height:var(--typography-line-height-prose)!important;color:rgba(250,250,249,.72)!important;max-width:36rem!important}
+@media(max-width:600px){.hero h1,.article-hero h1,.blog-hero h1{font-size:clamp(2.25rem,10vw,3.5rem)!important;max-width:100%!important}.hero .desc,.article-hero .article-dek,.blog-hero .subtitle{font-size:var(--typography-font-size-lg)!important;max-width:100%!important}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero *{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}}
+.no-webgl .hero .sup,.no-webgl .hero h1,.no-webgl .hero .desc,.no-webgl .hero .hero-intro,.no-webgl .hero .cta-row,.no-webgl .hero .data-banner,.no-webgl .hero .index-banner{opacity:1!important;visibility:visible!important;transform:none!important}
