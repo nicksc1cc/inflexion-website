@@ -157,8 +157,8 @@
 .home-hero-proof strong{grid-row:span 2;color:var(--accent);font:300 clamp(2rem,4vw,3.5rem)/1 'Montserrat',sans-serif;letter-spacing:-.05em}
 .home-hero-proof span{font:400 var(--typography-font-size-md)/1.35 'Montserrat',-apple-system,sans-serif;color:rgba(250,250,249,.78);max-width:15ch}
 .home-hero-proof small{font:400 var(--typography-font-size-xs)/1.35 'IBM Plex Mono',monospace;color:rgba(250,250,249,.42)}
-.hero .desc,.hero-intro{max-width:36rem;color:rgba(250,250,249,.72);font-size:var(--typography-font-size-2xl);line-height:var(--typography-line-height-prose);font-weight:300}
-.hero-intro{margin:1.5rem 0 2.5rem}
+.hero .desc,.hero-intro{max-width:36rem;color:rgba(250,250,249,.72);font-size:var(--typography-font-size-2xl)!important;line-height:var(--typography-line-height-prose);font-weight:300}
+.hero .desc{margin-bottom:0!important}.hero-intro{margin:1.5rem 0 2.5rem!important}
 @media(max-width:700px){.home-hero-proof{grid-template-columns:1fr}.home-hero-proof>div,.home-hero-proof>div+div{padding:1rem 0;border-right:0;border-bottom:1px solid rgba(250,250,249,.16)}.home-hero-proof>div:last-child{border-bottom:0}}
 .journey-compare{display:grid;gap:1rem;margin-top:clamp(3rem,6vw,5rem)}
 .journey-track{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.1rem 0;color:var(--muted);font:500 var(--typography-font-size-xs)/1.4 'IBM Plex Mono',monospace;letter-spacing:.08em}
@@ -224,7 +224,7 @@
   <canvas id="data-field-canvas" aria-hidden="true"></canvas>
   <div class="w">
     <div class="sup">THE INFLEXION</div>
-    <h1>The economics of marketing <em>have changed.</em></h1>
+    <h1>The economics of marketing<br><em>have changed.</em></h1>
     <p class="desc">The economics of marketing have changed because the way customers discover, evaluate and choose brands is changing.</p>
     <p class="hero-intro">AI is moving upstream into discovery, comparison, recommendation and decision-making.</p>
     <div class="home-hero-proof" aria-label="Selected evidence that customer discovery is changing">
