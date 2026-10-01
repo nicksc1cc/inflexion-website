@@ -124,6 +124,9 @@
 .home-final p{font-size:1.35rem;color:rgba(250,250,249,.7);margin:2rem 0}
 .home-final .link{color:rgba(250,250,249,.8)}
 .home-final .cta-row{gap:24px}
+.home-economics{background:var(--h);color:var(--h-text);padding-bottom:clamp(4rem,6vw,6rem)}
+.home-economics .platform-tags{margin:1.25rem 0 2.25rem}.home-economics .econ-grid{margin-bottom:2rem}.home-economics .signature-line{margin-top:0;margin-bottom:0}
+.platform-tags{display:flex;flex-wrap:wrap;gap:8px;margin:2rem 0 3.5rem}.platform-tags span,.econ-label{font:500 var(--typography-font-size-xs)/1 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase}.platform-tags span{padding:8px 10px;border:1px solid rgba(250,250,249,.2);color:rgba(250,250,249,.7)}.econ-label{color:var(--accent);margin-bottom:8px}@media(max-width:600px){.platform-tags{margin-bottom:2.5rem}}
 @media(max-width:900px){.journey-visual{grid-template-columns:1fr}.journey-core{margin:0 auto}.decision-ladder{grid-template-columns:1fr;gap:.55rem}.decision-ladder b{transform:rotate(90deg)}.discipline-grid{grid-template-columns:1fr}.discipline-grid article,.discipline-grid article:nth-child(n+2){padding:1.5rem 0;border-right:0;border-bottom:1px solid var(--border)}.discipline-grid article:last-child{border-bottom:0}}
 @media(max-width:600px){.home-chapter{padding:4.5rem 0}.home-chapter h2{font-size:clamp(2.4rem,11vw,3.8rem)}.journey-signals{grid-template-columns:repeat(2,1fr)}.statement-stack{font-size:1rem}.statement-stack strong:nth-child(2),.statement-stack strong:nth-child(3){padding-left:1.25rem}.connection-system{gap:.5rem;line-height:1.8}.home-final h2{font-size:clamp(2.5rem,12vw,4rem)}}
 </style>
@@ -233,10 +236,15 @@
   <div class="section-inner">
     <div class="tag">05 / The new economics of agency work</div>
     <h2>LESS EXECUTION. <em>MORE JUDGEMENT.</em></h2>
-    <p class="chapter-lead">Technology is changing what an agency can do.</p>
-    <p class="chapter-copy">Automation removes manual work. AI can interrogate more data, explore more scenarios and make sophisticated analytical and measurement capabilities accessible at a scale that was previously difficult to achieve.</p>
-    <p class="signature-line">That doesn’t make judgement less important.<br><em>It makes it more valuable.</em></p>
-    <p class="chapter-copy">We use technology where it creates an advantage, so our people can spend more time understanding the business, challenging assumptions and deciding what matters.</p>
+    <p class="chapter-copy">Our team works alongside AI agents built on best in class platforms. They handle monitoring, reporting, optimisation and production, connected to live client data. That frees our people to understand the business, challenge assumptions and decide what matters.</p>
+    <div class="platform-tags" aria-label="Platforms used by our AI agents"><span>Claude</span><span>ChatGPT</span><span>Gemini</span><span>Veo</span><span>Runway</span><span>ElevenLabs</span></div>
+    <div class="econ-grid">
+      <div class="econ-col"><div class="econ-label">EXECUTION</div><div class="econ-shift"><div class="econ-old">Work done by hand</div><div class="econ-new">Agents running around the clock</div></div></div>
+      <div class="econ-col"><div class="econ-label">DATA</div><div class="econ-shift"><div class="econ-old">Monthly exports and decks</div><div class="econ-new">Live data, answers in minutes</div></div></div>
+      <div class="econ-col"><div class="econ-label">MEDIA</div><div class="econ-shift"><div class="econ-old">Shoots and long production cycles</div><div class="econ-new">Generative content at scale</div></div></div>
+      <div class="econ-col"><div class="econ-label">TEAM</div><div class="econ-shift"><div class="econ-old">Large teams and hand offs</div><div class="econ-new">Small senior teams directing agents</div></div></div>
+    </div>
+    <p class="signature-line">AI does the work.<br><em>Our people decide what's worth doing.</em></p>
   </div>
 </section>
 <section class="home-chapter home-final" id="home-final">
