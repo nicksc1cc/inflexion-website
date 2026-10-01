@@ -70,6 +70,13 @@
 <link rel="stylesheet" href="assets/common.css?v=74b0a41">
 <style>
 /* Homepage rebuild: editorial narrative, customer decision as protagonist. */
+.home-data-banner{max-width:1180px;margin:0 auto;padding:0 0 1px;display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--border)}
+.home-data-banner .d{background:var(--bg);padding:1.5rem 1rem;min-width:0}
+.home-data-banner .v{font:300 clamp(1.6rem,3vw,2.5rem)/1 'Montserrat',sans-serif;letter-spacing:-.04em;color:var(--fg)}
+.home-data-banner .l{margin-top:.7rem;font-size:.72rem;line-height:1.35;color:var(--muted)}
+.home-data-banner .s{margin-top:.55rem;font:400 .58rem/1.3 'IBM Plex Mono',monospace;color:var(--muted2)}
+@media(max-width:900px){.home-data-banner{grid-template-columns:repeat(3,1fr);margin:0 24px}}
+@media(max-width:600px){.home-data-banner{grid-template-columns:repeat(2,1fr);margin:0 16px}}
 #means,#process,#services,#cta{display:none}
 .home-rebuild{background:var(--bg);color:var(--fg)}
 .home-chapter{border-top:1px solid var(--border);padding:clamp(5rem,10vw,9rem) 0}
@@ -168,6 +175,15 @@
     </div>
   </div>
 </section>
+
+<div class="data-banner home-data-banner" aria-label="Selected market signals">
+  <div class="d"><div class="v">900M</div><div class="l">Weekly ChatGPT users</div><div class="s">OpenAI, February 2026</div></div>
+  <div class="d"><div class="v">69%</div><div class="l">Zero-click searches</div><div class="s">Similarweb, 2025</div></div>
+  <div class="d"><div class="v">$1.1B</div><div class="l">GEO market in 2026</div><div class="s">Dimension Market Research</div></div>
+  <div class="d"><div class="v">82%</div><div class="l">Citations from earned media</div><div class="s">Muck Rack, 2025</div></div>
+  <div class="d"><div class="v">86.7%</div><div class="l">Business queries triggering AI</div><div class="s">Peec AI, April 2026</div></div>
+  <div class="d"><div class="v">$2.5B</div><div class="l">Projected OpenAI ad revenue in 2026</div><div class="s">eMarketer, 2026</div></div>
+</div>
 
 <div class="home-rebuild">
 <section class="home-chapter home-transition" id="home-change">
