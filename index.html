@@ -70,13 +70,13 @@
 <link rel="stylesheet" href="assets/common.css?v=74b0a41">
 <style>
 .hero h1 em{font:inherit;color:var(--h-text)!important;font-weight:inherit}
-.home-data-banner{max-width:1180px;margin:0 auto;padding:0 0 1px;display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--border)}
-.home-data-banner .d{background:var(--bg);padding:1.5rem 1rem;min-width:0}
-.home-data-banner .v{font:300 2.25rem/1 'Montserrat',sans-serif;letter-spacing:-.04em;color:var(--fg);font-variant-numeric:lining-nums tabular-nums;font-feature-settings:"lnum" 1,"tnum" 1}
-.home-data-banner .l,.home-data-banner .s{font:400 10px/1.35 'IBM Plex Mono',monospace;letter-spacing:.02em;color:var(--muted)}
-.home-data-banner .s{margin-top:.5rem;color:var(--muted2)}
-@media(max-width:900px){.home-data-banner{grid-template-columns:repeat(3,1fr);margin:0 24px}}
-@media(max-width:600px){.home-data-banner{grid-template-columns:repeat(2,1fr);margin:0 16px}}
+.home-data-banner{max-width:none;margin:clamp(3rem,7vw,6rem) 0 0;padding:1px 0;display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:rgba(250,250,249,.18)}
+.home-data-banner .d{background:rgba(10,10,11,.72);padding:1.5rem 1rem;min-width:0}
+.home-data-banner .v{font:300 2.25rem/1 'Montserrat',sans-serif;letter-spacing:-.04em;color:var(--h-text);font-variant-numeric:lining-nums tabular-nums;font-feature-settings:"lnum" 1,"tnum" 1}
+.home-data-banner .l,.home-data-banner .s{font:400 10px/1.35 'IBM Plex Mono',monospace;letter-spacing:.02em;color:rgba(250,250,249,.72)}
+.home-data-banner .s{margin-top:.5rem;color:rgba(250,250,249,.45)}
+@media(max-width:900px){.home-data-banner{grid-template-columns:repeat(3,1fr);margin:clamp(3rem,7vw,5rem) 0 0}}
+@media(max-width:600px){.home-data-banner{grid-template-columns:repeat(2,1fr);margin:3rem 0 0}.home-data-banner .d{padding:1rem .75rem}.home-data-banner .v{font-size:1.8rem}}
 #means,#process,#services,#cta{display:none}
 .home-rebuild{background:var(--bg);color:var(--fg)}
 .home-chapter{border-top:1px solid var(--border);padding:clamp(5rem,10vw,9rem) 0}
@@ -123,6 +123,7 @@
 .home-final h2{max-width:14ch;font-size:clamp(2.8rem,6vw,5.8rem);font-weight:200;line-height:.96;letter-spacing:var(--typography-letter-spacing-tighter);margin:0}
 .home-final p{font-size:1.35rem;color:rgba(250,250,249,.7);margin:2rem 0}
 .home-final .link{color:rgba(250,250,249,.8)}
+.home-final .cta-row{gap:24px}
 @media(max-width:900px){.journey-visual{grid-template-columns:1fr}.journey-core{margin:0 auto}.decision-ladder{grid-template-columns:1fr;gap:.55rem}.decision-ladder b{transform:rotate(90deg)}.discipline-grid{grid-template-columns:1fr}.discipline-grid article,.discipline-grid article:nth-child(n+2){padding:1.5rem 0;border-right:0;border-bottom:1px solid var(--border)}.discipline-grid article:last-child{border-bottom:0}}
 @media(max-width:600px){.home-chapter{padding:4.5rem 0}.home-chapter h2{font-size:clamp(2.4rem,11vw,3.8rem)}.journey-signals{grid-template-columns:repeat(2,1fr)}.statement-stack{font-size:1rem}.statement-stack strong:nth-child(2),.statement-stack strong:nth-child(3){padding-left:1.25rem}.connection-system{gap:.5rem;line-height:1.8}.home-final h2{font-size:clamp(2.5rem,12vw,4rem)}}
 </style>
@@ -166,24 +167,21 @@
     <h1>THE ECONOMICS OF GROWTH <em>HAVE CHANGED.</em></h1>
     <p class="desc">Customers are changing how they discover, compare and buy. Media is fragmenting. Data is everywhere. Technology is changing what is possible.</p>
     <p class="hero-intro">Inflexion brings strategy, data, technology, media and creativity together to help ambitious brands make better decisions and turn them into growth.</p>
-    <div class="cta-row">
-      <a href="#home-change" class="link">See the shift</a>
-    </div>
     <div class="journey-visual" aria-label="Many signals converge around one customer decision">
       <div class="journey-signals"><span>SEARCH</span><span>SOCIAL</span><span>AI</span><span>MARKETPLACES</span><span>RETAIL MEDIA</span><span>CREATIVE</span><span>COMMERCE</span><span>CUSTOMER DATA</span></div>
       <div class="journey-core">CUSTOMER<br><em>DECISION</em></div>
     </div>
+    <div class="data-banner home-data-banner" aria-label="Selected signals showing how discovery and media are changing">
+      <div class="d"><div class="v">50%</div><div class="l">Consumers use AI-powered search</div><div class="s">McKinsey, 2025</div></div>
+      <div class="d"><div class="v">44%</div><div class="l">AI-search users prefer it for insight</div><div class="s">McKinsey, 2025</div></div>
+      <div class="d"><div class="v">43%</div><div class="l">Consumers open to a brand AI concierge</div><div class="s">Adobe, 2026</div></div>
+      <div class="d"><div class="v">13%</div><div class="l">Organisations embedded AI for discovery and search</div><div class="s">Adobe, 2026</div></div>
+      <div class="d"><div class="v">59%</div><div class="l">Media teams use AI for programmatic optimisation</div><div class="s">IAB Europe, 2026</div></div>
+      <div class="d"><div class="v">63%</div><div class="l">Expect agents to free strategic and creative time</div><div class="s">Adobe, 2026</div></div>
+    </div>
   </div>
 </section>
 
-<div class="data-banner home-data-banner" aria-label="Selected market signals">
-  <div class="d"><div class="v">900M</div><div class="l">Weekly ChatGPT users</div><div class="s">OpenAI, February 2026</div></div>
-  <div class="d"><div class="v">69%</div><div class="l">Zero-click searches</div><div class="s">Similarweb, 2025</div></div>
-  <div class="d"><div class="v">$1.1B</div><div class="l">GEO market in 2026</div><div class="s">Dimension Market Research</div></div>
-  <div class="d"><div class="v">82%</div><div class="l">Citations from earned media</div><div class="s">Muck Rack, 2025</div></div>
-  <div class="d"><div class="v">86.7%</div><div class="l">Business queries triggering AI</div><div class="s">Peec AI, April 2026</div></div>
-  <div class="d"><div class="v">$2.5B</div><div class="l">Projected OpenAI ad revenue in 2026</div><div class="s">eMarketer, 2026</div></div>
-</div>
 
 <div class="home-rebuild">
 <section class="home-chapter home-transition" id="home-change">
