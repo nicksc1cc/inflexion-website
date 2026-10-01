@@ -498,8 +498,9 @@
 
   // GSAP animations (wrapped in error boundary)
   (function(){
-    if(typeof gsap==='undefined'||typeof ScrollTrigger==='undefined'){return}
-    gsap.registerPlugin(ScrollTrigger);
+    // Homepage content is intentionally static. Partial entrance reveals made the page feel inconsistent.
+    return;
+     gsap.registerPlugin(ScrollTrigger);
 
   // --- Hero entrance ---
   gsap.timeline({delay:0.3})
