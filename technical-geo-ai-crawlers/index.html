@@ -88,132 +88,42 @@
 <section class="article-body"><div class="section-inner"><div class="article-grid">
 <aside class="article-toc"><div class="tag">On this page</div><nav><a href="/">Home</a><a href="../aeo/">Organic & AI Search</a><a href="../media/">Media solutions</a><a href="../consultancy/" >Consultancy</a><a href="../perspectives/" >Perspectives</a><a href="../contact/" class="cta-btn">Contact us</a></nav></aside>
 <article class="article-content">
-<section id="the-barrier">
-<p class="lead">A page can be perfectly readable in Chrome and almost empty to the crawler that supplies an AI answer engine.</p>
-<h2>The barrier is not content. It is access.</h2>
-<p>Most brands assume that publishing structured data is enough. They add JSON-LD to their pages, validate it in Google's Rich Results Test, and move on. The test passes. The markup appears in the rendered DOM. The problem is that AI crawlers do not execute JavaScript the way Googlebot does.</p>
-<p>Our research found that 69 percent of 23 major AI crawlers could not execute JavaScript. The figure is directional rather than permanent because crawler capabilities change, but the architectural risk is clear: a client-rendered page cannot assume that every retrieval system will wait for the browser.</p>
-<p>GPTBot, PerplexityBot, ClaudeBot, and the other major AI crawlers fetch raw HTML. They do not render. They do not wait for hydration. They do not execute your React components. If your structured data lives in a client-side script tag added after hydration, or if your product schema is injected by a tag manager, or if your FAQ markup loads via a third-party widget, the crawler sees nothing.</p>
-<p>An investigation shared by Search Engine Journal in early 2025 confirmed the gap: AI crawlers miss JavaScript-injected structured data entirely. The only reliable path is server-side rendering or static HTML.</p>
-</section>
-
-<section id="what-crawlers-see">
-<h2>What crawlers see</h2>
-<p>When GPTBot requests a page, it receives the initial HTML response. That is the entire document it will ever parse. No second pass. No rendering budget. No JavaScript engine.</p>
-<p>The practical result: a product page with perfect schema in the browser DevTools may return zero structured data to an AI crawler. The same page validates in Google's tool because Googlebot renders. The AI crawler does not.</p>
-<p>This is not a bug. It is a design choice. AI crawlers operate at massive scale across millions of domains. Rendering every page would multiply compute cost by orders of magnitude. They trade completeness for throughput.</p>
-</section>
-
-<section id="the-foundation">
-<h2>The foundation: access, rendering, structure</h2>
-<p>Technical GEO has three layers. Skip one and the others lose force.</p>
-<h3>Test the difference, not just the page</h3>
-<p>Run the same template twice: once with JavaScript disabled and once with a rendered browser. Compare word count, headings, product attributes, canonical tags and JSON-LD. A large difference tells you what a raw crawler cannot access. The test belongs in the deployment process, not only in an annual audit.</p>
-
-<h3>Layer 1: Crawler access</h3>
-<p>The first check is robots.txt. Many enterprise sites block unknown bots by default. That now includes the bots that feed the answer engines your buyers use. We routinely find four to seven major AI crawlers blocked per site.</p>
-<p>The fix is explicit allow rules for each crawler user-agent. A minimal working set:</p>
-<pre><code>User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: GPTBot
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: Claude-SearchBot
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: CCBot
-Allow: /</code></pre>
-<p>This is a ten-minute change for anyone with file access. It is the highest-impact action in technical GEO.</p>
-
-<h3>Layer 2: Server-side rendering</h3>
-<p>Structured data must exist in the initial HTML. That means either server-side rendering (Next.js getServerSideProps, Remix loaders, Astro static generation) or static HTML with the markup baked in. Client-side hydration frameworks (Create React App, vanilla SPA) cannot serve AI crawlers without a rendering layer.</p>
-<p>If a replatform is not on the roadmap, a middleware that serves pre-rendered HTML to known AI crawler user-agents is a pragmatic bridge.</p>
-
-<h3>Layer 3: Schema completeness</h3>
-<p>Once crawlers can reach and read the page, the schema must be complete enough to be useful. The minimum viable set for a commercial page:</p>
-<ul>
-<li>Product or Service schema with name, description, price, availability, brand, SKU</li>
-<li>Organization schema with logo, sameAs social profiles, contactPoint</li>
-<li>BreadcrumbList for site hierarchy</li>
-<li>Article or BlogPosting for content pages with author, datePublished, dateModified</li>
-<li>FAQPage or HowTo where applicable</li>
-</ul>
-<p>JSON-LD in the head is preferred. It is easier to maintain than inline microdata and is the format both Google and AI crawlers expect.</p>
-</section>
-
-<section id="schema-that-works">
-<h2>Schema that works</h2>
-<p>Schema.org vocabulary is broad. AI crawlers use a subset. The schemas that consistently appear in citations:</p>
-
-<div class="stat-row">
-<div class="stat"><div class="v">Product</div><div class="l">Ecommerce and software products</div><div class="s">Required: name, description, offers, brand, sku</div></div>
-<div class="stat"><div class="v">Organization</div><div class="l">Entity identity and authority signals</div><div class="s">Required: name, url, logo, sameAs</div></div>
-<div class="stat"><div class="v">Article</div><div class="l">Content pages and thought leadership</div><div class="s">Required: headline, author, datePublished</div></div>
-</div>
-
-<p>A 2024 study by Aggarwal et al. (KDD 2024, arxiv:2311.09735) found that applying GEO techniques including structured data increased visibility in generative engines by an average of 40 percent. The gain came from pages that were already crawlable but lacked machine-readable context.</p>
-
-<p>The inverse is also true: pages with perfect schema that AI crawlers cannot reach see zero gain. The layers are sequential, not independent.</p>
-</section>
-
-<section id="llms-txt">
-<h2>llms.txt: the new robots.txt</h2>
-<p>In late 2024, a proposed standard emerged: llms.txt. A plain-text file at the domain root that tells AI systems what content exists, where it lives, and how to interpret it. Think of it as a sitemap for reasoning engines.</p>
-<p>A minimal llms.txt:</p>
+<p class="lead">Your structured data can be valid, visible in Chrome and absent from the raw HTML an AI crawler receives.</p>
+<p>That is the technical GEO problem in one sentence. The page works for a person with a browser. It does not necessarily work for the system that supplies an answer engine with evidence.</p>
+<div class="editorial-stat"><div class="value">69%</div><div class="caption">A 2025 review of 23 major AI crawlers found that most could not execute JavaScript. The exact figure will move as crawler behaviour changes, but the architectural risk remains.</div></div>
+<h2 id="the-barrier">The page you see is not always the page the crawler sees</h2>
+<p>Most teams validate structured data in Google's Rich Results Test, see a passing result and close the ticket. That test answers a different question. Googlebot can render JavaScript. Many AI crawlers fetch the initial HTML and stop.</p>
+<p>GPTBot, PerplexityBot, ClaudeBot and other crawlers may receive the document before hydration. They do not wait for a React component to mount, a tag manager to inject JSON-LD or a third-party widget to load an FAQ. If the useful context arrives after the first response, the crawler may never receive it.</p>
+<p>This creates an awkward mismatch. The page can look complete to a buyer and still provide an incomplete evidence set to an answer engine.</p>
+<h2 id="raw-html">Start with the raw response</h2>
+<p>Run the same template twice: once in a browser with JavaScript enabled, and once as raw HTML with JavaScript disabled. Compare the word count, headings, canonical tag, product attributes and JSON-LD. The difference is the part an AI crawler may miss.</p>
+<div class="editorial-rule"><strong>Browser rendering proves usability.</strong> Raw HTML proves access.</div>
+<p>Make that comparison part of deployment rather than an annual audit. A new client-side component can remove the information a crawler needs without changing what the browser appears to show.</p>
+<h2 id="access">Access comes before markup</h2>
+<p>The first check is not schema. It is whether the crawler can reach the page.</p>
+<h3>Robots.txt and server rules</h3>
+<p>Enterprise sites often block unfamiliar bots by default. That can include the crawlers that supply the answer engines your buyers use. Check robots.txt, server headers, IP allowlists and edge security rules together. A robots file that permits a crawler is not useful if the firewall rejects the request.</p>
+<p>Keep the policy deliberate. Decide which crawlers the business wants to serve, document the decision and test the response from outside the browser.</p>
+<h3>Server-side or static output</h3>
+<p>Structured data needs to exist in the initial HTML. Server-side rendering, static generation and carefully implemented middleware can provide it. A client-only application cannot assume that every retrieval system will render the page for it.</p>
+<h3>Schema with a job to do</h3>
+<p>Once the page is reachable and readable, give the crawler useful context. A commercial page may need Product or Service schema, Organization identity, BreadcrumbList and, where appropriate, Article, FAQPage or HowTo markup. The markup should describe what the page says. It should not be an inventory of every schema type available.</p>
+<h2 id="llms">llms.txt is a guide, not a substitute</h2>
+<p>A plain-text llms.txt file can point AI systems towards the pages and concepts a domain considers important. It is not a formal standard, and adoption is voluntary. That makes it useful as a clear editorial map, not as a replacement for crawlable HTML, robots policy or schema.</p>
 <pre><code># Inflexion AI Discovery Guide
 # https://nicksc1cc.github.io/inflexion-website/llms.txt
 
-## Core Pages
+## Core pages
 - https://nicksc1cc.github.io/inflexion-website/ : Homepage
-- https://nicksc1cc.github.io/inflexion-website/aeo/ : AEO services
+- https://nicksc1cc.github.io/inflexion-website/aeo/ : Organic and AI Search
 - https://nicksc1cc.github.io/inflexion-website/technical-geo/ : Technical GEO
-- https://nicksc1cc.github.io/inflexion-website/ai-visibility-analytics/ : Search Intelligence
-
-## Resources
-- https://nicksc1cc.github.io/inflexion-website/sitemap.xml : Full sitemap
-- https://nicksc1cc.github.io/inflexion-website/robots.txt : Crawler permissions
-
-## Optional: Structured Data Context
-- Organization: Inflexion, marketing consultancy, AI discovery and retail media
-- Key topics: AEO, GEO, retail media, Amazon, AI-powered media, measurement</code></pre>
-<p>The file is not yet a formal standard. Adoption is voluntary. But early adopters gain a structural advantage: when a model retrieves your domain, it reads the guide first. That shapes how it interprets everything else.</p>
-</section>
-
-<section id="what-this-means">
-<h2>What this means for your strategy</h2>
-<p>Technical GEO does not replace content strategy. It is the foundation. Without it, the best content written is content the model literally cannot read.</p>
-
-<p>The audit sequence we run:</p>
-<ol>
-<li>Crawler access check: robots.txt, server headers, IP allowlists</li>
-<li>Rendering audit: browser vs. raw HTML diff for every template type</li>
-<li>Schema coverage: page-level validation across the crawlable site</li>
-<li>llms.txt presence and accuracy</li>
-<li>Crawler log analysis: which bots visited, what they fetched, what they missed</li>
-</ol>
-
-<p>The output is a prioritised remediation plan. The highest-value fixes are usually access and rendering. Schema completes the picture.</p>
-
-<h3>The honest limitations</h3>
-<p>Technical GEO cannot fix weak positioning. If the underlying product or service is poorly defined, making it readable does not rescue the narrative. It only ensures the model sees what is there.</p>
-<p>Models change. Retrieval systems update. The baseline should be re-run quarterly as a minimum.</p>
-
-</section>
-
-<div class="sources">
-<div class="tag">Sources</div>
-<p>Aggarwal et al., <a href="https://arxiv.org/abs/2311.09735">GEO: Generative Engine Optimization</a>, KDD 2024.</p><p>Search Engine Journal, <a href="https://www.searchenginejournal.com/ai-search-optimization-make-your-structured-data-accessible/537843/">AI Search Optimization: Make Your Structured Data Accessible</a>, 2025.</p><p>SearchVIU, <a href="https://www.searchviu.com/en/ai-crawlers-javascript-rendering/">AI Crawlers and JavaScript Rendering</a>, 2025.</p><p>Reyes-Lillo, Rovira and Morales-Vargas, research on server-side rendering for AI-driven indexing, 2025.</p><p>SearchScore, <a href="https://searchscore.io/guides/technical-geo/">Technical GEO: How to Optimise Your Website for AI Search</a>, 2025.</p>
-</div>
+- https://nicksc1cc.github.io/inflexion-website/ai-visibility-analytics/ : Search Intelligence</code></pre>
+<p>The file is easy to create. Keeping it accurate is the work. A link to a page that has moved, a service description that no longer matches the page or a list that omits the current priority weakens the guide.</p>
+<h2 id="audit">The audit should end in an order of work</h2>
+<p>A technical GEO audit is useful when it changes what a team does next. Our sequence is:</p>
+<ol><li>Request the raw HTML and rendered page for each important template.</li><li>Check crawler access across robots.txt, headers and edge controls.</li><li>Compare the browser and raw HTML for content, links, canonical data and schema.</li><li>Check schema coverage against the page's actual commercial purpose.</li><li>Review llms.txt and the XML sitemap for accuracy.</li><li>Use crawler logs to see which bots visited, what they fetched and where they stopped.</li></ol>
+<p>The usual priority is access first, rendering second and schema third. The order matters. Perfect markup on an inaccessible page is still missing evidence.</p>
+<div class="sources"><div class="tag">Sources</div><p>Aggarwal et al., <a href="https://arxiv.org/abs/2311.09735">GEO: Generative Engine Optimization</a>, KDD 2024.</p><p>Search Engine Journal, <a href="https://www.searchenginejournal.com/ai-search-optimization-make-your-structured-data-accessible/537843/">AI Search Optimization: Make Your Structured Data Accessible</a>, 2025.</p><p>SearchVIU, <a href="https://www.searchviu.com/en/ai-crawlers-javascript-rendering/">AI Crawlers and JavaScript Rendering</a>, 2025.</p><p>Reyes-Lillo, Rovira and Morales-Vargas, research on server-side rendering for AI-driven indexing, 2025.</p><p>SearchScore, <a href="https://searchscore.io/guides/technical-geo/">Technical GEO: How to Optimise Your Website for AI Search</a>, 2025.</p></div>
 </article>
 </div></div></section>
 <section class="article-cta"><div class="section-inner"><div class="cta-inner"><div><h2>Find the rendering gap <em>before it costs you citations.</em></h2><p>We compare what a browser sees with what AI crawlers receive, then give your team a remediation sequence.</p></div><a href="../contact/" class="btn">Find your rendering gap →</a></div></div></section>
