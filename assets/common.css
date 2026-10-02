@@ -648,6 +648,10 @@ main a:not(.btn):not(.cta-btn):hover{color:var(--accent)}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero *{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}}
 .no-webgl .hero .sup,.no-webgl .hero h1,.no-webgl .hero .desc,.no-webgl .hero .hero-intro,.no-webgl .hero .cta-row,.no-webgl .hero .data-banner,.no-webgl .hero .index-banner{opacity:1!important;visibility:visible!important;transform:none!important}
 
+/* --- Shared hero CTA contract --- */
+.hero .hero-cta{display:inline-flex;align-items:center;min-height:2.75rem;margin-top:2rem;padding:.9rem 1.35rem;background:var(--h-text);color:var(--h);font:500 var(--typography-font-size-xs)/1 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;text-decoration:none}
+.hero .hero-cta:hover{background:var(--accent);color:var(--h)}
+
 /* --- Body heading contract --- */
 main h2,.article-body h2,.article-content h2,.homepage-final-story h2{font-family:'Montserrat',-apple-system,sans-serif!important;font-size:clamp(2rem,3.5vw,3.5rem)!important;font-weight:200!important;line-height:1.05!important;letter-spacing:var(--typography-letter-spacing-tighter)!important}
 main h3,.article-body h3,.article-content h3,.homepage-final-story h3{font-family:'Montserrat',-apple-system,sans-serif!important;font-size:clamp(1.25rem,1.8vw,1.75rem)!important;font-weight:300!important;line-height:1.1!important;letter-spacing:-.015em!important}
