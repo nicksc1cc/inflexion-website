@@ -305,7 +305,7 @@
       .label{font-size:10px;fill:#71717A;font-weight:300}
       .annot-text{font-size:10px;fill:#0A0A0B;font-weight:400}
       .annot-bold{font-size:11px;fill:#FF5A1F;font-weight:600}
-      .blue-card{fill:rgba(36,56,218,.04);stroke:rgba(36,56,218,.2);stroke-width:1}
+      .blue-card{fill:rgba(242,106,33,.04);stroke:rgba(242,106,33,.2);stroke-width:1}
       .orange-card{fill:rgba(255,90,31,.04);stroke:rgba(255,90,31,.2);stroke-width:1}
       .flow-arrow{stroke:rgba(10,10,11,.15);stroke-width:1.5;fill:none}
       .bar-fill{fill:var(--accent)}
@@ -350,7 +350,7 @@
   <text x="50" y="214" class="annot-text" font-size="10">Cross-channel exposure (Amazon + off-site media) lifted conversion by 18% vs Amazon-only.</text>
   
   <!-- Bottom: What this reveals -->
-  <rect x="30" y="240" width="740" height="100" rx="2" fill="rgba(36,56,218,.03)" stroke="rgba(36,56,218,.15)" stroke-width="1"/>
+  <rect x="30" y="240" width="740" height="100" rx="2" fill="rgba(242,106,33,.03)" stroke="rgba(242,106,33,.15)" stroke-width="1"/>
   <text x="50" y="262" class="label-mono" fill="var(--accent)" font-weight="600">What a standalone campaign dashboard would not reveal</text>
   <text x="50" y="284" class="annot-text" font-size="10">Amazon search behaviour for competitor product terms increased 22% six weeks before Competitor A’s new product launch.</text>
   <text x="50" y="300" class="annot-text" font-size="10">This pattern was visible in AMC search query data 4–6 weeks before it appeared in competitive reporting.</text>
@@ -392,7 +392,7 @@
       .label-mono{font-size:10px;fill:#71717A;font-weight:500;font-family:IBM Plex Mono,monospace}
       .data-line{stroke:var(--accent);stroke-width:2;fill:none}
       .data-dot{fill:var(--accent);r:3.5}
-      .incremental-fill{fill:rgba(36,56,218,.08)}
+      .incremental-fill{fill:rgba(242,106,33,.08)}
       .incremental-line{stroke:var(--accent);stroke-width:1.5;stroke-dasharray:4,3;fill:none}
       .attribution-line{stroke:rgba(10,10,11,.3);stroke-width:1.5;fill:none}
       .annotation-text{font-size:11px;fill:#0A0A0B;font-weight:400}
@@ -508,7 +508,7 @@
   
   <!-- Test period label -->
   <text x="330" y="30" class="label-mono" text-anchor="middle" fill="var(--accent)">Test period (campaign active)</text>
-  <line x1="240" y1="34" x2="420" y2="34" stroke="rgba(36,56,218,.2)" stroke-width="1"/>
+  <line x1="240" y1="34" x2="420" y2="34" stroke="rgba(242,106,33,.2)" stroke-width="1"/>
   
   <!-- Follow-up -->
   <text x="530" y="30" class="label-mono" text-anchor="middle">Follow-up</text>
@@ -542,7 +542,7 @@
   <text x="540" y="345" class="label-mono" text-anchor="middle">W+4</text>
   
   <!-- Vertical line separating pre from test -->
-  <line x1="190" y1="60" x2="190" y2="310" stroke="rgba(36,56,218,.3)" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="190" y1="60" x2="190" y2="310" stroke="rgba(242,106,33,.3)" stroke-width="1" stroke-dasharray="4,3"/>
   
   <!-- Control line (flat throughout) -->
   <polyline points="90,210 140,210 240,210 290,210 340,210 390,210 490,210 540,210" class="control-line"/>
@@ -603,11 +603,11 @@
     <style>
       .bg-line{stroke:rgba(10,10,11,.06);stroke-width:1}
       .label-mono{font-size:10px;fill:#71717A;font-weight:500;font-family:IBM Plex Mono,monospace}
-      .bar-ctv{fill:rgba(36,56,218,.4)}
-      .bar-social{fill:rgba(36,56,218,.5)}
-      .bar-search{fill:rgba(36,56,218,.65)}
-      .bar-amazon{fill:rgba(36,56,218,.8)}
-      .bar-rm{fill:rgba(36,56,218,.95)}
+      .bar-ctv{fill:rgba(242,106,33,.4)}
+      .bar-social{fill:rgba(242,106,33,.5)}
+      .bar-search{fill:rgba(242,106,33,.65)}
+      .bar-amazon{fill:rgba(242,106,33,.8)}
+      .bar-rm{fill:rgba(242,106,33,.95)}
       .bar-current{fill:rgba(10,10,11,.15)}
       .annot-text{font-size:11px;fill:#0A0A0B;font-weight:400}
       .annot-bold{font-size:11px;fill:#FF5A1F;font-weight:600}
@@ -640,26 +640,26 @@
   <!-- Response curves (simplified log-linear) -->
   <!-- CTV: £20k=3.8x, £40k=3.2x, £60k=2.6x, £80k=2.0x, £100k=1.5x -->
   <!-- Scaled: 3.8x=56, 1.5x=264 -->
-  <polyline points="100,56 140,72 180,92 220,120 260,160" class="bar-ctv" stroke="rgba(36,56,218,.6)" stroke-width="2" fill="none"/>
-  <circle cx="100" cy="56" r="3" fill="rgba(36,56,218,.6)"/>
-  <circle cx="220" cy="120" r="3" fill="rgba(36,56,218,.6)"/>
+  <polyline points="100,56 140,72 180,92 220,120 260,160" class="bar-ctv" stroke="rgba(242,106,33,.6)" stroke-width="2" fill="none"/>
+  <circle cx="100" cy="56" r="3" fill="rgba(242,106,33,.6)"/>
+  <circle cx="220" cy="120" r="3" fill="rgba(242,106,33,.6)"/>
   <text x="270" y="56" class="label-mono" font-size="9">CTV</text>
   
   <!-- Social: £20k=4.2x, £40k=3.5x, £60k=2.8x, £80k=2.2x, £100k=1.6x -->
   <!-- 4.2x=44, 1.6x=256 -->
-  <polyline points="100,44 140,60 180,80 220,108 260,156" class="bar-social" stroke="rgba(36,56,218,.7)" stroke-width="2" fill="none"/>
-  <circle cx="100" cy="44" r="3" fill="rgba(36,56,218,.7)"/>
-  <circle cx="220" cy="108" r="3" fill="rgba(36,56,218,.7)"/>
+  <polyline points="100,44 140,60 180,80 220,108 260,156" class="bar-social" stroke="rgba(242,106,33,.7)" stroke-width="2" fill="none"/>
+  <circle cx="100" cy="44" r="3" fill="rgba(242,106,33,.7)"/>
+  <circle cx="220" cy="108" r="3" fill="rgba(242,106,33,.7)"/>
   <text x="270" y="44" class="label-mono" font-size="9">Social</text>
   
   <!-- Search: £20k=5.5x, £40k=4.8x, £60k=3.8x, £80k=2.8x, £100k=2.0x -->
-  <polyline points="100,16 140,32 180,52 220,80 260,120" class="bar-search" stroke="rgba(36,56,218,.8)" stroke-width="2" fill="none"/>
-  <circle cx="100" cy="16" r="3" fill="rgba(36,56,218,.8)"/>
+  <polyline points="100,16 140,32 180,52 220,80 260,120" class="bar-search" stroke="rgba(242,106,33,.8)" stroke-width="2" fill="none"/>
+  <circle cx="100" cy="16" r="3" fill="rgba(242,106,33,.8)"/>
   <text x="270" y="16" class="label-mono" font-size="9">Search</text>
   
   <!-- Amazon: £20k=6.0x, £40k=5.2x, £60k=4.0x, £80k=3.0x, £100k=2.2x -->
-  <polyline points="100,8 140,24 180,48 220,72 260,112" class="bar-amazon" stroke="rgba(36,56,218,.9)" stroke-width="2" fill="none"/>
-  <circle cx="100" cy="8" r="3" fill="rgba(36,56,218,.9)"/>
+  <polyline points="100,8 140,24 180,48 220,72 260,112" class="bar-amazon" stroke="rgba(242,106,33,.9)" stroke-width="2" fill="none"/>
+  <circle cx="100" cy="8" r="3" fill="rgba(242,106,33,.9)"/>
   <text x="270" y="8" class="label-mono" font-size="9">Amazon</text>
   
   <!-- X-axis labels -->
@@ -709,7 +709,7 @@
   <text x="695" y="254" class="annot-text" font-size="10" fill="#4ade80">+295k</text>
   
   <!-- Finding -->
-  <rect x="450" y="270" width="310" height="60" rx="2" fill="rgba(36,56,218,.04)" stroke="rgba(36,56,218,.2)" stroke-width="1"/>
+  <rect x="450" y="270" width="310" height="60" rx="2" fill="rgba(242,106,33,.04)" stroke="rgba(242,106,33,.2)" stroke-width="1"/>
   <text x="465" y="290" class="annot-bold" font-size="11">Estimated impact</text>
   <text x="465" y="308" class="annot-text" font-size="10">Shifting £225k from Social to Amazon and Search</text>
   <text x="465" y="322" class="annot-text" font-size="10">increases estimated incremental contribution by £480k</text>
@@ -744,8 +744,8 @@
       .label-mono{font-size:9px;fill:#71717A;font-weight:500;font-family:IBM Plex Mono,monospace}
       .annot-text{font-size:10px;fill:#0A0A0B;font-weight:400}
       .annot-bold{font-size:11px;fill:#FF5A1F;font-weight:600}
-      .signal-box{fill:rgba(36,56,218,.04);stroke:rgba(36,56,218,.2);stroke-width:1}
-      .model-box{fill:rgba(36,56,218,.08);stroke:rgba(36,56,218,.35);stroke-width:1.5}
+      .signal-box{fill:rgba(242,106,33,.04);stroke:rgba(242,106,33,.2);stroke-width:1}
+      .model-box{fill:rgba(242,106,33,.08);stroke:rgba(242,106,33,.35);stroke-width:1.5}
       .action-box{fill:rgba(255,90,31,.04);stroke:rgba(255,90,31,.2);stroke-width:1}
       .connector{stroke:rgba(10,10,11,.12);stroke-width:1;fill:none}
       .dot-sig{fill:var(--accent);r:2.5}
@@ -822,7 +822,7 @@
   <line x1="580" y1="225" x2="590" y2="260" class="connector"/>
   
   <!-- Bottom: Learning loop -->
-  <rect x="30" y="210" width="740" height="45" rx="2" fill="rgba(36,56,218,.03)" stroke="rgba(36,56,218,.12)" stroke-width="1"/>
+  <rect x="30" y="210" width="740" height="45" rx="2" fill="rgba(242,106,33,.03)" stroke="rgba(242,106,33,.12)" stroke-width="1"/>
   <text x="50" y="230" class="annot-text" font-size="10">Every signal, hypothesis, experiment, campaign result and outcome feeds back into the knowledge model.</text>
   <text x="50" y="246" class="annot-text" font-size="10">The next campaign starts from everything learned before. Knowledge accumulates. Decisions improve.</text>
   
