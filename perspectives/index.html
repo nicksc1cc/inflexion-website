@@ -23,11 +23,12 @@
 
 <link rel="stylesheet" href="../assets/design-system/tokens-built.css">
 <link rel="stylesheet" href="../assets/common.css?v=hero-contract-3">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script><script src="../assets/webgl-guard.js"></script><script src="../assets/hero-data-field.js" defer></script>
 <style>/* ===== Perspectives ===== */
 /* The page-specific shell keeps editorial content comfortably inside the viewport. */
 .cn{width:100%;max-width:80rem;margin-inline:auto;padding-inline:var(--spacing-12)}
 .dropdown-toggle{font:inherit;letter-spacing:.04em;color:var(--muted);background:none;border:0;padding:0}
-.blog-hero{background:var(--h);color:var(--h-text);padding:10rem 0 5rem;border-bottom:1px solid var(--border)}
+.blog-hero{background:var(--h);color:var(--h-text);padding:10rem 0 5rem;border-bottom:1px solid var(--border);position:relative;overflow:hidden}.blog-hero #data-field-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.blog-hero .cn{position:relative;z-index:1}
 .blog-hero .section-tag{font-family:'IBM Plex Mono',monospace;font-size:var(--typography-font-size-sm);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:var(--spacing-8)}
 .blog-hero h1{font-size:clamp(3.5rem,10vw,6.75rem);font-weight:200;line-height:.9;letter-spacing:-.05em;max-width:56rem;margin-bottom:0}.blog-hero h1 em{font-style:normal;color:var(--accent);font-weight:400}
 .blog-hero .subtitle{max-width:32.5rem;color:rgba(250,250,249,.65);font-size:var(--typography-font-size-xl);line-height:var(--typography-line-height-prose);margin-top:var(--spacing-5)}
@@ -81,7 +82,7 @@
   </div>
 </header>
 <main>
-<section class="blog-hero">
+<section class="blog-hero"><canvas id="data-field-canvas" aria-hidden="true"></canvas>
   <div class="cn">
     <div class="section-tag">Inflexion / Perspectives</div>
     <h1>Perspectives on <em>AI, discovery and retail media.</em></h1>
