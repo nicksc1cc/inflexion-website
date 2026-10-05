@@ -47,7 +47,7 @@ for slug in POSTS:
     parser = ContractParser()
     text = path.read_text(errors='replace')
     parser.feed(text)
-    if '../assets/perspectives-editorial.css' not in parser.stylesheets:
+    if not any(href.startswith('../assets/perspectives-editorial.css') for href in parser.stylesheets):
         errors.append(f'{slug}: missing shared editorial stylesheet')
     if 'article-hero' not in text or ('article-layout' not in text and 'article-grid' not in text):
         errors.append(f'{slug}: missing article hero/layout contract')
