@@ -3,6 +3,7 @@
 from html.parser import HTMLParser
 from pathlib import Path
 import json
+import re
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -55,6 +56,18 @@ for slug in POSTS:
         errors.append(f'{slug}: missing shared editorial stylesheet')
     if 'article-hero' not in text or ('article-layout' not in text and 'article-grid' not in text):
         errors.append(f'{slug}: missing article hero/layout contract')
+    toc_blocks = re.findall(r'<aside\b[^>]*class="[^"]*(?:article-aside|article-toc)[^"]*[\s\S]*?</aside>', text)
+    if len(toc_blocks) != 1:
+        errors.append(f'{slug}: expected exactly one article TOC, found {len(toc_blocks)}')
+    else:
+        toc_hrefs = re.findall(r'href="#([^"]+)"', toc_blocks[0])
+        if not toc_hrefs:
+            errors.append(f'{slug}: TOC has no in-page anchors')
+        for href in toc_hrefs:
+            if not re.search(r'id="' + re.escape(href) + r'"', text):
+                errors.append(f'{slug}: TOC anchor #{href} has no target')
+        if re.search(r'<a\s+href="(?!#)', toc_blocks[0]):
+            errors.append(f'{slug}: TOC contains an external or site-navigation link')
     for index, block in enumerate(parser.json_blocks, 1):
         try:
             json.loads(block)
