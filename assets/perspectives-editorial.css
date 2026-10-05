@@ -1,10 +1,71 @@
-/* Editorial layer for Perspectives pages and journal articles. */
-.blog-card{position:relative;transition:background .2s ease,transform .2s ease}.blog-card:hover{background:rgba(255,90,31,.035);transform:translateY(-2px)}
-.blog-card:first-child{grid-column:span 2;padding-top:64px}.blog-card:first-child h2{font-size:clamp(36px,5vw,72px);max-width:850px}.blog-card:first-child .excerpt{font-size:17px;max-width:54em}
-.article-body .lead{border-left:2px solid var(--accent);padding:18px 0 18px 24px;margin-bottom:40px;background:rgba(255,90,31,.035)}
-.article-body p:has(+ h2){margin-bottom:34px}
-.editorial-stat{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;margin:40px 0;padding:24px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.editorial-stat .value{font:300 clamp(34px,5vw,64px)/.95 Montserrat,sans-serif;letter-spacing:-.05em;color:var(--accent);font-variant-numeric:tabular-nums}.editorial-stat .caption{font-size:15px;line-height:1.65;color:var(--muted);max-width:38em}.editorial-stat .source{display:block;margin-top:8px;font:400 10px/1.4 'IBM Plex Mono',monospace;color:var(--muted2);letter-spacing:.04em}
-.editorial-rule{margin:48px 0;padding:22px 24px;border:1px solid var(--border);background:var(--bg);font-size:20px;line-height:1.45;font-weight:300}.editorial-rule strong{color:var(--accent);font-weight:500}
-.sources{position:relative}.sources:before{content:'Further reading';display:block;color:var(--accent);font:500 10px/1 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;margin-bottom:18px}
-@media(max-width:900px){.blog-card:first-child{grid-column:auto}.blog-card:first-child h2{font-size:clamp(30px,8vw,52px)}.editorial-stat{grid-template-columns:1fr}.editorial-rule{font-size:18px}}
+/*
+  Perspectives editorial contract.
+  All journal posts inherit this file after their page-local styles.
+  Keep article geometry here so a new post cannot invent a third layout.
+*/
+
+/* Index and section landing pages */
+.blog-card{position:relative;transition:background .2s ease,transform .2s ease}
+.blog-card:hover{background:rgba(255,90,31,.035);transform:translateY(-2px)}
+.blog-card:first-child{grid-column:span 2;padding-top:4rem}
+.blog-card:first-child h2{font-size:clamp(2.25rem,5vw,4.5rem);max-width:53rem}
+.blog-card:first-child .excerpt{font-size:1.0625rem;max-width:54em}
+
+/* Shared article hero */
+.article-hero{background:var(--h);color:var(--h-text);padding:clamp(9rem,16vw,12.5rem) 0 clamp(4.5rem,8vw,6.5rem);overflow:hidden}
+.article-hero .section-inner,.article-hero .w{max-width:80rem;margin:0 auto;padding:0 3rem}
+.article-hero .tag,.article-hero .meta,.article-hero .article-meta{font:500 .6875rem/1.4 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,250,249,.52);margin:0 0 1.75rem}
+.article-hero h1{max-width:67rem;margin:0;font-size:clamp(2.75rem,7vw,6rem);font-weight:200;line-height:.96;letter-spacing:-.045em;overflow-wrap:anywhere}
+.article-hero h1 em{font-style:normal;color:var(--accent);font-weight:400}
+.article-hero .article-dek{max-width:43rem;margin:2rem 0 0;font-size:clamp(1.125rem,2vw,1.5rem);line-height:1.45;color:rgba(250,250,249,.7);font-weight:300}
+.article-hero .meta,.article-hero .article-meta{margin:2.75rem 0 0;color:rgba(250,250,249,.45)}
+
+/* One reading geometry for both legacy article markup variants */
+.article-layout,.article-grid{display:grid;grid-template-columns:minmax(0,10rem) minmax(0,56rem);gap:clamp(2.5rem,5vw,4rem);max-width:82rem;margin:0 auto;padding:clamp(4.5rem,9vw,7rem) 3rem clamp(6rem,11vw,9rem);align-items:start}
+.article-body{padding:0!important}
+.article-body>.section-inner{max-width:75rem;margin:0 auto;padding:0}
+.article-body .article-grid{max-width:none;margin:0;padding:0}
+.article-aside,.article-toc{position:sticky;top:7rem;height:max-content;font:400 .6875rem/1.7 'IBM Plex Mono',monospace;color:var(--muted)}
+.article-aside span,.article-toc>.tag{display:block;margin:0 0 .9rem;color:var(--accent);font:500 .625rem/1.3 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase}
+.article-aside a,.article-toc nav a{display:block;margin:0 0 .55rem;color:var(--muted);text-decoration:none;line-height:1.55}
+.article-aside a:hover,.article-toc nav a:hover{color:var(--accent)}
+.article-body{width:100%;min-width:0;max-width:none!important}.article-body .article-content,.article-layout .article-body{min-width:0;max-width:56rem}
+.article-body p,.article-content p{max-width:54rem;margin:0 0 1.5rem;font-size:1.0625rem;line-height:1.8;font-weight:300;color:var(--color-neutral-fg3)}
+.article-body .lead,.article-content .lead{max-width:54rem;margin:0 0 2.75rem;padding:1.125rem 0 1.125rem 1.5rem;border-left:2px solid var(--accent);background:rgba(255,90,31,.035);font-size:clamp(1.375rem,2.7vw,2rem);line-height:1.4;color:var(--fg);font-weight:300}
+.article-body h2,.article-content h2{max-width:54rem;margin:4.5rem 0 1.5rem;font-size:clamp(1.875rem,4vw,3rem);font-weight:300;line-height:1.08;letter-spacing:-.025em;color:var(--fg)}
+.article-body h3,.article-content h3{max-width:54rem;margin:3rem 0 .875rem;font-size:1.375rem;font-weight:600;line-height:1.2;color:var(--fg)}
+.article-body strong,.article-content strong{font-weight:600;color:var(--fg)}
+.article-body a,.article-content a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.article-body ul,.article-body ol,.article-content ul,.article-content ol{max-width:54rem;margin:1rem 0 1.5rem 1.5rem;color:var(--color-neutral-fg3)}
+.article-body li,.article-content li{margin:0 0 .625rem;line-height:1.7}
+.article-body blockquote,.article-content blockquote,.article-body .rule,.article-content .rule,.article-content .callout{max-width:54rem;margin:2.25rem 0;padding:1rem 0 1rem 1.5rem;border-left:2px solid var(--accent);font-size:1.3125rem;line-height:1.45;color:var(--muted)}
+.sources{max-width:54rem;margin-top:4.5rem;padding-top:2rem;border-top:1px solid var(--border);position:relative}
+.sources:before{content:'Further reading';display:block;margin-bottom:1.125rem;color:var(--accent);font:500 .625rem/1 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase}
+.sources p{font-size:.8125rem;line-height:1.7;color:var(--muted)}
+.article-cta{background:var(--h);color:var(--h-text)}
+
+/* New article contract marker. */
+[data-perspectives-article]{display:block}
+
+@media(max-width:900px){
+  .article-hero .section-inner,.article-hero .w{padding:0 1.5rem}
+  .article-layout,.article-grid{display:block;padding:4.5rem 1.5rem 6rem}
+  .article-aside,.article-toc{position:static;margin:0 0 3rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
+  .article-toc nav{display:flex;flex-wrap:wrap;gap:.75rem 1rem}
+  .article-toc nav a{margin:0}
+  .article-body,.article-body .article-content,.article-layout .article-body{max-width:none}
+  .article-body p,.article-content p{font-size:1rem;line-height:1.75}
+  .article-body h2,.article-content h2{margin-top:3.75rem}
+}
+
+@media(max-width:600px){
+  .blog-card:first-child{grid-column:auto;padding-top:2rem}
+  .blog-card:first-child h2{font-size:clamp(2rem,9vw,3.25rem)}
+  .article-hero{padding-top:8.5rem;padding-bottom:4rem}
+  .article-hero h1{font-size:clamp(2.5rem,12vw,4rem)}
+  .article-hero .article-dek{font-size:1.125rem}
+  .article-layout,.article-grid{padding-left:1.25rem;padding-right:1.25rem}
+  .article-body .lead,.article-content .lead{padding-left:1rem}
+}
+
+@media(prefers-reduced-motion:reduce){.blog-card{transition:none}.article-hero *,.article-body *,.article-content *{scroll-behavior:auto;transition:none!important}}
