@@ -47,6 +47,10 @@ for slug in POSTS:
     parser = ContractParser()
     text = path.read_text(errors='replace')
     parser.feed(text)
+    if not any(href.startswith('../assets/design-system/tokens-built.css') for href in parser.stylesheets):
+        errors.append(f'{slug}: missing or incorrect token stylesheet path')
+    if not any(href.startswith('../assets/common.css') for href in parser.stylesheets):
+        errors.append(f'{slug}: missing or incorrect common stylesheet path')
     if not any(href.startswith('../assets/perspectives-editorial.css') for href in parser.stylesheets):
         errors.append(f'{slug}: missing shared editorial stylesheet')
     if 'article-hero' not in text or ('article-layout' not in text and 'article-grid' not in text):
