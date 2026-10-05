@@ -56,6 +56,16 @@ for slug in POSTS:
         errors.append(f'{slug}: missing shared editorial stylesheet')
     if 'article-hero' not in text or ('article-layout' not in text and 'article-grid' not in text):
         errors.append(f'{slug}: missing article hero/layout contract')
+    footer_blocks = re.findall(r'<footer>[\s\S]*?</footer>', text)
+    if len(footer_blocks) != 1:
+        errors.append(f'{slug}: expected exactly one footer, found {len(footer_blocks)}')
+    else:
+        footer = footer_blocks[0]
+        for label in ('Home', 'Organic &amp; AI Search', 'Media solutions', 'Consultancy', 'Perspectives', 'Contact us'):
+            if label not in footer:
+                errors.append(f'{slug}: footer missing navigation link {label}')
+        if len(re.findall(r'<a\s+href=', footer)) != 7:
+            errors.append(f'{slug}: footer should contain one logo link plus six navigation links')
     toc_blocks = re.findall(r'<aside\b[^>]*class="[^"]*(?:article-aside|article-toc)[^"]*[\s\S]*?</aside>', text)
     if len(toc_blocks) != 1:
         errors.append(f'{slug}: expected exactly one article TOC, found {len(toc_blocks)}')
