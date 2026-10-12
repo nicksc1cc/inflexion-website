@@ -1,0 +1,836 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Marketing services are being repriced. | Inflexion</title>
+<meta name="description" content="A map of 145 marketing services scored by how much judgement each needs and how much is outsourced, plus 14 services AI is creating.">
+<link rel="canonical" href="https://nicksc1cc.github.io/inflexion-website/opportunity-map/">
+<meta property="og:title" content="Marketing services are being repriced.">
+<meta property="og:description" content="145 services mapped by judgement and who does the work.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nicksc1cc.github.io/inflexion-website/opportunity-map/">
+<meta property="og:image" content="https://nicksc1cc.github.io/inflexion-website/assets/og-opportunity-map.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Marketing services are being repriced.">
+<meta name="twitter:description" content="145 services mapped by judgement and who does the work.">
+<meta name="twitter:image" content="https://nicksc1cc.github.io/inflexion-website/assets/og-opportunity-map.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Marketing Services Opportunity Map","author":{"@type":"Organization","name":"Inflexion"},"datePublished":"2026-10-12","url":"https://nicksc1cc.github.io/inflexion-website/opportunity-map/","publisher":{"@type":"Organization","name":"Inflexion"}}</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+[hidden]{display:none!important}
+img{max-width:100%}
+/* Layout: Inflexion editorial. Dark hero, warm white numbered sections, Tufte-style charts: direct labels, hairline axes, small multiples, sparkline table. Single deliberate brand look. */
+:root{
+  --fg:#0a0a0b; --fg2:#71717a; --fg3:#a1a1aa; --bg:#fafaf9; --bg2:#f4f4f0;
+  --line:rgba(10,10,11,.08); --line2:rgba(10,10,11,.14);
+  --dark:#0a0a0b; --dtext:rgba(250,250,249,.9); --dtext2:rgba(250,250,249,.65); --dtext3:rgba(250,250,249,.42); --dline:rgba(250,250,249,.1);
+  --accent:#ff5a1f; --data:#2438da; --navy:#0f1a66; --intel:#cdd2f7; --ctx:#dcdce0;
+  --sans:"Montserrat",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --ease:cubic-bezier(.16,1,.3,1);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-weight:300;font-size:15px;line-height:1.6;margin:0}
+a{color:inherit}
+.w{max-width:1280px;margin:0 auto;padding-inline:48px}
+@media (max-width:760px){.w{padding-inline:20px}}
+h1,h2,h3{font-family:var(--sans);text-wrap:balance;margin:0}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--fg2)}
+.eyebrow b{color:var(--accent);font-weight:500}
+button{font-family:inherit}
+button:focus-visible,a:focus-visible,.hit:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* hero */
+.hero{position:relative;background:var(--dark);color:var(--dtext);overflow:hidden}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
+.hero .w{position:relative;z-index:2}
+.top{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:24px;border-bottom:1px solid var(--dline);flex-wrap:wrap}
+.top img{height:34px;width:auto;display:block}
+.top nav{display:flex;gap:26px;flex-wrap:wrap;font-size:12px;font-weight:400;letter-spacing:.04em}
+.top nav a{text-decoration:none;color:var(--dtext2);transition:color .2s}
+.top nav a:hover{color:var(--dtext)}
+.top .talk{font-size:12px;font-weight:500;text-decoration:none;color:var(--dtext);border-bottom:1px solid var(--accent);padding-bottom:2px}
+@media (max-width:900px){.top nav{display:none}}
+.hero-body{padding-block:96px 72px;display:flex;flex-direction:column;gap:28px}
+.hero .sup{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--dtext3)}
+.hero h1{font-size:clamp(38px,6.6vw,84px);font-weight:200;line-height:1;letter-spacing:-.03em;max-width:15ch}
+.hero h1 em{font-style:normal;color:var(--accent);font-weight:400}
+.hero .desc{font-size:clamp(15px,1.4vw,17px);line-height:1.7;color:var(--dtext2);max-width:58ch}
+.cta-row{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:14px 24px;border-radius:2px;transition:opacity .2s}
+.btn:hover{opacity:.82}
+.link{font-size:13px;font-weight:400;text-decoration:none;color:var(--dtext);border-bottom:1px solid var(--dline);padding-bottom:2px;transition:color .2s,border-color .2s}
+.link:hover{color:var(--accent);border-color:var(--accent)}
+.banner{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--dline);border:1px solid var(--dline);margin-top:28px}
+.banner div{background:rgba(10,10,11,.72);padding:20px;display:flex;flex-direction:column;gap:6px}
+.banner b{font-size:clamp(26px,3vw,36px);font-weight:200;letter-spacing:-.02em;color:#fff}
+.banner span{font-size:13px;color:var(--dtext2);line-height:1.45}
+.banner small{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--dtext3);text-transform:uppercase}
+@media (max-width:900px){.banner{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.banner{grid-template-columns:1fr}}
+.hero-in>*{animation:rise .9s var(--ease) both}
+.hero-in>*:nth-child(2){animation-delay:.08s}.hero-in>*:nth-child(3){animation-delay:.16s}.hero-in>*:nth-child(4){animation-delay:.24s}.hero-in>*:nth-child(5){animation-delay:.32s}
+@keyframes rise{from{opacity:.3;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* sections */
+section.sec{padding-block:88px;border-bottom:1px solid var(--line)}
+section.sec.alt{background:var(--bg2)}
+.sec-head{display:flex;flex-direction:column;gap:14px;margin-bottom:40px;max-width:860px}
+.sec-head h2{font-size:clamp(28px,3.6vw,44px);font-weight:200;line-height:1.08;letter-spacing:-.025em}
+.sec-head h2 em{font-style:normal;color:var(--accent);font-weight:400}
+.sec-head p{color:var(--fg2);font-size:15px;max-width:66ch;line-height:1.7}
+.rv{transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.pre{opacity:.15;transform:translateY(22px)}
+.note{font-size:13px;color:var(--fg2);max-width:70ch;line-height:1.6}
+.cap{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg3)}
+
+.shift{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line2);border:1px solid var(--line2)}
+.shift article{background:var(--bg);padding:28px;display:flex;flex-direction:column;gap:12px}
+.shift .n{font-family:var(--mono);font-size:12px;color:var(--accent)}
+.shift h3{font-size:20px;font-weight:400;letter-spacing:-.01em}
+.shift p{color:var(--fg2);font-size:14px;line-height:1.65}
+@media (max-width:860px){.shift{grid-template-columns:1fr}}
+.quote{margin-top:28px;font-size:14px;color:var(--fg2);max-width:70ch}
+.quote a{color:var(--fg);text-decoration-color:var(--accent);text-underline-offset:3px}
+
+/* money */
+.total{display:flex;flex-direction:column;gap:10px;margin-bottom:56px}
+.total .lbls{display:flex;font-size:13px;line-height:1.35}
+.total .lbls div{padding-right:8px;min-width:0}
+.total .lbls b{display:block;font-size:clamp(20px,2.4vw,28px);font-weight:300;letter-spacing:-.02em}
+.total .bar{display:flex;height:28px;gap:2px}
+.total .bar span{display:block;height:100%}
+.total .bar span:first-child{border-radius:2px 0 0 2px}.total .bar span:last-child{border-radius:0 2px 2px 0}
+@media (max-width:640px){.total .lbls{flex-direction:column;gap:10px}.total .lbls div{width:auto!important;border-left:3px solid var(--c);padding-left:10px}}
+.disc-rows{display:flex;flex-direction:column}
+.drow{display:grid;grid-template-columns:150px minmax(0,1fr) 150px 120px;gap:16px;align-items:center;padding-block:9px;border-bottom:1px solid var(--line)}
+.drow.head{border-bottom:1px solid var(--line2);padding-block:0 8px}
+.dname{font-size:14px;font-weight:400}
+.dbar{display:flex;height:14px;gap:2px;min-width:0}
+.dbar span{display:block;height:100%}
+.dbar span:first-child{border-radius:2px 0 0 2px}.dbar span:last-child{border-radius:0 2px 2px 0}
+.dval{font-family:var(--mono);font-size:12px;font-variant-numeric:tabular-nums;color:var(--fg2);white-space:nowrap}
+.dval b{color:var(--fg);font-weight:500}
+.mini{display:block;width:100%;height:14px}
+@media (max-width:760px){.drow{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"n v" "b b" "o o";gap:6px 12px}.drow .dname{grid-area:n}.drow .dbar{grid-area:b}.drow .dval{grid-area:v}.drow .dout{grid-area:o}.drow.head{display:none}}
+
+/* charts */
+.panel{background:#fff;border:1px solid var(--line2);min-width:0}
+.chartbox{padding:14px}
+svg{display:block;width:100%;height:auto}
+.hit{cursor:pointer}
+.mk{transition:opacity .45s var(--ease)}
+.hit:hover .mk,.hit.sel .mk{stroke:var(--accent);stroke-width:2.2}
+.pre-dots .mk{opacity:0}
+.legend{display:flex;flex-wrap:wrap;gap:20px;font-size:12px;color:var(--fg2);align-items:center;margin-top:14px}
+.legend svg{display:inline-block;width:14px;height:14px;vertical-align:-2px;margin-right:7px}
+.sm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:0;border-top:1px solid var(--line2);border-left:1px solid var(--line2);margin-top:28px}
+@media (max-width:640px){.sm-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.sm{background:#fff;padding:14px 14px 8px;display:flex;flex-direction:column;gap:4px;min-width:0;border-right:1px solid var(--line2);border-bottom:1px solid var(--line2)}
+.sm h3{font-size:14px;font-weight:500}
+.sm .st{font-family:var(--mono);font-size:10.5px;color:var(--fg2);font-variant-numeric:tabular-nums;line-height:1.4}
+.sm .st b{color:var(--data);font-weight:500}
+
+/* emerging */
+.horizon-wrap{margin-top:8px}
+.hz-list{display:flex;flex-direction:column;margin-top:28px}
+.hz-row{display:grid;grid-template-columns:70px minmax(0,1.1fr) minmax(0,1.6fr) minmax(0,1fr);gap:20px;padding-block:16px;border-bottom:1px solid var(--line);cursor:pointer;text-align:left;background:transparent;border-left:0;border-right:0;border-top:0;font:inherit;color:inherit;width:100%;transition:background .2s}
+.hz-row:hover,.hz-row.sel{background:rgba(255,90,31,.05)}
+.hz-row .h{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.06em;padding-top:2px}
+.hz-row b{font-weight:500;font-size:15px;display:block}
+.hz-row .w2{font-size:13.5px;color:var(--fg2);line-height:1.55}
+.hz-row .sig{font-size:13px;color:var(--fg);line-height:1.55}
+.hz-row .who{font-size:12.5px;color:var(--fg2);line-height:1.5}
+.hz-row.head{cursor:default;padding-block:0 8px;border-bottom:1px solid var(--line2)}
+.hz-row.head:hover{background:transparent}
+@media (max-width:860px){.hz-row{grid-template-columns:56px minmax(0,1fr);gap:6px 14px}.hz-row .sig,.hz-row .who{grid-column:2}.hz-row.head{display:none}}
+@media (max-width:700px){#hzChart{display:none}}
+
+/* money */
+.ev-list{display:flex;flex-direction:column;margin-top:28px}
+.ev-row{display:grid;grid-template-columns:76px 96px minmax(0,1fr) 190px 58px;gap:18px;align-items:baseline;padding-block:11px;border-bottom:1px solid var(--line)}
+.ev-row .dt{font-family:var(--mono);font-size:11px;color:var(--fg2);font-variant-numeric:tabular-nums}
+.ev-row .ty{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg2)}
+.ev-row .ty.f{color:var(--data)}
+.ev-row b{font-weight:500;font-size:14px}
+.ev-row .tx{font-size:13.5px;color:var(--fg2);line-height:1.5}
+.ev-row .am{font-family:var(--mono);font-size:12px;color:var(--fg);font-variant-numeric:tabular-nums}
+.ev-row a{font-size:12px;color:var(--fg2);text-decoration-color:var(--accent);text-underline-offset:3px}
+.ev-note{font-size:13px;color:var(--fg2);padding-block:10px;border-bottom:1px solid var(--line);font-style:italic}
+@media (max-width:860px){.ev-row{grid-template-columns:70px minmax(0,1fr);gap:4px 14px}.ev-row .ty{grid-column:2;grid-row:1}.ev-row .dt{grid-row:1 / span 2}.ev-row .tx,.ev-row .am,.ev-row a{grid-column:2}.ev-row.head{display:none}}
+@media (max-width:700px){.cap-wrap{display:none}}
+
+/* sparkline table */
+.spark{display:flex;flex-direction:column}
+.srow{display:grid;grid-template-columns:minmax(0,2.4fr) 150px 130px 120px 64px 64px;gap:18px;align-items:center;padding-block:8px;border-bottom:1px solid var(--line);cursor:pointer;background:transparent;border-left:0;border-right:0;border-top:0;font:inherit;color:inherit;text-align:left;width:100%;transition:background .2s}
+.srow:hover,.srow.sel{background:rgba(255,90,31,.05)}
+.srow.head{cursor:default;position:sticky;top:0;z-index:2;background:var(--bg2);border-bottom:1px solid var(--line2);padding-block:10px 8px}
+.srow.head:hover{background:var(--bg2)}
+.sgroup{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--fg);padding:26px 0 8px;border-bottom:1px solid var(--fg);display:flex;justify-content:space-between;gap:12px}
+.sgroup span{color:var(--fg2);font-weight:400;letter-spacing:.04em;text-transform:none}
+.sname{font-size:13.5px;font-weight:400;line-height:1.3;min-width:0}
+.sname em{font-style:normal;font-family:var(--mono);font-size:9.5px;color:var(--accent);margin-left:6px;letter-spacing:.06em}
+.sval{font-family:var(--mono);font-size:10.5px;color:var(--fg2);font-variant-numeric:tabular-nums;display:flex;align-items:center;gap:8px;min-width:0}
+.sval svg{flex:1;min-width:0;height:12px}
+.sval.n{justify-content:flex-start}
+.pip{display:inline-flex;gap:2px}
+.pip i{width:7px;height:7px;border-radius:50%;background:var(--ctx)}
+.pip.r i.on{background:var(--accent)} .pip.m i.on{background:var(--data)}
+.mlab{display:none}
+@media (max-width:860px){
+  .srow{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 18px;padding-block:12px}
+  .srow .sname{grid-column:1 / -1;font-weight:500}
+  .srow.head{display:none}
+  .mlab{display:inline;font-family:var(--mono);font-size:9px;color:var(--fg3);text-transform:uppercase;letter-spacing:.08em;min-width:62px}
+}
+
+/* drawer */
+.drawer{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));width:400px;max-width:calc(100vw - 40px);max-height:70vh;overflow:auto;background:#fff;border:1px solid var(--line2);box-shadow:0 16px 48px rgba(0,0,0,.14);padding:22px;z-index:50;display:flex;flex-direction:column;gap:12px;transform:translateY(0);opacity:1;transition:transform .35s var(--ease),opacity .35s var(--ease)}
+.drawer[hidden]{display:none!important}
+.drawer .x{position:absolute;top:12px;right:12px;border:0;background:transparent;font-size:20px;line-height:1;cursor:pointer;color:var(--fg2);padding:6px}
+.drawer h3{font-size:20px;font-weight:300;letter-spacing:-.015em;padding-right:28px}
+.drawer p{font-size:14px;line-height:1.6}
+.kv{display:grid;grid-template-columns:1fr 1fr;gap:12px 18px;font-size:13px;margin:0}
+.kv div{display:flex;flex-direction:column;gap:3px;min-width:0}
+.kv div.full{grid-column:1 / -1}
+.kv dt{color:var(--fg3);font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em}
+.kv dd{margin:0;font-variant-numeric:tabular-nums}
+.kv a{text-decoration-color:var(--accent);text-underline-offset:3px}
+@media (max-width:640px){.drawer{left:0;right:0;bottom:0;width:auto;max-width:none;max-height:62vh;border-left:0;border-right:0;padding-bottom:calc(22px + env(safe-area-inset-bottom,0px))}}
+
+.method{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:48px}
+@media (max-width:860px){.method{grid-template-columns:1fr}}
+.method p{color:var(--fg2);font-size:14px;line-height:1.75;margin-bottom:14px}
+.method p b{color:var(--fg);font-weight:500}
+.method a{text-decoration-color:var(--accent);text-underline-offset:3px}
+.sources{columns:2 240px;font-size:13px;padding-left:18px;margin:0;color:var(--fg2)}
+.sources li{break-inside:avoid;margin-bottom:6px}
+footer{background:var(--dark);color:var(--dtext2);padding-block:64px}
+footer .row{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
+footer img{height:40px;width:auto;display:block;margin-bottom:22px}
+footer .tag{font-size:clamp(22px,2.6vw,32px);font-weight:200;color:var(--dtext);letter-spacing:-.02em;max-width:22ch;line-height:1.15}
+footer .tag em{font-style:normal;color:var(--accent);font-weight:400}
+footer small{display:block;margin-top:40px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--dtext3);text-transform:uppercase}
+@media (prefers-reduced-motion:reduce){.hero-in>*{animation:none}.rv,.rv.pre{transition:none;opacity:1;transform:none}.mk{transition:none}.pre-dots .mk{opacity:1}.drawer{transition:none}}
+</style>
+
+</head>
+<body>
+<div class="hero">
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="w">
+    <div class="top">
+      <a href="../" target="_blank" rel="noopener" aria-label="Inflexion Media"><img src="../assets/images/inflexion-media-logo-white.png" alt="Inflexion Media"></a>
+      <nav aria-label="Sections"><a href="#shift">The shift</a><a href="#money">Judgement</a><a href="#map">The map</a><a href="#new">New services</a><a href="#capital">The money</a><a href="#all">Every service</a></nav>
+      <a class="talk" href="../contact/" target="_blank" rel="noopener">Let's talk &rarr;</a>
+    </div>
+    <div class="hero-body hero-in">
+      <div class="sup">Inflexion Intelligence &middot; Opportunity map &middot; October 2026</div>
+      <h1>Marketing services are being <em>repriced.</em></h1>
+      <p class="desc">We mapped 145 marketing service lines across 13 disciplines, and 14 new ones AI is creating, to show where AI can sell the finished work, where the platforms are taking it, where senior judgement still earns the fee, and where investors are putting their money.</p>
+      <div class="cta-row"><a class="btn" href="#money">See where judgement sits</a></div>
+      <div class="banner">
+        <div><b>145</b><span>service lines mapped from what providers actually sell, plus 14 new ones</span><small>Inflexion research</small></div>
+        <div><b id="bJ">38%</b><span>of the work is judgement, most of it inside services sold as execution</span><small>Inflexion estimate</small></div>
+        <div><b>84%</b><span>of AI citations come from earned media</span><small>Muck Rack, May 2026</small></div>
+        <div><b>3 of 3</b><span>largest ad platforms now ship agents that build and run campaigns</span><small>Google, Meta, Amazon</small></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="sec" id="shift">
+  <div class="w">
+    <div class="sec-head rv"><div class="eyebrow"><b>01</b> / The shift</div><h2>AI makes execution cheap. Value moves to what <em>platforms can't do.</em></h2></div>
+    <div class="shift rv">
+      <article><span class="n">01</span><h3>Platforms take execution</h3><p>Google AI Max, Meta's automated ads, Amazon Ads Agent and Klaviyo Composer all launched or expanded in the past year. Buying, segmentation and campaign builds are moving inside the tools.</p></article>
+      <article><span class="n">02</span><h3>Brands must be legible to machines</h3><p>AI answers, shopping agents and B2B buying agents all read structured, cited information. Being found is no longer enough. Brands need to be understood and chosen.</p></article>
+      <article><span class="n">03</span><h3>Judgement earns the fee</h3><p>When the work is cheap, clients pay for the call on what to do. Every platform now grades its own AI campaigns, so an independent answer is worth more.</p></article>
+    </div>
+    <p class="quote rv">The lens follows Sequoia's <a href="https://sequoiacap.com/article/services-the-new-software" target="_blank" rel="noopener">Services: The New Software</a>: AI first service companies start where work is already outsourced and mostly intelligence, then move into judgement as their data compounds.</p>
+  </div>
+</section>
+
+<section class="sec alt" id="money">
+  <div class="w">
+    <div class="sec-head rv"><div class="eyebrow"><b>02</b> / Where judgement sits</div><h2 id="moneyH">Judgement is not a niche. It is <em>inside almost every service.</em></h2><p id="moneyP"></p></div>
+    <div class="total rv" id="total"></div>
+    <div class="disc-rows rv" id="discRows"></div>
+    <p class="note rv" style="margin-top:18px">Bar length is each discipline&rsquo;s relative size, indexed so the largest is 100; the blue part is judgement. The tick on the right marks the share already bought from outside providers, and the grey mark is 50%. Sizes and shares are Inflexion estimates that show proportions, not market values.</p>
+  </div>
+</section>
+
+<section class="sec" id="map">
+  <div class="w">
+    <div class="sec-head rv"><div class="eyebrow"><b>03</b> / The map</div><h2>Where AI can sell the work, and <em>where it can't.</em></h2><p>Each dot is a service line, sized by its relative size. Top left is intelligence work brands already buy from outside, where AI can sell the finished work today. Select any dot for the detail.</p></div>
+    <div class="panel chartbox rv"><svg id="chart" viewBox="0 0 900 620" role="img" aria-label="Scatter of 145 service lines by judgement share and outsourced share, with 14 new services marked"></svg>
+      <div class="legend">
+        <span><svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.5" fill="#2438da" fill-opacity=".28" stroke="#2438da" stroke-width="1.3"/></svg>Service line, sized by relative size</span>
+        <span><svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.5" fill="#fff" stroke="#2438da" stroke-width="1.3"/></svg>Hollow: a platform is automating it</span>
+        <span><svg viewBox="0 0 14 14"><path d="M7 1.5L12.5 7L7 12.5L1.5 7Z" fill="#ff5a1f"/></svg>New service AI is creating</span>
+      </div>
+    </div>
+    <div class="sec-head rv" style="margin-top:64px;margin-bottom:0"><div class="cap">Small multiples &middot; same axes, one discipline each</div><p>Grey dots show every other service for context. Disciplines run from the most judgement heavy to the least.</p></div>
+    <div class="sm-grid rv" id="smGrid"></div>
+  </div>
+</section>
+
+<section class="sec alt" id="new">
+  <div class="w">
+    <div class="sec-head rv"><div class="eyebrow"><b>04</b> / Services AI is creating</div><h2>Fourteen services that <em>did not exist</em> two years ago.</h2><p id="newP">Each has a dated 2026 signal. Most have no settled provider market yet, so they carry a horizon instead of a size. They are placed by how much of the work is judgement.</p></div>
+    <div class="panel chartbox rv horizon-wrap" id="hzChartBox"><svg id="hzChart" viewBox="0 0 960 470" role="img" aria-label="New services by horizon and judgement share"></svg></div>
+    <div class="hz-list rv" id="hzList"></div>
+  </div>
+</section>
+
+<section class="sec" id="capital">
+  <div class="w">
+    <div class="sec-head rv"><div class="eyebrow"><b>05</b> / Where the money is going</div><h2>Investors are funding software. <em>Holding companies are cutting and buying.</em></h2><p id="capP"></p></div>
+    <div class="panel chartbox rv cap-wrap"><svg id="capChart" viewBox="0 0 960 600" role="img" aria-label="Funding rounds, acquisitions and platform launches by discipline, January 2025 to October 2026"></svg>
+      <div class="legend">
+        <span><svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="5.5" fill="#2438da" fill-opacity=".85"/></svg>Funding round, sized by amount</span>
+        <span><svg viewBox="0 0 14 14"><rect x="2.5" y="2.5" width="9" height="9" fill="#0a0a0b"/></svg>Acquisition, listing or restructure</span>
+        <span><svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="5" fill="#fff" stroke="#2438da" stroke-width="1.5"/></svg>Platform launch</span>
+      </div>
+    </div>
+    <div class="ev-list rv" id="evList"></div>
+    <p class="note rv" style="margin-top:18px">A sample of the largest and most telling events from published announcements and trade press, not a complete deal count. Amounts are as reported; valuations are post money where stated.</p>
+  </div>
+</section>
+
+<section class="sec alt" id="all">
+  <div class="w">
+    <div class="sec-head rv"><div class="eyebrow"><b>06</b> / Every service</div><h2>159 services in one <em>sparkline table.</em></h2><p>Grouped by discipline, largest first. Each row reads left to right: relative size, how much is judgement, how much is already outsourced, platform risk and moat. Select a row for the detail.</p></div>
+    <div class="spark rv" id="spark"></div>
+  </div>
+</section>
+
+<section class="sec" id="method">
+  <div class="w">
+    <div class="sec-head rv"><div class="eyebrow"><b>07</b> / Method and sources</div><h2>How the map was <em>built.</em></h2></div>
+    <div class="method rv">
+      <div>
+        <p>We started from what providers actually sell. For each of 13 disciplines we inventoried the service lines offered by holding companies, independents, specialists, consultancies, platforms and AI-native entrants, with published pricing and new service lines from the last 18 months. We then added 14 services AI is creating, each backed by a dated 2026 signal.</p>
+        <p>Each service is placed by two judgements: <b>the share of the work that is judgement</b> and <b>the share already bought from outside</b>. Dot area and bar length show <b>relative size</b>: an Inflexion estimate built from published category totals (the agency, SEO, research, PR and influencer markets) and allocated across service lines. We show it as an index, not dollars, because the allocation is a judgement, not a measurement. <b>Platform risk</b> rates how directly Google, Meta, Amazon or another platform is automating the task inside its own product. <b>Moat</b> rates whether doing the work builds data that improves the next job. New services carry a horizon instead of a size.</p>
+        <p>Judgement shares are weighted by relative size: each service's size multiplied by its judgement share. Scores are analytical judgements from the evidence. Twenty services were checked against at least two provider service pages or pricing sources each.</p>
+        <p><b>Where the money is going</b> lists funding rounds, acquisitions and platform launches from January 2025 to October 2026, taken from company announcements and trade press. Each event links to its source.</p>
+      </div>
+      <ol class="sources">
+        <li><a href="https://sequoiacap.com/article/services-the-new-software" target="_blank" rel="noopener">Sequoia, Services: The New Software</a></li>
+        <li><a href="https://aimagazine.com/globenewswire/3290268" target="_blank" rel="noopener">Muck Rack Generative Pulse, May 2026</a></li>
+        <li><a href="https://www.relevantaudience.com/ecommerce-marketing/amazon-ads-agent-unboxed-2026-full-funnel-dva-plus/" target="_blank" rel="noopener">Amazon Ads Agent, unBoxed 2026</a></li>
+        <li><a href="https://ppc.land/google-ads-ai-max-auto-upgrade-lands-september-1-will-ads-all-look-alike/" target="_blank" rel="noopener">Google AI Max auto upgrade</a></li>
+        <li><a href="https://www.socialsamosa.com/news-2/meta-pushes-toward-fully-automated-advertising-future-9330538" target="_blank" rel="noopener">Meta's move to automated ads</a></li>
+        <li><a href="https://www.klaviyo.com/newsroom/composer" target="_blank" rel="noopener">Klaviyo Composer</a></li>
+        <li><a href="https://www.shopifreaks.com/amazon-reveals-pricing-and-measurement-details-for-sponsored-ads-inside-rufus-ai-shopping-assistant/" target="_blank" rel="noopener">Amazon branded prompts in Rufus</a></li>
+        <li><a href="https://ppc.land/googles-ai-mode-now-books-uk-restaurants-meet-the-8-partner-platforms/" target="_blank" rel="noopener">Google AI Mode agentic booking, UK</a></li>
+        <li><a href="https://www.digitalcommerce360.com/2025/11/28/gartner-ai-agents-15-trillion-in-b2b-purchases-by-2028/" target="_blank" rel="noopener">Gartner on AI agents in B2B buying</a></li>
+        <li><a href="https://billo.app/blog/ai-labeling/" target="_blank" rel="noopener">AI labelling rules for ads, 2026</a></li>
+        <li><a href="https://www.frontify.com/en/blog/the-future-of-brand-governance-is-machine-readable" target="_blank" rel="noopener">Frontify on machine readable brands</a></li>
+        <li><a href="https://everything-pr.com/ai-influencers-lil-miquela-aitana-lopez-virtual-brand-ambassadors" target="_blank" rel="noopener">Virtual influencer market</a></li>
+        <li><a href="https://www.eweek.com/news/microsoft-ai-marketplace-publishers/" target="_blank" rel="noopener">Microsoft content marketplace for AI</a></li>
+        <li><a href="https://www.emarketer.com/content/perplexity-retreat-ads-marks-split-on-ai-monetization-models" target="_blank" rel="noopener">Perplexity's retreat from ads</a></li>
+        <li><a href="https://www.bcg.com/press/15june2026-cmos-ai-transforming-marketing-transform-function" target="_blank" rel="noopener">BCG CMO survey, June 2026</a></li>
+        <li><a href="https://www.ana.net/content/show/id/pr-2026-03-principalmedia" target="_blank" rel="noopener">ANA principal media study, March 2026</a></li>
+        <li><a href="https://haus.io/customer/caraway-pmax" target="_blank" rel="noopener">Haus, Caraway PMax test</a></li>
+        <li><a href="https://thenextweb.com/news/higgsfield-series-b-400m-5-4bn-valuation-700m-revenue" target="_blank" rel="noopener">Higgsfield Series B</a></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="w">
+    <div class="row">
+      <div><img src="../assets/images/inflexion-media-logo-white.png" alt="Inflexion Media"><p class="tag">Human judgement. AI leverage. <em>Measurable outcomes.</em></p></div>
+      <div class="cta-row"><a class="btn" href="../contact/" target="_blank" rel="noopener">Let's talk</a><a class="link" href="../" target="_blank" rel="noopener">Visit Inflexion &rarr;</a></div>
+    </div>
+    <small>Inflexion Intelligence &middot; Marketing services opportunity map &middot; October 2026</small>
+  </div>
+</footer>
+
+<aside class="drawer" id="drawer" hidden aria-live="polite"></aside>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const DISC={strat:"Strategy",res:"Research",meas:"Measurement",search:"Search",aeo:"AEO",com:"Commerce",media:"Media",crea:"Creative",crm:"CRM",pr:"Social & PR",tech:"Martech & AI",cx:"Experience",b2b:"B2B"};
+const RAW=[
+["search","Technical SEO audits and migrations",15,75,6,10,"Botify, Screaming Frog, iPullRank, daydream","Rules based and repeatable. Migrations are priced as projects, audits as entry offers.",4,2,3,1],
+["search","Keyword and intent research",15,70,4,7,"Semrush, Ahrefs, agencies","Mostly done by tools now. Low value on its own.",3,3,1,1],
+["search","On-page optimisation",15,75,8,12,"Agencies, AirOps, daydream","Formulaic and outsourced. Increasingly sold inside AI content restructuring.",4,2,2,1],
+["search","SEO content production",25,80,20,30,"Content agencies, freelancers, AI writers","About $31bn in 2025, commoditising fast. Budgets are moving from informational content to authority.",3,2,2,1],
+["search","Programmatic SEO",20,85,3,6,"Graphite, Skale, TripleDart, NoGood, iPullRank","Templated pages from structured data, priced $5k to $30k a month. Agents now generate the pages.",4,2,3,1],
+["search","Link building and digital PR",40,90,6,10,"Siege Media, digital PR shops","Campaigns cost $5k to $10k for 6 to 7 linking domains. Now also feeds AI citations.",4,1,3,1],
+["search","Local and multi-location SEO",10,85,4,6,"Yext, Uberall, Google Business Profile","Pure intelligence and SMB heavy, while Google keeps automating the profile.",2,4,1,1],
+["search","International SEO",25,80,2,4,"Enterprise SEO agencies","Market structure, hreflang and localisation. Rules heavy and outsourced.",3,2,2,1],
+["search","Ecommerce SEO",20,75,4,7,"Amsive, WebFX, ecommerce specialists","Category and product page optimisation at scale. Overlaps catalogue work.",4,2,3,1],
+["search","Search everywhere optimisation",35,80,2,5,"SEO Sherpa, Single Grain","One mandate across YouTube, TikTok, Pinterest, Reddit, Amazon and app stores, priced against ROI.",4,2,3,1],
+["search","Reddit and community seeding",40,85,1,2,"Reddit marketing agencies","Small but fast growing. Reddit tops Gemini's cited domains.",3,2,2,1],
+["search","Search strategy",65,70,4,6,"Senior SEO consultancies","Judgement layer over a channel AI answers are redefining.",4,1,3,1],
+["search","Paid search account management",20,65,25,40,"Google AI Max, agencies","Google auto upgraded eligible campaigns to AI Max on 1 September 2026. Keyword work shrinks.",2,5,1,1],
+["search","Shopping feed management",10,70,3,5,"Feedonomics, agencies","Feed quality now drives Shopping, Performance Max and AI shopping agents.",4,3,3,1],
+["search","SEO enablement and fractional leads",55,60,1,3,"Previsible, consultants","Coaching and leading in-house teams.",3,1,2,1],
+["aeo","AI visibility monitoring",10,60,1,2,"Profound ($1.8bn), Peec AI, AthenaHQ, Otterly","Tools cost $29 to $500 a month at entry. Commoditised, with dozens of tools.",3,2,3,2],
+["aeo","Prompt and citation source research",20,80,1,2,"GEO agencies, Pepper, Profound","Sold as a $1.5k to $5k audit entry offer. Prompt data at scale sits with the tools.",5,2,4,2],
+["aeo","Content restructuring for AI",25,85,2,5,"daydream, AirOps, GEO agencies","The fix brands cannot do themselves yet, and AI engines will not do for them.",5,2,4,2],
+["aeo","Entity, schema and knowledge graph",15,85,1,2,"Pepper, Omnius, BrightEdge, Yext","Rules based and fully outsourced, but only ever sold inside GEO retainers.",5,2,3,2],
+["aeo","Machine readable sites for AI bots",10,75,0.5,1.5,"Scrunch AXP","Structured pages served to AI crawlers at the CDN layer. One example cut 124k tokens to 1.3k.",4,3,3,2],
+["aeo","Off-site citation building",40,85,2,4,"Digital PR and GEO agencies","Earned media is 84% of AI citations: reviews, listicles, Wikipedia, Reddit and press.",5,1,4,2],
+["aeo","AI narrative correction",45,85,0.5,2,"Emerging","Fixing wrong facts about a brand at source. Sold as brand insurance.",5,1,4,2],
+["aeo","Agentic commerce readiness",25,80,1,3,"Feedonomics, Profound","Feeds, attributes and checkout for OpenAI's ACP and Google's UCP. New budget, no incumbent.",5,3,4,2],
+["aeo","ChatGPT and AI answer ads",30,75,1,3,"WPP, Omnicom, dentsu","Launched February 2026; early brands committed $200k to $250k. OpenAI controls the format.",3,4,2,2],
+["aeo","AI visibility strategy",65,85,1,3,"GEO agencies, SEO consultancies, a few holdco units","The strategy layer across AEO, agentic commerce and earned authority. Few providers sell it as one service yet.",5,1,4,2],
+["com","Amazon PDP and A+ content",20,80,4,7,"Amazon agencies, Data4Amazon, My Amazon Guy","High volume and outsourced. Amazon's own AI now depends on this content.",5,3,4,3],
+["com","Alexa for Shopping (Rufus) optimisation",20,80,1,3,"1Digital, Canopy, Amazon agencies","Rufus became Alexa for Shopping on 13 May 2026. Sold inside Amazon retainers, and Amazon owns the agent, catalogue and checkout.",5,3,4,3],
+["com","Catalogue and listing management",10,75,4,6,"SalesDuo, Remazing, Podean","Rules based work across thousands of SKUs, fully outsourced.",5,3,4,3],
+["com","Account health and reimbursements",10,80,1,3,"Recovery specialists","Pure intelligence, often priced on recovery. Small and rules based.",3,2,2,3],
+["com","Vendor Central disputes and 1P ops",10,75,2,4,"Amazon 1P specialists","Shortages, chargebacks and PO work. Priced 15% to 30% above 3P.",4,2,3,3],
+["com","Brand protection and MAP enforcement",15,80,2,4,"Brand protection firms","Counterfeit and unauthorised seller enforcement. Rules based and outsourced.",3,2,3,3],
+["com","Inventory forecasting and FBA ops",20,55,3,5,"Full service Amazon agencies","Bundled into full service tiers.",3,2,3,3],
+["com","Amazon sponsored ads",20,70,6,10,"Amazon Ads Agent, Pacvue Agent, Skai, Xnurta","Amazon's own agent now builds and runs campaigns.",3,5,2,3],
+["com","Amazon DSP and AMC",30,75,2,4,"Podean, Pacvue, agencies","DSP needs $10k+ a month; Full-Funnel Campaigns remove channel and audience choice.",3,5,3,3],
+["com","Marketplace and retail media strategy",70,70,2,4,"Podean, specialist consultancies","The judgement layer above catalogue and ads.",5,2,4,3],
+["com","Off-Amazon retail media management",20,65,6,10,"Pacvue, Skai, Criteo, Walmart Connect","Fastest growing channel. Networks are adding their own automation.",3,4,2,3],
+["com","Retail media incrementality",35,70,1,2,"Measurement firms, agencies","Dashboards overstate impact. Geo holdouts and sell-through checks.",4,2,4,3],
+["com","Digital shelf monitoring",10,60,1,3,"Profitero, Salsify, DataWeave","Share of search, content compliance and price across 1,400+ retailer sites.",3,3,3,3],
+["com","Multi-retailer content syndication",10,70,1,3,"Salsify, syndication services","One catalogue pushed to every retailer and AI channel.",4,3,3,3],
+["com","Marketplace accelerator (owns inventory)",40,90,20,40,"Pattern (about $1.8bn revenue)","Buys stock and runs the channel. The largest commerce services model is not an agency.",2,3,4,3],
+["com","TikTok Shop and live selling",35,70,2,4,"AmpliSell, Darkroom, Podean","Retainers $6k to $40k a month. TikTok controls the tools.",3,4,2,3],
+["com","Creator affiliate programmes",20,75,2,4,"TikTok Shop agencies, Aspire","Recruit, commission and pay creators. Agencies take 5% to 20% of affiliate revenue.",3,3,3,3],
+["com","D2C ecommerce ops",30,40,10,15,"In-house teams, Shopify apps","Mostly insourced, and Shopify ships native AI.",2,3,2,3],
+["com","Retailer negotiation and JBP",85,20,3,5,"In-house sales teams","Relationship work, insourced.",2,1,2,3],
+["meas","Analytics implementation and tagging",10,75,3,5,"Analytics consultancies","GA4, consent mode, server-side tracking and conversion APIs. Small but sticky.",2,2,1,4],
+["meas","Reporting and dashboards",10,45,15,25,"Improvado, Funnel, Looker","Large in-house spend that AI agents will absorb. Hard to sell as a swap.",3,3,1,4],
+["meas","Attribution and MTA",20,50,3,5,"Northbeam, Triple Whale","Largely software, and each platform claims its own credit.",2,4,2,4],
+["meas","Marketing mix modelling",40,75,4,7,"Recast, Analytic Partners, Ipsos MMA, Meridian, Robyn","Price collapsed from £50k+ to £5k to £25k. Value is in running and defending it.",5,2,5,4],
+["meas","Incrementality and geo testing",30,65,2,4,"Haus, Measured, Judeluxe","Includes verifying platform AI campaigns: Haus found Google overstated PMax with brand terms by 33% for Caraway. Fixed fee holdouts with CFO ready summaries.",5,2,4,4],
+["meas","Budget optimisation and forecasting",40,60,2,4,"MMM vendors, consultancies","Scenario planning from response curves.",5,2,4,4],
+["meas","Clean room analysis",25,75,1,3,"Agencies, Snowflake, LiveRamp, InfoSum","39% struggle to turn clean room data into action, and every retailer runs its own.",4,3,4,4],
+["meas","Brand lift and effectiveness",45,80,3,5,"Kantar, platform lift tools","Partly standardised; platforms run their own studies free.",3,3,2,4],
+["meas","Attention measurement",20,70,1,2,"Adelaide, Lumen","Moving from reporting into pre-bid buying in Amazon DSP.",2,3,3,4],
+["meas","Media audit and contract compliance",35,95,2,4,"Ebiquity, FirmDecisions","Works with 70+ of the top 100 advertisers. Principal media distrust drives demand.",3,1,4,4],
+["meas","Data engineering and pipelines",15,55,10,18,"Systems integrators","Buyers see it as IT, not marketing.",2,2,2,4],
+["meas","Insight synthesis and recommendations",70,40,8,12,"In-house analysts, consultancies","The so what. Usually sold inside analytics retainers.",5,1,3,4],
+["res","Concept and ad testing",25,75,8,12,"Zappi, System1, Ipsos, Nielsen BASES, Simile, Aaru","Zappi about $5k a test, Ipsos $30k to $80k, BASES $50k to $150k. DIY platforms pull some work in-house.",5,2,4,5],
+["res","Brand and campaign tracking",30,90,10,15,"Kantar, YouGov, Tracksuit","Recurring, standardised and fully outsourced.",3,1,4,5],
+["res","Surveys, U&A and segmentation",40,85,15,25,"Ipsos, Kantar, Qualtrics","$5k to $15k for a 400 complete online survey.",3,1,3,5],
+["res","Pricing research and conjoint",35,85,2,4,"Ipsos, Kantar, specialists","Rules heavy modelling, fully outsourced.",4,1,3,5],
+["res","Qualitative research",50,85,8,12,"Agencies, recruiters","Focus groups $7k to $20k each. AI moderation compresses it.",4,1,2,5],
+["res","AI moderated interviews",30,55,1,3,"Listen Labs ($500m), User Intuition, Outset, Keplar","Prices collapsed to $12.50 to $50 an interview, so in-house teams buy it as software.",4,2,3,5],
+["res","Synthetic audiences and panels",40,70,1,3,"Simile ($2bn), Aaru ($1bn), Qualtrics Edge, Toluna, THG Fluently","Clients buy hybrid, not fully synthetic: synthetic gets about 80% of the way. Calibration against real panels is the service.",5,2,5,5],
+["res","Panels and sample",10,95,8,12,"Cint, Dynata, Toluna","Commodity supply at $5 to $35 per consumer complete.",2,1,2,5],
+["res","Social listening and trends",30,60,5,8,"Brandwatch, Talkwalker","Collection is commoditised; the value is in the so what.",3,2,2,5],
+["res","Cultural insight and foresight",75,80,2,4,"Boutiques, semiotics firms","Judgement heavy.",3,1,2,5],
+["res","UX research and usability",45,65,4,6,"UX studios, research platforms","Partly automatable with AI moderation.",3,1,2,5],
+["res","Research knowledge hubs",15,50,0.5,2,"Qualtrics Research Hub","Turning past studies into a base teams can query.",4,3,4,5],
+["strat","Brand strategy and positioning",85,60,15,25,"Landor, Interbrand, Prophet, holdco units","£15k to £50k for corporate strategy. Bought from consultancies and brand agencies.",4,1,2,6],
+["strat","Naming and brand architecture",70,85,2,4,"Brand consultancies","£5k to £45k+ projects.",2,1,1,6],
+["strat","Comms and channel planning",60,70,20,30,"Media agencies, agentic planners","Outputs generated in seconds; trade-offs stay human.",4,3,3,6],
+["strat","Audience and customer strategy",45,60,6,10,"Research firms, CDPs, synthetic audience platforms","Segments become testable with synthetic audiences.",5,2,4,6],
+["strat","Competitive intelligence",25,50,8,12,"Crayon, Klue, research agencies","Monitoring and synthesis on repeat.",4,1,3,6],
+["strat","Growth, proposition and pricing strategy",75,35,8,14,"Consultancies, in-house strategy","Mostly insourced and judgement heavy.",3,1,2,6],
+["strat","AI operating model redesign",70,80,15,25,"BCG, McKinsey, Accenture Song, Deloitte Digital","96% of CMOs say AI is transforming marketing; only 8% run multi-agent campaigns.",5,1,2,6],
+["strat","Agency roster and pitch advisory",50,95,1,2,"TrinityP3, Ebiquity, AAR","Whoever designs the new model influences who supplies it.",4,1,3,6],
+["strat","In-house agency design",60,90,1,2,"TrinityP3, consultancies","Structure, workflow and tooling for in-house teams.",4,1,2,6],
+["strat","Fractional CMO and leadership",80,90,4,8,"Go Fractional, MarketerHire","$12k a month on average. Bought by the month instead of an agency retainer.",5,1,2,6],
+["strat","AI upskilling and training",40,75,2,4,"Consultancies, platforms","About 80% of CMOs have invested significantly in AI training.",4,2,2,6],
+["media","Media planning",60,80,15,25,"Holdco media networks, independents","Allocation is becoming an AI recommendation with human sign off.",4,3,3,7],
+["media","TV and CTV buying",50,90,8,12,"Holdcos, NBCU, Amazon DSP","Outsourced and negotiation heavy. Principal media is 74% TV.",2,3,2,7],
+["media","Programmatic buying",20,70,15,25,"The Trade Desk, StackAdapt, Google","Agentic DSPs are taking this.",2,5,2,7],
+["media","Paid social buying",25,60,25,40,"Meta Advantage+, agencies","Meta is moving to end to end automated ads.",2,5,1,7],
+["media","Audio and podcast buying",40,85,2,4,"Audio specialists","Niche and relationship driven.",1,2,1,7],
+["media","OOH and DOOH",45,90,3,5,"Specialist agencies","Niche and relationship driven.",1,1,1,7],
+["media","Gaming and sponsorship",60,85,3,6,"Specialist agencies","Rights and relationships.",1,1,1,7],
+["media","Creator media and amplification",40,75,4,8,"Holdco creator units, Agentio","75% of agencies say creator marketing matters more than a year ago.",3,3,2,7],
+["media","Principal media trading",75,95,10,15,"WPP, Publicis, Omnicom, dentsu","58% of ANA marketers use it; 90% are concerned. Balance sheet game.",1,2,3,7],
+["media","Ad ops and trafficking",5,70,8,12,"Offshore ad ops teams","Very automatable, but platforms absorb it.",3,4,1,7],
+["media","Brand safety and verification",10,60,2,3,"IAS, DoubleVerify","Already software.",1,3,1,7],
+["media","Agentic buying setup",30,70,0.5,2,"AdCP backers, holdcos","Agent to agent buying. Early and contested; no publisher expects real spend yet.",2,4,2,7],
+["crea","Big idea and campaign concept",90,80,30,45,"Creative networks, independents","The last bastion of judgement.",2,1,2,8],
+["crea","Brand identity and design systems",75,85,6,10,"Brand and design studios","Taste work, project priced.",2,1,1,8],
+["crea","Packaging design",60,90,3,5,"Packaging studios","Physical and regulated. Stays human.",1,1,1,8],
+["crea","Copywriting",30,65,15,25,"Agencies, freelancers, AI writers","Every ad platform now writes copy.",3,3,1,8],
+["crea","Film and commercial production",55,90,25,40,"Production companies","Premium production stays outsourced; AI takes the low end.",1,3,1,8],
+["crea","Photography and product imagery",15,85,6,10,"AI photo studios, CGI shops","Often sold alongside Amazon and PDP content.",4,3,2,8],
+["crea","Asset versioning and localisation",5,55,15,25,"Pencil, Creatopy, Celtra, platform agents","Among the hardest hit: 62% of brands cut external production by 15%+.",3,4,1,8],
+["crea","Display and static ad production",15,55,10,15,"AdCreative.ai, Lapis, Amazon Creative Agent","Increasingly made inside the ad platforms.",2,5,1,8],
+["crea","Social video production",35,55,10,15,"Social studios, Bluma","Taken in-house with AI tools.",2,4,1,8],
+["crea","AI video and image production",30,70,3,8,"Higgsfield ($5.4bn), Runway, Absurd","Brands now generate several videos a day, mostly with self-serve tools.",2,4,1,8],
+["crea","Embedded production teams",30,85,5,10,"Craft, Tag, Prodigious, network agencies","On-site outsourced teams up 66% since 2021.",3,2,2,8],
+["crea","Brand trained content systems",30,70,1,3,"WPP Open, emerging specialists","Running a brand's own AI production system for it.",4,2,4,8],
+["crea","Creative effectiveness and testing",30,70,2,4,"System1, Playad, Reforged Labs","What-works data compounds.",4,2,5,8],
+["crea","DCO and personalised creative",15,70,3,5,"Celtra, Innovid","Mostly software now.",2,4,2,8],
+["crm","Email and SMS execution",15,55,8,12,"Klaviyo partner agencies","Klaviyo Composer now builds campaigns and flows from a prompt.",2,4,2,9],
+["crm","Lifecycle strategy",60,50,4,6,"CRM consultancies","Judgement over data. Half insourced.",3,1,3,9],
+["crm","ESP migration and deliverability",10,80,1,3,"Klaviyo and Braze partners","$2k to $8k migrations. Rules based.",2,2,1,9],
+["crm","Enterprise CRM implementation",35,85,15,25,"Accenture, Deloitte, Salesforce partners","Consulting often 2 to 3 times the licence fee.",2,2,2,9],
+["crm","Loyalty programme design",70,70,3,5,"Loyalty specialists","Bespoke and judgement heavy.",2,1,2,9],
+["crm","Personalisation and decisioning",20,50,4,6,"JustAI, Bloomreach, Adobe","Becoming software.",2,3,3,9],
+["crm","AI customer service agents",25,60,3,6,"Klaviyo Customer Agent, platforms","Returns, tracking and subscriptions handled by agents.",3,3,2,9],
+["crm","Retention analytics and LTV",25,55,2,4,"Agencies, analysts","LTV, cohorts and CRM incrementality.",4,2,3,9],
+["pr","Social strategy and publishing",30,55,6,10,"Social agencies","$1.5k to $8k+ a month.",2,3,1,10],
+["pr","Community management",30,50,6,10,"Social agencies, in-house","Tone sensitive, half in-house.",2,2,1,10],
+["pr","Executive LinkedIn programmes",55,70,1,3,"PR and content agencies","Founder and executive voice.",3,1,2,10],
+["pr","Influencer discovery and vetting",15,70,3,5,"Agentio, Aspire, CreatorIQ","Matching is intelligence work.",3,3,3,10],
+["pr","Influencer campaign management",30,70,5,8,"Influencer agencies","Contracting, seeding and reporting.",3,3,2,10],
+["pr","Media relations and press",65,80,25,35,"Edelman, Weber Shandwick, boutiques","Earned media is 84% of AI citations, so this now feeds AEO.",4,1,3,10],
+["pr","Corporate reputation and crisis",90,75,15,20,"Brunswick, FGS Global, Edelman","Pure judgement.",2,1,2,10],
+["pr","Thought leadership and research reports",55,70,3,5,"PR and content agencies","Original data earns citations.",4,1,3,10],
+["pr","PR measurement and AI citation tracking",10,70,2,4,"Muck Rack, Cision, Meltwater","Adding AI citation tracking.",2,2,2,10],
+["tech","Martech audit and rationalisation",30,80,8,12,"Martech consultancies","Nearly a third of brands plan to cut agency spend and reskill teams.",3,1,2,11],
+["tech","CDP implementation",35,85,10,20,"Systems integrators, Hightouch, Treasure","$15k to $500k+ depending on model.",2,2,2,11],
+["tech","Platform agent configuration",30,80,2,5,"Adobe, Salesforce and Klaviyo partners","Adobe launched six agents; partners include Havas and Omnicom.",4,3,3,11],
+["tech","Custom marketing agent builds",30,75,2,6,"Agent studios, consultancies","Salesforce and Adobe ship pre-built agents to existing customers at no extra cost. No specialist market with published pricing found.",4,3,4,11],
+["tech","Agent operations and tuning",25,70,1,4,"Unproven","No provider found selling it as a named service. Demand rests on Gartner forecasting 40%+ of agentic projects cancelled by 2027.",4,2,4,11],
+["tech","AI content governance",50,70,1,3,"Consultancies, legal","Brand voice, IP and approval rules for generated work.",4,1,3,11],
+["tech","Marketing ops and campaign QA",10,40,8,12,"In-house ops teams","Insourced, with tools replacing headcount.",3,3,1,11],
+["tech","Consent and privacy compliance",20,70,2,4,"Privacy consultancies","Rules based and regulated.",2,2,1,11],
+["cx","Website build and CMS",25,80,40,60,"Digital agencies, AI site builders","Huge spend, but AI coding is collapsing the price.",1,4,1,12],
+["cx","Ecommerce replatforming",30,85,8,15,"Shopify Plus and Salesforce partners","$25k to $250k+ projects.",2,3,1,12],
+["cx","UX and service design",55,65,10,15,"Design studios","Research synthesis automates; taste does not.",2,1,2,12],
+["cx","App design and build",45,80,20,30,"Digital product studios","Software margins arriving here too.",1,3,1,12],
+["cx","CRO and experimentation",30,65,3,5,"CRO agencies","$3k to $20k a month. Test learnings compound.",3,2,3,12],
+["cx","Accessibility audit and remediation",15,85,1,3,"Accessibility specialists","EAA in force since June 2025. WCAG rules based and recurring.",3,1,2,12],
+["cx","On-site AI assistants",30,70,1,3,"Platforms, agencies","Shopping and support assistants replacing FAQ and search.",3,3,2,12],
+["b2b","B2B AI shortlist optimisation",30,80,1,3,"RevenueZen, B2B AEO shops","89% of B2B buyers use generative AI in research; 95% of winners were on the day one shortlist.",5,2,4,13],
+["b2b","Demand generation programmes",35,60,6,10,"Demand gen agencies","Content, paid and ops. LinkedIn automates the paid part.",3,3,2,13],
+["b2b","ABM strategy",60,60,2,4,"ABM agencies","Account selection and plays.",3,1,3,13],
+["b2b","ABM execution",20,60,3,6,"ABM agencies, 6sense, Demandbase","Platforms now run much of it.",2,4,2,13],
+["b2b","Content syndication and intent leads",10,85,3,6,"TechTarget, NetLine, Madison Logic","$25 to $400 per lead. Already outcome priced.",3,2,2,13],
+["b2b","Outsourced SDR and appointment setting",15,70,5,10,"Revnew, Cleverly, AI SDRs","$150 to $600 per meeting.",3,3,2,13],
+["b2b","Sales enablement content",30,50,3,5,"Content agencies, in-house","Templated, half in-house.",2,2,1,13],
+["b2b","Review sites and analyst relations",50,70,1,2,"AR firms, review agencies","Feeds AI shortlists.",3,1,3,13]
+];
+const PT={"Concept and ad testing":"Holds, outsourced share lowered","Prompt and citation source research":"Adjusted, moat lowered","Content restructuring for AI":"Holds","Alexa for Shopping (Rufus) optimisation":"Adjusted, renamed and platform risk raised","Catalogue and listing management":"Holds","Entity, schema and knowledge graph":"Holds, sold as part of a bundle","Off-site citation building":"Holds","Amazon PDP and A+ content":"Holds","Marketing mix modelling":"Holds","Synthetic audiences and panels":"Adjusted, clients buy hybrid","Custom marketing agent builds":"Downgraded","B2B AI shortlist optimisation":"Holds","AI narrative correction":"Holds","Agent operations and tuning":"Downgraded, unproven","Agentic commerce readiness":"Holds, strongest new demand","Incrementality and geo testing":"Holds, absorbs platform AI verification","AI moderated interviews":"Adjusted, outsourced share lowered","Technical SEO audits and migrations":"Holds","Link building and digital PR":"Holds"};
+// new services AI is creating: [disc, name, judgement %, expected outsourced %, who, what it is, platform risk 1-5, moat 1-5, horizon, signal]
+const NEWS=[
+["aeo","AI answer ad management",35,75,"Holdco media agencies, Amazon agencies","Buying and managing ads inside AI answers: ChatGPT ads, Google AI Mode offers and Amazon branded prompts.",4,2,"Now","ChatGPT ads launched February 2026; Amazon sells CPC branded prompts inside Rufus; Perplexity left ads in February 2026."],
+["search","Agentic booking readiness",20,80,"Booking platforms, local SEO firms","Making local and service businesses bookable by AI agents, not just findable.",4,2,"Now","Google AI Mode books UK restaurants through 8 partner platforms from 10 April 2026."],
+["cx","Brand apps inside AI assistants",40,80,"Product studios, early agencies","Building a brand's own app or agent that runs inside ChatGPT and other assistants.",3,3,"Now","OpenAI opened ChatGPT app submissions in December 2025, with Expedia and Booking.com as launch partners."],
+["com","Agent-facing catalogue (brand MCP)",20,80,"Commerce developers, Shopify partners","Serving approved product, price and stock data to AI agents in real time.",2,4,"Now","MCP catalogue services are now sold to brands; Shopify ships a Storefront MCP."],
+["crea","AI content provenance and labelling",30,75,"DAM vendors, compliance consultancies","C2PA credentials, AI labels and disclosure compliance across every ad.",2,2,"Now","EU AI Act Article 50 applies from 2 August 2026; Meta and YouTube now label AI content themselves."],
+["tech","Machine readable brand systems",55,75,"Frontify, Hightouch, brand consultancies","Turning brand guidelines into rules, tokens and tagged assets AI agents can follow.",2,5,"Now","Frontify and Hightouch now sell a brand context layer for agents, including MCP access."],
+["pr","Brand-owned AI characters",65,85,"The Clueless, The Diigitals, Soul Machines","Creating and running virtual ambassadors and AI spokespeople.",2,3,"Now","Virtual influencer deal spend is estimated at $2bn to $5bn in 2026."],
+["meas","AI share of model benchmarking",30,75,"Visibility platforms, research firms","AI visibility as a brand health metric, benchmarked across a category.",2,5,"2027","Monitoring tools are commoditised; there is no neutral industry benchmark yet."],
+["tech","Brand agent testing and red teaming",35,80,"Security vendors, QA specialists","Testing brand chatbots and agents for off-brand, wrong or risky answers before launch.",2,4,"2027","Cekura (YC) tests chat and voice agents; Palo Alto added brand reputation risk detection in January 2026."],
+["pr","AI likeness and talent rights",60,85,"Talent agencies, legal specialists","Licensing and policing digital twins of talent, creators and executives.",1,3,"2027","Creator contracts lag the technology; talent agencies are adding digital rights services."],
+["pr","Executive digital twins",50,70,"Video AI platforms, comms agencies","AI avatars of leaders for comms, sales and training video.",3,2,"2027","HeyGen, Synthesia and Argil sell presenter avatars to brands."],
+["aeo","Content licensing to AI platforms",55,85,"Publisher networks, rights agencies","Treating inclusion in AI retrieval and training as a negotiated distribution channel.",3,3,"2027","Microsoft is building a publisher content marketplace for AI."],
+["res","Always-on market simulation",45,70,"Synthetic research platforms","A standing synthetic model of a client's market used to test decisions before rollout.",2,5,"2028+","Simile ($2bn) and Aaru ($1bn) sell simulation; no managed service at scale yet."],
+["b2b","Selling to machine customers",50,70,"Almost none","Agent-ready B2B offers: verifiable data, pricing feeds and negotiation rules for buying agents.",2,4,"2028+","Gartner expects AI agents to intermediate more than $15tn of B2B spend by 2028."]
+];
+const T=RAW.map((r,i)=>{const [disc,name,judg,out,lo,hi,who,read,fit,risk,moat,sec]=r;return {i,disc,name,judg,out,lo,hi,mid:(lo+hi)/2,who,read,risk,moat,sec,isNew:false}});
+NEWS.forEach((r,k)=>{const [disc,name,judg,out,who,read,risk,moat,hz,signal]=r;T.push({i:T.length,disc,name,judg,out,lo:null,hi:null,mid:0,who,read,risk,moat,sec:16,isNew:true,hz,signal})});
+const EX=T.filter(t=>!t.isNew), NW=T.filter(t=>t.isNew);
+const MAXMID=Math.max(...EX.map(t=>t.mid));
+const sIdx=t=>Math.max(1,Math.round(t.mid/MAXMID*100));
+const verdict=t=>{const v=(PT[t.name]||"").split(",")[0];return v==="Adjusted"?"adjusted":v==="Downgraded"?"downgraded":"holds"};
+const RISKW=["","Low","Low","Medium","High","Very high"], MOATW=["","None","Low","Medium","High","Very high"];
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,txt){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;return e}
+const MF="IBM Plex Mono, monospace", SF="Montserrat, sans-serif";
+const C={data:"#2438da",navy:"#0f1a66",intel:"#cdd2f7",accent:"#ff5a1f",ctx:"#dcdce0",fg:"#0a0a0b",fg2:"#71717a",fg3:"#a1a1aa",line:"rgba(10,10,11,.08)"};
+const fmt=n=>n>=1000?"$"+(n/1000).toFixed(2).replace(/0$/,"")+"tn":"$"+Math.round(n)+"bn";
+
+/* 02 money */
+(function(){
+  const tot=EX.reduce((s,t)=>s+t.mid,0);
+  const jud=EX.reduce((s,t)=>s+t.mid*t.judg/100,0);
+  const jLed=EX.filter(t=>t.judg>55).reduce((s,t)=>s+t.mid*t.judg/100,0);
+  const jHid=jud-jLed, intel=tot-jud;
+  const nLed=EX.filter(t=>t.judg>55).length;
+  const pct=x=>Math.round(x/tot*100);
+  document.getElementById("bJ").textContent=pct(jud)+"%";
+  document.getElementById("moneyP").textContent=`Only ${nLed} of ${EX.length} service lines are judgement-led. But weighted by size, about ${pct(jud)}% of all the work is judgement, and ${Math.round(jHid/jud*100)}% of that sits inside services sold as execution.`;
+  const seg=[[intel,C.intel,"Intelligence work","the part agents and platforms can do"],[jHid,C.data,"Judgement inside execution services","the hidden layer"],[jLed,C.navy,"Judgement-led services",nLed+" service lines"]];
+  document.getElementById("total").innerHTML=`<div class="lbls">${seg.map(s=>`<div style="width:${s[0]/tot*100}%;--c:${s[1]}"><b>${pct(s[0])}%</b>${s[2]}<br><span style="color:var(--fg2)">${s[3]}</span></div>`).join("")}</div><div class="bar" role="img" aria-label="Work split: intelligence ${pct(intel)}%, judgement inside execution services ${pct(jHid)}%, judgement-led services ${pct(jLed)}%">${seg.map(s=>`<span style="width:${s[0]/tot*100}%;background:${s[1]}"></span>`).join("")}</div>`;
+  const D=Object.keys(DISC).map(k=>{const ts=EX.filter(t=>t.disc===k);const m=ts.reduce((s,t)=>s+t.mid,0);const j=ts.reduce((s,t)=>s+t.mid*t.judg/100,0);const o=ts.reduce((s,t)=>s+t.mid*t.out/100,0);return {k,m,j,o:o/m*100,jp:j/m*100}}).sort((a,b)=>b.m-a.m);
+  const max=D[0].m;
+  const outMini=o=>`<svg class="mini" viewBox="0 0 120 14" preserveAspectRatio="none" aria-hidden="true"><line x1="0" x2="120" y1="7" y2="7" stroke="${C.ctx}" stroke-width="1"/><line x1="60" x2="60" y1="3" y2="11" stroke="${C.fg3}" stroke-width="1"/><rect x="${o/100*120-1.25}" y="2" width="2.5" height="10" fill="${C.fg}"/></svg>`;
+  document.getElementById("discRows").innerHTML=`<div class="drow head"><span class="cap">Discipline</span><span class="cap">Relative size: <span style="color:${C.data}">judgement</span> and intelligence</span><span class="cap">Size index \u00b7 judgement</span><span class="cap">Outsourced 0\u2013100%</span></div>`+D.map(d=>`<div class="drow"><span class="dname">${DISC[d.k]}</span><div class="dbar" style="width:${d.m/max*100}%" role="img" aria-label="${DISC[d.k]}: size index ${Math.round(d.m/max*100)}, ${Math.round(d.jp)}% judgement"><span style="width:${d.jp}%;background:${C.data}"></span><span style="width:${100-d.jp}%;background:${C.intel}"></span></div><span class="dval"><b>${Math.round(d.m/max*100)}</b> \u00b7 ${Math.round(d.jp)}% judgement</span><span class="dout" title="${Math.round(d.o)}% outsourced">${outMini(d.o)}</span></div>`).join("");
+})();
+
+/* 03 overview scatter */
+const W=900,H=620,L=60,R=24,TP=24,B=60,PW=W-L-R,PH=H-TP-B;
+const sx=j=>L+j/100*PW, sy=o=>TP+(100-o)/100*PH;
+const rad=t=>t.isNew?6:3.2+Math.sqrt(t.mid)*1.35;
+function relax(list,sxf,syf,radf,bounds,iters){
+  list.forEach(t=>{t.ox=sxf(t.judg);t.oy=syf(t.out);t.r=radf(t);t.x=t.ox+Math.sin(t.i*12.9898)*1.5;t.y=t.oy+Math.cos(t.i*78.233)*1.5});
+  for(let it=0;it<iters;it++){
+    for(let a=0;a<list.length;a++)for(let b=a+1;b<list.length;b++){const p=list[a],q=list[b];let dx=q.x-p.x,dy=q.y-p.y,d=Math.hypot(dx,dy)||.01;const m=p.r+q.r+1;if(d<m){const k=(m-d)/d*.5;dx*=k;dy*=k;p.x-=dx;p.y-=dy;q.x+=dx;q.y+=dy}}
+    list.forEach(t=>{t.x+=(t.ox-t.x)*.05;t.y+=(t.oy-t.y)*.05;t.x=Math.max(bounds[0]+t.r,Math.min(bounds[2]-t.r,t.x));t.y=Math.max(bounds[1]+t.r,Math.min(bounds[3]-t.r,t.y))});
+  }
+}
+function mark(t,x,y,r,small){
+  if(t.isNew){const s=small?4.2:r+1;return el("path",{class:"mk",d:`M${x} ${y-s}L${x+s} ${y}L${x} ${y+s}L${x-s} ${y}Z`,fill:C.accent,stroke:"#fff","stroke-width":1})}
+  const hollow=t.risk>=4;
+  return el("circle",{class:"mk",cx:x,cy:y,r,fill:hollow?"#fff":C.data,"fill-opacity":hollow?1:.28,stroke:C.data,"stroke-width":1.2});
+}
+const LABELS=["Catalogue and listing management","Concept and ad testing","Content restructuring for AI","Marketing mix modelling","Brand and campaign tracking","Paid social buying","Website build and CMS","Big idea and campaign concept","Brand strategy and positioning","Selling to machine customers","Machine readable brand systems"];
+const hits=new Map();
+(function(){
+  const svg=document.getElementById("chart");
+  svg.appendChild(el("rect",{x:sx(0),y:sy(100),width:sx(35)-sx(0),height:sy(55)-sy(100),fill:"rgba(36,56,218,.05)"}));
+  const zl=[["SELL THE FINISHED WORK",sx(1),sy(100)+16,"start",C.data],["JUDGEMENT RETAINER",sx(99),sy(100)+16,"end",C.fg2],["EQUIP IN-HOUSE TEAMS",sx(1),sy(0)-10,"start",C.fg2]];
+  zl.forEach(z=>svg.appendChild(el("text",{x:z[1],y:z[2],"text-anchor":z[3],fill:z[4],"font-family":MF,"font-size":10.5,"letter-spacing":"1.2","font-weight":500},z[0])));
+  for(let g=0;g<=100;g+=25){
+    svg.appendChild(el("line",{x1:sx(g),x2:sx(g),y1:TP+PH,y2:TP+PH+5,stroke:C.fg3}));
+    svg.appendChild(el("line",{x1:L-5,x2:L,y1:sy(g),y2:sy(g),stroke:C.fg3}));
+    svg.appendChild(el("text",{x:sx(g),y:TP+PH+20,"text-anchor":g===0?"start":g===100?"end":"middle",fill:C.fg2,"font-size":11,"font-family":MF},g+"%"));
+    svg.appendChild(el("text",{x:L-9,y:sy(g)+4,"text-anchor":"end",fill:C.fg2,"font-size":11,"font-family":MF},g+"%"));
+  }
+  svg.appendChild(el("line",{x1:L,x2:L+PW,y1:TP+PH,y2:TP+PH,stroke:C.fg3}));
+  svg.appendChild(el("line",{x1:L,x2:L,y1:TP,y2:TP+PH,stroke:C.fg3}));
+  svg.appendChild(el("text",{x:L+PW/2,y:H-12,"text-anchor":"middle",fill:C.fg,"font-size":13,"font-family":SF},"Share of the work that is judgement \u2192"));
+  svg.appendChild(el("text",{x:16,y:TP+PH/2,"text-anchor":"middle",fill:C.fg,"font-size":13,"font-family":SF,transform:`rotate(-90 16 ${TP+PH/2})`},"Share already bought from outside \u2192"));
+  relax(T,sx,sy,rad,[L,TP,L+PW,TP+PH],260);
+  const layer=el("g",{class:"pre-dots"});svg.appendChild(layer);
+  [...T].sort((a,b)=>(a.isNew-b.isNew)||(b.mid-a.mid)).forEach((t,n)=>{
+    const g=el("g",{class:"hit",tabindex:0,role:"button","aria-label":t.name+(t.isNew?", new service":"")});
+    g.appendChild(el("circle",{cx:t.x,cy:t.y,r:Math.max(10,t.r+3),fill:"transparent"}));
+    const m=mark(t,t.x,t.y,t.r,false);m.style.transitionDelay=reduce?"0ms":(n*4)+"ms";g.appendChild(m);
+    g.addEventListener("click",()=>pick(t));g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();pick(t)}});
+    layer.appendChild(g);(hits.get(t)||hits.set(t,[]).get(t)).push(g);
+  });
+  const lab=el("g",{"pointer-events":"none"});svg.appendChild(lab);
+  // greedy label placement: try positions around each dot, avoid dots, other labels and zone captions
+  const boxes=[[sx(0),sy(100)+4,sx(0)+190,sy(100)+20],[sx(99)-170,sy(100)+4,sx(99),sy(100)+20],[sx(0),sy(0)-22,sx(0)+190,sy(0)-6]];
+  const hitBox=(b)=>boxes.some(o=>!(b[2]<o[0]||b[0]>o[2]||b[3]<o[1]||b[1]>o[3]))||T.some(d=>{const cx=Math.max(b[0],Math.min(d.x,b[2])),cy=Math.max(b[1],Math.min(d.y,b[3]));return Math.hypot(d.x-cx,d.y-cy)<d.r+1.5});
+  const dirs=[[1,0],[-1,0],[1,-1],[1,1],[-1,-1],[-1,1],[0,-1],[0,1]];
+  LABELS.forEach(name=>{const t=T.find(x=>x.name===name);if(!t)return;
+    const tw=name.length*6.35,th=13;let best=null;
+    const labOnly=b=>boxes.some(o=>!(b[2]<o[0]||b[0]>o[2]||b[3]<o[1]||b[1]>o[3]));
+    for(const [test,dl] of [[hitBox,[6,18,32,50,72,96]],[labOnly,[6,16,28]]]){
+      for(const dist of dl){for(const [dx,dy] of dirs){
+        const ax=t.x+dx*(t.r+dist),ay=t.y+dy*(t.r+dist);
+        const x0=dx<0?ax-tw:dx>0?ax:ax-tw/2, y0=dy<0?ay-th:dy>0?ay:ay-th/2;
+        const b=[x0-2,y0-1,x0+tw+2,y0+th+1];
+        if(b[0]<L+4||b[2]>W-6||b[1]<TP||b[3]>TP+PH)continue;
+        if(!test(b)){best={b,ax,ay,dx,dy,dist};break}}if(best)break}if(best)break}
+    if(!best)return;
+    boxes.push(best.b);
+    const anchor=best.dx<0?"end":best.dx>0?"start":"middle";
+    const tx=best.dx<0?best.b[2]-2:best.dx>0?best.b[0]+2:(best.b[0]+best.b[2])/2, ty=best.b[1]+11;
+    if(best.dist>6){const ex=Math.max(best.b[0],Math.min(t.x,best.b[2])),ey=Math.max(best.b[1]+2,Math.min(t.y,best.b[3]-2));
+      const ang=Math.atan2(ey-t.y,ex-t.x);lab.appendChild(el("line",{x1:t.x+Math.cos(ang)*(t.r+1.5),y1:t.y+Math.sin(ang)*(t.r+1.5),x2:ex,y2:ey,stroke:C.fg3,"stroke-width":.6,"stroke-opacity":.8}))}
+    lab.appendChild(el("text",{x:tx,y:ty,"text-anchor":anchor,fill:t.isNew?"#c23d0c":C.fg,"font-size":11.5,"font-family":SF,"font-weight":500,"paint-order":"stroke",stroke:"#fff","stroke-width":4,"stroke-linejoin":"round"},name));});
+  if(reduce)layer.classList.remove("pre-dots");
+  window.__mapLayer=layer;
+})();
+
+/* 03b small multiples */
+(function(){
+  const D=Object.keys(DISC).map(k=>{const ts=EX.filter(t=>t.disc===k);const m=ts.reduce((s,t)=>s+t.mid,0);return {k,ts,m,jp:ts.reduce((s,t)=>s+t.mid*t.judg/100,0)/m*100,nw:NW.filter(t=>t.disc===k)}}).sort((a,b)=>b.jp-a.jp);
+  const maxD=Math.max(...D.map(d=>d.m));
+  const w=260,h=190,l=24,r=8,tp=8,b=20,pw=w-l-r,ph=h-tp-b;
+  const mx=j=>l+j/100*pw,my=o=>tp+(100-o)/100*ph;
+  const grid=document.getElementById("smGrid");
+  D.forEach(d=>{
+    const div=document.createElement("div");div.className="sm";
+    div.innerHTML=`<h3>${DISC[d.k]}</h3><div class="st">${d.ts.length} services \u00b7 size ${Math.round(d.m/maxD*100)}<br><b>${Math.round(d.jp)}% judgement</b>${d.nw.length?` \u00b7 <span style="color:${C.accent}">${d.nw.length} new</span>`:""}</div>`;
+    const svg=el("svg",{viewBox:`0 0 ${w} ${h}`,role:"img","aria-label":`${DISC[d.k]} services by judgement and outsourced share`});
+    svg.appendChild(el("rect",{x:mx(0),y:my(100),width:mx(35)-mx(0),height:my(55)-my(100),fill:"rgba(36,56,218,.05)"}));
+    svg.appendChild(el("line",{x1:l,x2:l+pw,y1:tp+ph,y2:tp+ph,stroke:C.fg3}));
+    svg.appendChild(el("line",{x1:l,x2:l,y1:tp,y2:tp+ph,stroke:C.fg3}));
+    [0,50,100].forEach(g=>{svg.appendChild(el("text",{x:mx(g),y:h-5,"text-anchor":g===0?"start":g===100?"end":"middle",fill:C.fg3,"font-size":9,"font-family":MF},g));
+      if(g)svg.appendChild(el("text",{x:l-4,y:my(g)+3,"text-anchor":"end",fill:C.fg3,"font-size":9,"font-family":MF},g))});
+    EX.filter(t=>t.disc!==d.k).forEach(t=>svg.appendChild(el("circle",{cx:mx(t.judg),cy:my(t.out),r:1.8,fill:C.ctx})));
+    const own=[...d.ts,...d.nw];
+    own.forEach(t=>{t.sx=mx(t.judg);t.sy=my(t.out)});
+    const rs=t=>t.isNew?4.2:2.2+Math.sqrt(t.mid)*.85;
+    const loc=own.map(t=>({t,i:t.i,judg:t.judg,out:t.out,mid:t.mid,isNew:t.isNew}));
+    relax(loc,mx,my,o=>rs(o),[l,tp,l+pw,tp+ph],120);
+    loc.sort((a,b)=>(a.isNew-b.isNew)||(b.mid-a.mid)).forEach(o=>{const t=o.t;
+      const g=el("g",{class:"hit",tabindex:0,role:"button","aria-label":t.name});
+      g.appendChild(el("circle",{cx:o.x,cy:o.y,r:Math.max(9,o.r+3),fill:"transparent"}));
+      g.appendChild(mark(t,o.x,o.y,o.r,true));
+      g.addEventListener("click",()=>pick(t));g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();pick(t)}});
+      svg.appendChild(g);(hits.get(t)||hits.set(t,[]).get(t)).push(g)});
+    div.appendChild(svg);grid.appendChild(div);
+  });
+})();
+
+/* 04 horizon chart and list */
+(function(){
+  const svg=document.getElementById("hzChart");
+  const w=960,h=470,l=60,tp=40,b=36,ph=h-tp-b;
+  const cols=["Now","2027","2028+"],cw=(w-l)/3;
+  const yy=j=>tp+(1-(j-10)/70)*ph;
+  cols.forEach((c,ci)=>{const x0=l+ci*cw;
+    svg.appendChild(el("text",{x:x0+8,y:22,fill:C.accent,"font-family":MF,"font-size":12,"font-weight":500,"letter-spacing":"1.4"},c.toUpperCase()));
+    if(ci)svg.appendChild(el("line",{x1:x0,x2:x0,y1:tp-10,y2:tp+ph,stroke:C.line}));});
+  [20,40,60,80].forEach(g=>{svg.appendChild(el("text",{x:l-10,y:yy(g)+4,"text-anchor":"end",fill:C.fg2,"font-size":11,"font-family":MF},g+"%"));svg.appendChild(el("line",{x1:l-4,x2:l,y1:yy(g),y2:yy(g),stroke:C.fg3}))});
+  svg.appendChild(el("line",{x1:l,x2:l,y1:tp-10,y2:tp+ph,stroke:C.fg3}));
+  svg.appendChild(el("text",{x:14,y:tp+ph/2,"text-anchor":"middle",fill:C.fg,"font-size":13,"font-family":SF,transform:`rotate(-90 14 ${tp+ph/2})`},"Share of the work that is judgement \u2192"));
+  const avgEx=EX.filter(t=>t.out>=55).reduce((s,t)=>s+t.judg,0)/EX.filter(t=>t.out>=55).length;
+  svg.appendChild(el("line",{x1:l,x2:w,y1:yy(avgEx),y2:yy(avgEx),stroke:C.fg3,"stroke-width":1}));
+  svg.appendChild(el("text",{x:w-4,y:yy(avgEx)-6,"text-anchor":"end",fill:C.fg2,"font-size":10.5,"font-family":MF},"Today's outsourced services average "+Math.round(avgEx)+"%"));
+  const avgNew=NW.reduce((s,t)=>s+t.judg,0)/NW.length;
+  document.getElementById("newP").textContent=`Each has a dated 2026 signal. Most have no settled provider market yet, so they carry a horizon instead of a size. On average they are ${Math.round(avgNew)}% judgement, against ${Math.round(avgEx)}% for today's outsourced services: the rules are not settled yet, so senior calls matter more.`;
+  cols.forEach((c,ci)=>{const x=l+ci*cw+22;const items=NW.filter(t=>t.hz===c).sort((a,b)=>b.judg-a.judg);
+    let last=-1e9;items.forEach(t=>{t.ly=Math.max(yy(t.judg),last+19);last=t.ly});
+    const over=last-(tp+ph);if(over>0)items.forEach(t=>t.ly-=over);
+    items.forEach(t=>{const y=yy(t.judg);
+      const g=el("g",{class:"hit",tabindex:0,role:"button","aria-label":t.name});
+      g.appendChild(el("rect",{x:x-10,y:t.ly-11,width:cw-30,height:20,fill:"transparent"}));
+      g.appendChild(el("path",{class:"mk",d:`M${x} ${y-6}L${x+6} ${y}L${x} ${y+6}L${x-6} ${y}Z`,fill:C.accent}));
+      if(Math.abs(t.ly-y)>2)g.appendChild(el("line",{x1:x+7,y1:y,x2:x+16,y2:t.ly,stroke:C.fg3,"stroke-width":.8}));
+      g.appendChild(el("text",{x:x+18,y:t.ly+4,fill:C.fg,"font-size":12.5,"font-family":SF,"font-weight":400,"paint-order":"stroke",stroke:"#fff","stroke-width":5,"stroke-linejoin":"round"},t.name));
+      g.addEventListener("click",()=>pick(t));g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();pick(t)}});
+      svg.appendChild(g);(hits.get(t)||hits.set(t,[]).get(t)).push(g)});});
+  const order={"Now":0,"2027":1,"2028+":2};
+  document.getElementById("hzList").innerHTML=`<div class="hz-row head"><span class="cap">When</span><span class="cap">Service</span><span class="cap">Signal</span><span class="cap">Early providers</span></div>`+[...NW].sort((a,b)=>order[a.hz]-order[b.hz]||b.judg-a.judg).map(t=>`<button class="hz-row" data-i="${t.i}"><span class="h">${t.hz}</span><span><b>${esc(t.name)}</b><span class="w2">${esc(t.read)}</span></span><span class="sig">${esc(t.signal)}</span><span class="who">${esc(t.who)}</span></button>`).join("");
+})();
+
+/* 06 sparkline table */
+(function(){
+  const S=60;
+  const spendSvg=t=>t.isNew?`<span style="color:${C.accent}">${t.hz}</span>`:`<svg viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true"><rect x="0" y="2" width="100" height="8" fill="${C.ctx}" fill-opacity=".5" rx="1"/><rect x="0" y="2" width="${sIdx(t)}" height="8" fill="${C.fg2}" rx="1"/></svg><span>${sIdx(t)}</span>`;
+  const judgSvg=t=>`<svg viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true"><rect x="0" y="2" width="100" height="8" fill="${C.intel}" rx="1"/><rect x="0" y="2" width="${t.judg}" height="8" fill="${C.data}" rx="1"/></svg><span>${t.judg}%</span>`;
+  const outSvg=t=>`<svg viewBox="0 0 100 12" preserveAspectRatio="none" aria-hidden="true"><line x1="0" x2="100" y1="6" y2="6" stroke="${C.ctx}"/><line x1="50" x2="50" y1="2" y2="10" stroke="${C.fg3}"/><rect x="${t.out-1.25}" y="1" width="2.5" height="10" fill="${C.fg}"/></svg><span>${t.out}%</span>`;
+  const pips=(n,c)=>`<span class="pip ${c}">${[1,2,3,4,5].map(k=>`<i class="${k<=n?"on":""}"></i>`).join("")}</span>`;
+  const row=t=>`<button class="srow" data-i="${t.i}"><span class="sname">${esc(t.name)}${PT[t.name]?`<em title="Checked against provider service pages: ${PT[t.name]}">CHECKED \u00b7 ${verdict(t).toUpperCase()}</em>`:""}</span><span class="sval"><span class="mlab">Size</span>${spendSvg(t)}</span><span class="sval"><span class="mlab">Judgement</span>${judgSvg(t)}</span><span class="sval"><span class="mlab">Outsourced</span>${outSvg(t)}</span><span class="sval n"><span class="mlab">Platform</span>${pips(t.risk,"r")}</span><span class="sval n"><span class="mlab">Moat</span>${pips(t.moat,"m")}</span></button>`;
+  const D=Object.keys(DISC).map(k=>({k,ts:EX.filter(t=>t.disc===k).sort((a,b)=>b.mid-a.mid)})).map(d=>({...d,m:d.ts.reduce((s,t)=>s+t.mid,0)})).sort((a,b)=>b.m-a.m);
+  const maxDs=D[0].m;
+  let h=`<div class="srow head"><span class="cap">Service line</span><span class="cap">Relative size, largest = 100</span><span class="cap">Judgement share</span><span class="cap">Outsourced share</span><span class="cap">Platform risk</span><span class="cap">Moat</span></div>`;
+  D.forEach(d=>{h+=`<div class="sgroup">${DISC[d.k]}<span>${d.ts.length} services \u00b7 size ${Math.round(d.m/maxDs*100)}</span></div>`+d.ts.map(row).join("")});
+  h+=`<div class="sgroup" style="color:${C.accent};border-color:${C.accent}">New services AI is creating<span>${NW.length} services \u00b7 horizon instead of size</span></div>`+NW.map(row).join("");
+  document.getElementById("spark").innerHTML=h;
+})();
+document.getElementById("all").querySelector(".sec-head h2").innerHTML=`${T.length} services in one <em>sparkline table.</em>`;
+
+/* selection and drawer */
+let sel=null;
+const drawer=document.getElementById("drawer");
+const pipsD=(n,c)=>`<span class="pip ${c}" style="margin-right:6px">${[1,2,3,4,5].map(k=>`<i class="${k<=n?"on":""}"></i>`).join("")}</span>`;
+function pick(t){
+  if(sel)(hits.get(sel)||[]).forEach(g=>g.classList.remove("sel"));
+  document.querySelectorAll(".srow.sel,.hz-row.sel").forEach(e=>e.classList.remove("sel"));
+  sel=t;(hits.get(t)||[]).forEach(g=>g.classList.add("sel"));
+  document.querySelectorAll(`[data-i="${t.i}"]`).forEach(e=>e.classList.add("sel"));
+  drawer.innerHTML=`<button class="x" aria-label="Close">\u00d7</button><div class="cap">${DISC[t.disc]}${t.isNew?` \u00b7 <span style="color:${C.accent}">New \u00b7 ${t.hz}</span>`:""}</div><h3>${esc(t.name)}</h3><p>${esc(t.read)}</p>
+  <dl class="kv">
+   ${t.isNew?`<div class="full"><dt>Signal</dt><dd>${esc(t.signal)}</dd></div>`:`<div><dt>Relative size</dt><dd>${sIdx(t)} (largest service = 100)</dd></div>`}
+   <div><dt>Judgement / outsourced</dt><dd>${t.judg}% / ${t.out}%</dd></div>
+   <div><dt>Platform risk</dt><dd>${pipsD(t.risk,"r")}${RISKW[t.risk]}</dd></div>
+   <div><dt>Moat</dt><dd>${pipsD(t.moat,"m")}${MOATW[t.moat]}</dd></div>
+   <div class="full"><dt>Who is there</dt><dd>${esc(t.who)}</dd></div>
+   ${PT[t.name]?`<div class="full"><dt>Checked against providers</dt><dd>${PT[t.name]}</dd></div>`:""}
+  </dl>`;
+  drawer.hidden=false;drawer.querySelector(".x").onclick=close;
+}
+function close(){drawer.hidden=true;if(sel)(hits.get(sel)||[]).forEach(g=>g.classList.remove("sel"));document.querySelectorAll(".srow.sel,.hz-row.sel").forEach(e=>e.classList.remove("sel"));sel=null}
+document.addEventListener("keydown",e=>{if(e.key==="Escape")close()});
+["spark","hzList"].forEach(id=>document.getElementById(id).addEventListener("click",e=>{const b=e.target.closest("[data-i]");if(b)pick(T[+b.dataset.i])}));
+
+const EV=[["aeo", "2025-11", "f", "Peec AI", "Series A for AI search visibility tracking, led by Singular", "$21m", 21, "https://dealroom.co/charts/generative-engine-optimization-startups"], ["aeo", "2026-02", "f", "Profound", "Series C for AI search visibility, led by Lightspeed", "$96m at $1bn", 96, "https://dealroom.co/charts/generative-engine-optimization-startups"], ["aeo", "2026-04", "f", "Bluefish", "Series B for brand control in AI answers, led by Threshold Ventures and NEA", "$43m", 43, "https://dealroom.co/charts/generative-engine-optimization-startups"], ["aeo", "2026-09", "f", "Profound", "Series D, led by Sequoia and Kleiner Perkins", "$180m at $1.8bn", 180, "https://dealroom.co/charts/generative-engine-optimization-startups"], ["search", "2025-11", "d", "Adobe buys Semrush", "All cash acquisition of the SEO platform; closed April 2026", "About $1.9bn", 0, "https://guptadeepak.com/geo-compass/guides/geo-tooling-market-2026/"], ["search", "2026-04", "f", "daydream", "Series A for an AI native SEO agency, led by WndrCo", "$15m", 15, "https://guptadeepak.com/geo-compass/guides/geo-tooling-market-2026/"], ["search", "2026-09", "l", "Google AI Max", "Eligible search campaigns auto upgraded to AI Max on 1 September", "", 0, "https://ppc.land/google-ads-ai-max-auto-upgrade-lands-september-1-will-ads-all-look-alike/"], ["com", "2025-09", "d", "Pattern IPO", "Amazon accelerator that owns inventory lists on Nasdaq", "$300m raised, about $2.5bn value", 0, "https://app.dealroom.co/news/feed/pattern-raises-300m-in-us-ipo"], ["com", "2026-01", "l", "Universal Commerce Protocol", "Google and Shopify open standard for AI shopping agents, built with Walmart, Target, Etsy and Wayfair", "", 0, "https://www.shopifreaks.com/google-and-shopify-launch-universal-commerce-protocol/"], ["com", "2026-03", "f", "Lemrock", "Funding for software that lets brands sell through AI agents", "€6m", 7, "https://agentcommerce.substack.com/p/the-agentic-commerce-frontier-march"], ["com", "2026-09", "l", "Amazon Ads Agent", "Full-Funnel Campaigns remove channel and audience choice", "", 0, "https://www.relevantaudience.com/ecommerce-marketing/amazon-ads-agent-unboxed-2026-full-funnel-dva-plus/"], ["res", "2025-12", "f", "Aaru", "Series A for simulated populations", "Undisclosed, $1bn headline valuation", 0, "https://getcoai.com/newsfeed/ai-synthetic-research-startup-aaru-raised-a-series-a-at-a-1b-headline-valuation"], ["res", "2025-12", "f", "Outset", "Series B for AI moderated interviews, led by Radical Ventures", "$30m", 30, "https://www.vcaonline.com/news/2025121008/outset-secures-30-million-series-b-to-launch-the-world-s-first-ai-native-customer-experience-management-platform/"], ["res", "2026-01", "f", "Listen Labs", "Series B for AI moderated interviews, led by Ribbit Capital", "$69m at $500m", 69, "https://techstrong.ai/articles/salesforce-in-talks-to-acquire-ai-startup-listen-labs-for-2-billion-report/"], ["res", "2026-07", "f", "Simile", "Series B for AI twins of real consumers, led by Greenoaks", "$200m at $2bn", 200, "https://dealroom.co/news/142224-simile-raises-200m-series-b-at-2b-valuation-to-survey-ai-twins-of-consum/"], ["res", "2026-09", "d", "Salesforce and Listen Labs", "Reported talks to acquire; no deal agreed", "About $2bn", 0, "https://techstrong.ai/articles/salesforce-in-talks-to-acquire-ai-startup-listen-labs-for-2-billion-report/"], ["crea", "2025-05", "f", "Creatify", "Series A for AI video ads made from product links", "$15.5m", 15.5, "https://seedtable.com/companies/creatify-ai/funding-rounds/series-a-2025-05"], ["crea", "2026-08", "f", "Higgsfield", "Series B for AI video, led by DST Global; about $700m annual run rate", "$400m at $5.4bn", 400, "https://www.businesstoday.com.my/2026/08/26/higgsfield-secures-us400-million-series-b-at-us5-4-billion-valuation/"], ["media", "2025-10", "f", "AdsGency AI", "Seed for an agentic ad system pitched as a replacement for agencies", "$12m", 12, "https://www.mediapost.com/publications/article/410033/agentic-ad-agency-startup-raises-12m-seed-round-t.html"], ["media", "2025-11", "d", "Omnicom closes IPG", "Creates the largest holding company, over $25bn revenue, with a $750m savings target", "", 0, "https://www.thedrum.com/news/omnicom-s-ipg-takeover-is-finally-closed-what-do-we-know"], ["media", "2026-08", "d", "WPP sells assets", "Over £200m of disposals in 2026 and £500m of savings by 2028; first half revenue down 4.4%", "", 0, "https://pulse2.com/wpp-500-million-cost-savings-target-and-200-million-asset-sales-back-agentic-ai-transformation/"], ["media", "2026-10", "f", "pubX", "Series A for agent to agent media buying", "$5m", 5, "https://www.marketing-interactive.com/pubx-raises-5-million-as-agent-to-agent-ad-push-accelerates"], ["meas", "2026-03", "d", "Publicis buys AdgeAI", "Predictive creative analytics", "Undisclosed", 0, "https://www.privsource.com/acquisitions/deal/publicis-groupe-acquires-adgeai-to-expand-ai-powered-creative-performance-measurement-zqSzB6"], ["meas", "2026-07", "l", "Uptempo", "Launches a marketing mix modelling service built on OptiMine", "", 0, "https://www.mrweb.com/drno/news40114.htm"], ["tech", "2026-04", "f", "Hightouch", "Series D for an agentic marketing platform, led by Goldman Sachs and Bain Capital Ventures", "$150m at $2.75bn", 150, "https://pulse2.com/hightouch-150-million-series-d-at-2-75-billion-valuation-raised-to-power-agentic-marketing-platform/amp/"], ["tech", "2026-05", "d", "Publicis to buy LiveRamp", "All cash; pending", "About $2.2bn", 0, "https://www.adnews.com.au/news/publicis-to-acquire-liveramp-for-us2-2-billion"], ["crm", "2025-03", "d", "Braze buys OfferFit", "AI decisioning that replaces manual A/B testing", "$325m", 0, "https://www.braze.com/press-releases/braze-announces-agreement-to-acquire-offerfit"], ["crm", "2026-06", "f", "JustAI", "Series A for agentic personalisation and decisioning", "$17m", 17, "https://www.theatdb.com/news/justai-raises-17m-series-a-to-build-an-agentic-marketing-platform"], ["crm", "2026-08", "d", "Klaviyo buys Agency", "Team and technology; Agency's CEO becomes Klaviyo's product chief", "Undisclosed", 0, "https://www.businesswire.com/news/home/20260805117351/en/Klaviyo-strengthens-AI-capabilities-with-strategic-acquisition-of-Agency-team-and-technology"], ["pr", "2025-08", "d", "Accenture buys Superdigital", "Social and influencer agency", "Undisclosed", 0, "https://www.businesswire.com/news/home/20250818125462/en/Accenture-Strengthens-Social-and-Influencer-Marketing-Capabilities-with-Acquisition-of-Superdigital"], ["pr", "2025-11", "f", "Agentio", "Series B for an AI creator ad marketplace, led by Forerunner", "$40m", 40, "https://techcrunch.com/2025/11/18/agentio-secures-40-million-from-forerunner-as-it-scales-its-creator-marketplace-beyond-youtube/"], ["pr", "2025-12", "f", "Honeyjar", "Pre-seed for an AI workspace for PR teams", "$2m", 2, "https://www.axios.com/2025/12/04/exclusive-honeyjar-ai-2-million-seed-funding-launch"], ["pr", "2026-06", "d", "Accenture buys Whalar", "Creator agency behind over $600m of creator campaigns", "Undisclosed", 0, "https://newsroom.accenture.co.uk/english-uk/news/2026/accenture-to-acquire-leading-creator-and-social-agency-whalar-from-whalar-group"], ["cx", "2026-08", "f", "Lovable", "Series C for AI app and site building, led by Menlo Ventures", "$400m at $13.3bn", 400, "https://pulse2.com/lovable-raises-400-million-series-c-at-13-3-billion-valuation-to-expand-ai-software-creation-platform/amp/"], ["b2b", "2026-09", "f", "Clay", "Series D for AI go-to-market workflows, led by Wellington; 17,000+ customers", "$115m at $7.1bn", 115, "https://techintelpro.com/news/ai/enterprise-ai/clay-raises-115m-series-d-at-71b-valuation"], ["strat", "2026-05", "d", "Bain and OpenAI", "Multi-year partnership; Bain invests in OpenAI's Deployment Company", "", 0, "https://aiweekly.co/node/4358"]];
+const EVNOTE={"meas": "Few disclosed rounds since 2024. The money is moving through acquisitions and platform launches instead.", "strat": "No notable venture rounds. The change is in pricing: McKinsey ties about 25% of its fees to outcomes.", "pr": "AI PR tools are only at pre-seed. Creator businesses are being bought by Accenture."};
+
+/* where the money is going */
+(function(){
+  const M=s=>{const [y,m]=s.split("-").map(Number);return (y-2025)*12+(m-1)};
+  const MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  const lab=s=>{const [y,m]=s.split("-").map(Number);return MON[m-1]+" "+y};
+  const TY={f:"Funding",d:"Deal",l:"Launch"};
+  const keys=[...new Set(EV.map(e=>e[0]))];
+  const raised=k=>EV.filter(e=>e[0]===k&&e[2]==="f").reduce((s,e)=>s+e[6],0);
+  keys.sort((a,b)=>raised(b)-raised(a)||EV.filter(e=>e[0]===b).length-EV.filter(e=>e[0]===a).length);
+  const nF=EV.filter(e=>e[2]==="f").length,nD=EV.filter(e=>e[2]==="d").length,nL=EV.filter(e=>e[2]==="l").length;
+  document.getElementById("capP").textContent=`${EV.length} funding rounds, deals and platform launches from January 2025 to October 2026, across all 13 disciplines. The largest rounds went to AI video, AI app building, synthetic research and AI search visibility. Accenture bought creator agencies and Publicis bought data and analytics businesses, while Omnicom and WPP cut costs. AI native agencies raised far less than the software around them.`;
+  // timeline
+  const L=150,R=940,T=40,RH=40,N=22;
+  const H=T+keys.length*RH+34;
+  const svg=document.getElementById("capChart");svg.setAttribute("viewBox",`0 0 960 ${H}`);
+  const x=m=>L+(m+.5)/N*(R-L);
+  const rad=e=>e[6]>0?3.2+Math.sqrt(e[6])*.55:4;
+  let g="";
+  [0,3,6,9,12,15,18,21].forEach(m=>{g+=`<line x1="${x(m)}" x2="${x(m)}" y1="${T-8}" y2="${H-30}" stroke="${C.ctx}" stroke-width="${m%12===0?1:.6}"/><text x="${x(m)}" y="${H-12}" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10.5" fill="${C.fg2}">${MON[m%12]}${m%12===0?" "+(2025+m/12):""}</text>`});
+  keys.forEach((k,i)=>{
+    const y=T+i*RH+RH/2;
+    g+=`<line x1="${L-6}" x2="${R}" y1="${y}" y2="${y}" stroke="${C.ctx}" stroke-width=".6"/><text x="0" y="${y+4}" font-family="Montserrat,sans-serif" font-size="12.5" font-weight="500" fill="${C.fg}">${DISC[k]}</text>`;
+    const up=[],dn=[];
+    const evs=EV.filter(e=>e[0]===k).sort((a,b)=>M(a[1])-M(b[1]));
+    const marks=evs.map(e=>{const cx=x(M(e[1])),r=rad(e);return {e,cx,r}});
+    // nudge same-month marks apart
+    marks.forEach((m,j)=>{if(j&&Math.abs(m.cx-marks[j-1].cx)<marks[j-1].r+m.r+2)m.cx=marks[j-1].cx+marks[j-1].r+m.r+2});
+    marks.forEach(({e,cx,r})=>{
+      const tip=`${esc(e[3])}: ${esc(e[4])}${e[5]?" ("+esc(e[5])+")":""}, ${lab(e[1])}`;
+      if(e[2]==="f")g+=`<circle cx="${cx}" cy="${y}" r="${r}" fill="${C.data}" fill-opacity=".85"><title>${tip}</title></circle>`;
+      else if(e[2]==="d")g+=`<rect x="${cx-4.5}" y="${y-4.5}" width="9" height="9" fill="${C.fg}"><title>${tip}</title></rect>`;
+      else g+=`<circle cx="${cx}" cy="${y}" r="5" fill="#fff" stroke="${C.data}" stroke-width="1.5"><title>${tip}</title></circle>`;
+      const name=e[3],w=name.length*5.9;
+      let x0=cx-w/2;if(x0+w>R+18)x0=R+18-w;if(x0<L)x0=L;
+      const free=arr=>arr.every(([a,b])=>x0+w<a-4||x0>b+4);
+      const half=e[2]==="d"?4.5:(e[2]==="l"?5:r);
+      const xl=cx-r-6-w,clear=marks.every(o=>o.cx===cx||o.cx+o.r<xl-4||o.cx-o.r>cx);
+      if(r>8&&xl>L&&clear&&free(up.concat(dn).filter(()=>false))){g+=`<text x="${xl}" y="${y+4}" font-family="Montserrat,sans-serif" font-size="10.5" fill="${C.fg2}">${esc(name)}</text>`}
+      else if(free(up)){up.push([x0,x0+w]);g+=`<text x="${x0}" y="${y-half-4}" font-family="Montserrat,sans-serif" font-size="10.5" fill="${C.fg2}">${esc(name)}</text>`}
+      else if(free(dn)){dn.push([x0,x0+w]);g+=`<text x="${x0}" y="${y+half+11}" font-family="Montserrat,sans-serif" font-size="10.5" fill="${C.fg2}">${esc(name)}</text>`}
+    });
+  });
+  svg.innerHTML=g;
+  // list
+  let h=`<div class="ev-row head" style="padding-block:0 8px;border-bottom:1px solid var(--line2)"><span class="cap">Date</span><span class="cap">Type</span><span class="cap">Who and what</span><span class="cap">Amount</span><span class="cap">Source</span></div>`;
+  keys.forEach(k=>{
+    const evs=EV.filter(e=>e[0]===k).sort((a,b)=>M(a[1])-M(b[1]));
+    h+=`<div class="sgroup">${DISC[k]}<span>${evs.length} event${evs.length>1?"s":""}</span></div>`;
+    if(EVNOTE[k])h+=`<div class="ev-note">${esc(EVNOTE[k])}</div>`;
+    evs.forEach(e=>{h+=`<div class="ev-row"><span class="dt">${lab(e[1])}</span><span class="ty ${e[2]}">${TY[e[2]]}</span><span><b>${esc(e[3])}</b> <span class="tx">${esc(e[4])}</span></span><span class="am">${esc(e[5]||"–")}</span><a href="${e[7]}" target="_blank" rel="noopener">Source</a></div>`});
+  });
+  document.getElementById("evList").innerHTML=h;
+})();
+
+/* subtle motion: reveal from a visible resting state; dots fade in when the map is reached */
+(function(){
+  const layer=window.__mapLayer;
+  if(reduce||!("IntersectionObserver" in window)){layer.classList.remove("pre-dots");return}
+  const vh=innerHeight;
+  const els=[...document.querySelectorAll(".rv")].filter(e=>e.getBoundingClientRect().top>vh*0.92);
+  els.forEach(e=>e.classList.add("pre"));
+  const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.remove("pre");io.unobserve(en.target)}}),{rootMargin:"0px 0px -8% 0px"});
+  els.forEach(e=>io.observe(e));
+  const box=document.getElementById("chart");
+  if(box.getBoundingClientRect().top<vh*0.8)layer.classList.remove("pre-dots");
+  else{const mo=new IntersectionObserver(es=>{if(es[0].isIntersecting){layer.classList.remove("pre-dots");mo.disconnect()}},{threshold:.2});mo.observe(box)}
+  setTimeout(()=>{els.forEach(e=>e.classList.remove("pre"));layer.classList.remove("pre-dots")},6000);
+})();
+
+/* hero line field, matching the Inflexion site */
+(function(){
+  const canvas=document.getElementById("field");
+  if(typeof THREE==="undefined")return;
+  let renderer;try{renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true})}catch(e){return}
+  renderer.setClearColor(0x000000,0);renderer.setPixelRatio(Math.min(devicePixelRatio||1,2));
+  const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(55,1,0.1,100);camera.position.set(0,-2,9);
+  const group=new THREE.Group();scene.add(group);
+  const lines=60,ppl=100;
+  for(let i=0;i<lines;i++){const pts=[],x=(i-lines/2)*0.2;
+    for(let j=0;j<ppl;j++)pts.push(new THREE.Vector3(x,(j-ppl/2)*0.2,0));
+    const c=new THREE.Color().setHSL(0.08-(i/lines)*0.12,0.8,0.6+(i/lines)*0.3);
+    group.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts),new THREE.LineBasicMaterial({color:c,transparent:true,opacity:0.16+Math.random()*0.18,blending:THREE.AdditiveBlending})));}
+  group.rotation.z=-0.35;group.position.x=3;
+  function resize(){const r=canvas.parentElement.getBoundingClientRect();camera.aspect=Math.max(1,r.width)/Math.max(1,r.height);camera.updateProjectionMatrix();renderer.setSize(r.width,r.height,false)}
+  resize();addEventListener("resize",resize,{passive:true});
+  let visible=true,running=false;
+  function start(){if(!running&&!reduce){running=true;requestAnimationFrame(frame)}}
+  new IntersectionObserver(es=>{visible=es[0].isIntersecting;if(visible)start()}).observe(canvas);
+  function frame(){if(!visible&&!reduce){running=false;return}
+    const t=reduce?0:performance.now()*0.0004;
+    group.children.forEach(line=>{const d=line.geometry.attributes.position.array;
+      for(let k=0;k<ppl;k++){const px=d[k*3],py=d[k*3+1];d[k*3+2]=Math.sin(py*1.2+t+px*0.8)*0.8+Math.cos(px*1.5-t*0.8+py*0.5)*0.6}
+      line.geometry.attributes.position.needsUpdate=true});
+    renderer.render(scene,camera);if(!reduce)requestAnimationFrame(frame)}
+  if(reduce)frame();else start();
+})();
+</script>
+
+</body>
+</html>

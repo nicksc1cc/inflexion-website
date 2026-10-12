@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<rect width="1200" height="630" fill="#0a0a0b"/>
+<path d="M0 500H1200" stroke="#2b2b2d" stroke-width="1"/>
+<path d="M820 0v630" stroke="#2b2b2d" stroke-width="1"/>
+<circle cx="920" cy="210" r="112" fill="none" stroke="#2438da" stroke-width="2" opacity=".8"/>
+<circle cx="920" cy="210" r="52" fill="#2438da" opacity=".24"/>
+<circle cx="1050" cy="390" r="18" fill="#ff5a1f"/>
+<circle cx="770" cy="390" r="12" fill="#2438da"/>
+<path d="M920 210L1050 390M920 210L770 390" stroke="#ff5a1f" stroke-width="1" opacity=".65"/>
+<text x="72" y="92" fill="#ff5a1f" font-family="IBM Plex Mono,monospace" font-size="16" letter-spacing="3">INFLEXION INTELLIGENCE</text>
+<text x="72" y="190" fill="#fafaf9" font-family="Montserrat,Arial,sans-serif" font-size="68" font-weight="200">Marketing services</text>
+<text x="72" y="270" fill="#ff5a1f" font-family="Montserrat,Arial,sans-serif" font-size="68" font-weight="400">are being repriced.</text>
+<text x="72" y="365" fill="#b8b8bd" font-family="Montserrat,Arial,sans-serif" font-size="25" font-weight="300">145 services mapped by judgement</text>
+<text x="72" y="402" fill="#b8b8bd" font-family="Montserrat,Arial,sans-serif" font-size="25" font-weight="300">and who does the work.</text>
+<text x="72" y="566" fill="#77777d" font-family="IBM Plex Mono,monospace" font-size="14" letter-spacing="2">OPPORTUNITY MAP / 2026</text>
+</svg>
