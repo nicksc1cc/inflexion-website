@@ -42,3 +42,8 @@ Inflexion helps brands win visibility across AI answer engines (ChatGPT, Gemini,
 ## Pricing
 
 Pricing is project-based. Contact hello@inflexion.co for a quote. Baseline audits start from a fixed prompt set run across ChatGPT, Gemini, Perplexity and Claude : you keep the data either way.
+
+## Opportunity map
+
+A map of 145 marketing services scored by how much judgement each needs and how much is outsourced, plus 14 services AI is creating.
+https://nicksc1cc.github.io/inflexion-website/opportunity-map/

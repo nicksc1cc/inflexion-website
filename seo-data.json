@@ -234,5 +234,20 @@
         "url": "https://nicksc1cc.github.io/inflexion-website/"
       }
     }
+  },
+  "opportunity-map/index.html": {
+    "title": "Marketing services are being repriced. | Inflexion",
+    "description": "A map of 145 marketing services scored by judgement and who does the work, plus 14 services AI is creating.",
+    "og_type": "article",
+    "og_image": "/assets/og-opportunity-map.png",
+    "schema_type": "Article",
+    "schema_data": {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Marketing Services Opportunity Map",
+      "author": {"@type": "Organization", "name": "Inflexion"},
+      "datePublished": "2026-10-12",
+      "url": "https://nicksc1cc.github.io/inflexion-website/opportunity-map/"
+    }
   }
 }
