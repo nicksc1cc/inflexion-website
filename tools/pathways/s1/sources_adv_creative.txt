@@ -1,0 +1,411 @@
+@account_management|advertising|medium|Account Executive/Account Manager/Account Director|Manages client relationships and delivery in an agency
+*client_management 1/3/4 Core relationship role
+*stakeholder_management 2/3/4 Aligns client and agency teams
+*project_management 2/3/3 Keeps work moving
+production_management 1/2/2 Tracks jobs through production
+presenting_persuasion 1/2/4 Presents work to clients
+negotiation 1/2/3 Negotiates scope and fees
+documentation 2/3/3 Writes briefs, contact reports and SOWs
+budget_management 1/2/3 Tracks project budgets
+feedback_critique 1/2/3 Translates client feedback
+cross_functional_collaboration 2/3/4 Links creative, strategy and production
+commercial_acumen 1/2/4 Grows account revenue at senior level
+problem_framing 1/2/3 Clarifies client problems
+conflict_resolution 1/2/3 Manages tense client moments
+business_development 0/1/3 Grows existing accounts
+team_leadership 0/1/3 Leads account teams when senior
+pricing_commercial_modelling 0/1/3 Builds scopes and estimates
+@strategic_planning|advertising|low|Junior Planner/Strategic Planner/Planning Director|Finds the insight and strategy behind advertising
+*consumer_insight 2/4/4 Core craft of the role
+*problem_framing 2/3/4 Reframes client briefs
+*storytelling 2/3/4 Writes the strategy story
+research_methods 2/3/4 Runs and commissions research
+brand_strategy 1/3/4 Develops brand platforms
+positioning 1/3/4 Sharpens propositions
+presenting_persuasion 1/3/4 Sells strategy to clients
+data_analysis 2/3/3 Uses data to find insight
+cultural_trend_insight 2/3/4 Brings culture into strategy
+facilitation 1/3/3 Runs strategy workshops
+competitive_analysis 2/3/3 Audits categories and competitors
+audience_segmentation 1/3/3 Defines audiences
+measurement_attribution 1/2/3 Sets effectiveness frameworks
+@communications_planning|advertising|low|Comms Planning Executive/Communications Planner/Head of Comms Planning|Decides how and where campaigns reach people across channels
+*audience_segmentation 2/3/4 Understands media audiences
+*planning_prioritisation 1/3/4 Assigns roles to channels
+*measurement_attribution 1/3/4 Sets channel KPIs
+consumer_insight 2/3/3 Uses media behaviour insight
+digital_media_buying 1/2/2 Understands paid channel mechanics
+data_analysis 2/3/3 Analyses reach and effectiveness
+storytelling 1/3/3 Builds the channel narrative
+presenting_persuasion 1/3/4 Presents plans to clients
+problem_framing 1/3/3 Frames communications problems
+cultural_trend_insight 1/2/3 Tracks platform shifts
+budget_management 1/2/3 Recommends budget splits
+client_management 1/2/3 Works with client media teams
+@media_planning|advertising|medium|Media Executive/Media Planner/Media Planning Director|Plans media schedules to reach audiences efficiently
+*audience_segmentation 2/3/3 Targets audiences through media
+*budget_management 1/3/4 Allocates media budgets
+*measurement_attribution 1/3/4 Measures media effectiveness
+digital_media_buying 2/3/3 Plans digital channels
+data_analysis 2/3/3 Analyses audience and delivery data
+consumer_insight 1/2/3 Uses media consumption insight
+analytics_tools 1/2/3 Uses planning tools
+planning_prioritisation 1/3/4 Builds schedules
+presenting_persuasion 1/2/3 Presents plans
+vendor_management 1/2/3 Works with media owners
+commercial_acumen 1/2/3 Judges value for money
+market_sizing_forecasting 1/2/3 Forecasts reach and frequency
+client_management 1/2/4 Leads client relationships at senior level
+@media_buying|advertising|high|Junior Buyer/Media Buyer/Head of Trading|Negotiates and buys media space and inventory
+*negotiation 1/3/4 Core craft of the role
+*digital_media_buying 2/3/4 Books and optimises inventory
+*vendor_management 1/3/4 Manages media owner relationships
+budget_management 1/3/3 Manages spend against plan
+data_analysis 2/3/3 Analyses pricing and delivery
+commercial_acumen 1/3/4 Secures value in trading deals
+pricing_commercial_modelling 1/2/3 Models deal value
+measurement_attribution 1/2/2 Checks delivery against plan
+marketing_technology 2/3/3 Uses buying platforms
+quality_assurance 2/2/2 Checks bookings and delivery
+documentation 2/2/2 Maintains booking records
+contract_management 1/2/3 Manages trading agreements
+@programmatic_trading|advertising|high|Programmatic Executive/Programmatic Trader/Head of Programmatic|Buys and optimises media through automated platforms
+*programmatic_adtech 2/3/4 Core craft of the role
+*digital_media_buying 2/3/4 Optimises automated campaigns
+*data_analysis 2/3/3 Analyses bid and delivery data
+experimentation 1/2/3 Tests audiences and supply
+data_protection_privacy 1/2/3 Applies data and consent rules
+measurement_attribution 1/3/3 Manages verification and attribution
+analytics_tools 2/3/3 Uses DSP reporting
+audience_segmentation 1/3/3 Builds data driven audiences
+quality_assurance 1/2/3 Protects brand safety
+vendor_management 1/2/3 Manages ad tech vendors
+commercial_acumen 1/2/3 Manages trading margin
+scripting_code 0/1/2 Uses APIs and scripts at senior level
+@ad_operations|advertising|high|Ad Ops Executive/Ad Operations Manager/Head of Ad Operations|Sets up, trafficks and troubleshoots ad campaigns
+*programmatic_adtech 2/3/3 Runs ad servers and tags
+*quality_assurance 2/3/3 QA of campaign set up
+*data_quality 2/3/3 Fixes tracking and data issues
+documentation 2/3/3 Maintains specs and set up guides
+process_design 1/2/3 Improves trafficking processes
+workflow_automation 1/2/3 Automates repetitive set up
+analytics_tools 1/2/2 Reports delivery
+project_management 1/2/3 Manages campaign go lives
+marketing_technology 2/3/3 Configures ad platforms
+resource_capacity_planning 0/2/3 Plans team workload
+stakeholder_management 1/2/3 Supports trading and client teams
+digital_asset_management 2/2/2 Manages creative assets for trafficking
+@agency_producer|advertising|medium|Assistant Producer/Producer/Head of Production|Produces film, photography and content for campaigns
+*production_management 2/3/4 Core craft of the role
+*vendor_management 2/3/4 Manages production companies and crews
+*budget_management 1/3/4 Owns production budgets
+project_management 2/3/4 Runs shoot schedules
+negotiation 1/3/3 Negotiates production costs
+risk_governance 1/3/3 Manages insurance and safety
+intellectual_property 1/2/3 Clears talent and music rights
+contract_management 1/2/3 Manages supplier and talent contracts
+stakeholder_management 2/3/3 Manages client and creative expectations
+quality_assurance 2/3/3 Delivers to technical specs
+motion_video_craft 1/2/2 Understands post production
+team_leadership 0/2/3 Leads crews and junior producers
+cross_functional_collaboration 2/3/3 Links creative and client teams
+pricing_commercial_modelling 1/2/3 Builds production estimates
+@digital_producer|advertising|medium|Junior Digital Producer/Digital Producer/Head of Digital Production|Delivers websites, apps and digital builds for clients
+*project_management 2/3/4 Runs digital builds
+*agile_delivery 1/3/3 Runs sprints with developers
+*documentation 2/3/3 Writes functional specs
+production_management 2/3/3 Manages build workflow
+product_thinking 1/2/3 Shapes features and scope
+web_cms 1/2/2 Understands CMS platforms
+quality_assurance 1/3/3 Runs testing and UAT
+accessibility_inclusive_design 1/2/2 Checks builds for accessibility
+vendor_management 1/2/3 Manages development partners
+budget_management 1/2/3 Tracks build budgets
+stakeholder_management 1/3/3 Manages client product owners
+cross_functional_collaboration 2/3/4 Links design and development
+ux_ui_design 0/1/2 Understands design process
+prototyping 0/1/2 Mocks up simple flows
+@agency_project_management|advertising|medium|Project Coordinator/Project Manager/Head of Project Management|Plans and controls agency project delivery
+*project_management 2/3/4 Core craft of the role
+*planning_prioritisation 2/3/4 Builds and manages timelines
+*resource_capacity_planning 1/3/3 Books team time
+process_design 1/2/3 Improves delivery processes
+documentation 2/3/3 Maintains plans and status reports
+risk_governance 1/2/3 Tracks risks and issues
+stakeholder_management 2/3/3 Keeps teams and clients aligned
+budget_management 1/2/3 Tracks time and cost
+agile_delivery 1/2/3 Uses agile methods where relevant
+conflict_resolution 1/2/3 Resolves priority clashes
+cross_functional_collaboration 2/3/3 Coordinates all departments
+production_management 1/2/2 Tracks assets through production
+@traffic_resourcing|advertising|high|Traffic Coordinator/Traffic Manager/Resource Director|Routes jobs through the agency and allocates people to work
+*resource_capacity_planning 1/3/4 Allocates creative and studio time
+*production_management 2/3/3 Moves jobs through stages
+*process_design 1/3/3 Designs job workflows
+project_management 2/3/3 Tracks job deadlines
+documentation 2/3/3 Maintains job records
+quality_assurance 2/3/3 Checks work before release
+workflow_automation 1/2/2 Uses workflow tools
+planning_prioritisation 2/3/3 Prioritises competing jobs
+cross_functional_collaboration 2/3/3 Works with every department
+stakeholder_management 1/2/3 Negotiates deadlines with account teams
+digital_asset_management 2/2/2 Manages files and versions
+data_quality 1/2/2 Keeps job data accurate
+conflict_resolution 1/2/3 Settles resource clashes
+@new_business|advertising|low|New Business Executive/New Business Manager/Head of New Business|Wins new clients for an agency
+*business_development 2/3/4 Core craft of the role
+*presenting_persuasion 1/3/4 Leads pitch presentations
+*sales_pipeline_management 1/3/3 Manages prospect pipeline
+storytelling 2/3/3 Shapes credentials and pitch narratives
+research_methods 1/2/2 Researches prospects
+competitive_analysis 2/3/3 Tracks competing agencies
+stakeholder_management 1/3/3 Rallies pitch teams
+negotiation 1/2/3 Negotiates terms after winning
+commercial_acumen 1/3/3 Judges pitch viability
+project_management 2/3/3 Runs pitch timelines
+copywriting 2/2/2 Writes proposals and RFP responses
+client_management 1/3/3 Builds prospect relationships
+pricing_commercial_modelling 0/1/3 Prices pitches at senior level
+@publisher_ad_sales|advertising|medium|Sales Executive/Media Sales Manager/Head of Commercial Partnerships|Sells advertising and branded content for media owners
+*business_development 2/3/4 Sells to agencies and brands
+*sales_pipeline_management 2/3/4 Manages revenue pipeline
+*negotiation 1/3/4 Negotiates deals
+client_management 2/3/3 Manages agency relationships
+presenting_persuasion 2/3/3 Pitches audiences and ideas
+commercial_acumen 1/3/4 Hits revenue targets
+pricing_commercial_modelling 1/2/3 Packages and prices inventory
+concept_development 1/2/3 Creates branded content ideas
+audience_segmentation 1/2/3 Sells audience propositions
+stakeholder_management 1/2/3 Works with editorial and ops
+measurement_attribution 1/2/2 Reports campaign results
+@data_planning|advertising|medium|Data Planning Executive/Data Planner/Head of Data Strategy|Uses data to shape audience, media and measurement strategy
+*data_analysis 2/3/4 Core craft of the role
+*audience_segmentation 2/3/4 Builds data led audiences
+*measurement_attribution 2/3/4 Designs measurement plans
+data_protection_privacy 1/3/3 Advises on data use and consent
+analytics_tools 2/3/3 Uses data platforms
+statistical_modelling 1/2/3 Uses modelling for planning
+consumer_insight 1/3/3 Turns data into insight
+programmatic_adtech 1/2/3 Understands data activation
+data_visualisation 1/2/3 Presents data clearly
+presenting_persuasion 1/2/3 Presents to clients
+problem_framing 1/3/3 Frames data questions
+marketing_technology 1/2/3 Advises on data stack
+@copywriting|creative|high|Junior Copywriter/Copywriter/Senior Copywriter|Writes advertising and brand copy and develops ideas
+*copywriting 2/3/4 Core craft of the role
+*concept_development 2/3/4 Develops ideas with art director
+*storytelling 2/3/4 Builds narratives in few words
+tone_of_voice 2/3/4 Creates and applies brand voice
+scriptwriting 1/2/3 Writes film and radio scripts
+editing_proofreading 2/3/3 Polishes own and others' copy
+creative_judgement 1/3/3 Judges what works
+feedback_critique 1/2/3 Critiques peers' work
+consumer_insight 1/2/2 Uses insight from strategy
+brand_governance 1/2/3 Keeps copy on brand
+presenting_persuasion 1/2/3 Presents ideas to clients
+regulatory_compliance 1/2/2 Writes within advertising claims rules
+ai_tool_proficiency 2/2/3 Uses AI for drafts and variants
+cross_functional_collaboration 2/3/3 Works with design and account teams
+@art_direction|creative|medium|Junior Art Director/Art Director/Senior Art Director|Leads the visual idea and look of campaigns
+*art_direction 1/3/4 Core craft of the role
+*concept_development 2/3/4 Develops ideas with copywriter
+*creative_judgement 2/3/4 Judges visual quality
+visual_design 2/3/3 Designs layouts and key visuals
+storytelling 1/3/3 Tells stories visually
+presenting_persuasion 1/2/3 Presents work to clients
+feedback_critique 1/2/3 Directs designers and photographers
+production_management 1/2/2 Attends shoots and edits
+brand_governance 1/2/3 Applies brand identity
+ai_tool_proficiency 2/2/3 Uses AI for concept visuals
+cross_functional_collaboration 2/3/3 Works with production and account teams
+illustration_image_making 1/2/2 Creates rough visuals
+motion_video_craft 1/1/2 Directs motion work
+intellectual_property 1/1/2 Understands image rights
+@graphic_design|creative|high|Junior Designer/Graphic Designer/Senior Designer|Designs print and digital assets to brief
+*visual_design 2/3/4 Core craft of the role
+*brand_governance 2/3/3 Applies brand guidelines precisely
+*content_production 2/3/3 Produces finished assets
+creative_judgement 1/2/3 Judges design quality
+ai_tool_proficiency 1/2/3 Uses AI in design tools
+feedback_critique 1/2/3 Reviews junior work
+project_management 1/2/2 Manages own workload
+quality_assurance 2/3/3 Checks artwork before release
+concept_development 1/2/3 Develops design concepts
+illustration_image_making 1/2/2 Creates graphics and icons
+accessibility_inclusive_design 1/2/2 Applies contrast and legibility rules
+digital_asset_management 1/2/2 Manages design files
+ux_ui_design 0/1/2 Designs simple digital layouts
+@creative_direction|creative|low|Associate Creative Director/Creative Director/Executive Creative Director|Leads creative teams and owns the quality of creative output
+*creative_judgement 3/4/4 Sets the creative bar
+*concept_development 3/4/4 Shapes and sharpens ideas
+*team_leadership 2/3/4 Leads creative departments
+*presenting_persuasion 3/4/4 Sells work to senior clients
+storytelling 3/4/4 Crafts campaign narratives
+feedback_critique 3/4/4 Gives critique that lifts work
+brand_strategy 2/3/3 Connects creative to brand strategy
+client_management 2/3/4 Owns senior client relationships
+coaching_mentoring 2/3/4 Develops creative talent
+art_direction 3/3/3 Directs visual craft
+copywriting 3/3/3 Directs writing craft
+stakeholder_management 2/3/4 Works with agency leadership
+risk_governance 1/2/3 Manages reputational creative risk
+commercial_acumen 1/2/3 Balances craft and budget
+business_development 1/2/3 Leads creative in pitches
+@motion_design|creative|high|Junior Motion Designer/Motion Designer/Senior Motion Designer|Creates animated graphics and motion content
+*motion_video_craft 2/3/4 Core craft of the role
+*content_production 2/3/4 Produces finished motion assets
+*visual_design 2/3/3 Designs frames and graphics
+storytelling 1/2/3 Structures animated sequences
+creative_judgement 1/2/3 Judges motion quality
+ai_tool_proficiency 2/3/3 Uses AI video and image tools
+quality_assurance 1/2/3 Delivers to specs
+project_management 1/2/2 Manages own jobs
+feedback_critique 1/2/3 Reviews junior animators
+production_management 1/2/2 Manages render and delivery
+concept_development 1/2/3 Develops motion concepts
+illustration_image_making 1/2/3 Creates illustrated assets
+@studio_artwork|creative|high|Junior Artworker/Artworker/Studio Manager|Adapts, finishes and releases artwork across formats
+*quality_assurance 2/3/4 Pixel perfect checking is core
+*content_production 2/3/3 Resizes and adapts assets at volume
+*digital_asset_management 2/3/3 Manages versions and releases
+visual_design 2/3/3 Applies layouts accurately
+production_management 1/2/3 Manages print and digital release
+brand_governance 2/3/3 Applies guidelines rigorously
+documentation 1/2/3 Maintains specs and templates
+process_design 1/2/3 Designs studio workflows
+ai_tool_proficiency 1/2/2 Uses automated resizing tools
+data_quality 1/2/2 Manages file naming and metadata
+resource_capacity_planning 0/1/3 Plans studio capacity when senior
+workflow_automation 1/1/2 Uses templating and automation
+accessibility_inclusive_design 1/1/2 Checks legibility
+team_leadership 0/1/2 Leads studio team when senior
+@video_editing|creative|high|Assistant Editor/Video Editor/Senior Editor|Edits film and video content
+*motion_video_craft 2/3/4 Core craft of the role
+*storytelling 2/3/4 Shapes the story in the edit
+*creative_judgement 1/3/3 Judges pace and performance
+content_production 2/3/3 Delivers multiple cutdowns
+quality_assurance 2/3/3 Delivers to broadcast specs
+ai_tool_proficiency 2/3/3 Uses AI editing tools
+digital_asset_management 2/2/3 Manages rushes and versions
+project_management 1/2/2 Manages edit schedules
+feedback_critique 1/2/3 Handles director and client notes
+scriptwriting 1/1/2 Rewrites structure in the edit
+intellectual_property 1/1/2 Clears music and footage
+cross_functional_collaboration 1/2/3 Works with producers and grade
+@illustration|creative|high|Junior Illustrator/Illustrator/Senior Illustrator|Creates original illustration for brands and publications
+*illustration_image_making 2/3/4 Core craft of the role
+*visual_design 2/3/3 Composes images
+*creative_judgement 1/3/3 Develops a distinctive style
+concept_development 1/2/3 Develops visual ideas
+storytelling 1/2/3 Tells stories in images
+ai_tool_proficiency 1/2/2 Uses AI selectively in workflow
+intellectual_property 1/2/3 Manages licensing of own work
+client_management 1/2/3 Manages commissions directly
+pricing_commercial_modelling 1/2/2 Prices commissions and licences
+project_management 1/2/2 Delivers to deadlines
+feedback_critique 1/2/3 Handles client rounds
+@photography|creative|high|Photography Assistant/Photographer/Senior Photographer|Shoots commercial photography and manages shoots
+*illustration_image_making 2/3/4 Core image making craft
+*production_management 1/2/3 Runs shoots
+*creative_judgement 1/3/3 Judges images and selects
+art_direction 1/2/3 Directs look and composition
+content_production 2/3/3 Delivers finished image sets
+client_management 1/2/3 Works directly with clients
+intellectual_property 1/2/3 Manages image licensing
+pricing_commercial_modelling 1/2/3 Quotes day rates and usage
+vendor_management 1/2/2 Books crew and studios
+digital_asset_management 2/2/2 Manages image libraries
+ai_tool_proficiency 1/2/2 Uses AI retouching tools
+risk_governance 1/1/2 Manages shoot safety and releases
+@digital_design_ui|creative|medium|Junior Digital Designer/Digital Designer/Senior Digital Designer|Designs websites, apps and digital interfaces
+*ux_ui_design 2/3/4 Core craft of the role
+*visual_design 2/3/3 Designs interfaces
+*prototyping 1/2/3 Builds clickable prototypes
+accessibility_inclusive_design 1/2/3 Designs to WCAG
+research_methods 0/1/2 Runs usability tests when senior
+customer_experience 1/2/3 Designs journeys
+agile_delivery 1/2/2 Works in sprints
+product_thinking 1/2/2 Understands product goals
+creative_judgement 1/2/3 Judges design quality
+documentation 1/2/2 Writes design specs
+cross_functional_collaboration 2/3/3 Works with developers
+web_cms 1/2/2 Understands CMS constraints
+ai_tool_proficiency 2/2/3 Uses AI design tools
+@brand_identity_design|creative|medium|Junior Brand Designer/Brand Designer/Design Director|Creates visual identities and brand systems
+*visual_design 2/3/4 Core craft of the role
+*brand_governance 2/3/4 Writes brand guidelines
+*concept_development 2/3/4 Develops identity concepts
+brand_strategy 1/2/3 Translates strategy into design
+creative_judgement 2/3/4 Judges identity quality
+tone_of_voice 0/1/2 Aligns visual and verbal identity
+presenting_persuasion 1/2/4 Presents identities to leadership
+documentation 1/2/3 Documents design systems
+client_management 1/2/3 Manages brand clients
+feedback_critique 1/2/3 Reviews designers' work
+illustration_image_making 1/2/2 Creates identity assets
+team_leadership 0/1/3 Leads design teams when senior
+intellectual_property 1/1/2 Understands trademark issues
+@social_content_creator|creative|high|Content Assistant/Social Content Creator/Senior Content Creator|Makes native content for social platforms
+*content_production 2/3/3 Produces content at speed
+*cultural_trend_insight 2/3/4 Lives inside platform culture
+*social_platforms 2/3/3 Knows native formats
+motion_video_craft 2/2/3 Shoots and edits short video
+copywriting 1/2/3 Writes captions and hooks
+storytelling 1/2/3 Tells stories in seconds
+ai_tool_proficiency 2/3/3 Uses AI editing and generation
+creative_judgement 1/2/3 Knows what will land
+community_management 1/2/2 Engages with comments
+data_analysis 1/1/2 Reads platform analytics
+talent_influencer_relations 1/1/2 Works with creators
+regulatory_compliance 1/2/2 Applies disclosure rules
+@cgi_retouching|creative|high|Junior Retoucher/Retoucher and CGI Artist/Lead CGI Artist|Retouches imagery and creates CGI product visuals
+*illustration_image_making 2/3/4 Creates and perfects imagery
+*quality_assurance 2/3/4 Obsessive detail checking
+*content_production 2/3/3 Delivers image sets at volume
+creative_judgement 1/2/3 Judges realism and finish
+ai_tool_proficiency 2/2/3 Uses AI generation and retouching
+digital_asset_management 1/2/3 Manages high resolution files
+project_management 1/1/2 Manages own jobs
+feedback_critique 1/2/2 Handles art director notes
+visual_design 1/2/3 Composes images
+production_management 1/2/2 Manages delivery
+ethics_responsible_ai 0/1/2 Understands image manipulation limits
+@animation_3d|creative|high|Junior 3D Artist/3D Animator/Lead 3D Artist|Models and animates 3D content
+*motion_video_craft 2/3/4 Animates in 3D
+*illustration_image_making 2/3/3 Models, textures and lights
+*content_production 2/3/3 Renders finished assets
+storytelling 1/2/3 Directs animated sequences
+creative_judgement 1/2/3 Judges visual quality
+scripting_code 0/1/2 Scripts tools and rigs when senior
+ai_tool_proficiency 1/2/3 Uses AI 3D and texturing tools
+quality_assurance 1/2/3 Checks renders
+project_management 1/2/2 Manages render schedules
+prototyping 0/1/2 Builds real time prototypes
+feedback_critique 1/2/3 Reviews junior artists
+@packaging_design|creative|medium|Junior Packaging Designer/Packaging Designer/Packaging Design Director|Designs packaging from concept to print ready artwork
+*visual_design 2/3/4 Core craft of the role
+*regulatory_compliance 1/2/3 Applies labelling and claims rules
+*quality_assurance 2/3/3 Checks print ready artwork
+brand_governance 2/3/3 Applies brand across range
+production_management 1/2/3 Manages print production
+vendor_management 1/2/3 Works with printers and converters
+concept_development 1/2/3 Develops pack concepts
+consumer_insight 0/1/2 Uses shopper insight
+creative_judgement 1/2/3 Judges shelf impact
+documentation 1/2/2 Maintains artwork specs
+cross_functional_collaboration 1/2/3 Works with technical and regulatory teams
+intellectual_property 0/1/2 Understands design registration
+@creative_strategist|creative|low|Junior Creative Strategist/Creative Strategist/Head of Creative Strategy|Connects audience insight, platforms and creative ideas
+*cultural_trend_insight 2/3/4 Reads culture and platforms
+*problem_framing 1/3/4 Frames creative problems
+*concept_development 2/3/3 Develops platform native ideas
+consumer_insight 2/3/3 Grounds ideas in insight
+storytelling 2/3/4 Builds creative narratives
+creative_judgement 1/3/3 Judges idea strength
+social_platforms 1/2/3 Understands platform mechanics
+experimentation 1/2/3 Designs creative tests
+data_analysis 1/2/3 Uses performance data
+presenting_persuasion 1/3/4 Presents creative strategy
+client_management 1/2/3 Works with clients
+positioning 1/2/3 Links ideas to brand positioning
+facilitation 1/2/3 Runs ideation sessions

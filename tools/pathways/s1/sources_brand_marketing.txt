@@ -1,0 +1,440 @@
+# @id|discipline|displacement_risk|junior/mid/senior titles|summary
+# *skill junior/mid/senior rationale   (* = signature skill)
+@brand_management|brand|medium|Brand Executive/Brand Manager/Senior Brand Manager|Runs a brand's marketing plan, agencies and budget
+*brand_strategy 1/2/3 Applies the brand plan; senior shapes it
+*positioning 1/3/3 Writes messaging for launches and campaigns
+*consumer_insight 2/3/3 Turns research into briefs
+*budget_management 1/3/4 Owns the brand budget from mid level
+*stakeholder_management 2/3/4 Aligns sales, finance and agencies
+project_management 2/3/3 Delivers campaigns and launches
+brand_governance 2/3/3 Guardian of brand consistency
+vendor_management 2/3/3 Briefs and manages agency roster
+commercial_acumen 1/3/3 Accountable for volume and share
+go_to_market_planning 1/2/3 Plans launches with sales teams
+competitive_analysis 2/2/3 Tracks category and competitors
+creative_judgement 1/2/3 Approves agency creative work
+presenting_persuasion 1/3/3 Presents plans to leadership
+data_analysis 2/2/3 Reads sales and brand tracking data
+cross_functional_collaboration 2/3/4 Works across product, sales and supply
+@brand_strategist|brand|low|Junior Brand Strategist/Brand Strategist/Strategy Director|Defines brand purpose, positioning and architecture
+*brand_strategy 2/4/4 Core craft of the role
+*positioning 2/3/4 Builds propositions and architecture
+*consumer_insight 2/3/4 Finds the insight behind the brand
+*problem_framing 2/3/4 Reframes client briefs
+research_methods 2/3/3 Runs qualitative research and audits
+storytelling 2/3/4 Turns strategy into a compelling narrative
+presenting_persuasion 2/3/4 Sells strategy to clients
+competitive_analysis 3/3/4 Category audits start at junior level
+cultural_trend_insight 2/3/3 Brings cultural context into strategy
+facilitation 1/3/4 Runs brand workshops with executives
+audience_segmentation 1/2/3 Defines target audiences
+tone_of_voice 1/2/3 Defines verbal identity
+client_management 1/2/3 Senior leads client relationships
+@brand_partnerships|brand|low|Partnerships Executive/Brand Partnerships Manager/Head of Partnerships and Sponsorship|Builds sponsorships, collaborations and co branded programmes
+*business_development 1/3/4 Sources and wins partners
+*negotiation 1/3/4 Negotiates fees, rights and deliverables
+*client_management 2/3/4 Manages partner relationships
+contract_management 1/2/3 Manages rights and deliverables
+stakeholder_management 2/3/4 Aligns internal teams with partners
+commercial_acumen 1/3/4 Judges partnership value
+concept_development 1/2/3 Creates activation ideas
+project_management 2/3/3 Delivers activations
+measurement_attribution 1/2/3 Proves sponsorship ROI
+intellectual_property 1/2/3 Manages brand and logo usage rights
+presenting_persuasion 2/3/4 Pitches partnership proposals
+talent_influencer_relations 1/2/3 Manages ambassadors and athletes
+@brand_experience|brand|low|Brand Experience Executive/Brand Experience Manager/Head of Brand Experience|Designs physical and digital brand experiences, retail spaces and pop ups
+*customer_experience 2/3/4 Designs the visitor journey
+*concept_development 2/3/3 Creates experience concepts
+*project_management 2/3/4 Delivers complex builds
+vendor_management 2/3/4 Manages fabricators and agencies
+budget_management 1/3/3 Controls build budgets
+production_management 2/3/3 Runs build and install schedules
+brand_governance 2/3/3 Keeps spaces on brand
+risk_governance 1/2/3 Manages health, safety and permits
+stakeholder_management 2/3/3 Aligns retail, landlords and teams
+creative_judgement 1/2/3 Signs off design quality
+measurement_attribution 1/2/2 Tracks footfall and engagement
+@brand_communications|brand|medium|Brand Comms Executive/Brand Communications Manager/Head of Brand Communications|Manages brand storytelling across owned, earned and paid channels
+*storytelling 2/3/4 Owns the brand narrative
+*copywriting 2/3/3 Writes brand content and releases
+*tone_of_voice 2/3/3 Keeps the brand voice consistent
+planning_prioritisation 1/3/4 Plans integrated comms calendars
+stakeholder_management 2/3/4 Aligns leadership and agencies
+brand_governance 2/3/3 Approves brand messaging
+vendor_management 1/2/3 Manages PR and content agencies
+crisis_management 1/2/3 Handles reputational issues
+measurement_attribution 1/2/3 Reports reach and sentiment
+content_production 2/2/2 Produces owned content
+editing_proofreading 2/3/3 Edits content from many contributors
+presenting_persuasion 1/2/3 Presents comms plans
+@brand_licensing|brand|low|Licensing Coordinator/Licensing Manager/Head of Licensing|Grows revenue by licensing brand IP to manufacturers and partners
+*intellectual_property 1/3/4 Core knowledge of licensed rights
+*contract_management 2/3/4 Manages licence agreements
+*negotiation 1/3/4 Negotiates royalties and terms
+business_development 1/3/4 Finds new licensees
+brand_governance 2/3/4 Runs product and artwork approvals
+commercial_acumen 1/3/4 Manages licensing revenue
+pricing_commercial_modelling 1/2/3 Builds royalty and minimum guarantee models
+client_management 2/3/3 Manages licensee relationships
+quality_assurance 2/3/3 Checks licensed product quality
+documentation 2/3/3 Maintains approvals records
+stakeholder_management 2/3/3 Aligns legal and brand teams
+@brand_innovation|brand|low|Innovation Executive/Innovation Manager/Head of Innovation|Develops new products and propositions from insight to launch
+*opportunity_identification 1/3/4 Finds new product opportunities
+*consumer_insight 2/3/4 Builds concepts from consumer needs
+*product_thinking 1/3/4 Shapes product features and range
+concept_development 2/3/3 Writes and develops concepts
+research_methods 2/3/3 Runs concept and product testing
+project_management 2/3/4 Runs stage gate processes
+go_to_market_planning 1/2/3 Hands over to launch teams
+commercial_acumen 1/3/4 Builds business cases
+market_sizing_forecasting 1/2/3 Sizes volume opportunity
+cross_functional_collaboration 2/3/4 Works with R&D, supply and finance
+presenting_persuasion 1/3/4 Secures investment at gate reviews
+experimentation 1/2/3 Tests concepts before launch
+stakeholder_management 2/3/4 Aligns many functions
+@shopper_marketing|brand|medium|Shopper Marketing Executive/Shopper Marketing Manager/Head of Shopper Marketing|Influences purchase decisions in store and in online retail
+*consumer_insight 2/3/3 Understands shopper behaviour
+*client_management 2/3/4 Works with retailer marketing teams
+*commercial_acumen 2/3/4 Links activity to sales uplift
+audience_segmentation 1/2/3 Targets shopper missions
+negotiation 1/2/3 Agrees retailer activation terms
+concept_development 1/2/3 Creates in store activations
+budget_management 1/3/3 Manages retailer investment
+measurement_attribution 1/2/3 Measures promotional uplift
+data_analysis 2/3/3 Analyses EPOS and loyalty data
+project_management 2/3/3 Delivers retailer campaigns
+vendor_management 1/2/3 Manages shopper agencies
+brand_governance 1/2/2 Keeps retail materials on brand
+@trade_marketing|brand|medium|Trade Marketing Executive/Trade Marketing Manager/Trade Marketing Controller|Plans promotions, pricing and range with retail and wholesale partners
+*commercial_acumen 2/3/4 Drives profitable volume
+*pricing_commercial_modelling 1/3/4 Models promotion ROI
+*data_analysis 2/3/3 Analyses sell out and promotions
+market_sizing_forecasting 1/2/3 Forecasts promotional volume
+client_management 1/3/3 Supports key account managers
+negotiation 1/2/3 Negotiates promotional terms
+planning_prioritisation 2/3/4 Builds promotional calendars
+project_management 2/3/3 Delivers trade activity
+stakeholder_management 2/3/3 Aligns sales, finance and brand
+budget_management 1/3/3 Manages trade spend
+sales_pipeline_management 1/2/2 Supports sales planning
+documentation 2/2/3 Maintains trade plans and terms
+@marketing_generalist|marketing|high|Marketing Assistant/Marketing Manager/Head of Marketing|Runs marketing across channels for an SME or small team
+*project_management 2/3/3 Juggles many campaigns
+*copywriting 2/3/3 Writes most marketing content
+*planning_prioritisation 1/3/4 Decides where limited budget goes
+content_production 2/2/2 Makes assets with self serve tools
+marketing_technology 1/2/3 Runs email and CRM tools
+social_platforms 2/2/2 Manages social channels
+web_cms 2/2/2 Updates the website
+data_analysis 1/2/3 Reports on performance
+budget_management 1/2/4 Owns the marketing budget at senior level
+vendor_management 1/3/3 Manages freelancers and agencies
+stakeholder_management 1/3/4 Reports to founders and leadership
+ai_tool_proficiency 2/2/3 Uses AI to stretch small resources
+measurement_attribution 1/2/3 Tracks leads and sales
+team_leadership 0/1/3 Leads a small team when senior
+brand_governance 1/2/3 Maintains brand consistency
+@digital_marketing|marketing|medium|Digital Marketing Executive/Digital Marketing Manager/Head of Digital|Plans and runs paid, owned and search channels
+*digital_media_buying 2/3/3 Runs paid campaigns
+*measurement_attribution 1/3/4 Owns digital KPIs
+*marketing_technology 2/3/3 Runs digital platforms
+seo_search 1/2/3 Oversees search visibility
+data_analysis 2/3/3 Analyses channel performance
+experimentation 1/3/3 Runs landing page and ad tests
+budget_management 1/3/4 Allocates channel budgets
+analytics_tools 2/2/3 Uses analytics platforms daily
+crm_automation 1/2/2 Runs email programmes
+web_cms 2/2/2 Manages landing pages
+project_management 2/3/3 Delivers digital campaigns
+stakeholder_management 1/3/4 Reports to leadership
+planning_prioritisation 1/3/4 Sets digital channel plans
+team_leadership 0/1/3 Leads channel specialists when senior
+@content_marketing|marketing|high|Content Executive/Content Marketing Manager/Head of Content|Plans and produces content that attracts and converts audiences
+*storytelling 2/3/4 Shapes editorial narratives
+*copywriting 2/3/3 Writes long and short form content
+*editing_proofreading 2/3/4 Edits contributors and freelancers
+content_production 2/3/3 Produces multi format content
+seo_search 1/3/3 Optimises content for search
+audience_segmentation 1/2/3 Maps content to audience needs
+planning_prioritisation 1/3/4 Runs the editorial calendar
+web_cms 2/3/3 Publishes content
+measurement_attribution 1/2/3 Measures content performance
+ai_tool_proficiency 2/3/3 Uses AI heavily in content workflows
+tone_of_voice 2/3/3 Keeps content in voice
+creative_judgement 1/3/4 Judges content quality
+feedback_critique 1/3/4 Reviews writers' work
+vendor_management 1/2/3 Manages freelance writers
+@social_media|marketing|high|Social Media Executive/Social Media Manager/Head of Social|Runs brand social channels, content and paid social
+*social_platforms 2/3/4 Deep platform knowledge
+*content_production 2/3/3 Creates native social content
+*cultural_trend_insight 2/3/4 Spots and uses trends fast
+copywriting 2/3/3 Writes captions and posts
+community_management 2/3/3 Manages engagement and replies
+audience_segmentation 1/2/3 Targets audiences by platform
+data_analysis 1/2/3 Analyses social performance
+measurement_attribution 1/2/3 Reports social KPIs
+digital_media_buying 1/2/3 Runs paid social boosts
+ai_tool_proficiency 2/3/3 Uses AI for content and scheduling
+crisis_management 1/2/3 Handles negative spikes
+regulatory_compliance 1/2/2 Applies ad disclosure rules
+motion_video_craft 1/2/2 Edits short form video
+stakeholder_management 1/2/3 Gets approvals from brand and legal
+@community_manager|marketing|medium|Community Executive/Community Manager/Head of Community|Builds and moderates brand communities and advocacy
+*community_management 2/3/4 Core craft of the role
+*customer_experience 2/3/3 Represents members' experience
+*conflict_resolution 2/3/3 De escalates disputes daily
+copywriting 2/2/2 Writes community posts
+tone_of_voice 2/3/3 Speaks in the brand voice
+crisis_management 1/2/3 Manages community incidents
+social_platforms 2/3/3 Runs community platforms
+consumer_insight 1/2/3 Feeds member insight to teams
+data_analysis 1/2/2 Tracks engagement health
+facilitation 1/2/3 Runs events and AMAs
+stakeholder_management 1/2/3 Links community to product and support
+regulatory_compliance 1/2/2 Applies moderation and safety rules
+@influencer_marketing|marketing|medium|Influencer Executive/Influencer Marketing Manager/Head of Influencer|Plans and runs creator and influencer programmes
+*talent_influencer_relations 2/3/4 Core relationship craft
+*negotiation 1/3/4 Negotiates fees and deliverables
+*regulatory_compliance 1/3/3 Applies ASA disclosure rules
+contract_management 1/2/3 Manages creator contracts
+intellectual_property 1/2/3 Clears content usage rights
+cultural_trend_insight 2/3/3 Knows which creators matter
+audience_segmentation 1/2/3 Matches creators to audiences
+measurement_attribution 1/2/3 Measures creator ROI
+budget_management 1/2/3 Manages creator budgets
+project_management 2/3/3 Runs multi creator campaigns
+social_platforms 2/3/3 Understands platform mechanics
+creative_judgement 1/2/3 Approves creator content
+@crm_lifecycle|marketing|medium|CRM Executive/CRM Manager/Head of CRM|Builds lifecycle, email and retention programmes
+*crm_automation 2/3/4 Builds automated journeys
+*audience_segmentation 2/3/4 Segments the customer base
+*data_protection_privacy 2/3/3 Manages consent and GDPR daily
+experimentation 1/3/3 Tests subject lines and journeys
+data_analysis 2/3/3 Analyses retention and cohorts
+analytics_tools 1/2/3 Queries customer data
+copywriting 2/2/2 Writes emails and push messages
+customer_experience 1/3/3 Designs the post purchase experience
+marketing_technology 2/3/3 Configures CRM platforms
+workflow_automation 1/2/3 Connects CRM to other tools
+data_quality 2/3/3 Keeps customer data clean
+measurement_attribution 1/3/3 Measures lifetime value impact
+planning_prioritisation 1/2/3 Plans the CRM calendar
+@seo|marketing|high|SEO Executive/SEO Manager/Head of SEO|Improves organic visibility through technical and content optimisation
+*seo_search 2/3/4 Core craft of the role
+*analytics_tools 2/3/3 Uses search and analytics tools daily
+*web_cms 2/3/3 Implements on site changes
+data_analysis 2/3/3 Analyses rankings and traffic
+copywriting 1/2/2 Writes optimised page copy
+experimentation 1/2/3 Tests SEO changes
+scripting_code 0/1/2 Uses scripts for crawls at senior level
+ai_tool_proficiency 2/3/3 Uses AI for content and analysis
+documentation 1/2/3 Writes technical SEO specs
+competitive_analysis 2/3/3 Tracks competitor search visibility
+stakeholder_management 1/2/3 Gets developers to prioritise fixes
+accessibility_inclusive_design 1/2/2 Aligns SEO with accessible markup
+@paid_search|marketing|high|PPC Executive/Paid Search Manager/Head of Paid Search|Plans and optimises search advertising
+*digital_media_buying 2/3/4 Core craft of the role
+*data_analysis 2/3/4 Analyses bids, queries and conversions
+*experimentation 2/3/3 Tests ads and bidding constantly
+analytics_tools 2/3/3 Uses ad platforms and analytics
+budget_management 1/3/3 Manages daily spend pacing
+measurement_attribution 1/3/4 Owns conversion tracking
+copywriting 1/2/2 Writes ad copy
+commercial_acumen 1/2/3 Optimises to profit not clicks
+workflow_automation 1/2/3 Uses rules and automated bidding
+scripting_code 0/1/2 Writes ad scripts at senior level
+ai_tool_proficiency 2/2/3 Manages AI driven campaign types
+client_management 1/2/3 Reports to clients in agency settings
+@paid_social|marketing|high|Paid Social Executive/Paid Social Manager/Head of Paid Social|Plans and optimises paid social advertising
+*digital_media_buying 2/3/4 Core craft of the role
+*social_platforms 2/3/3 Deep ad platform knowledge
+*audience_segmentation 2/3/3 Builds audiences and lookalikes
+experimentation 1/3/3 Tests creative and audiences
+data_analysis 2/3/3 Analyses campaign performance
+measurement_attribution 1/3/3 Manages pixels and conversion APIs
+creative_judgement 1/2/3 Judges which creative will perform
+budget_management 1/2/3 Paces spend
+analytics_tools 1/2/3 Uses ad and analytics tools
+data_protection_privacy 1/2/2 Applies consent to tracking
+ai_tool_proficiency 2/2/3 Manages automated campaign tools
+client_management 1/2/3 Reports to clients in agency settings
+@performance_marketing|marketing|medium|Performance Marketing Executive/Performance Marketing Manager/Head of Growth Marketing|Drives measurable acquisition across paid channels
+*digital_media_buying 2/4/4 Runs multi channel paid media
+*measurement_attribution 2/3/4 Owns attribution and incrementality
+*experimentation 2/3/4 Runs structured test programmes
+data_analysis 2/3/4 Deep performance analysis
+statistical_modelling 0/1/2 Uses modelling at senior level
+analytics_tools 2/3/3 Uses BI and analytics tools
+budget_management 1/3/4 Allocates large paid budgets
+commercial_acumen 1/3/4 Optimises to CAC and LTV
+market_sizing_forecasting 1/2/3 Forecasts acquisition volume
+marketing_technology 2/3/3 Manages tracking and ad tech
+workflow_automation 1/2/2 Automates reporting and bids
+stakeholder_management 1/3/3 Reports to finance and leadership
+planning_prioritisation 1/3/4 Sets channel mix
+@affiliate_marketing|marketing|high|Affiliate Executive/Affiliate and Partnerships Manager/Head of Affiliates|Manages affiliate networks, publishers and commission
+*client_management 2/3/3 Manages publisher relationships
+*pricing_commercial_modelling 1/2/3 Designs commission structures
+*commercial_acumen 1/3/3 Manages programme profitability
+negotiation 1/3/3 Negotiates placements and rates
+data_analysis 2/3/3 Analyses publisher performance
+measurement_attribution 1/3/3 Manages tracking and attribution rules
+contract_management 1/2/3 Manages publisher terms
+marketing_technology 2/2/3 Runs affiliate networks
+data_quality 2/2/2 Spots fraud and invalid sales
+business_development 1/2/3 Recruits new publishers
+regulatory_compliance 1/2/2 Applies disclosure and promotional rules
+@ecommerce_marketing|marketing|medium|Ecommerce Executive/Ecommerce Marketing Manager/Head of Ecommerce|Drives online sales through site, merchandising and promotions
+*commercial_acumen 1/3/4 Owns online revenue
+*customer_experience 1/3/3 Improves the shopping journey
+*experimentation 1/3/3 Runs conversion tests
+web_cms 2/3/3 Manages the online store
+data_analysis 2/3/3 Analyses conversion funnels
+analytics_tools 2/3/3 Uses ecommerce analytics
+crm_automation 1/2/2 Runs basket and browse emails
+digital_media_buying 1/2/3 Oversees shopping ads
+pricing_commercial_modelling 1/2/3 Plans promotions and discounts
+project_management 2/3/3 Delivers site launches
+ux_ui_design 0/1/2 Briefs page designs
+planning_prioritisation 1/2/3 Plans the trading calendar
+stakeholder_management 1/2/3 Aligns buying and operations
+accessibility_inclusive_design 1/2/2 Keeps the store accessible
+@product_marketing|marketing|low|Product Marketing Executive/Product Marketing Manager/Director of Product Marketing|Positions and launches products and enables sales
+*positioning 2/3/4 Core craft of the role
+*go_to_market_planning 1/3/4 Runs product launches
+*product_thinking 1/3/3 Works closely with product teams
+competitive_analysis 2/3/3 Builds competitor battlecards
+consumer_insight 1/3/3 Understands buyer needs
+storytelling 2/3/4 Crafts launch narratives
+copywriting 2/3/3 Writes product messaging
+cross_functional_collaboration 2/3/4 Links product, sales and marketing
+research_methods 1/2/3 Runs win loss and buyer research
+presenting_persuasion 1/3/4 Presents to sales and customers
+facilitation 1/2/3 Runs sales training sessions
+commercial_acumen 1/2/3 Understands pricing and revenue
+stakeholder_management 1/3/4 Aligns product and sales leaders
+@marketing_operations|marketing|medium|Marketing Ops Executive/Marketing Operations Manager/Head of Marketing Operations|Runs the martech stack, processes and data behind marketing
+*marketing_technology 2/3/4 Owns the martech stack
+*process_design 1/3/4 Designs marketing workflows
+*workflow_automation 1/3/3 Automates marketing processes
+data_quality 2/3/3 Keeps marketing data clean
+analytics_tools 1/3/3 Builds marketing reporting
+project_management 2/3/3 Runs platform projects
+vendor_management 1/2/3 Manages martech vendors
+budget_management 1/2/3 Tracks marketing spend
+documentation 2/3/3 Documents processes and systems
+crm_automation 1/3/3 Configures CRM and automation
+data_protection_privacy 1/2/3 Manages consent infrastructure
+resource_capacity_planning 1/2/3 Plans team capacity
+digital_asset_management 1/2/3 Runs the DAM
+stakeholder_management 1/3/3 Serves many marketing teams
+@marketing_analytics|marketing|medium|Marketing Data Analyst/Marketing Analytics Manager/Head of Marketing Analytics|Analyses marketing data to guide spend and strategy
+*data_analysis 3/3/4 Core craft of the role
+*analytics_tools 2/3/4 Uses SQL and BI tools daily
+*measurement_attribution 2/3/4 Builds measurement frameworks
+statistical_modelling 1/3/3 Runs modelling and significance tests
+data_visualisation 2/3/3 Builds dashboards
+experimentation 1/3/3 Analyses tests
+data_quality 2/3/3 Validates data sources
+scripting_code 1/2/2 Uses Python or R
+market_sizing_forecasting 1/2/3 Forecasts marketing outcomes
+presenting_persuasion 1/2/3 Presents findings to marketers
+problem_framing 1/2/3 Turns questions into analyses
+stakeholder_management 1/2/3 Works with channel owners
+@pr_comms|marketing|medium|PR Executive/PR and Communications Manager/Head of Communications|Manages media relations, reputation and corporate communications
+*storytelling 2/3/4 Crafts stories media will run
+*stakeholder_management 1/3/4 Manages executives and journalists
+*crisis_management 1/3/4 Leads reputational response
+copywriting 2/3/3 Writes releases and statements
+editing_proofreading 2/3/3 Edits executive content
+client_management 1/2/3 Manages clients in agency settings
+risk_governance 1/2/3 Anticipates reputational risks
+change_communication 1/2/3 Communicates corporate change
+presenting_persuasion 1/3/3 Pitches and briefs spokespeople
+cultural_trend_insight 2/2/3 Reads the news agenda
+planning_prioritisation 1/3/3 Plans PR campaigns
+regulatory_compliance 1/2/2 Applies market disclosure and legal rules
+measurement_attribution 1/2/2 Reports coverage and sentiment
+talent_influencer_relations 1/2/2 Manages spokespeople and ambassadors
+@events_experiential|marketing|low|Events Executive/Events Manager/Head of Events|Plans and delivers events, conferences and experiential activity
+*project_management 2/3/4 Runs complex event plans
+*vendor_management 2/3/4 Manages venues and suppliers
+*risk_governance 1/3/3 Manages safety, licensing and contingency
+budget_management 1/3/3 Controls event budgets
+negotiation 1/3/3 Negotiates venue and supplier terms
+customer_experience 2/3/3 Designs attendee experience
+production_management 2/3/3 Runs build and show schedules
+crisis_management 1/2/3 Handles incidents on the day
+stakeholder_management 2/3/3 Manages sponsors and speakers
+concept_development 1/2/3 Develops event concepts
+team_leadership 0/2/3 Leads event staff on site
+cross_functional_collaboration 2/3/3 Coordinates sales and marketing
+contract_management 1/2/3 Manages venue contracts
+@demand_generation|marketing|medium|Demand Gen Executive/Demand Generation Manager/Head of Demand Generation|Generates qualified B2B pipeline for sales teams
+*crm_automation 2/3/3 Runs nurture programmes
+*sales_pipeline_management 1/2/3 Owns marketing sourced pipeline
+*measurement_attribution 1/3/4 Measures pipeline and revenue impact
+digital_media_buying 1/2/3 Runs paid lead generation
+audience_segmentation 1/3/3 Targets ideal customer profiles
+marketing_technology 2/3/3 Uses marketing automation platforms
+content_production 1/2/2 Produces gated content
+copywriting 1/2/2 Writes nurture emails
+data_analysis 1/3/3 Analyses funnel conversion
+experimentation 1/2/3 Tests offers and channels
+go_to_market_planning 0/2/3 Plans campaigns for launches
+stakeholder_management 1/3/3 Aligns with sales leadership
+commercial_acumen 1/2/3 Links spend to revenue
+@abm|marketing|low|ABM Executive/ABM Manager/Head of ABM|Runs tailored marketing programmes for target accounts
+*audience_segmentation 1/3/3 Selects and tiers target accounts
+*stakeholder_management 1/3/4 Works hand in glove with sales
+*sales_pipeline_management 1/3/3 Tracks account progression
+research_methods 1/2/3 Researches accounts and buying groups
+client_management 1/2/3 Engages senior buyers
+positioning 1/2/3 Tailors messaging per account
+content_production 1/2/2 Personalises content
+crm_automation 1/2/3 Runs account level programmes
+measurement_attribution 1/2/3 Measures account engagement
+planning_prioritisation 1/3/3 Plans account programmes
+business_development 1/2/3 Opens doors to new accounts
+cross_functional_collaboration 2/3/3 Coordinates sales and product
+@field_marketing|marketing|low|Field Marketing Executive/Field Marketing Manager/Head of Field Marketing|Supports regional sales with local events and campaigns
+*project_management 2/3/3 Runs regional programmes
+*stakeholder_management 2/3/3 Works with regional sales leaders
+*business_development 1/2/3 Drives local pipeline
+customer_experience 1/2/3 Hosts customers at events
+sales_pipeline_management 1/2/3 Tracks event sourced pipeline
+vendor_management 1/2/3 Manages local suppliers
+budget_management 1/2/3 Manages regional budgets
+presenting_persuasion 1/2/3 Presents at events
+go_to_market_planning 0/2/3 Localises launch plans
+measurement_attribution 1/2/3 Measures regional impact
+negotiation 1/2/2 Negotiates local partnerships
+cross_functional_collaboration 2/3/3 Links central and regional teams
+@loyalty_marketing|marketing|medium|Loyalty Executive/Loyalty Manager/Head of Loyalty and Retention|Designs and runs loyalty schemes and retention programmes
+*customer_experience 1/3/4 Designs the member experience
+*pricing_commercial_modelling 1/2/3 Models reward economics
+*crm_automation 2/3/3 Runs member communications
+audience_segmentation 2/3/3 Segments members by value
+commercial_acumen 1/3/4 Owns scheme profitability
+data_analysis 2/3/3 Analyses member behaviour
+experimentation 1/2/3 Tests offers and rewards
+data_protection_privacy 1/2/3 Manages member data consent
+vendor_management 1/2/3 Manages loyalty platforms and partners
+product_thinking 1/2/3 Develops the scheme proposition
+stakeholder_management 1/3/3 Aligns finance and operations
+measurement_attribution 1/3/3 Measures retention impact
+@consumer_insight_research|marketing|medium|Insight Executive/Insight Manager/Head of Consumer Insight|Runs research and turns it into business insight
+*research_methods 2/3/4 Designs and commissions research
+*consumer_insight 2/3/4 Turns data into insight
+*storytelling 1/3/4 Makes insight land with leadership
+data_analysis 2/3/3 Analyses survey and panel data
+statistical_modelling 1/2/3 Uses segmentation and driver analysis
+data_visualisation 1/2/3 Visualises findings
+vendor_management 1/3/3 Manages research agencies
+presenting_persuasion 1/3/4 Presents to leadership
+problem_framing 1/3/4 Defines research questions
+stakeholder_management 1/3/4 Embeds insight in decisions
+audience_segmentation 1/3/3 Builds segmentations
+competitive_analysis 1/2/3 Tracks market and category data
