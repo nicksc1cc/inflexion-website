@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Reskilling Pathways Foundations (Stage 1)",
+  "type": "object",
+  "required": ["meta", "skills", "source_roles", "target_roles"],
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+    "level": {"type": "integer", "minimum": 0, "maximum": 4},
+    "rating": {"enum": ["low", "medium", "high"]},
+    "levels3": {"type": "object", "required": ["junior", "mid", "senior"], "properties": {"junior": {"$ref": "#/$defs/level"}, "mid": {"$ref": "#/$defs/level"}, "senior": {"$ref": "#/$defs/level"}}, "additionalProperties": false},
+    "titles3": {"type": "object", "required": ["junior", "mid", "senior"], "properties": {"junior": {"type": "string"}, "mid": {"type": "string"}, "senior": {"type": "string"}}}
+  },
+  "properties": {
+    "meta": {"type": "object"},
+    "skills": {"type": "array", "items": {"type": "object",
+      "required": ["id", "name", "category", "ai_exposure", "best_evidence", "description", "level_descriptors", "related_skills"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"}, "name": {"type": "string"},
+        "category": {"enum": ["strategic", "creative", "analytical", "commercial", "technical", "interpersonal", "operational", "domain"]},
+        "ai_exposure": {"$ref": "#/$defs/rating"},
+        "best_evidence": {"type": "array", "minItems": 1, "items": {"enum": ["test", "work_sample", "ai_interview", "cv_analysis", "self_rating"]}},
+        "description": {"type": "string"},
+        "level_descriptors": {"type": "object", "required": ["1", "2", "3", "4"], "additionalProperties": {"type": "string"}},
+        "related_skills": {"type": "array", "items": {"$ref": "#/$defs/id"}}}}},
+    "source_roles": {"type": "array", "items": {"type": "object",
+      "required": ["id", "discipline", "ai_displacement_risk", "titles", "summary", "skills"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "discipline": {"enum": ["brand", "marketing", "advertising", "creative"]},
+        "ai_displacement_risk": {"$ref": "#/$defs/rating"},
+        "titles": {"$ref": "#/$defs/titles3"}, "summary": {"type": "string"},
+        "skills": {"type": "array", "items": {"type": "object",
+          "required": ["skill_id", "levels", "signature", "rationale"],
+          "properties": {"skill_id": {"$ref": "#/$defs/id"}, "levels": {"$ref": "#/$defs/levels3"}, "signature": {"type": "boolean"}, "rationale": {"type": "string"}}}}}}},
+    "target_roles": {"type": "array", "items": {"type": "object",
+      "required": ["id", "category", "demand_outlook", "ai_resilience", "titles", "description", "required_skills", "leads_to", "equivalent_source_roles"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "category": {"enum": ["ai_era", "adjacent", "cross_sector"]},
+        "demand_outlook": {"enum": ["declining", "stable", "growing", "growing_fast"]},
+        "ai_resilience": {"$ref": "#/$defs/rating"},
+        "titles": {"$ref": "#/$defs/titles3"}, "description": {"type": "string"},
+        "required_skills": {"type": "array", "items": {"type": "object",
+          "required": ["skill_id", "required_levels", "importance"],
+          "properties": {"skill_id": {"$ref": "#/$defs/id"}, "required_levels": {"$ref": "#/$defs/levels3"}, "importance": {"enum": ["core", "supporting"]}}}},
+        "leads_to": {"type": "array", "items": {"type": "string"}},
+        "equivalent_source_roles": {"type": "array", "items": {"$ref": "#/$defs/id"}}}}}
+  }
+}
